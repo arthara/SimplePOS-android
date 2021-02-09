@@ -33,7 +33,8 @@ public class ServiceGenerator {
     private static Retrofit retrofit = builder.build();
 
     private static OkHttpClient.Builder httpClient = new OkHttpClient.Builder()
-            .addInterceptor(logging);
+            .addInterceptor(logging)
+            .addInterceptor(new AcceptJsonInterceptor());
 
     public static <S> S createService(Class<S> serviceClass) {
         return createService(serviceClass, null);
