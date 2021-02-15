@@ -7,6 +7,7 @@ import com.simple.pos.shared.model.User
 interface LoginContract {
     interface View {
         fun redirectToHome()
+        fun redirectToRegister()
     }
 
     interface Presenter {

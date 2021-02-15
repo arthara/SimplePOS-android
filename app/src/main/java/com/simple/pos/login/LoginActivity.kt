@@ -10,6 +10,7 @@ import androidx.databinding.DataBindingUtil
 import com.simple.pos.R
 import com.simple.pos.dashboard.DashboardActivity
 import com.simple.pos.databinding.ActivityLoginBinding
+import com.simple.pos.register.RegisterActivity
 
 class LoginActivity: AppCompatActivity(), LoginContract.View {
     private val presenter = LoginPresenter(this)
@@ -17,18 +18,37 @@ class LoginActivity: AppCompatActivity(), LoginContract.View {
 
     companion object{
         private val TAG = LoginActivity::class.simpleName
+        private const val REGISTER_REQUEST_CODE = 200
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_login)
 
+        initializeButtons()
+    }
+
+    private fun initializeButtons(){
         findViewById<Button>(R.id.login).setOnClickListener(View.OnClickListener {
             val email = binding.emailEt.text.toString()
             val password = binding.passwordEt.text.toString()
 
             presenter.authenticate(email, password)
         })
+
+        findViewById<Button>(R.id.register_first_btn).setOnClickListener(View.OnClickListener {
+            redirectToRegister()
+        })
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        when(requestCode){
+            REGISTER_REQUEST_CODE->{
+                if(resultCode == RESULT_OK) //if register successfully redirect to home
+                    redirectToHome()
+            }
+        }
     }
 
     override fun redirectToHome() {
@@ -36,5 +56,11 @@ class LoginActivity: AppCompatActivity(), LoginContract.View {
         startActivity(intent)
         Log.d(TAG, "Login Successfully, Redirect to Home")
         finish()
+    }
+
+    override fun redirectToRegister() {
+        intent = Intent(this, RegisterActivity::class.java)
+        startActivityForResult(intent, REGISTER_REQUEST_CODE)
+        Log.d(TAG, "Redirect to Register")
     }
 }
