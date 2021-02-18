@@ -46,7 +46,7 @@
                     android:layout_weight="1"
                     android:text="@string/text_tittle_welcome"
                     android:fontFamily="@font/poppins_bold"
-                    android:textSize="35dp"
+                    android:textSize="35sp"
                     android:textColor="@color/dark_black"
                     android:textAlignment="center"/>
 
@@ -58,7 +58,7 @@
                     android:layout_weight="1"
                     android:text="@string/text_tittle_masuk"
                     android:fontFamily="@font/lato"
-                    android:textSize="17dp"
+                    android:textSize="17sp"
                     android:textColor="@color/dark_black"/>
 
             </LinearLayout>
@@ -79,7 +79,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="50dp"
                         android:fontFamily="@font/roboto_regular"
-                        android:textSize="16dp"
+                        android:textSize="16sp"
                         android:textColorHint="@color/lightblue"
                         android:textColor="@color/dark_black"
                         android:hint="@string/prompt_email"
@@ -101,7 +101,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="50dp"
                         android:fontFamily="@font/roboto_regular"
-                        android:textSize="16dp"
+                        android:textSize="16sp"
                         android:ems="5"
                         android:textColorHint="@color/lightblue"
                         android:textColor="@color/dark_black"
@@ -119,7 +119,7 @@
                     android:layout_height="50dp"
                     android:layout_marginTop="60dp"
                     android:fontFamily="@font/roboto_bold"
-                    android:textSize="22dp"
+                    android:textSize="22sp"
                     android:textColor="@color/white"
                     android:background="@drawable/rounded_btn1"
                     android:text="@string/text_masuk_akun" />
@@ -141,7 +141,7 @@
                     android:text="@string/text_tidak_punya_akun"
                     android:textAlignment="center"
                     android:textColor="@color/dark_black"
-                    android:textSize="16dp" />
+                    android:textSize="16sp" />
 
                 <TextView
                     android:id="@+id/space"
@@ -152,7 +152,7 @@
                     android:text="@string/space"
                     android:textAlignment="center"
                     android:textColor="@color/white"
-                    android:textSize="16dp" />
+                    android:textSize="16sp" />
 
                 <top.defaults.view.TextButton
                     android:id="@+id/btnDaftar"
@@ -163,7 +163,7 @@
                     android:text="@string/text_daftar_akun"
                     android:textAlignment="center"
                     android:textColor="@color/orange"
-                    android:textSize="16dp"
+                    android:textSize="16sp"
                     app:pressedTextColor="@android:color/holo_blue_dark"
                     app:disabledTextColor="@android:color/darker_gray"
                     app:effectDuration="200"

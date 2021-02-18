@@ -47,7 +47,7 @@
                     android:layout_weight="1"
                     android:text="@string/text_tittle_daftar_akun"
                     android:fontFamily="@font/poppins_bold"
-                    android:textSize="35dp"
+                    android:textSize="35sp"
                     android:textColor="@color/dark_black"
                     android:textAlignment="center"/>
 
@@ -69,7 +69,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="50dp"
                         android:fontFamily="@font/roboto_regular"
-                        android:textSize="16dp"
+                        android:textSize="16sp"
                         android:textColorHint="@color/lightblue"
                         android:textColor="@color/dark_black"
                         android:background="@drawable/rounded_edittext1"
@@ -90,7 +90,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="50dp"
                         android:fontFamily="@font/roboto_regular"
-                        android:textSize="16dp"
+                        android:textSize="16sp"
                         android:textColorHint="@color/lightblue"
                         android:textColor="@color/dark_black"
                         android:background="@drawable/rounded_edittext1"
@@ -112,7 +112,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="50dp"
                         android:fontFamily="@font/roboto_regular"
-                        android:textSize="16dp"
+                        android:textSize="16sp"
                         android:textColorHint="@color/lightblue"
                         android:textColor="@color/dark_black"
                         android:hint="@string/prompt_password"
@@ -135,7 +135,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="50dp"
                         android:fontFamily="@font/roboto_regular"
-                        android:textSize="16dp"
+                        android:textSize="16sp"
                         android:textColorHint="@color/lightblue"
                         android:textColor="@color/dark_black"
                         android:hint="@string/prompt_confirm_password"
@@ -152,7 +152,7 @@
                     android:layout_height="50dp"
                     android:layout_marginTop="109dp"
                     android:fontFamily="@font/roboto_bold"
-                    android:textSize="22dp"
+                    android:textSize="22sp"
                     android:textColor="@color/white"
                     android:background="@drawable/rounded_btn1"
                     android:text="@string/text_tittle_daftar_akun2" />
@@ -174,7 +174,7 @@
                     android:text="@string/text_sudah_punya_akun"
                     android:textAlignment="center"
                     android:textColor="@color/dark_black"
-                    android:textSize="16dp" />
+                    android:textSize="16sp" />
 
                 <TextView
                     android:id="@+id/space"
@@ -185,7 +185,7 @@
                     android:text="@string/space"
                     android:textAlignment="center"
                     android:textColor="@color/white"
-                    android:textSize="16dp" />
+                    android:textSize="16sp" />
 
                 <top.defaults.view.TextButton
                     android:id="@+id/btnMasuk"
@@ -196,7 +196,7 @@
                     android:text="@string/text_masuk_akun"
                     android:textAlignment="center"
                     android:textColor="@color/orange"
-                    android:textSize="16dp"
+                    android:textSize="16sp"
                     app:pressedTextColor="@android:color/holo_blue_dark"
                     app:disabledTextColor="@android:color/darker_gray"
                     app:effectDuration="200"
