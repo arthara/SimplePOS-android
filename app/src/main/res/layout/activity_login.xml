@@ -15,13 +15,13 @@
             android:layout_height="match_parent"
             android:layout_marginLeft="33dp"
             android:layout_marginRight="33dp"
-            android:layout_marginTop="20dp"
-            android:layout_gravity="center"
+            android:gravity="center_vertical"
             android:orientation="vertical">
 
             <LinearLayout
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="100dp">
 
                 <ImageView
                     android:id="@+id/imageView"
@@ -35,9 +35,8 @@
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="100dp"
-                android:layout_gravity="center"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:layout_gravity="center">
 
                 <TextView
                     android:id="@+id/tittle_welcome"
@@ -54,6 +53,7 @@
                     android:id="@+id/tittle_daftar_akun"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="70dp"
                     android:layout_marginLeft="5dp"
                     android:layout_weight="1"
                     android:text="@string/text_tittle_masuk"
@@ -71,7 +71,7 @@
                 <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="70dp"
+                    android:layout_marginBottom="30dp"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
                     <EditText
@@ -84,6 +84,8 @@
                         android:textColor="@color/dark_black"
                         android:hint="@string/prompt_email"
                         android:background="@drawable/rounded_edittext1"
+                        android:drawableRight="@drawable/email_logo_16dp"
+                        android:drawablePadding="20dp"
                         android:paddingLeft="15dp"
                         android:inputType="textEmailAddress"/>
 
@@ -92,7 +94,6 @@
                 <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="30dp"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     app:passwordToggleEnabled="true">
 
@@ -102,7 +103,6 @@
                         android:layout_height="50dp"
                         android:fontFamily="@font/roboto_regular"
                         android:textSize="16sp"
-                        android:ems="5"
                         android:textColorHint="@color/lightblue"
                         android:textColor="@color/dark_black"
                         android:hint="@string/prompt_password"
