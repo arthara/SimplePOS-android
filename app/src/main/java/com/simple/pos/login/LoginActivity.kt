@@ -11,13 +11,13 @@ import com.simple.pos.R
 import com.simple.pos.dashboard.DashboardActivity
 import com.simple.pos.databinding.ActivityLoginBinding
 import com.simple.pos.register.RegisterActivity
+import com.simple.pos.shared.extension.TAG
 
 class LoginActivity: AppCompatActivity(), LoginContract.View {
     private val presenter = LoginPresenter(this)
     private lateinit var binding: ActivityLoginBinding
 
     companion object{
-        private val TAG = LoginActivity::class.simpleName
         private const val REGISTER_REQUEST_CODE = 200
     }
 

@@ -2,15 +2,12 @@ package com.simple.pos.login
 
 import android.util.Log
 import com.simple.pos.shared.callback.RequestCallback
+import com.simple.pos.shared.extension.TAG
 import com.simple.pos.shared.model.Token
 import com.simple.pos.shared.model.User
 
 class LoginPresenter(private val view: LoginContract.View): LoginContract.Presenter {
     private val loginInteractor = LoginInteractor()
-
-    companion object{
-        private val TAG = LoginPresenter::class.simpleName
-    }
 
     override fun authenticate(email: String, password: String) {
         Log.d(TAG, "authenticate: { email: $email, password: $password }")

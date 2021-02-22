@@ -2,6 +2,7 @@ package com.simple.pos.storeinput
 
 import com.simple.pos.shared.callback.RequestCallback
 import com.simple.pos.shared.callback.RetrofitCallback
+import com.simple.pos.shared.extension.TAG
 import com.simple.pos.shared.model.Store
 import com.simple.pos.shared.retrofit.ServiceGenerator
 import com.simple.pos.storeinput.model.StoreInput
@@ -15,10 +16,6 @@ import java.io.File
 
 class StoreInputInteractor: StoreInputContract.Interactor{
     private val service = ServiceGenerator.createService(StoreInputService::class.java)
-
-    companion object{
-        private val TAG = StoreInputInteractor::class.simpleName
-    }
 
     override fun requestCreateStore(newStore: StoreInput, callback: RequestCallback<Store?>) {
         val name: RequestBody = newStore.name.toRequestBody()

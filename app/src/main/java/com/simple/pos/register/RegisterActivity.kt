@@ -1,7 +1,6 @@
 package com.simple.pos.register
 
 import android.app.Activity
-import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
@@ -9,19 +8,14 @@ import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import com.simple.pos.R
-import com.simple.pos.dashboard.DashboardActivity
 import com.simple.pos.databinding.ActivityRegisterBinding
-import com.simple.pos.login.LoginActivity
 import com.simple.pos.register.submodel.RegisteringUser
 import com.simple.pos.shared.model.User
+import com.simple.pos.shared.extension.TAG
 
 class RegisterActivity: AppCompatActivity(), RegisterContract.View {
     private val presenter = RegisterPresenter(this)
     private lateinit var binding: ActivityRegisterBinding
-
-    companion object{
-        private val TAG = this::class.simpleName
-    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

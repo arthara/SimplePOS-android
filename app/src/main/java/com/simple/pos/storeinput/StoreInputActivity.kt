@@ -21,6 +21,7 @@ import com.karumi.dexter.listener.PermissionDeniedResponse
 import com.karumi.dexter.listener.PermissionGrantedResponse
 import com.karumi.dexter.listener.PermissionRequest
 import com.karumi.dexter.listener.single.PermissionListener
+import com.simple.pos.shared.extension.TAG
 
 class StoreInputActivity: AppCompatActivity(), StoreInputContract.View {
     private lateinit var binding: ActivityStoreInputBinding
@@ -28,7 +29,6 @@ class StoreInputActivity: AppCompatActivity(), StoreInputContract.View {
 
     companion object{
         private const val PICK_PHOTO_REQUEST_CODE = 200
-        private val TAG = StoreInputActivity::class.simpleName
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
