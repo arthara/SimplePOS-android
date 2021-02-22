@@ -1,8 +1,8 @@
-package com.simple.pos.storeinput
+package com.simple.pos.modul.storeinput
 
 import com.simple.pos.shared.callback.RequestCallback
 import com.simple.pos.shared.model.Store
-import com.simple.pos.storeinput.model.StoreInput
+import com.simple.pos.modul.storeinput.model.StoreInput
 
 interface StoreInputContract {
     interface View {

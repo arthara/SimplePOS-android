@@ -1,4 +1,4 @@
-package com.simple.pos.login
+package com.simple.pos.modul.login
 
 import com.simple.pos.shared.callback.RequestCallback
 import com.simple.pos.shared.model.Token

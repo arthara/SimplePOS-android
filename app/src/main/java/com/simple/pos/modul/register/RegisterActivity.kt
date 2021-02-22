@@ -1,4 +1,4 @@
-package com.simple.pos.register
+package com.simple.pos.modul.register
 
 import android.app.Activity
 import android.os.Bundle
@@ -9,7 +9,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import com.simple.pos.R
 import com.simple.pos.databinding.ActivityRegisterBinding
-import com.simple.pos.register.submodel.RegisteringUser
+import com.simple.pos.modul.register.submodel.RegisteringUser
 import com.simple.pos.shared.model.User
 import com.simple.pos.shared.extension.TAG
 import top.defaults.view.TextButton

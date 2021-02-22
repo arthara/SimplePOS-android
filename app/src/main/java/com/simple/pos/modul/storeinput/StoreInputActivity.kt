@@ -1,4 +1,4 @@
-package com.simple.pos.storeinput
+package com.simple.pos.modul.storeinput
 
 import android.content.Intent
 import android.database.Cursor
@@ -11,9 +11,9 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import com.karumi.dexter.Dexter
 import com.simple.pos.R
-import com.simple.pos.dashboard.DashboardActivity
+import com.simple.pos.modul.dashboard.DashboardActivity
 import com.simple.pos.databinding.ActivityStoreInputBinding
-import com.simple.pos.storeinput.model.StoreInput
+import com.simple.pos.modul.storeinput.model.StoreInput
 import java.lang.Exception
 import android.Manifest
 import com.karumi.dexter.PermissionToken

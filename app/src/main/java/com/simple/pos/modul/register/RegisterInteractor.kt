@@ -1,6 +1,6 @@
-package com.simple.pos.register
+package com.simple.pos.modul.register
 
-import com.simple.pos.register.submodel.RegisteringUser
+import com.simple.pos.modul.register.submodel.RegisteringUser
 import com.simple.pos.shared.callback.RequestCallback
 import com.simple.pos.shared.callback.RetrofitCallback
 import com.simple.pos.shared.extension.TAG

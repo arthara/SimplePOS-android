@@ -1,4 +1,4 @@
-package com.simple.pos.login
+package com.simple.pos.modul.login
 
 import android.content.Intent
 import android.os.Bundle
@@ -8,9 +8,9 @@ import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import com.simple.pos.R
-import com.simple.pos.dashboard.DashboardActivity
+import com.simple.pos.modul.dashboard.DashboardActivity
 import com.simple.pos.databinding.ActivityLoginBinding
-import com.simple.pos.register.RegisterActivity
+import com.simple.pos.modul.register.RegisterActivity
 import com.simple.pos.shared.extension.TAG
 import top.defaults.view.TextButton
 import top.defaults.view.TextButtonEffect
@@ -39,7 +39,7 @@ class LoginActivity: AppCompatActivity(), LoginContract.View {
             presenter.authenticate(email, password)
         })
 
-        findViewById<Button>(R.id.register_first_btn).setOnClickListener(View.OnClickListener {
+        binding.btnDaftar.setOnClickListener(View.OnClickListener {
             redirectToRegister()
         })
     }

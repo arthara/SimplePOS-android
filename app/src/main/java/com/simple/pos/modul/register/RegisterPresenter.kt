@@ -1,8 +1,8 @@
-package com.simple.pos.register
+package com.simple.pos.modul.register
 
 import android.util.Log
 import com.simple.pos.base.util.UtilProvider
-import com.simple.pos.register.submodel.RegisteringUser
+import com.simple.pos.modul.register.submodel.RegisteringUser
 import com.simple.pos.shared.callback.RequestCallback
 import com.simple.pos.shared.extension.TAG
 import com.simple.pos.shared.model.Token

@@ -1,11 +1,11 @@
-package com.simple.pos.storeinput
+package com.simple.pos.modul.storeinput
 
 import android.text.TextUtils
 import android.util.Log
 import com.simple.pos.shared.callback.RequestCallback
 import com.simple.pos.shared.extension.TAG
 import com.simple.pos.shared.model.Store
-import com.simple.pos.storeinput.model.StoreInput
+import com.simple.pos.modul.storeinput.model.StoreInput
 
 class StoreInputPresenter(private val view: StoreInputContract.View): StoreInputContract.Presenter {
     private val interactor = StoreInputInteractor()

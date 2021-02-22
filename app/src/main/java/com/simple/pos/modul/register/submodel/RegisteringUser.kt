@@ -1,4 +1,4 @@
-package com.simple.pos.register.submodel
+package com.simple.pos.modul.register.submodel
 
 import com.google.gson.annotations.SerializedName
 import com.simple.pos.shared.model.User

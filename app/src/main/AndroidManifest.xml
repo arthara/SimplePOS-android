@@ -17,7 +17,7 @@
         android:requestLegacyExternalStorage="true">
 
         <activity
-            android:name=".splashscreen.SplashActivity"
+            android:name=".modul.splashscreen.SplashActivity"
             android:configChanges="orientation"
             android:screenOrientation="portrait"
             android:theme="@style/SplashTheme">
@@ -27,17 +27,17 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".register.RegisterActivity"
+            android:name="com.simple.pos.modul.register.RegisterActivity"
             android:configChanges="orientation"
             android:screenOrientation="portrait"/>
         <activity
-            android:name=".login.LoginActivity"
+            android:name="com.simple.pos.modul.login.LoginActivity"
             android:configChanges="orientation"
             android:screenOrientation="portrait"/>
         <activity
-            android:name=".dashboard.DashboardActivity"
+            android:name="com.simple.pos.modul.dashboard.DashboardActivity"
             android:configChanges="orientation"
             android:screenOrientation="portrait"/>
-        <activity android:name=".storeinput.StoreInputActivity"/>
+        <activity android:name="com.simple.pos.modul.storeinput.StoreInputActivity"/>
     </application>
 </manifest>

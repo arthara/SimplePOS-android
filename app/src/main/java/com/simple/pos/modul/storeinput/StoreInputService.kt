@@ -1,11 +1,9 @@
-package com.simple.pos.storeinput
+package com.simple.pos.modul.storeinput
 
 import com.simple.pos.shared.model.Store
-import com.simple.pos.storeinput.model.StoreInput
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
 import retrofit2.Call
-import retrofit2.http.Body
 import retrofit2.http.Multipart
 import retrofit2.http.POST
 import retrofit2.http.Part

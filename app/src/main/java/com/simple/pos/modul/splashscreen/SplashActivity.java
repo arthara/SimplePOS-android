@@ -1,12 +1,10 @@
-package com.simple.pos.splashscreen;
+package com.simple.pos.modul.splashscreen;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.Window;
-import android.view.WindowManager;
 
 import androidx.appcompat.app.AppCompatActivity;
-import com.simple.pos.login.LoginActivity;
+import com.simple.pos.modul.login.LoginActivity;
 
 public class SplashActivity extends AppCompatActivity {
     @Override

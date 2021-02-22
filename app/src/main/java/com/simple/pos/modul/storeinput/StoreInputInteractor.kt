@@ -1,11 +1,11 @@
-package com.simple.pos.storeinput
+package com.simple.pos.modul.storeinput
 
 import com.simple.pos.shared.callback.RequestCallback
 import com.simple.pos.shared.callback.RetrofitCallback
 import com.simple.pos.shared.extension.TAG
 import com.simple.pos.shared.model.Store
 import com.simple.pos.shared.retrofit.ServiceGenerator
-import com.simple.pos.storeinput.model.StoreInput
+import com.simple.pos.modul.storeinput.model.StoreInput
 import okhttp3.MultipartBody
 import okhttp3.MultipartBody.Part.Companion.createFormData
 import okhttp3.RequestBody
