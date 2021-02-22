@@ -9,11 +9,13 @@ import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import com.simple.pos.R
-import com.simple.pos.dashboard.DashboardActivity
 import com.simple.pos.databinding.ActivityRegisterBinding
 import com.simple.pos.login.LoginActivity
 import com.simple.pos.register.submodel.RegisteringUser
 import com.simple.pos.shared.model.User
+import top.defaults.view.TextButton
+import top.defaults.view.TextButtonEffect
+
 
 class RegisterActivity: AppCompatActivity(), RegisterContract.View {
     private val presenter = RegisterPresenter(this)
@@ -28,6 +30,8 @@ class RegisterActivity: AppCompatActivity(), RegisterContract.View {
         setContentView(R.layout.activity_register)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_register)
         initializeButtonOnclick()
+        initializeButton()
+        onClickMasuk()
     }
 
     private fun initializeButtonOnclick(){
@@ -53,5 +57,28 @@ class RegisterActivity: AppCompatActivity(), RegisterContract.View {
         setResult(Activity.RESULT_OK)
         Log.d(TAG, "Registered Successfully, Redirect to Home")
         finish()
+    }
+
+    private fun initializeButton(){
+        binding.btnMasuk.setEffects(object : TextButtonEffect {
+            private var textButton: TextButton? = null
+            override fun init(textButton: TextButton) {
+                this.textButton = textButton
+            }
+
+            override fun actionDown() {
+                textButton!!.alpha = 0.5f
+            }
+
+            override fun actionUp() {
+                textButton!!.alpha = 1f
+            }
+        })
+    }
+
+    private fun onClickMasuk(){
+        binding.btnMasuk.setOnClickListener(View.OnClickListener {
+            redirectToLogin()
+        })
     }
 }

@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">SimplePOS</string>
     <string name="title_activity_login">LoginActivity</string>
-    <string name="prompt_email">Email</string>
+    <string name="prompt_email">Alamat Email</string>
     <string name="prompt_password">Password</string>
     <string name="action_sign_in">Sign in</string>
     <string name="action_register">Register</string>
@@ -10,5 +10,14 @@
     <string name="invalid_password">Password must be >5 characters</string>
     <string name="login_failed">"Login failed"</string>
     <string name="prompt_username">Username</string>
-    <string name="prompt_confirm_password">Confirm Password</string>
+    <string name="prompt_confirm_password">Ulangi Password</string>
+    <string name="text_tittle_daftar_akun">Daftar Akun</string>
+    <string name="text_tittle_daftar_akun2">Mendaftar</string>
+    <string name="text_sudah_punya_akun">Sudah Punya Akun?</string>
+    <string name="text_tidak_punya_akun">Tidak Punya Akun?</string>
+    <string name="text_masuk_akun">Masuk</string>
+    <string name="text_daftar_akun">Daftar</string>
+    <string name="space">_</string>
+    <string name="text_tittle_welcome">Selamat Datang,</string>
+    <string name="text_tittle_masuk">Masuk Untuk Melanjutkan</string>
 </resources>

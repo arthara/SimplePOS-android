@@ -23,7 +23,7 @@ android {
 
     buildTypes {
         debug {
-            buildConfigField 'String', 'baseUrl', '"http://192.168.1.7:8000/api/"'
+            buildConfigField 'String', 'baseUrl', '"http://simplepos.it-possible.com/api/"'
         }
         release {
             // TODO : Change url to server url
@@ -54,6 +54,7 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
     implementation 'com.squareup.okhttp3:logging-interceptor:4.2.1'
+    implementation 'com.github.duanhong169:text-button:1.0.5'
 
     def retrofit_ver = "2.9.0"
     implementation "com.squareup.retrofit2:retrofit:$retrofit_ver"
