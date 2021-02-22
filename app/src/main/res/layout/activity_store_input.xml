@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <variable
+            name="storeInput"
+            type="com.simple.pos.storeinput.model.StoreInput" />
+    </data>
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="10dp">
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Nama Toko"
+            android:text="@={storeInput.name}"/>
+        <Button
+            android:id="@+id/addLogoBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Pilih Logo"/>
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Address"
+            android:text="@={storeInput.address}"/>
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Nomor Telepon"
+            android:text="@={storeInput.phoneNumber}"/>
+        <Button
+            android:id="@+id/createStoreBtn"
+            android:layout_marginTop="90dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Buat Toko"/>
+    </LinearLayout>
+</layout>
