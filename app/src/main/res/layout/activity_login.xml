@@ -1,89 +1,177 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout>
-    <androidx.constraintlayout.widget.ConstraintLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <LinearLayout
         android:id="@+id/container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="@dimen/activity_horizontal_margin"
-        tools:context=".login.LoginActivity">
+        tools:context=".register.LoginActivity"
+        android:orientation="vertical"
+        android:background="@color/white">
 
-        <EditText
-            android:id="@+id/emailEt"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
-            android:layout_marginTop="96dp"
-            android:layout_marginEnd="24dp"
-            android:hint="@string/prompt_email"
-            android:inputType="textEmailAddress"
-            android:selectAllOnFocus="true"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="33dp"
+            android:layout_marginRight="33dp"
+            android:gravity="center_vertical"
+            android:orientation="vertical">
 
-        <EditText
-            android:id="@+id/passwordEt"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="24dp"
-            android:hint="@string/prompt_password"
-            android:imeOptions="actionDone"
-            android:inputType="textPassword"
-            android:selectAllOnFocus="true"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/emailEt" />
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="100dp">
 
-        <Button
-            android:id="@+id/login"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="start"
-            android:layout_marginStart="48dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="48dp"
-            android:layout_marginBottom="64dp"
-            android:text="@string/action_sign_in"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/passwordEt"
-            app:layout_constraintVertical_bias="0.2" />
+                <ImageView
+                    android:id="@+id/imageView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    app:srcCompat="@drawable/logo_small" />
 
-        <Button
-            android:id="@+id/register_first_btn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="start"
-            android:layout_marginStart="48dp"
-            android:layout_marginEnd="48dp"
-            android:layout_marginBottom="64dp"
-            android:text="@string/action_register"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/login"
-            app:layout_constraintVertical_bias="0.2" />
+            </LinearLayout>
 
-        <ProgressBar
-            android:id="@+id/loading"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginStart="32dp"
-            android:layout_marginTop="64dp"
-            android:layout_marginEnd="32dp"
-            android:layout_marginBottom="64dp"
-            android:visibility="gone"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@+id/passwordEt"
-            app:layout_constraintStart_toStartOf="@+id/passwordEt"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.3" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_gravity="center">
+
+                <TextView
+                    android:id="@+id/tittle_welcome"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/text_tittle_welcome"
+                    android:fontFamily="@font/poppins_bold"
+                    android:textSize="35sp"
+                    android:textColor="@color/dark_black"
+                    android:textAlignment="center"/>
+
+                <TextView
+                    android:id="@+id/tittle_daftar_akun"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="70dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_weight="1"
+                    android:text="@string/text_tittle_masuk"
+                    android:fontFamily="@font/lato"
+                    android:textSize="17sp"
+                    android:textColor="@color/dark_black"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="30dp"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+                    <EditText
+                        android:id="@+id/emailEt"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:fontFamily="@font/roboto_regular"
+                        android:textSize="16sp"
+                        android:textColorHint="@color/lightblue"
+                        android:textColor="@color/dark_black"
+                        android:hint="@string/prompt_email"
+                        android:background="@drawable/rounded_edittext1"
+                        android:drawableRight="@drawable/email_logo_16dp"
+                        android:drawablePadding="20dp"
+                        android:paddingLeft="15dp"
+                        android:inputType="textEmailAddress"/>
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    app:passwordToggleEnabled="true">
+
+                    <EditText
+                        android:id="@+id/passwordEt"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:fontFamily="@font/roboto_regular"
+                        android:textSize="16sp"
+                        android:textColorHint="@color/lightblue"
+                        android:textColor="@color/dark_black"
+                        android:hint="@string/prompt_password"
+                        android:background="@drawable/rounded_edittext1"
+                        android:paddingLeft="15dp"
+                        android:imeOptions="actionDone"
+                        android:inputType="textPassword" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <Button
+                    android:id="@+id/login"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="60dp"
+                    android:fontFamily="@font/roboto_bold"
+                    android:textSize="22sp"
+                    android:textColor="@color/white"
+                    android:background="@drawable/rounded_btn1"
+                    android:text="@string/text_masuk_akun" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="116dp"
+                android:layout_gravity="center">
+
+                <TextView
+                    android:id="@+id/sudah_punya_akun"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/lato"
+                    android:text="@string/text_tidak_punya_akun"
+                    android:textAlignment="center"
+                    android:textColor="@color/dark_black"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/space"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/lato"
+                    android:text="@string/space"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textSize="16sp" />
+
+                <top.defaults.view.TextButton
+                    android:id="@+id/btnDaftar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/lato"
+                    android:text="@string/text_daftar_akun"
+                    android:textAlignment="center"
+                    android:textColor="@color/orange"
+                    android:textSize="16sp"
+                    app:pressedTextColor="@android:color/holo_blue_dark"
+                    app:disabledTextColor="@android:color/darker_gray"
+                    app:effectDuration="200"
+                    app:textEffect="animateColor"
+                    app:backgroundEffect="animateColor"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </LinearLayout>
 </layout>

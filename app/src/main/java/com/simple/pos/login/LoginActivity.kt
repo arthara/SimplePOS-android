@@ -12,6 +12,8 @@ import com.simple.pos.dashboard.DashboardActivity
 import com.simple.pos.databinding.ActivityLoginBinding
 import com.simple.pos.register.RegisterActivity
 import com.simple.pos.shared.extension.TAG
+import top.defaults.view.TextButton
+import top.defaults.view.TextButtonEffect
 
 class LoginActivity: AppCompatActivity(), LoginContract.View {
     private val presenter = LoginPresenter(this)
@@ -26,6 +28,7 @@ class LoginActivity: AppCompatActivity(), LoginContract.View {
         binding = DataBindingUtil.setContentView(this, R.layout.activity_login)
 
         initializeButtons()
+        initializeButton()
     }
 
     private fun initializeButtons(){
@@ -62,5 +65,22 @@ class LoginActivity: AppCompatActivity(), LoginContract.View {
         intent = Intent(this, RegisterActivity::class.java)
         startActivityForResult(intent, REGISTER_REQUEST_CODE)
         Log.d(TAG, "Redirect to Register")
+    }
+
+    private fun initializeButton(){
+        binding.btnDaftar.setEffects(object : TextButtonEffect {
+            private var textButton: TextButton? = null
+            override fun init(textButton: TextButton) {
+                this.textButton = textButton
+            }
+
+            override fun actionDown() {
+                textButton!!.alpha = 0.5f
+            }
+
+            override fun actionUp() {
+                textButton!!.alpha = 1f
+            }
+        })
     }
 }
