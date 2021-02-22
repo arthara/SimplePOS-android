@@ -1,6 +1,6 @@
-package com.simple.pos.register
+package com.simple.pos.modul.register
 
-import com.simple.pos.register.submodel.RegisteringUser
+import com.simple.pos.modul.register.submodel.RegisteringUser
 import com.simple.pos.shared.model.Token
 import retrofit2.Call
 import retrofit2.http.Body

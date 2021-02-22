@@ -1,18 +1,15 @@
-package com.simple.pos.register
+package com.simple.pos.modul.register
 
 import android.util.Log
 import com.simple.pos.base.util.UtilProvider
-import com.simple.pos.register.submodel.RegisteringUser
+import com.simple.pos.modul.register.submodel.RegisteringUser
 import com.simple.pos.shared.callback.RequestCallback
+import com.simple.pos.shared.extension.TAG
 import com.simple.pos.shared.model.Token
 import com.simple.pos.shared.util.TokenUtil
 
 class RegisterPresenter(private val view: RegisterContract.View): RegisterContract.Presenter {
     private val registerInteractor = RegisterInteractor()
-
-    companion object{
-        private val TAG = RegisterPresenter::class.simpleName
-    }
 
     override fun register(registeringUser: RegisteringUser) {
         Log.d(TAG, "registering User")

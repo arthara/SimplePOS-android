@@ -1,4 +1,4 @@
-package com.simple.pos.storeinput.model
+package com.simple.pos.modul.storeinput.model
 
 import com.google.gson.annotations.SerializedName
 

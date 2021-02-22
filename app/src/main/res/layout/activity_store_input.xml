@@ -3,7 +3,7 @@
     <data>
         <variable
             name="storeInput"
-            type="com.simple.pos.storeinput.model.StoreInput" />
+            type="com.simple.pos.modul.storeinput.model.StoreInput" />
     </data>
     <LinearLayout
         xmlns:android="http://schemas.android.com/apk/res/android"

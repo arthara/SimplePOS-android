@@ -1,4 +1,4 @@
-package com.simple.pos.login
+package com.simple.pos.modul.login
 
 import android.content.Intent
 import android.os.Bundle
@@ -8,9 +8,10 @@ import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import com.simple.pos.R
-import com.simple.pos.dashboard.DashboardActivity
+import com.simple.pos.modul.dashboard.DashboardActivity
 import com.simple.pos.databinding.ActivityLoginBinding
-import com.simple.pos.register.RegisterActivity
+import com.simple.pos.modul.register.RegisterActivity
+import com.simple.pos.shared.extension.TAG
 import top.defaults.view.TextButton
 import top.defaults.view.TextButtonEffect
 
@@ -19,7 +20,6 @@ class LoginActivity: AppCompatActivity(), LoginContract.View {
     private lateinit var binding: ActivityLoginBinding
 
     companion object{
-        private val TAG = LoginActivity::class.simpleName
         private const val REGISTER_REQUEST_CODE = 200
     }
 
@@ -29,7 +29,6 @@ class LoginActivity: AppCompatActivity(), LoginContract.View {
 
         initializeButtons()
         initializeButton()
-        onClickDaftar()
     }
 
     private fun initializeButtons(){
@@ -38,6 +37,10 @@ class LoginActivity: AppCompatActivity(), LoginContract.View {
             val password = binding.passwordEt.text.toString()
 
             presenter.authenticate(email, password)
+        })
+
+        binding.btnDaftar.setOnClickListener(View.OnClickListener {
+            redirectToRegister()
         })
     }
 
@@ -78,12 +81,6 @@ class LoginActivity: AppCompatActivity(), LoginContract.View {
             override fun actionUp() {
                 textButton!!.alpha = 1f
             }
-        })
-    }
-
-    private fun onClickDaftar(){
-        binding.btnDaftar.setOnClickListener(View.OnClickListener {
-            redirectToRegister()
         })
     }
 }

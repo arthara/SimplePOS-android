@@ -1,6 +1,5 @@
-package com.simple.pos.login
+package com.simple.pos.modul.login
 
-import com.simple.pos.shared.apiresponse.APIResponse
 import com.simple.pos.shared.apiresponse.APIResponseCollection
 import com.simple.pos.shared.model.Token
 import com.simple.pos.shared.model.User
