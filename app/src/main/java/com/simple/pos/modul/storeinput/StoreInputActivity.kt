@@ -50,6 +50,12 @@ class StoreInputActivity: AppCompatActivity(), StoreInputContract.View {
         binding.createStoreBtn.setOnClickListener(View.OnClickListener {
             presenter.createStore(binding.storeInput!!)
         })
+        binding.btnNantisaja.setOnClickListener(View.OnClickListener {
+            binding.storeInput?.logo = null
+            binding.storeInput?.address = null
+            binding.storeInput?.phoneNumber = null
+            presenter.createStore(binding.storeInput!!)
+        })
     }
 
     private fun checkStoragePermission(){
