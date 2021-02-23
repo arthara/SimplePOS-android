@@ -3,6 +3,9 @@
     <string name="title_activity_login">LoginActivity</string>
     <string name="prompt_email">Alamat Email</string>
     <string name="prompt_password">Password</string>
+    <string name="prompt_store">Nama Toko</string>
+    <string name="prompt_alamatToko">Alamat Toko</string>
+    <string name="prompt_noTelpToko">No. Telp Toko</string>
     <string name="action_sign_in">Sign in</string>
     <string name="action_register">Register</string>
     <string name="welcome">"Welcome !"</string>
@@ -20,4 +23,9 @@
     <string name="space">_</string>
     <string name="text_tittle_welcome">Selamat Datang,</string>
     <string name="text_tittle_masuk">Masuk Untuk Melanjutkan</string>
+    <string name="text_tittle_intro1">Tentukan Informasi Toko</string>
+    <string name="text_btn_intro1">Buat Toko</string>
+    <string name="text_btn_intro2">Upload Logo</string>
+    <string name="text_btn_intro2_1">Tambah Data</string>
+    <string name="text_btn_intro2_2">nanti saja</string>
 </resources>

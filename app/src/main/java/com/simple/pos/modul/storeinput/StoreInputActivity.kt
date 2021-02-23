@@ -1,5 +1,6 @@
 package com.simple.pos.modul.storeinput
 
+import android.Manifest
 import android.content.Intent
 import android.database.Cursor
 import android.net.Uri
@@ -7,25 +8,28 @@ import android.os.Bundle
 import android.provider.MediaStore
 import android.util.Log
 import android.view.View
+import android.view.animation.AnimationUtils
+import android.widget.Button
+import android.widget.ImageButton
+import android.widget.ViewAnimator
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import com.karumi.dexter.Dexter
-import com.simple.pos.R
-import com.simple.pos.modul.dashboard.DashboardActivity
-import com.simple.pos.databinding.ActivityStoreInputBinding
-import com.simple.pos.modul.storeinput.model.StoreInput
-import java.lang.Exception
-import android.Manifest
 import com.karumi.dexter.PermissionToken
 import com.karumi.dexter.listener.PermissionDeniedResponse
 import com.karumi.dexter.listener.PermissionGrantedResponse
 import com.karumi.dexter.listener.PermissionRequest
 import com.karumi.dexter.listener.single.PermissionListener
+import com.simple.pos.R
+import com.simple.pos.databinding.ActivityStoreInputBinding
+import com.simple.pos.modul.dashboard.DashboardActivity
+import com.simple.pos.modul.storeinput.model.StoreInput
 import com.simple.pos.shared.extension.TAG
 
 class StoreInputActivity: AppCompatActivity(), StoreInputContract.View {
     private lateinit var binding: ActivityStoreInputBinding
     private val presenter = StoreInputPresenter(this)
+    private lateinit var viewAnimator: ViewAnimator
 
     companion object{
         private const val PICK_PHOTO_REQUEST_CODE = 200
@@ -36,6 +40,7 @@ class StoreInputActivity: AppCompatActivity(), StoreInputContract.View {
         binding = DataBindingUtil.setContentView(this, R.layout.activity_store_input)
         binding.storeInput = StoreInput("")
         initializeButtons()
+        movepage()
     }
 
     private fun initializeButtons() {
@@ -120,5 +125,19 @@ class StoreInputActivity: AppCompatActivity(), StoreInputContract.View {
 
         pickIntent.putExtra(Intent.EXTRA_MIME_TYPES, mimeType)
         startActivityForResult(pickIntent, PICK_PHOTO_REQUEST_CODE)
+    }
+
+    private fun movepage(){
+        viewAnimator = findViewById(R.id.view_animator)
+        val nextt = findViewById<ImageButton>(R.id.imageView3)
+        val prev = findViewById<ImageButton>(R.id.imageView6)
+        val next = findViewById<Button>(R.id.buat_toko)
+        val inAnimation = AnimationUtils.loadAnimation(this, android.R.anim.fade_in)
+        val outAnimation = AnimationUtils.loadAnimation(this, android.R.anim.fade_out)
+        viewAnimator.setInAnimation(inAnimation)
+        viewAnimator.setOutAnimation(outAnimation)
+        next.setOnClickListener { viewAnimator.showNext() }
+        nextt.setOnClickListener { viewAnimator.showNext() }
+        prev.setOnClickListener { viewAnimator.showPrevious() }
     }
 }
