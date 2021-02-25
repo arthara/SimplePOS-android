@@ -8,8 +8,8 @@ class Store(var name: String) {
     var address: String? = null
     @SerializedName("phone_number")
     var phoneNumber: String? = null
-    @SerializedName("users_id")
-    var usersId = -1
+    @SerializedName("user_id")
+    var userId = -1
 
     override fun toString(): String {
         return "id = $id\n" +
@@ -17,6 +17,6 @@ class Store(var name: String) {
                 "logo = $logo\n" +
                 "address = $address\n" +
                 "phone number = $phoneNumber\n" +
-                "usersId = $usersId"
+                "usersId = $userId"
     }
 }

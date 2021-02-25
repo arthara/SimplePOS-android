@@ -28,4 +28,11 @@
     <string name="text_btn_intro2">Upload Logo</string>
     <string name="text_btn_intro2_1">Tambah Data</string>
     <string name="text_btn_intro2_2">nanti saja</string>
+    <!--  Main Fragment String  -->
+    <string name="total_sales">Total Sales : %1$d</string>
+    <string name="gross_profit">Laba Kotor : %1$f</string>
+    <string name="top_sales">Top Sales :</string>
+    <string name="top_product_name">Product : %1$s</string>
+    <string name="top_category_name">Category : %1$s</string>
+    <string name="top_total">Total : %1$d</string>
 </resources>
