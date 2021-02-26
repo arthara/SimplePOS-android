@@ -16,7 +16,7 @@ class DashboardPresenter(private val view: DashboardContract.View): DashboardCon
                 if (data != null){
                     Log.i(TAG, "Store is exist, load main page")
                     saveStore(data)
-                    //view.changePageToMain()
+                    view.changePageToMain()
                 }
             }
 

@@ -35,4 +35,6 @@
     <string name="top_product_name">Product : %1$s</string>
     <string name="top_category_name">Category : %1$s</string>
     <string name="top_total">Total : %1$d</string>
+    <string name="date">%1$d-%2$d-%3$d</string>
+    <string name="no_product_sold">Tidak ada produk yang terjual</string>
 </resources>

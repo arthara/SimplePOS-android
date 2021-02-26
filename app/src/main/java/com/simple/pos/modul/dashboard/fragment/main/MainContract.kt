@@ -6,17 +6,18 @@ import com.simple.pos.shared.callback.RequestCallback
 
 interface MainContract {
     interface View {
+        fun openDatePicker()
         fun showTopSales(topSales: TopSales)
         fun showTotalSales(totalSales: TotalSales)
     }
 
     interface Presenter {
-        fun askTopSales()
-        fun askTotalSales()
+        fun askTopSales(date: String)
+        fun askTotalSales(date: String)
     }
 
     interface Interactor {
-        fun requestAskTopSales(callback: RequestCallback<TopSales?>)
-        fun requestAskTotalSales(callback: RequestCallback<TotalSales?>)
+        fun requestAskTopSales(date: String, callback: RequestCallback<TopSales?>)
+        fun requestAskTotalSales(date: String, callback: RequestCallback<TotalSales?>)
     }
 }

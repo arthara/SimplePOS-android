@@ -36,7 +36,9 @@ class DashboardActivity: AppCompatActivity(), DashboardContract.View{
     }
 
     private fun showChangedPage() {
-        supportFragmentManager.beginTransaction().replace(R.id.dashboardFragment, selectedFragment!!)
+        supportFragmentManager.beginTransaction()
+                .replace(R.id.dashboardFragment, selectedFragment!!)
+                .commit()
     }
 
     override fun changePageToMain() {
