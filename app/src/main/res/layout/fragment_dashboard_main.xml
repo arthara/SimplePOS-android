@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".modul.dashboard.fragment.main.MainFragment"
+    android:orientation="vertical">
+
+    <Button
+        android:id="@+id/datePickerBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Date"
+        android:layout_gravity="center_horizontal"/>
+    <TextView
+        android:id="@+id/totalSalesTv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/total_sales"/>
+    <TextView
+        android:id="@+id/grossProfitTv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/gross_profit"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/top_sales"
+        android:layout_marginTop="30dp"/>
+    <TextView
+        android:id="@+id/topProductNameTv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/top_product_name"/>
+    <TextView
+        android:id="@+id/topProductTotalTv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/top_total"/>
+    <TextView
+        android:id="@+id/topCategoryNameTv"
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/top_category_name"/>
+    <TextView
+        android:id="@+id/topCategoryTotalTv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/top_total"/>
+</LinearLayout>
