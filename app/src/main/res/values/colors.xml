@@ -13,4 +13,7 @@
     <color name="orange">#ff9500</color>
     <color name="dark_black">#1E3354</color>
     <color name="gray">#C0C0C0</color>
+    <color name="light_gray_background">#F9F9F9</color>
+    <color name="gray_secondary">#595959</color>
+    <color name="receipt_color">#26D0C4</color>
 </resources>
