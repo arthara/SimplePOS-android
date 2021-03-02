@@ -28,4 +28,8 @@
     <string name="text_btn_intro2">Upload Logo</string>
     <string name="text_btn_intro2_1">Tambah Data</string>
     <string name="text_btn_intro2_2">nanti saja</string>
+    <string name="stok_produk">Stok Produk</string>
+    <string name="kategori_produk">Kategori Produk</string>
+    <string name="filter">Filter</string>
+    <string name="stok">Stok</string>
 </resources>
