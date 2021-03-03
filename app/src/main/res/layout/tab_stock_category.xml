@@ -32,7 +32,7 @@
                 android:drawableLeft="@drawable/ic_plus_round"
                 android:fontFamily="@font/roboto_regular"
                 android:gravity="center"
-                android:text="@string/tambah_kategori"
+                android:text="@string/add_category"
                 android:textAllCaps="false"
                 android:textColor="@color/orange"
                 android:textSize="14sp"
