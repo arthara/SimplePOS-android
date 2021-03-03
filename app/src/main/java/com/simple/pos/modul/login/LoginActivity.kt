@@ -8,10 +8,12 @@ import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import com.simple.pos.R
-import com.simple.pos.modul.dashboard.DashboardActivity
+import com.simple.pos.base.util.UtilProvider
 import com.simple.pos.databinding.ActivityLoginBinding
+import com.simple.pos.modul.dashboard.DashboardActivity
 import com.simple.pos.modul.register.RegisterActivity
 import com.simple.pos.shared.extension.TAG
+import com.simple.pos.shared.util.TokenUtil
 import top.defaults.view.TextButton
 import top.defaults.view.TextButtonEffect
 
@@ -48,8 +50,12 @@ class LoginActivity: AppCompatActivity(), LoginContract.View {
         super.onActivityResult(requestCode, resultCode, data)
         when(requestCode){
             REGISTER_REQUEST_CODE->{
-                if(resultCode == RESULT_OK) //if register successfully redirect to home
-                    redirectToHome()
+                //if register successful get user then redirect to home
+                if(resultCode == RESULT_OK){
+                    val tokenUtil = UtilProvider.getUtil(TokenUtil::class.java) as TokenUtil
+
+                    presenter.requestUser(tokenUtil.sessionData)
+                }
             }
         }
     }

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<!--    TODO: Add Icon for each item-->
+    <item
+        android:id="@+id/mainMenuItem"
+        android:title="Laporan"/>
+    <item
+        android:id="@+id/shopMenuItem"
+        android:title="Belanja"/>
+    <item
+        android:id="@+id/inventoryMenuItem"
+        android:title="Inventory"/>
+    <item
+        android:id="@+id/accountMenuItem"
+        android:title="Akun"/>
+</menu>

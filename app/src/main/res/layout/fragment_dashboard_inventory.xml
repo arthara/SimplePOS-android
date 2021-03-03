@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/inventoryTabLayout"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent">
+
+        <com.google.android.material.tabs.TabItem
+            android:id="@+id/stockCategoryTab"
+            android:text="@string/product_stock"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"/>
+
+        <com.google.android.material.tabs.TabItem
+            android:id="@+id/productCategoryTab"
+            android:text="@string/product_category"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"/>
+    </com.google.android.material.tabs.TabLayout>
+
+    <FrameLayout
+        android:id="@+id/inventorySubFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+</LinearLayout>
