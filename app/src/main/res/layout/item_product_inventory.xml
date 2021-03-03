@@ -111,6 +111,8 @@
                     android:layout_width="wrap_content"
                     android:layout_margin="10dp"
                     android:layout_height="wrap_content"
+                    android:paddingRight="15dp"
+                    android:paddingLeft="15dp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.35"
@@ -133,6 +135,7 @@
                         />
 
                     <TextView
+                        android:id="@+id/tvStockValue"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerHorizontal="true"
@@ -153,6 +156,7 @@
                         android:padding="5dp"
                         android:layout_alignParentEnd="true"
                         android:layout_toEndOf="@id/btnPlus"
+                        android:layout_toRightOf="@+id/tvStockValue"
                         />
 
 
