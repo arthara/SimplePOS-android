@@ -46,4 +46,5 @@
     <string name="yes">Ya</string>
     <string name="filter">Filter</string>
     <string name="stok">Stok</string>
+    <string name="category_name_hint">Nama Kategori</string>
 </resources>
