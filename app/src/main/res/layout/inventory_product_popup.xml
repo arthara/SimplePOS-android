@@ -33,7 +33,7 @@
                 android:src="@drawable/ic_close"
                 android:layout_marginStart="10dp"
                 android:scaleType="fitCenter"
-                android:background=""
+                android:background="@android:color/transparent"
                 android:backgroundTint="@color/black"
                 android:adjustViewBounds="true"
                 android:padding="5dp"

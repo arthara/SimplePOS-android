@@ -50,11 +50,11 @@
             <com.google.android.material.tabs.TabItem
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/stok_produk"/>
+                android:text="@string/product_stock"/>
             <com.google.android.material.tabs.TabItem
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/kategori_produk"/>
+                android:text="@string/product_category"/>
         </com.google.android.material.tabs.TabLayout>
         <androidx.viewpager.widget.ViewPager
             android:id="@+id/viewPager"
