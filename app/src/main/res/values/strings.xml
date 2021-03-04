@@ -44,4 +44,6 @@
     <string name="delete_category_confirmation">Apakah anda yang ingin menghapus kategori ini ?</string>
     <string name="no">Tidak</string>
     <string name="yes">Ya</string>
+    <string name="filter">Filter</string>
+    <string name="stok">Stok</string>
 </resources>
