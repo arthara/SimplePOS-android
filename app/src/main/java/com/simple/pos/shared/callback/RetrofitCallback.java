@@ -26,7 +26,7 @@ public class RetrofitCallback<T> implements Callback<T> {
 
     @Override
     public void onResponse(@NotNull Call<T> call, @NonNull Response<T> response) {
-        if (response.isSuccessful() && response.body() != null) {
+        if (response.isSuccessful()) {
             Log.d(tag, methodName + ": onResponse: success");
             if (response.body() instanceof APIResponseCollection) {
                 callback.requestSuccess(processData(((APIResponseCollection) response.body()).getData()));

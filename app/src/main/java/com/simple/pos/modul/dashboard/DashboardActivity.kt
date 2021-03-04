@@ -6,12 +6,14 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.simple.pos.R
+import com.simple.pos.modul.dashboard.fragment.inventory.InventoryFragment
 import com.simple.pos.modul.dashboard.fragment.main.MainFragment
 import com.simple.pos.modul.storeinput.StoreInputActivity
 
 class DashboardActivity: AppCompatActivity(), DashboardContract.View{
-    private var mainFragment: MainFragment? = null
     private var selectedFragment: Fragment? = null
+    private var mainFragment: MainFragment? = null
+    private var inventoryFragment: InventoryFragment? = null
     private val presenter = DashboardPresenter(this)
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -27,9 +29,8 @@ class DashboardActivity: AppCompatActivity(), DashboardContract.View{
         //TODO: Add case for other page
         bottomNav.setOnNavigationItemSelectedListener(BottomNavigationView.OnNavigationItemSelectedListener {
             when(it.itemId){
-                R.id.mainMenuItem->{
-                    changePageToMain()
-                }
+                R.id.mainMenuItem->changePageToMain()
+                R.id.inventoryMenuItem->changePageToInventory()
             }
             return@OnNavigationItemSelectedListener true
         })
@@ -42,12 +43,10 @@ class DashboardActivity: AppCompatActivity(), DashboardContract.View{
     }
 
     override fun changePageToMain() {
-        if(mainFragment != null)
-            selectedFragment = mainFragment
-        else{
+        if(mainFragment == null)
             mainFragment = MainFragment()
-            selectedFragment = mainFragment
-        }
+
+        selectedFragment = mainFragment
         showChangedPage()
     }
 
@@ -56,7 +55,11 @@ class DashboardActivity: AppCompatActivity(), DashboardContract.View{
     }
 
     override fun changePageToInventory() {
-        TODO("Not yet implemented")
+        if(inventoryFragment == null)
+            inventoryFragment = InventoryFragment()
+
+        selectedFragment = inventoryFragment
+        showChangedPage()
     }
 
     override fun changePageToAccount() {
