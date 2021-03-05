@@ -3,14 +3,21 @@
 <!--    TODO: Add Icon for each item-->
     <item
         android:id="@+id/mainMenuItem"
+        android:icon="@drawable/navbar_logo_laporan_32p"
         android:title="Laporan"/>
     <item
         android:id="@+id/shopMenuItem"
+        android:icon="@drawable/navbar_logo_belanja_32p"
         android:title="Belanja"/>
     <item
+        android:id="@+id/placeholder"
+        android:title=""/>
+    <item
         android:id="@+id/inventoryMenuItem"
+        android:icon="@drawable/navbar_logo_inventori_32p"
         android:title="Inventory"/>
     <item
         android:id="@+id/accountMenuItem"
+        android:icon="@drawable/navbar_logo_akun_32p"
         android:title="Akun"/>
 </menu>

@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.DatePicker
 import android.widget.TextView
+import androidx.cardview.widget.CardView
 import androidx.fragment.app.Fragment
 import com.simple.pos.R
 import com.simple.pos.modul.dashboard.fragment.main.model.TopSales
@@ -72,6 +73,10 @@ class MainFragment : Fragment(), MainContract.View, View.OnClickListener, DatePi
 
         view?.findViewById<TextView>(R.id.topCategoryTotalTv)?.text =
                 getString(R.string.top_total, topSales.totalCategory)
+
+        //view?.findViewById<CardView>(R.id.categoryColorInv)?.setCardBackgroundColor(topSales.category.getParsedColor())
+        //view?.findViewById<Button>(R.id.categoryColorInv)?.setBackgroundColor(topSales.category?.getParsedColor()!!)
+        //view?.findViewById<CardView>(R.id.categoryColorInv)?.setBackgroundColor(Color.GREEN)
     }
 
     override fun showTotalSales(totalSales: TotalSales) {

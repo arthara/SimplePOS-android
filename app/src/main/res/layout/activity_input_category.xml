@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:text="@string/category_name_hint"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+        <EditText
+            android:id="@+id/newCategoryNameEt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+        <TextView
+            android:text="@string/category_name_hint"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+        <!--   Color Picker     -->
+        <RadioGroup
+            android:id="@+id/inputCategoryColorRg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <RadioButton
+                android:id="@+id/categoryColor1Rb"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/category_color_1"/>
+            <RadioButton
+                android:id="@+id/categoryColor2Rb"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/category_color_2"/>
+            <RadioButton
+                android:id="@+id/categoryColor3Rb"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/category_color_3"
+                android:checked="true"/>
+        </RadioGroup>
+
+        <Button
+            android:id="@+id/inputCategoryCancelBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/cancel"/>
+        <Button
+            android:id="@+id/inputCategorySaveBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/save"/>
+    </LinearLayout>
+</layout>
