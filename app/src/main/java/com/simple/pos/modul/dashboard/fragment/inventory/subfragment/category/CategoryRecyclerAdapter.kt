@@ -24,7 +24,7 @@ class CategoryRecyclerAdapter(private val categories: Array<Category>,
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         holder.bind(categories[position])
         holder.binding.editCategoryBtn.setOnClickListener{
-            view.redirectToEditCategory()
+            view.redirectToEditCategory(categories[position])
         }
         holder.binding.deleteCategoryBtn.setOnClickListener {
             view.showDeleteConfirmation(categories[position])
