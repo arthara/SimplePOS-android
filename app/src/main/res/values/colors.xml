@@ -16,5 +16,6 @@
     <color name="light_gray_background">#F9F9F9</color>
     <color name="main_gray_background">#F5F8FA</color>
     <color name="gray_secondary">#595959</color>
+    <color name="gray_3rd">#DEDEDE</color>
     <color name="receipt_color">#26D0C4</color>
 </resources>

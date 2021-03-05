@@ -1,52 +1,365 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".modul.dashboard.fragment.main.MainFragment"
-    android:orientation="vertical">
+<layout
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <data>
+        <variable
+            name="category"
+            type="com.simple.pos.shared.model.Category" />
+    </data>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-    <Button
-        android:id="@+id/datePickerBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Date"
-        android:layout_gravity="center_horizontal"/>
-    <TextView
-        android:id="@+id/totalSalesTv"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/total_sales"/>
-    <TextView
-        android:id="@+id/grossProfitTv"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/gross_profit"/>
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/top_sales"
-        android:layout_marginTop="30dp"/>
-    <TextView
-        android:id="@+id/topProductNameTv"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/top_product_name"/>
-    <TextView
-        android:id="@+id/topProductTotalTv"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/top_total"/>
-    <TextView
-        android:id="@+id/topCategoryNameTv"
-        android:layout_marginTop="10dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/top_category_name"/>
-    <TextView
-        android:id="@+id/topCategoryTotalTv"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/top_total"/>
-</LinearLayout>
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:id="@+id/layoutabove"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/layoutscrollview">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:background="@drawable/rounded_title_laporan"
+                    android:elevation="6dp"
+                    android:translationZ="6dp">
+
+                    <TextView
+                        android:id="@+id/tittle_laporan"
+                        android:layout_width="match_parent"
+                        android:layout_height="73dp"
+                        android:gravity="center"
+                        android:text="@string/title_laporan"
+                        android:fontFamily="@font/poppins_bold"
+                        android:maxLines="1"
+                        app:autoSizeTextType="uniform"
+                        app:autoSizeMinTextSize="12sp"
+                        app:autoSizeMaxTextSize="24sp"
+                        app:autoSizeStepGranularity="2sp"
+                        android:textColor="@color/dark_black"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:background="@drawable/rounded_title_laporan"
+                    android:gravity="center">
+
+                    <Button
+                        android:id="@+id/datePickerBtn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="29dp"
+                        android:layout_marginBottom="29dp"
+                        app:icon="@drawable/logo_datepicker"
+                        app:backgroundTint="@null"
+                        android:background="@drawable/rounded_datepicker_laporan"
+                        android:textColor="@color/white"
+                        android:fontFamily="@font/poppins_medium"
+                        android:textSize="15sp"
+                        android:text="@string/date_picker"/>
+
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/layoutscrollview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@color/white"
+                android:layout_marginBottom="10dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/layoutabove"
+                app:layout_constraintBottom_toTopOf="@id/layoutbottom">
+
+                <ScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/scroll1">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:background="@drawable/rounded_title_laporan">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="30dp"
+                                android:layout_marginTop="10dp"
+                                android:orientation="horizontal"
+                                android:gravity="center_vertical"
+                                android:paddingStart="16dp"
+                                android:paddingEnd="0dp">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="sans-serif"
+                                    android:text="@string/total_sales1"
+                                    android:maxLines="1"
+                                    app:autoSizeTextType="uniform"
+                                    app:autoSizeMinTextSize="9sp"
+                                    app:autoSizeMaxTextSize="21sp"
+                                    app:autoSizeStepGranularity="2sp"
+                                    android:paddingStart="0dp"
+                                    android:paddingEnd="20dp"/>
+
+                                <TextView
+                                    android:id="@+id/totalSalesTv"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/total_sales"
+                                    android:maxLines="1"
+                                    android:textAlignment="textEnd"
+                                    android:fontFamily="sans-serif"
+                                    app:autoSizeTextType="uniform"
+                                    app:autoSizeMinTextSize="7sp"
+                                    app:autoSizeMaxTextSize="19sp"/>
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="18dp"
+                                android:layout_marginBottom="10dp"
+                                android:paddingStart="32dp"
+                                android:paddingEnd="0dp"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/gross_profit1"
+                                    android:maxLines="1"
+                                    android:fontFamily="sans-serif"
+                                    app:autoSizeTextType="uniform"
+                                    app:autoSizeMinTextSize="6sp"
+                                    app:autoSizeMaxTextSize="14sp"
+                                    app:autoSizeStepGranularity="2sp"/>
+
+                                <TextView
+                                    android:id="@+id/grossProfitTv"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/gross_profit"
+                                    android:maxLines="1"
+                                    android:fontFamily="sans-serif"
+                                    app:autoSizeTextType="uniform"
+                                    app:autoSizeMinTextSize="7sp"
+                                    app:autoSizeMaxTextSize="17sp"
+                                    app:autoSizeStepGranularity="2sp"/>
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            android:layout_marginTop="5dp"
+                            android:background="@drawable/rounded_title_laporan"
+                            android:elevation="6dp"
+                            android:translationZ="6dp">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                android:layout_marginTop="10dp"
+                                android:paddingStart="20dp"
+                                android:paddingEnd="0dp">
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/top_sales"
+                                    android:maxLines="1"
+                                    android:fontFamily="sans-serif"
+                                    app:autoSizeTextType="uniform"
+                                    app:autoSizeMinTextSize="11sp"
+                                    app:autoSizeMaxTextSize="21sp"
+                                    app:autoSizeStepGranularity="2sp"/>
+
+                            </LinearLayout>
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/top_product_name1"
+                                android:layout_marginTop="10dp"
+                                android:paddingStart="20dp"
+                                android:paddingEnd="0dp"
+                                android:maxLines="1"
+                                android:fontFamily="sans-serif"
+                                app:autoSizeTextType="uniform"
+                                app:autoSizeMinTextSize="6sp"
+                                app:autoSizeMaxTextSize="14sp"
+                                app:autoSizeStepGranularity="2sp"/>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                android:paddingStart="20dp"
+                                android:paddingEnd="0dp"
+                                android:gravity="center_vertical">
+
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="vertical"
+                                    android:paddingStart="0dp"
+                                    android:paddingEnd="15dp">
+
+                                    <ImageView
+                                        android:layout_width="40dp"
+                                        android:layout_height="40dp"
+                                        app:srcCompat="@drawable/logo_small" />
+
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="vertical">
+
+                                    <TextView
+                                        android:id="@+id/topProductNameTv"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:text="@string/top_product_name"
+                                        android:maxLines="1"
+                                        android:fontFamily="sans-serif"
+                                        app:autoSizeTextType="uniform"
+                                        app:autoSizeMinTextSize="6sp"
+                                        app:autoSizeMaxTextSize="12sp"
+                                        app:autoSizeStepGranularity="2sp"/>
+
+                                    <TextView
+                                        android:id="@+id/topProductTotalTv"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:text="@string/top_total"
+                                        android:maxLines="1"
+                                        android:fontFamily="sans-serif"
+                                        app:autoSizeTextType="uniform"
+                                        app:autoSizeMinTextSize="8sp"
+                                        app:autoSizeMaxTextSize="16sp"
+                                        app:autoSizeStepGranularity="2sp"/>
+
+                                </LinearLayout>
+                            </LinearLayout>
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/top_category_name1"
+                                android:layout_marginTop="10dp"
+                                android:paddingStart="20dp"
+                                android:paddingEnd="0dp"
+                                android:maxLines="1"
+                                android:fontFamily="sans-serif"
+                                app:autoSizeTextType="uniform"
+                                app:autoSizeMinTextSize="6sp"
+                                app:autoSizeMaxTextSize="14sp"
+                                app:autoSizeStepGranularity="2sp"/>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                android:paddingStart="20dp"
+                                android:paddingEnd="0dp"
+                                android:paddingBottom="20dp"
+                                android:gravity="center_vertical">
+
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="vertical"
+                                    android:paddingStart="0dp"
+                                    android:paddingEnd="15dp">
+
+                                    <androidx.cardview.widget.CardView
+                                        android:id="@+id/categoryColorInv"
+                                        android:layout_width="40dp"
+                                        android:layout_height="40dp"
+                                        app:cardBackgroundColor="@color/orange"
+                                        app:cardCornerRadius="100dp">
+
+                                    </androidx.cardview.widget.CardView>
+
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="vertical">
+
+                                    <TextView
+                                        android:id="@+id/topCategoryNameTv"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:text="@string/top_category_name"
+                                        android:maxLines="1"
+                                        android:fontFamily="sans-serif"
+                                        app:autoSizeTextType="uniform"
+                                        app:autoSizeMinTextSize="6sp"
+                                        app:autoSizeMaxTextSize="12sp"
+                                        app:autoSizeStepGranularity="2sp"/>
+
+                                    <TextView
+                                        android:id="@+id/topCategoryTotalTv"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:text="@string/top_total"
+                                        android:maxLines="1"
+                                        android:fontFamily="sans-serif"
+                                        app:autoSizeTextType="uniform"
+                                        app:autoSizeMinTextSize="8sp"
+                                        app:autoSizeMaxTextSize="16sp"
+                                        app:autoSizeStepGranularity="2sp"/>
+
+                                </LinearLayout>
+                            </LinearLayout>
+                        </LinearLayout>
+                    </LinearLayout>
+                </ScrollView>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/layoutbottom"
+                android:layout_width="match_parent"
+                android:layout_height="10dp"
+                android:orientation="vertical"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/layoutscrollview"
+                app:layout_constraintBottom_toBottomOf="parent">
+            </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </LinearLayout>
+</layout>

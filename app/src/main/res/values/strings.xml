@@ -29,12 +29,18 @@
     <string name="text_btn_intro2_1">Tambah Data</string>
     <string name="text_btn_intro2_2">nanti saja</string>
     <!--  Main Fragment String  -->
-    <string name="total_sales">Total Sales : %1$d</string>
-    <string name="gross_profit">Laba Kotor : %1$f</string>
+    <string name="title_laporan">Laporan Keuangan</string>
+    <string name="date_picker">Pilih Tanggal</string>
+    <string name="total_sales1">Total Sales : </string>
+    <string name="total_sales">Rp %1$d</string>
+    <string name="gross_profit1">Laba Kotor : </string>
+    <string name="gross_profit">Rp %1$f</string>
     <string name="top_sales">Top Sales :</string>
-    <string name="top_product_name">Product : %1$s</string>
-    <string name="top_category_name">Category : %1$s</string>
-    <string name="top_total">Total : %1$d</string>
+    <string name="top_product_name1">Product</string>
+    <string name="top_product_name">%1$s</string>
+    <string name="top_category_name1">Category</string>
+    <string name="top_category_name">%1$s</string>
+    <string name="top_total">%1$d unit</string>
     <string name="date">%1$d-%2$d-%3$d</string>
     <string name="no_product_sold">Tidak ada produk yang terjual</string>
     <!--  Inventory Fragment String  -->

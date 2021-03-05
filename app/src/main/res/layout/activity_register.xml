@@ -28,20 +28,6 @@
                 android:layout_height="wrap_content"
                 app:srcCompat="@drawable/logo_small" />
 
-            <TextView
-                android:id="@+id/tittle_daftar_akun"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="69dp"
-                android:text="@string/text_tittle_daftar_akun"
-                android:fontFamily="@font/poppins_bold"
-                app:autoSizeTextType="uniform"
-                app:autoSizeMinTextSize="21sp"
-                app:autoSizeMaxTextSize="35sp"
-                app:autoSizeStepGranularity="2sp"
-                android:textColor="@color/dark_black"
-                android:textAlignment="center"/>
-
         </LinearLayout>
 
         <LinearLayout
@@ -49,7 +35,6 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:orientation="vertical"
-            android:layout_marginTop="63dp"
             android:layout_marginBottom="10dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -66,9 +51,30 @@
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
 
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="70dp">
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/tittle_daftar_akun"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/text_tittle_daftar_akun"
+                        android:fontFamily="@font/poppins_bold"
+                        android:maxLines="1"
+                        app:autoSizeTextType="uniform"
+                        app:autoSizeMinTextSize="21sp"
+                        app:autoSizeMaxTextSize="35sp"
+                        app:autoSizeStepGranularity="2sp"
+                        android:textColor="@color/dark_black"
+                        android:textAlignment="center"/>
+
                     <com.google.android.material.textfield.TextInputLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="60dp"
                         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
                         <EditText
@@ -203,10 +209,11 @@
                 android:layout_weight="1"
                 android:fontFamily="@font/lato"
                 android:text="@string/text_sudah_punya_akun"
+                android:maxLines="1"
                 android:textAlignment="center"
                 android:textColor="@color/dark_black"
                 app:autoSizeTextType="uniform"
-                app:autoSizeMinTextSize="12sp"
+                app:autoSizeMinTextSize="8sp"
                 app:autoSizeMaxTextSize="16sp"
                 app:autoSizeStepGranularity="2sp" />
 
@@ -220,7 +227,7 @@
                 android:textAlignment="center"
                 android:textColor="@color/orange"
                 app:autoSizeTextType="uniform"
-                app:autoSizeMinTextSize="12sp"
+                app:autoSizeMinTextSize="8sp"
                 app:autoSizeMaxTextSize="16sp"
                 app:autoSizeStepGranularity="2sp"
                 app:pressedTextColor="@android:color/holo_blue_dark"

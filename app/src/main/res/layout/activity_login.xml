@@ -28,52 +28,14 @@
                 android:layout_height="wrap_content"
                 app:srcCompat="@drawable/logo_small" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:paddingLeft="16dp"
-                android:paddingRight="16dp"
-                android:layout_gravity="center"
-                android:layout_marginTop="99dp">
-
-                <TextView
-                    android:id="@+id/tittle_welcome"
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:text="@string/text_tittle_welcome"
-                    android:fontFamily="@font/poppins_bold"
-                    app:autoSizeTextType="uniform"
-                    app:autoSizeMinTextSize="21sp"
-                    app:autoSizeMaxTextSize="35sp"
-                    app:autoSizeStepGranularity="2sp"
-                    android:textColor="@color/dark_black"/>
-
-                <TextView
-                    android:id="@+id/tittle_daftar_akun"
-                    android:layout_width="match_parent"
-                    android:layout_height="21dp"
-                    android:layout_marginStart="5dp"
-                    android:layout_weight="1"
-                    android:text="@string/text_tittle_masuk"
-                    android:fontFamily="@font/lato"
-                    app:autoSizeTextType="uniform"
-                    app:autoSizeMinTextSize="11sp"
-                    app:autoSizeMaxTextSize="17sp"
-                    app:autoSizeStepGranularity="2sp"
-                    android:textColor="@color/dark_black"/>
-
-            </LinearLayout>
-
         </LinearLayout>
 
         <LinearLayout
             android:id="@+id/layoutscrollview1"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:orientation="vertical"
-            android:layout_marginTop="70dp"
             android:layout_marginBottom="10dp"
+            android:orientation="vertical"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/layoutimageView1"
@@ -89,9 +51,54 @@
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
 
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:paddingLeft="16dp"
+                        android:paddingRight="16dp"
+                        android:layout_gravity="center">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="100dp">
+
+                        </LinearLayout>
+
+                        <TextView
+                            android:id="@+id/tittle_welcome"
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:text="@string/text_tittle_welcome"
+                            android:fontFamily="@font/poppins_bold"
+                            android:maxLines="1"
+                            app:autoSizeTextType="uniform"
+                            app:autoSizeMinTextSize="21sp"
+                            app:autoSizeMaxTextSize="35sp"
+                            app:autoSizeStepGranularity="2sp"
+                            android:textColor="@color/dark_black"/>
+
+                        <TextView
+                            android:id="@+id/tittle_daftar_akun"
+                            android:layout_width="match_parent"
+                            android:layout_height="21dp"
+                            android:layout_marginStart="5dp"
+                            android:layout_weight="1"
+                            android:text="@string/text_tittle_masuk"
+                            android:maxLines="1"
+                            android:fontFamily="@font/lato"
+                            app:autoSizeTextType="uniform"
+                            app:autoSizeMinTextSize="11sp"
+                            app:autoSizeMaxTextSize="17sp"
+                            app:autoSizeStepGranularity="2sp"
+                            android:textColor="@color/dark_black"/>
+
+                    </LinearLayout>
+
                     <com.google.android.material.textfield.TextInputLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="70dp"
                         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
                         <EditText
@@ -176,10 +183,11 @@
                 android:layout_weight="1"
                 android:fontFamily="@font/lato"
                 android:text="@string/text_tidak_punya_akun"
+                android:maxLines="1"
                 android:textAlignment="center"
                 android:textColor="@color/dark_black"
                 app:autoSizeTextType="uniform"
-                app:autoSizeMinTextSize="12sp"
+                app:autoSizeMinTextSize="8sp"
                 app:autoSizeMaxTextSize="16sp"
                 app:autoSizeStepGranularity="2sp"/>
 
@@ -194,7 +202,7 @@
                 android:textAlignment="center"
                 android:textColor="@color/orange"
                 app:autoSizeTextType="uniform"
-                app:autoSizeMinTextSize="12sp"
+                app:autoSizeMinTextSize="8sp"
                 app:autoSizeMaxTextSize="16sp"
                 app:autoSizeStepGranularity="2sp"
                 app:pressedTextColor="@android:color/holo_blue_dark"
