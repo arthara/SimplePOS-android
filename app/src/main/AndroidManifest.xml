@@ -42,6 +42,7 @@
             android:name=".modul.storeinput.StoreInputActivity"
             android:configChanges="orientation"
             android:screenOrientation="portrait" />
+        <activity android:name=".modul.newcategory.NewCategoryActivity"/>
     </application>
 
 </manifest>
