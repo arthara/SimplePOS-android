@@ -47,7 +47,7 @@
                         android:id="@+id/ivProductInv"
                         android:layout_width="match_parent"
                         android:layout_height="100dp"
-                        android:background="@color/gray_secondary"
+                        android:src="@color/gray_secondary"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.5"

@@ -34,7 +34,10 @@
             <ImageView
                 android:layout_width="80dp"
                 android:layout_height="80dp"
-                android:src="@drawable/rounded_orange_border" />
+                android:src="@drawable/sample_product_image"
+                android:scaleType="centerCrop"
+                android:adjustViewBounds="true"
+                />
 
         </androidx.cardview.widget.CardView>
 
@@ -67,7 +70,7 @@
             android:layout_width="82dp"
             android:layout_height="41dp"
             android:gravity="center"
-            android:text="Edit"
+            android:text="@string/edit"
             android:textAllCaps="false"
             android:textSize="12sp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -79,7 +82,7 @@
             android:layout_width="82dp"
             android:layout_height="41dp"
             android:gravity="center"
-            android:text="Delete"
+            android:text="@string/delete"
             android:textAllCaps="false"
             android:textSize="12sp"
             android:backgroundTint="@color/orange"
