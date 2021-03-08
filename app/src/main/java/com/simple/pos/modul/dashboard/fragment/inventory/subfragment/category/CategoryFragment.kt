@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.simple.pos.R
+import com.simple.pos.modul.editcategory.EditCategoryActivity
 import com.simple.pos.modul.newcategory.NewCategoryActivity
 import com.simple.pos.shared.model.Category
 
@@ -62,7 +63,13 @@ class CategoryFragment: Fragment(), CategoryContract.View {
         startActivityForResult(intent, CHANGE_CATEGORY_REQ_CODE)
     }
 
-    override fun redirectToEditCategory() {
+    override fun redirectToEditCategory(category: Category) {
+        val bundle = Bundle()
+        val intent = Intent(context, EditCategoryActivity::class.java)
+
+        bundle.putSerializable(EditCategoryActivity.CATEGORY_BUNDLE_NAME, category)
+        intent.putExtras(bundle)
+        startActivityForResult(intent, CHANGE_CATEGORY_REQ_CODE)
     }
 
     override fun showDeleteConfirmation(category: Category) {

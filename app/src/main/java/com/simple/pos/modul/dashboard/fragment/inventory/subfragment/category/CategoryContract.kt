@@ -7,7 +7,7 @@ import retrofit2.Response
 interface CategoryContract {
     interface View {
         fun redirectToNewCategory()
-        fun redirectToEditCategory()
+        fun redirectToEditCategory(category: Category)
         fun showCategories(categories: Array<Category>)
         fun showDeleteConfirmation(category: Category)
     }
