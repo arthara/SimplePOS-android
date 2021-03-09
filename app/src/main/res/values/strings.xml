@@ -63,4 +63,20 @@
     <string name="product_example_name">Skullcandy S5LHZ-J576 Anti Headphone</string>
     <string name="edit">Edit</string>
     <string name="delete">Delete</string>
+
+    <!--Checkout-->
+    <string-array name="phoneCode">
+        <item>+62</item>
+    </string-array>
+    <string name="tax_sample">Tax (2%)</string>
+    <string name="cetak">Cetak</string>
+    <string name="detail_checkout">Detail Checkout</string>
+    <string name="_62">+62</string>
+    <string name="contact_text">Nomor Kontak</string>
+    <string name="customer_name">Nama Pembeli</string>
+    <string name="id_struck">ID Struk :</string>
+    <string name="nama_toko_1">Nama Toko-1</string>
+    <string name="dashboard">Dashboard</string>
+    <string name="transaksi_ditunda">Transaksi Ditunda</string>
+
 </resources>
