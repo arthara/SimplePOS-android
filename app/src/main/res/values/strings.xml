@@ -28,6 +28,8 @@
     <string name="text_btn_intro2">Upload Logo</string>
     <string name="text_btn_intro2_1">Tambah Data</string>
     <string name="text_btn_intro2_2">nanti saja</string>
+
+
     <!--  Main Fragment String  -->
     <string name="title_laporan">Laporan Keuangan</string>
     <string name="date_picker">Pilih Tanggal</string>
@@ -43,16 +45,19 @@
     <string name="top_total">%1$d unit</string>
     <string name="date">%1$d-%2$d-%3$d</string>
     <string name="no_product_sold">Tidak ada produk yang terjual</string>
+
     <!--  Inventory Fragment String  -->
     <string name="product_stock">Stok Produk</string>
     <string name="product_category">Kategori Produk</string>
     <string name="add_category">Tambah Kategori</string>
     <string name="delete_category_confirmation">Apakah anda yang ingin menghapus kategori ini ?</string>
-    <string name="no">Tidak</string>
-    <string name="yes">Ya</string>
+    <string name="category_name_hint">Nama Kategori</string>
+
+    <!-- Universal String    -->
+    <string name="cancel">Batalkan</string>
+    <string name="save">Simpan</string>
     <string name="filter">Filter</string>
     <string name="stok">Stok</string>
-    <string name="category_name_hint">Nama Kategori</string>
-    <string name="cancel">Batalkan</string>
-    <string name="save">simpan</string>
+    <string name="no">Tidak</string>
+    <string name="yes">Ya</string>
 </resources>
