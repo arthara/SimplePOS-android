@@ -104,10 +104,10 @@
             android:textSize="18sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.107"
+            app:layout_constraintHorizontal_bias="0.095"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/materialCardView"
-            app:layout_constraintVertical_bias="0.086" />
+            app:layout_constraintVertical_bias="0.027" />
 
         <EditText
             android:id="@+id/editTextSingleProd"
@@ -135,7 +135,7 @@
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/editTextSingleProd"
             app:layout_constraintTop_toBottomOf="@+id/editTextSingleProd"
-            app:layout_constraintVertical_bias="0.067" />
+            app:layout_constraintVertical_bias="0.037" />
 
         <Spinner
             android:id="@+id/spinner"
@@ -156,7 +156,7 @@
         <EditText
             android:id="@+id/etStokAwalSingleProd"
             android:layout_width="230dp"
-            android:layout_height="37dp"
+            android:layout_height="wrap_content"
             android:backgroundTint="@color/black"
             android:gravity="center"
             android:paddingStart="20dp"
@@ -186,6 +186,7 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.573" />
 
+        <!--Bottom Button-->
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/constraintLayout3"
             android:layout_width="320dp"
@@ -196,7 +197,7 @@
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/textView2"
             app:layout_constraintTop_toBottomOf="@+id/textView2"
-            app:layout_constraintVertical_bias="0.216">
+            app:layout_constraintVertical_bias="0.131">
 
             <TextView
                 android:id="@+id/lblHargaKulakan"
@@ -261,7 +262,6 @@
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <!--Bottom Button-->
         <Button
             android:id="@+id/btnSaveSingleProdInv"
             android:layout_width="130dp"
