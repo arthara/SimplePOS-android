@@ -114,7 +114,14 @@
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
                                         app:endIconMode="clear_text"
-                                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+                                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                                        android:hint="@string/prompt_store"
+                                        app:boxStrokeColor="@color/gray"
+                                        app:boxStrokeWidth="1dp"
+                                        app:boxCornerRadiusBottomEnd="5dp"
+                                        app:boxCornerRadiusBottomStart="5dp"
+                                        app:boxCornerRadiusTopEnd="5dp"
+                                        app:boxCornerRadiusTopStart="5dp">
 
                                         <EditText
                                             android:id="@+id/namaToko"
@@ -122,11 +129,7 @@
                                             android:layout_height="wrap_content"
                                             android:fontFamily="@font/roboto_regular"
                                             android:textSize="16sp"
-                                            android:textColorHint="@color/lightblue"
-                                            app:backgroundTint="@null"
                                             android:textColor="@color/dark_black"
-                                            android:hint="@string/prompt_store"
-                                            android:background="@drawable/rounded_edittext1"
                                             android:paddingStart="15dp"
                                             android:paddingEnd="15dp"
                                             android:inputType="textPersonName"
@@ -290,7 +293,14 @@
                                         android:layout_height="wrap_content"
                                         android:layout_marginTop="8dp"
                                         app:endIconMode="clear_text"
-                                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+                                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                                        android:hint="@string/prompt_alamatToko"
+                                        app:boxStrokeColor="@color/gray"
+                                        app:boxStrokeWidth="1dp"
+                                        app:boxCornerRadiusBottomEnd="5dp"
+                                        app:boxCornerRadiusBottomStart="5dp"
+                                        app:boxCornerRadiusTopEnd="5dp"
+                                        app:boxCornerRadiusTopStart="5dp">
 
                                         <EditText
                                             android:id="@+id/alamatToko"
@@ -298,10 +308,7 @@
                                             android:layout_height="wrap_content"
                                             android:fontFamily="@font/roboto_regular"
                                             android:textSize="16sp"
-                                            android:textColorHint="@color/lightblue"
                                             android:textColor="@color/dark_black"
-                                            android:hint="@string/prompt_alamatToko"
-                                            android:background="@drawable/rounded_edittext1"
                                             android:paddingStart="15dp"
                                             android:paddingEnd="15dp"
                                             android:inputType="textLongMessage"
@@ -314,7 +321,14 @@
                                         android:layout_height="wrap_content"
                                         android:layout_marginTop="8dp"
                                         app:endIconMode="clear_text"
-                                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+                                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                                        android:hint="@string/prompt_noTelpToko"
+                                        app:boxStrokeColor="@color/gray"
+                                        app:boxStrokeWidth="1dp"
+                                        app:boxCornerRadiusBottomEnd="5dp"
+                                        app:boxCornerRadiusBottomStart="5dp"
+                                        app:boxCornerRadiusTopEnd="5dp"
+                                        app:boxCornerRadiusTopStart="5dp">
 
                                         <EditText
                                             android:id="@+id/noTelpToko"
@@ -322,10 +336,7 @@
                                             android:layout_height="wrap_content"
                                             android:fontFamily="@font/roboto_regular"
                                             android:textSize="16sp"
-                                            android:textColorHint="@color/lightblue"
                                             android:textColor="@color/dark_black"
-                                            android:hint="@string/prompt_noTelpToko"
-                                            android:background="@drawable/rounded_edittext1"
                                             android:paddingStart="15dp"
                                             android:paddingEnd="15dp"
                                             android:inputType="phone"

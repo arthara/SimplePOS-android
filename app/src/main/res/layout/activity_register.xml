@@ -75,7 +75,14 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="60dp"
-                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:hint="@string/prompt_username"
+                        app:boxStrokeColor="@color/gray"
+                        app:boxStrokeWidth="1dp"
+                        app:boxCornerRadiusBottomEnd="5dp"
+                        app:boxCornerRadiusBottomStart="5dp"
+                        app:boxCornerRadiusTopEnd="5dp"
+                        app:boxCornerRadiusTopStart="5dp">
 
                         <EditText
                             android:id="@+id/register_usernameEt"
@@ -83,15 +90,11 @@
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/roboto_regular"
                             android:textSize="16sp"
-                            android:textColorHint="@color/lightblue"
-                            app:backgroundTint="@null"
                             android:textColor="@color/dark_black"
-                            android:background="@drawable/rounded_edittext1"
                             android:drawableEnd="@drawable/username_logo_16dp"
                             android:drawablePadding="20dp"
                             android:paddingStart="15dp"
                             android:paddingEnd="15dp"
-                            android:hint="@string/prompt_username"
                             android:inputType="textEmailAddress" />
 
                     </com.google.android.material.textfield.TextInputLayout>
@@ -100,7 +103,14 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="15dp"
-                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:hint="@string/prompt_email"
+                        app:boxStrokeColor="@color/gray"
+                        app:boxStrokeWidth="1dp"
+                        app:boxCornerRadiusBottomEnd="5dp"
+                        app:boxCornerRadiusBottomStart="5dp"
+                        app:boxCornerRadiusTopEnd="5dp"
+                        app:boxCornerRadiusTopStart="5dp">
 
                         <EditText
                             android:id="@+id/register_emailEt"
@@ -108,15 +118,11 @@
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/roboto_regular"
                             android:textSize="16sp"
-                            android:textColorHint="@color/lightblue"
-                            app:backgroundTint="@null"
                             android:textColor="@color/dark_black"
-                            android:background="@drawable/rounded_edittext1"
                             android:paddingStart="15dp"
                             android:paddingEnd="15dp"
                             android:drawableEnd="@drawable/email_logo_16dp"
                             android:drawablePadding="20dp"
-                            android:hint="@string/prompt_email"
                             android:inputType="textEmailAddress"/>
 
                     </com.google.android.material.textfield.TextInputLayout>
@@ -126,7 +132,14 @@
                         android:layout_height="wrap_content"
                         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                         app:passwordToggleEnabled="true"
-                        android:layout_marginTop="15dp">
+                        android:layout_marginTop="15dp"
+                        android:hint="@string/prompt_password"
+                        app:boxStrokeColor="@color/gray"
+                        app:boxStrokeWidth="1dp"
+                        app:boxCornerRadiusBottomEnd="5dp"
+                        app:boxCornerRadiusBottomStart="5dp"
+                        app:boxCornerRadiusTopEnd="5dp"
+                        app:boxCornerRadiusTopStart="5dp">
 
                         <EditText
                             android:id="@+id/register_passwordEt"
@@ -134,11 +147,7 @@
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/roboto_regular"
                             android:textSize="16sp"
-                            android:textColorHint="@color/lightblue"
-                            app:backgroundTint="@null"
                             android:textColor="@color/dark_black"
-                            android:hint="@string/prompt_password"
-                            android:background="@drawable/rounded_edittext1"
                             android:paddingStart="15dp"
                             android:paddingEnd="15dp"
                             android:imeOptions="actionDone"
@@ -151,7 +160,14 @@
                         android:layout_height="wrap_content"
                         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                         app:passwordToggleEnabled="true"
-                        android:layout_marginTop="15dp">
+                        android:layout_marginTop="15dp"
+                        android:hint="@string/prompt_confirm_password"
+                        app:boxStrokeColor="@color/gray"
+                        app:boxStrokeWidth="1dp"
+                        app:boxCornerRadiusBottomEnd="5dp"
+                        app:boxCornerRadiusBottomStart="5dp"
+                        app:boxCornerRadiusTopEnd="5dp"
+                        app:boxCornerRadiusTopStart="5dp">
 
                         <EditText
                             android:id="@+id/register_confirmPasswordEt"
@@ -159,11 +175,7 @@
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/roboto_regular"
                             android:textSize="16sp"
-                            android:textColorHint="@color/lightblue"
-                            app:backgroundTint="@null"
                             android:textColor="@color/dark_black"
-                            android:hint="@string/prompt_confirm_password"
-                            android:background="@drawable/rounded_edittext1"
                             android:paddingStart="15dp"
                             android:paddingEnd="15dp"
                             android:imeOptions="actionDone"
