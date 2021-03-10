@@ -8,7 +8,7 @@
 
     <!--Navbar-->
     <RelativeLayout
-        android:id="@+id/relativeLayout4"
+        android:id="@+id/relativeLayout5"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/profile_nav_color"
@@ -31,7 +31,7 @@
             app:srcCompat="@drawable/ic_path" />
 
         <TextView
-            android:id="@+id/tvTitleAturToko"
+            android:id="@+id/tvTitleAturStruk"
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:fontFamily="@font/roboto_bold"
@@ -46,34 +46,35 @@
 
     </RelativeLayout>
 
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/appCompatButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@android:color/transparent"
-        android:drawableLeft="@drawable/ic_edit_black"
-        android:fontFamily="@font/roboto_bold"
-        android:padding="5dp"
-        android:text="@string/update"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.95"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/relativeLayout4"
-        app:layout_constraintVertical_bias="0.0" />
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="20dp"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/appCompatButton">
+        app:layout_constraintTop_toBottomOf="@+id/relativeLayout5">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/orange"
+                android:src="@drawable/ic_edit"
+                app:fabSize="mini"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.179"
+                app:layout_constraintStart_toStartOf="@+id/cardView6"
+                app:layout_constraintTop_toTopOf="@+id/cardView6"
+                app:layout_constraintVertical_bias="0.15" />
+
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/cardView6"
@@ -96,7 +97,6 @@
                     android:src="@drawable/sample_online_store_logo" />
             </androidx.cardview.widget.CardView>
 
-
             <TextView
                 android:id="@+id/textView7"
                 android:layout_width="wrap_content"
@@ -112,8 +112,8 @@
                 app:layout_constraintTop_toTopOf="@+id/cardView6"
                 app:layout_constraintVertical_bias="0.0" />
 
-            <TextView
-                android:id="@+id/tvNamaBisnis"
+            <EditText
+                android:id="@+id/etNamaBisnisUpdate"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:layout_marginStart="10dp"
@@ -128,10 +128,10 @@
                 android:textSize="14sp"
                 app:layout_constraintBottom_toBottomOf="@+id/cardView6"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toEndOf="@+id/cardView6"
                 app:layout_constraintTop_toBottomOf="@+id/textView7"
-                app:layout_constraintVertical_bias="0.0" />
+                app:layout_constraintVertical_bias="1.0" />
 
             <TextView
                 android:id="@+id/tvTelepon"
@@ -145,11 +145,11 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.052"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/cardView6"
+                app:layout_constraintTop_toBottomOf="@+id/button"
                 app:layout_constraintVertical_bias="0.071" />
 
             <TextView
-                android:id="@+id/tvPhoneNumberStore"
+                android:id="@+id/etPhoneNumberBusinessUpdate"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:background="?attr/editTextBackground"
@@ -160,7 +160,7 @@
                 android:textColor="@color/gray_secondary"
                 android:textSize="16sp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="@+id/tvNamaBisnis"
+                app:layout_constraintEnd_toEndOf="@+id/etNamaBisnisUpdate"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="@+id/tvTelepon"
                 app:layout_constraintTop_toBottomOf="@+id/tvTelepon"
@@ -177,11 +177,12 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="@+id/tvPhoneNumberStore"
-                app:layout_constraintTop_toBottomOf="@+id/tvPhoneNumberStore"
+                app:layout_constraintStart_toStartOf="@+id/etPhoneNumberBusinessUpdate"
+                app:layout_constraintTop_toBottomOf="@+id/etPhoneNumberBusinessUpdate"
                 app:layout_constraintVertical_bias="0.02" />
 
-            <TextView
+            <EditText
+                android:id="@+id/etWebsiteBusinessUpdate"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:background="?attr/editTextBackground"
@@ -192,7 +193,7 @@
                 android:textColor="@color/gray_secondary"
                 android:textSize="14sp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="@+id/tvPhoneNumberStore"
+                app:layout_constraintEnd_toEndOf="@+id/etPhoneNumberBusinessUpdate"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="@+id/textView9"
                 app:layout_constraintTop_toBottomOf="@+id/textView9"
@@ -213,8 +214,8 @@
                 app:layout_constraintTop_toBottomOf="@+id/textView9"
                 app:layout_constraintVertical_bias="0.184" />
 
-            <TextView
-                android:id="@+id/tvThanksNote"
+            <EditText
+                android:id="@+id/etThanksNoteUpdate"
                 android:layout_width="0dp"
                 android:layout_height="80dp"
                 android:background="@drawable/custom_input"
@@ -222,10 +223,11 @@
                 android:fontFamily="@font/lato"
                 android:gravity="top|start"
                 android:hint="Teks Terima Kasih"
+                android:inputType="textMultiLine"
                 android:padding="10dp"
                 android:textSize="14sp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="@+id/tvPhoneNumberStore"
+                app:layout_constraintEnd_toEndOf="@+id/etPhoneNumberBusinessUpdate"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="@+id/textView8"
                 app:layout_constraintTop_toBottomOf="@+id/textView8"
@@ -242,11 +244,12 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="@+id/tvThanksNote"
-                app:layout_constraintTop_toBottomOf="@+id/tvThanksNote"
+                app:layout_constraintStart_toStartOf="@+id/etThanksNoteUpdate"
+                app:layout_constraintTop_toBottomOf="@+id/etThanksNoteUpdate"
                 app:layout_constraintVertical_bias="0.073" />
 
-            <TextView
+            <EditText
+                android:id="@+id/etBusinessAddressUpdate"
                 android:layout_width="0dp"
                 android:layout_height="100dp"
                 android:background="@drawable/custom_input"
@@ -254,17 +257,68 @@
                 android:fontFamily="@font/lato"
                 android:gravity="top|start"
                 android:hint="Alamat"
+                android:inputType="textMultiLine"
                 android:padding="10dp"
                 android:textSize="14sp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="@+id/tvThanksNote"
+                app:layout_constraintEnd_toEndOf="@+id/etThanksNoteUpdate"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="@+id/tvDetailAlamat"
                 app:layout_constraintTop_toBottomOf="@+id/tvDetailAlamat"
                 app:layout_constraintVertical_bias="0.099" />
 
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
 
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
+
+    <!--Bottom-->
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="horizontal"
+        android:weightSum="2"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/relativeLayout5"
+        app:layout_constraintVertical_bias="0.975">
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnLlihatReceipt"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_weight="1"
+            android:background="@color/orange"
+            android:fontFamily="@font/lato"
+            android:text="Batal"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            app:autoSizeMaxTextSize="18sp"
+            app:autoSizeMinTextSize="12sp"
+            app:autoSizeStepGranularity="2sp"
+            app:autoSizeTextType="uniform" />
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="20dp"
+            android:layout_weight="1"
+            android:background="@color/design_default_color_on_primary"
+            android:fontFamily="@font/lato"
+            android:text="Update"
+            android:textAllCaps="false"
+            android:textStyle="bold"
+            app:autoSizeMaxTextSize="18sp"
+            app:autoSizeMinTextSize="12sp"
+            app:autoSizeStepGranularity="2sp"
+            app:autoSizeTextType="uniform" />
+
+    </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

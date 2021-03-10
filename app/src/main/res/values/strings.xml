@@ -84,5 +84,7 @@
     <string name="pengaturan_pembayaran">Pengaturan Pembayaran</string>
     <string name="update">Update</string>
     <string name="address">Alamat</string>
+    <string name="nama_bisnis">Nama Bisnis</string>
+    <string name="nomor_telepon">Nomor Telepon</string>
 
 </resources>

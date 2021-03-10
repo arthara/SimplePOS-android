@@ -37,7 +37,7 @@
             android:fontFamily="@font/roboto_bold"
             android:gravity="center"
             android:maxLines="1"
-            android:text="Pengaturan Toko"
+            android:text="Ubah Informasi Toko"
             android:textColor="@color/dark_black"
             app:autoSizeMaxTextSize="24sp"
             app:autoSizeMinTextSize="12sp"
@@ -181,7 +181,7 @@
 
     <!--Bottom-->
     <LinearLayout
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:weightSum="2"
@@ -190,7 +190,10 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="@+id/etPhoneAddressView"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.95">
+        app:layout_constraintVertical_bias="0.95"
+        android:layout_marginStart="25dp"
+        android:layout_marginEnd="25dp"
+        >
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btnLlihatReceipt"
@@ -199,7 +202,7 @@
             android:layout_marginEnd="10dp"
             android:layout_weight="1"
             android:background="@color/orange"
-            android:text="Lihat Receipt"
+            android:text="Batal"
             android:textColor="@color/white"
             app:autoSizeTextType="uniform"
             app:autoSizeMaxTextSize="18sp"
@@ -217,7 +220,7 @@
             android:layout_marginEnd="10dp"
             android:layout_weight="1"
             android:background="@color/design_default_color_on_primary"
-            android:text="@string/dashboard"
+            android:text="Update"
             app:autoSizeTextType="uniform"
             app:autoSizeMaxTextSize="18sp"
             app:autoSizeMinTextSize="12sp"
