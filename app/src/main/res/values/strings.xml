@@ -29,7 +29,6 @@
     <string name="text_btn_intro2_1">Tambah Data</string>
     <string name="text_btn_intro2_2">nanti saja</string>
 
-
     <!--  Main Fragment String  -->
     <string name="title_laporan">Laporan Keuangan</string>
     <string name="date_picker">Pilih Tanggal</string>
@@ -53,6 +52,7 @@
     <string name="add_category">Tambah Kategori</string>
     <string name="delete_category_confirmation">Apakah anda yang ingin menghapus kategori ini ?</string>
     <string name="category_name_hint">Nama Kategori</string>
+    <string name="category_hexcolor_hint">Kode Hex Warna</string>
 
     <!-- Universal String    -->
     <string name="cancel">Batalkan</string>
