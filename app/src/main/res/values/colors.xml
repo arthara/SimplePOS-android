@@ -18,4 +18,5 @@
     <color name="gray_secondary">#595959</color>
     <color name="gray_3rd">#DEDEDE</color>
     <color name="receipt_color">#26D0C4</color>
+    <color name="profile_nav_color">#F5F8FA</color>
 </resources>
