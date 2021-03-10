@@ -79,4 +79,15 @@
     <string name="dashboard">Dashboard</string>
     <string name="transaksi_ditunda">Transaksi Ditunda</string>
 
+
+    <!--Profile-->
+    <string name="profil">Profil</string>
+    <string name="pengaturan_toko">Pengaturan Toko</string>
+    <string name="pengaturan_struk">Pengaturan Struk</string>
+    <string name="pengaturan_pembayaran">Pengaturan Pembayaran</string>
+    <string name="update">Update</string>
+    <string name="address">Alamat</string>
+    <string name="nama_bisnis">Nama Bisnis</string>
+    <string name="nomor_telepon">Nomor Telepon</string>
+
 </resources>
