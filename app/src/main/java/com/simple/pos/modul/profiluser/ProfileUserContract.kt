@@ -9,6 +9,7 @@ interface ProfileUserContract {
         fun redirectToStructConfiguration()
         fun redirectToPaymentConfiguration()
         fun redirectToLogin()
+        fun redirectToDashboard()
     }
 
     interface Presenter {
