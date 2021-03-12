@@ -28,6 +28,7 @@
     <string name="text_btn_intro2">Upload Logo</string>
     <string name="text_btn_intro2_1">Tambah Data</string>
     <string name="text_btn_intro2_2">nanti saja</string>
+    <string name="price">Rp %1$.2f</string>
 
     <!--  Main Fragment String  -->
     <string name="title_laporan">Laporan Keuangan</string>
@@ -64,6 +65,10 @@
     <string name="product_example_name">Skullcandy S5LHZ-J576 Anti Headphone</string>
     <string name="edit">Edit</string>
     <string name="delete">Delete</string>
+    <string name="product_name_hint">Product Name</string>
+    <string name="total_product_hint">total product</string>
+    <string name="delete_product_confirmation">Apakah anda yakin ingin menghapus produk ?</string>
+
 
     <!--Checkout-->
     <string-array name="phoneCode">
