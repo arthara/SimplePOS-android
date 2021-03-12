@@ -9,6 +9,7 @@ interface BelanjaContract {
     }
 
     interface Presenter {
+        fun retrieveProducts()
     }
 
     interface Interactor {

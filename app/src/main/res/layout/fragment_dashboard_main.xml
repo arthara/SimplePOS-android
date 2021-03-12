@@ -162,7 +162,7 @@
                                     android:id="@+id/grossProfitTv"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:text="@string/gross_profit"
+                                    android:text="@string/price"
                                     android:maxLines="1"
                                     android:fontFamily="sans-serif"
                                     app:autoSizeTextType="uniform"
