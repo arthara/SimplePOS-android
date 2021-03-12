@@ -119,7 +119,7 @@
         </androidx.cardview.widget.CardView>
 
         <RelativeLayout
-            android:id="@+id/relativeLayout"
+            android:id="@+id/storeConfigurationBtn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="50dp"
@@ -163,7 +163,7 @@
 
         <!--Pengaturan Pembayaran-->
         <RelativeLayout
-            android:id="@+id/relativeLayout2"
+            android:id="@+id/struckConfigurationBtn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="50dp"
@@ -173,7 +173,7 @@
             app:layout_constraintHorizontal_bias="0.0"
 
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/relativeLayout"
+            app:layout_constraintTop_toBottomOf="@+id/storeConfigurationBtn"
             app:layout_constraintVertical_bias="0.058">
 
             <ImageView
@@ -205,17 +205,17 @@
         </RelativeLayout>
 
         <RelativeLayout
-            android:id="@+id/relativeLayout3"
+            android:id="@+id/paymentConfigurationBtn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="50dp"
             android:layout_marginEnd="50dp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@+id/relativeLayout2"
+            app:layout_constraintEnd_toEndOf="@+id/struckConfigurationBtn"
             app:layout_constraintHorizontal_bias="0.56"
 
-            app:layout_constraintStart_toStartOf="@+id/relativeLayout2"
-            app:layout_constraintTop_toBottomOf="@+id/relativeLayout2"
+            app:layout_constraintStart_toStartOf="@+id/struckConfigurationBtn"
+            app:layout_constraintTop_toBottomOf="@+id/struckConfigurationBtn"
             app:layout_constraintVertical_bias="0.095">
 
             <ImageView
@@ -264,7 +264,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/relativeLayout3"
+            app:layout_constraintTop_toBottomOf="@+id/paymentConfigurationBtn"
             app:layout_constraintVertical_bias="0.808" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

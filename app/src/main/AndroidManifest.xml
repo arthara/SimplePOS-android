@@ -44,6 +44,7 @@
             android:screenOrientation="portrait" />
         <activity android:name=".modul.newcategory.NewCategoryActivity"/>
         <activity android:name=".modul.editcategory.EditCategoryActivity"/>
+        <activity android:name=".modul.profiluser.ProfileUserActivity"/>
 
         <meta-data
             android:name="preloaded_fonts"
