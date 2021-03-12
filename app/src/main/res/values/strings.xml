@@ -96,4 +96,6 @@
     <string name="nama_bisnis">Nama Bisnis</string>
     <string name="nomor_telepon">Nomor Telepon</string>
 
+    <!--Store Fragment-->
+    <string name="stock_product">Stok %d</string>
 </resources>
