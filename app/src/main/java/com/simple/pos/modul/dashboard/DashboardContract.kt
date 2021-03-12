@@ -8,7 +8,7 @@ interface DashboardContract {
         fun changePageToMain()
         fun changePageToShopping()
         fun changePageToInventory()
-        fun changePageToAccount()
+        fun redirectToAccount()
         fun redirectToCheckout()
         fun redirectToStoreInput()
     }

@@ -9,6 +9,7 @@ import com.simple.pos.R
 import com.simple.pos.modul.dashboard.fragment.belanja.BelanjaFragment
 import com.simple.pos.modul.dashboard.fragment.inventory.InventoryFragment
 import com.simple.pos.modul.dashboard.fragment.main.MainFragment
+import com.simple.pos.modul.profiluser.ProfileUserActivity
 import com.simple.pos.modul.storeinput.StoreInputActivity
 
 class DashboardActivity: AppCompatActivity(), DashboardContract.View{
@@ -28,12 +29,12 @@ class DashboardActivity: AppCompatActivity(), DashboardContract.View{
     private fun initializeBottomNavBarClick() {
         val bottomNav = findViewById<BottomNavigationView>(R.id.bottomNavBar)
 
-        //TODO: Add case for other page
         bottomNav.setOnNavigationItemSelectedListener(BottomNavigationView.OnNavigationItemSelectedListener {
             when(it.itemId){
                 R.id.mainMenuItem->changePageToMain()
                 R.id.inventoryMenuItem->changePageToInventory()
                 R.id.shopMenuItem->changePageToShopping()
+                R.id.accountMenuItem->redirectToAccount()
             }
             return@OnNavigationItemSelectedListener true
         })
@@ -69,8 +70,10 @@ class DashboardActivity: AppCompatActivity(), DashboardContract.View{
         showChangedPage()
     }
 
-    override fun changePageToAccount() {
-        TODO("Not yet implemented")
+    override fun redirectToAccount() {
+        val intent = Intent(this, ProfileUserActivity::class.java)
+
+        startActivity(intent)
     }
 
     override fun redirectToCheckout() {
