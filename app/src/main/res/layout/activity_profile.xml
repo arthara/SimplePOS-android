@@ -71,7 +71,6 @@
             android:layout_marginBottom="55dp"
             android:padding="20dp"
             app:cardCornerRadius="25dp"
-            app:layout_constraintBottom_toStartOf="@+id/relativeLayout"
             app:layout_constraintBottom_toTopOf="@+id/relativeLayout"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.494"
