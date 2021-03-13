@@ -71,7 +71,7 @@
             android:layout_marginBottom="35dp"
             android:padding="20dp"
             app:cardCornerRadius="25dp"
-            app:layout_constraintBottom_toTopOf="@+id/relativeLayout"
+            app:layout_constraintBottom_toTopOf="@+id/rlProfile"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.494"
             app:layout_constraintStart_toStartOf="parent"
@@ -127,7 +127,7 @@
         <!--Pengaturan Pembayaran-->
 
         <RelativeLayout
-            android:id="@+id/relativeLayout"
+            android:id="@+id/rlProfile"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="50dp"
@@ -166,7 +166,7 @@
         </RelativeLayout>
 
         <RelativeLayout
-            android:id="@+id/relativeLayout2"
+            android:id="@+id/rlProfile2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="50dp"
@@ -176,7 +176,7 @@
             app:layout_constraintHorizontal_bias="0.0"
 
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/relativeLayout"
+            app:layout_constraintTop_toBottomOf="@+id/rlProfile"
             app:layout_constraintVertical_bias="0.058">
 
             <ImageView
@@ -208,17 +208,17 @@
         </RelativeLayout>
 
         <RelativeLayout
-            android:id="@+id/relativeLayout3"
+            android:id="@+id/rlProfile3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="50dp"
             android:layout_marginEnd="50dp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@+id/relativeLayout2"
+            app:layout_constraintEnd_toEndOf="@+id/rlProfile2"
             app:layout_constraintHorizontal_bias="0.56"
 
-            app:layout_constraintStart_toStartOf="@+id/relativeLayout2"
-            app:layout_constraintTop_toBottomOf="@+id/relativeLayout2"
+            app:layout_constraintStart_toStartOf="@+id/rlProfile2"
+            app:layout_constraintTop_toBottomOf="@+id/rlProfile2"
             app:layout_constraintVertical_bias="0.095">
 
             <ImageView
@@ -267,7 +267,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/relativeLayout3"
+            app:layout_constraintTop_toBottomOf="@+id/rlProfile3"
             app:layout_constraintVertical_bias="0.808" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
