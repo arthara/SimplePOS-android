@@ -17,7 +17,6 @@
             android:id="@+id/topNav"
             android:layout_width="match_parent"
             android:layout_height="170dp"
-            android:layout_marginBottom="5dp"
             android:orientation="vertical"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
@@ -34,6 +33,7 @@
                     android:id="@+id/ivBackArrow"
                     android:layout_width="26dp"
                     android:layout_height="24dp"
+                    android:background="@android:color/transparent"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.067"
@@ -41,9 +41,7 @@
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintVertical_bias="0.191"
                     app:srcCompat="@drawable/ic_back_arrow"
-                    app:tint="@color/white"
-                    android:background="@android:color/transparent"
-                    />
+                    app:tint="@color/white" />
 
                 <TextView
                     android:id="@+id/profilView"
@@ -66,14 +64,15 @@
         <androidx.cardview.widget.CardView
             android:id="@+id/cardView5"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:padding="20dp"
-            app:cardCornerRadius="15dp"
+            android:layout_height="0dp"
             android:layout_marginStart="45dp"
-            android:layout_marginEnd="45dp"
-            android:layout_marginBottom="400dp"
             android:layout_marginTop="75dp"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginEnd="45dp"
+            android:layout_marginBottom="55dp"
+            android:padding="20dp"
+            app:cardCornerRadius="25dp"
+            app:layout_constraintBottom_toStartOf="@+id/relativeLayout"
+            app:layout_constraintBottom_toTopOf="@+id/relativeLayout"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.494"
             app:layout_constraintStart_toStartOf="parent"
@@ -124,19 +123,21 @@
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.cardview.widget.CardView>
 
+        <!--Pengaturan Struk-->
+
+        <!--Pengaturan Pembayaran-->
+
         <RelativeLayout
             android:id="@+id/relativeLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="50dp"
+            android:layout_marginTop="136dp"
             android:layout_marginEnd="50dp"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/cardView5"
-
-            app:layout_constraintVertical_bias="0.081">
+            app:layout_constraintTop_toBottomOf="@+id/topNav">
 
             <ImageView
                 android:id="@+id/ivStoreImg"
@@ -165,9 +166,6 @@
                 android:src="@drawable/ic_arrow_go" />
         </RelativeLayout>
 
-        <!--Pengaturan Struk-->
-
-        <!--Pengaturan Pembayaran-->
         <RelativeLayout
             android:id="@+id/relativeLayout2"
             android:layout_width="match_parent"
