@@ -6,14 +6,17 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.simple.pos.R
+import com.simple.pos.modul.dashboard.fragment.belanja.BelanjaFragment
 import com.simple.pos.modul.dashboard.fragment.inventory.InventoryFragment
 import com.simple.pos.modul.dashboard.fragment.main.MainFragment
+import com.simple.pos.modul.profiluser.ProfileUserActivity
 import com.simple.pos.modul.storeinput.StoreInputActivity
 
 class DashboardActivity: AppCompatActivity(), DashboardContract.View{
     private var selectedFragment: Fragment? = null
     private var mainFragment: MainFragment? = null
     private var inventoryFragment: InventoryFragment? = null
+    private var belanjaFragment: BelanjaFragment? = null
     private val presenter = DashboardPresenter(this)
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -26,11 +29,12 @@ class DashboardActivity: AppCompatActivity(), DashboardContract.View{
     private fun initializeBottomNavBarClick() {
         val bottomNav = findViewById<BottomNavigationView>(R.id.bottomNavBar)
 
-        //TODO: Add case for other page
         bottomNav.setOnNavigationItemSelectedListener(BottomNavigationView.OnNavigationItemSelectedListener {
             when(it.itemId){
                 R.id.mainMenuItem->changePageToMain()
                 R.id.inventoryMenuItem->changePageToInventory()
+                R.id.shopMenuItem->changePageToShopping()
+                R.id.accountMenuItem->redirectToAccount()
             }
             return@OnNavigationItemSelectedListener true
         })
@@ -51,7 +55,11 @@ class DashboardActivity: AppCompatActivity(), DashboardContract.View{
     }
 
     override fun changePageToShopping() {
-        TODO("Not yet implemented")
+        if(belanjaFragment == null)
+            belanjaFragment = BelanjaFragment()
+
+        selectedFragment = belanjaFragment
+        showChangedPage()
     }
 
     override fun changePageToInventory() {
@@ -62,8 +70,10 @@ class DashboardActivity: AppCompatActivity(), DashboardContract.View{
         showChangedPage()
     }
 
-    override fun changePageToAccount() {
-        TODO("Not yet implemented")
+    override fun redirectToAccount() {
+        val intent = Intent(this, ProfileUserActivity::class.java)
+
+        startActivity(intent)
     }
 
     override fun redirectToCheckout() {

@@ -28,7 +28,7 @@
     <string name="text_btn_intro2">Upload Logo</string>
     <string name="text_btn_intro2_1">Tambah Data</string>
     <string name="text_btn_intro2_2">nanti saja</string>
-
+    <string name="price">Rp %1$.2f</string>
 
     <!--  Main Fragment String  -->
     <string name="title_laporan">Laporan Keuangan</string>
@@ -45,6 +45,7 @@
     <string name="top_total">%1$d unit</string>
     <string name="date">%1$d-%2$d-%3$d</string>
     <string name="no_product_sold">Tidak ada produk yang terjual</string>
+    <string name="cashflowharian_fab">Cash Flow Harian</string>
 
     <!--  Inventory Fragment String  -->
     <string name="product_stock">Stok Produk</string>
@@ -52,6 +53,7 @@
     <string name="add_category">Tambah Kategori</string>
     <string name="delete_category_confirmation">Apakah anda yang ingin menghapus kategori ini ?</string>
     <string name="category_name_hint">Nama Kategori</string>
+    <string name="category_hexcolor_hint">Kode Hex Warna</string>
 
     <!-- Universal String    -->
     <string name="cancel">Batalkan</string>
@@ -63,6 +65,10 @@
     <string name="product_example_name">Skullcandy S5LHZ-J576 Anti Headphone</string>
     <string name="edit">Edit</string>
     <string name="delete">Delete</string>
+    <string name="product_name_hint">Product Name</string>
+    <string name="total_product_hint">total product</string>
+    <string name="delete_product_confirmation">Apakah anda yakin ingin menghapus produk ?</string>
+
 
     <!--Checkout-->
     <string-array name="phoneCode">
@@ -91,4 +97,6 @@
     <string name="nomor_telepon">Nomor Telepon</string>
     <string name="_20_desember_2021">20 Desember 2021</string>
 
+    <!--Store Fragment-->
+    <string name="stock_product">Stok %d</string>
 </resources>

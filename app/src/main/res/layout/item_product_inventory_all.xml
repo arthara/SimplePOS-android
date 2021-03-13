@@ -4,7 +4,9 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <data>
-
+        <variable
+            name="product"
+            type="com.simple.pos.shared.model.Product" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -59,14 +61,16 @@
 
                 <TextView
                     android:id="@+id/tvPrudukInvAll"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="20dp"
                     android:layout_marginTop="5dp"
                     android:layout_marginEnd="16dp"
                     android:layout_marginBottom="15dp"
                     android:fontFamily="@font/roboto_regular"
-                    android:text="Skullcandy S5LHZ-J576 Anti Headphone "
+                    android:text="@{product.name}"
+                    android:hint="@string/product_name_hint"
+                    android:gravity="center"
                     android:textColor="@color/black"
                     android:textSize="14sp"
                     app:layout_constraintBottom_toTopOf="@+id/cardView"
@@ -77,17 +81,19 @@
                     app:layout_constraintVertical_bias="0.0" />
 
                 <TextView
-                    android:id="@+id/tvPriceProductInvAll"
-                    android:layout_width="wrap_content"
+                    android:id="@+id/priceProductInvAllTV"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
                     android:fontFamily="@font/poppins"
-                    android:text="Rp 500"
+                    android:hint="@string/price"
+                    android:text="@{String.format(@string/price, product.sellingPrice)}"
                     android:textColor="@color/lightblue"
                     android:textSize="14sp"
+                    android:gravity="center"
+                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/tvPrudukInvAll"
                     app:layout_constraintVertical_bias="0.0" />
 
@@ -103,7 +109,7 @@
                     app:layout_constraintHorizontal_bias="0.498"
 
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/tvPriceProductInvAll"
+                    app:layout_constraintTop_toBottomOf="@+id/priceProductInvAllTV"
                     app:layout_constraintVertical_bias="0.0" />
 
                 <RelativeLayout
@@ -139,7 +145,8 @@
                         android:layout_centerHorizontal="true"
                         android:layout_centerVertical="true"
                         android:gravity="center"
-                        android:text="0"
+                        android:hint="@string/total_product_hint"
+                        android:text="@{String.valueOf(product.total)}"
                         android:textSize="24sp" />
 
                     <ImageButton
@@ -159,7 +166,7 @@
 
 
                 <Button
-                    android:id="@+id/updateButton"
+                    android:id="@+id/updateProductBtn"
                     android:layout_width="86dp"
                     android:layout_height="37dp"
                     android:gravity="center|center_horizontal|center_vertical"
@@ -175,7 +182,7 @@
                     app:layout_constraintVertical_bias="0.214" />
 
                 <Button
-                    android:id="@+id/deleteButton"
+                    android:id="@+id/deleteProductBtn"
                     android:layout_width="86dp"
                     android:layout_height="37dp"
                     android:gravity="center|center_horizontal|center_vertical"
@@ -188,7 +195,7 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.498"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/updateButton"
+                    app:layout_constraintTop_toBottomOf="@+id/updateProductBtn"
                     app:layout_constraintVertical_bias="0.157" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>

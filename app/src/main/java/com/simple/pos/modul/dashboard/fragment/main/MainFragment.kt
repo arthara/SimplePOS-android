@@ -8,7 +8,6 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.DatePicker
 import android.widget.TextView
-import androidx.cardview.widget.CardView
 import androidx.fragment.app.Fragment
 import com.simple.pos.R
 import com.simple.pos.modul.dashboard.fragment.main.model.TopSales
@@ -84,7 +83,7 @@ class MainFragment : Fragment(), MainContract.View, View.OnClickListener, DatePi
                 getString(R.string.total_sales, totalSales.totalSales)
 
         view?.findViewById<TextView>(R.id.grossProfitTv)?.text =
-                getString(R.string.gross_profit, totalSales.grossProfit)
+                getString(R.string.price, totalSales.grossProfit)
     }
 
     override fun onDateSet(p0: DatePicker?, year: Int, month: Int, dayOfMonth: Int) {
