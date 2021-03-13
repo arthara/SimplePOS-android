@@ -30,7 +30,7 @@
                 android:layout_height="match_parent"
                 android:background="@drawable/bg_profile_dashboard">
 
-                <ImageView
+                <ImageButton
                     android:id="@+id/ivBackArrow"
                     android:layout_width="26dp"
                     android:layout_height="24dp"
@@ -41,7 +41,9 @@
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintVertical_bias="0.191"
                     app:srcCompat="@drawable/ic_back_arrow"
-                    app:tint="@color/white" />
+                    app:tint="@color/white"
+                    android:background="@android:color/transparent"
+                    />
 
                 <TextView
                     android:id="@+id/profilView"
@@ -63,10 +65,14 @@
 
         <androidx.cardview.widget.CardView
             android:id="@+id/cardView5"
-            android:layout_width="300dp"
-            android:layout_height="160dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:padding="20dp"
             app:cardCornerRadius="15dp"
+            android:layout_marginStart="45dp"
+            android:layout_marginEnd="45dp"
+            android:layout_marginBottom="400dp"
+            android:layout_marginTop="75dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.494"
