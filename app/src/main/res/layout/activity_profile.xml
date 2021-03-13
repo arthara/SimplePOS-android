@@ -17,6 +17,7 @@
             android:id="@+id/topNav"
             android:layout_width="match_parent"
             android:layout_height="170dp"
+            android:layout_marginBottom="5dp"
             android:orientation="vertical"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
@@ -29,11 +30,10 @@
                 android:layout_height="match_parent"
                 android:background="@drawable/bg_profile_dashboard">
 
-                <ImageButton
+                <ImageView
                     android:id="@+id/ivBackArrow"
                     android:layout_width="26dp"
                     android:layout_height="24dp"
-                    android:background="@android:color/transparent"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.067"
@@ -65,18 +65,17 @@
             android:id="@+id/cardView5"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:layout_marginStart="45dp"
-            android:layout_marginTop="75dp"
-            android:layout_marginEnd="45dp"
-            android:layout_marginBottom="35dp"
             android:padding="20dp"
-            app:cardCornerRadius="25dp"
-            app:layout_constraintBottom_toTopOf="@+id/rlProfile"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:cardCornerRadius="15dp"
+            android:layout_marginTop="75dp"
+            android:layout_marginBottom="30dp"
+            app:layout_constraintBottom_toTopOf="@+id/storeConfigurationBtn"
+            app:layout_constraintEnd_toEndOf="@+id/storeConfigurationBtn"
             app:layout_constraintHorizontal_bias="0.494"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/storeConfigurationBtn"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.15">
+            app:layout_constraintVertical_bias="0.5"
+            app:layout_goneMarginEnd="50dp">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
@@ -127,16 +126,18 @@
         <!--Pengaturan Pembayaran-->
 
         <RelativeLayout
-            android:id="@+id/rlProfile"
+            android:id="@+id/storeConfigurationBtn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="50dp"
-            android:layout_marginTop="104dp"
             android:layout_marginEnd="50dp"
+
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/topNav">
+            app:layout_constraintTop_toBottomOf="@+id/topNav"
+            app:layout_constraintVertical_bias="0.212">
 
             <ImageView
                 android:id="@+id/ivStoreImg"
@@ -166,7 +167,7 @@
         </RelativeLayout>
 
         <RelativeLayout
-            android:id="@+id/rlProfile2"
+            android:id="@+id/struckConfigurationBtn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="50dp"
@@ -176,7 +177,7 @@
             app:layout_constraintHorizontal_bias="0.0"
 
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/rlProfile"
+            app:layout_constraintTop_toBottomOf="@+id/storeConfigurationBtn"
             app:layout_constraintVertical_bias="0.058">
 
             <ImageView
@@ -208,17 +209,17 @@
         </RelativeLayout>
 
         <RelativeLayout
-            android:id="@+id/rlProfile3"
+            android:id="@+id/paymentConfigurationBtn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="50dp"
             android:layout_marginEnd="50dp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@+id/rlProfile2"
+            app:layout_constraintEnd_toEndOf="@+id/struckConfigurationBtn"
             app:layout_constraintHorizontal_bias="0.56"
 
-            app:layout_constraintStart_toStartOf="@+id/rlProfile2"
-            app:layout_constraintTop_toBottomOf="@+id/rlProfile2"
+            app:layout_constraintStart_toStartOf="@+id/struckConfigurationBtn"
+            app:layout_constraintTop_toBottomOf="@+id/struckConfigurationBtn"
             app:layout_constraintVertical_bias="0.095">
 
             <ImageView
@@ -267,7 +268,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/rlProfile3"
+            app:layout_constraintTop_toBottomOf="@+id/paymentConfigurationBtn"
             app:layout_constraintVertical_bias="0.808" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
