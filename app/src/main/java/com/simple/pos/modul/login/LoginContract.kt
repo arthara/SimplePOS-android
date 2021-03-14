@@ -15,6 +15,7 @@ interface LoginContract {
         fun saveToken(apiToken: Token)
         fun requestUser(apiToken: Token)
         fun saveUser(user: User)
+        fun automaticallyLogin()
     }
 
     interface Interactor {

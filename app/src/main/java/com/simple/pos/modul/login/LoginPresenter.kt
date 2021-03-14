@@ -1,10 +1,12 @@
 package com.simple.pos.modul.login
 
 import android.util.Log
+import com.simple.pos.base.util.UtilProvider
 import com.simple.pos.shared.callback.RequestCallback
 import com.simple.pos.shared.extension.TAG
 import com.simple.pos.shared.model.Token
 import com.simple.pos.shared.model.User
+import com.simple.pos.shared.util.TokenUtil
 
 class LoginPresenter(private val view: LoginContract.View): LoginContract.Presenter {
     private val loginInteractor = LoginInteractor()
@@ -50,5 +52,12 @@ class LoginPresenter(private val view: LoginContract.View): LoginContract.Presen
     override fun saveUser(user: User) {
         Log.d(TAG, "saveUser: Save user to SharedPrefs")
         loginInteractor.requestSaveUser(user)
+    }
+
+    override fun automaticallyLogin() {
+        val token = (UtilProvider.getUtil(TokenUtil::class.java) as TokenUtil).sessionData
+
+        if(token != null)
+            requestUser(token)
     }
 }
