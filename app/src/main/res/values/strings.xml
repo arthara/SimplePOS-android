@@ -98,4 +98,5 @@
 
     <!--Store Fragment-->
     <string name="stock_product">Stok %d</string>
+    <string name="total_item">%d item</string>
 </resources>

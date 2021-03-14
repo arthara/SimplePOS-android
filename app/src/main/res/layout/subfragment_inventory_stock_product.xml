@@ -103,9 +103,11 @@
             android:textStyle="bold" />
 
         <TextView
+            android:id="@+id/stockTotalItemTv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="15 Item"
+            android:hint="@string/total_item"
             android:layout_marginEnd="20dp"
             android:textStyle="bold"
             android:layout_alignParentEnd="true"
