@@ -56,8 +56,10 @@ class ProfileUserActivity: AppCompatActivity(), ProfileUserContract.View {
     }
 
     override fun redirectToLogin() {
-        startActivity(Intent(this,
-                LoginActivity::class.java))
+        val intent = Intent(this, LoginActivity::class.java)
+
+        setResult(RESULT_OK)
+        startActivity(intent)
         finish()
     }
 
