@@ -19,11 +19,26 @@ class DashboardActivity: AppCompatActivity(), DashboardContract.View{
     private var belanjaFragment: BelanjaFragment? = null
     private val presenter = DashboardPresenter(this)
 
+    companion object {
+        private const val LOGOUT_REQUEST_CODE = 100
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_dashboard)
         presenter.askStore()
         initializeBottomNavBarClick()
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        when(requestCode){
+            LOGOUT_REQUEST_CODE->{
+                // close this activity when user log out
+                if(resultCode == RESULT_OK)
+                    finish()
+            }
+        }
     }
 
     private fun initializeBottomNavBarClick() {
@@ -73,7 +88,7 @@ class DashboardActivity: AppCompatActivity(), DashboardContract.View{
     override fun redirectToAccount() {
         val intent = Intent(this, ProfileUserActivity::class.java)
 
-        startActivity(intent)
+        startActivityForResult(intent, LOGOUT_REQUEST_CODE)
     }
 
     override fun redirectToCheckout() {
