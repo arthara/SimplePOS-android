@@ -27,6 +27,7 @@ class LoginActivity: AppCompatActivity(), LoginContract.View {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        presenter.automaticallyLogin()
         binding = DataBindingUtil.setContentView(this, R.layout.activity_login)
 
         initializeButtons()
