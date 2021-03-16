@@ -1,6 +1,7 @@
 package com.simple.pos.modul.dashboard.fragment.main
 
 import android.app.DatePickerDialog
+import android.graphics.Color
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -8,10 +9,13 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.DatePicker
 import android.widget.TextView
+import androidx.cardview.widget.CardView
 import androidx.fragment.app.Fragment
 import com.simple.pos.R
 import com.simple.pos.modul.dashboard.fragment.main.model.TopSales
 import com.simple.pos.modul.dashboard.fragment.main.model.TotalSales
+import com.simple.pos.shared.model.Category
+import com.simple.pos.shared.model.Product
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -51,31 +55,35 @@ class MainFragment : Fragment(), MainContract.View, View.OnClickListener, DatePi
         datePickerDialog?.show()
     }
 
-    override fun showTopSales(topSales: TopSales) {
-        var productName =
-                if(topSales.product == null)
-                    getString(R.string.no_product_sold)
-                else
-                    topSales.product?.name
-        var categoryName =
-                if(topSales.category == null)
-                    getString(R.string.no_product_sold)
-                else
-                    topSales.category?.name
+    private fun showTopCategory(category: Category?, total: Int){
+        // set color to transparent if category is null
+        view?.findViewById<CardView>(R.id.topCategoryColorCv)?.setCardBackgroundColor(
+                category?.getParsedColor()?: Color.TRANSPARENT
+        )
 
-        view?.findViewById<TextView>(R.id.topProductNameTv)?.text = productName
+        // set name to no product sold if category is null
+        view?.findViewById<TextView>(R.id.topCategoryNameTv)?.text =
+                category?.name ?: getString(R.string.no_product_sold)
 
-        view?.findViewById<TextView>(R.id.topProductTotalTv)?.text =
-                getString(R.string.top_total, topSales.totalProduct)
-
-        view?.findViewById<TextView>(R.id.topCategoryNameTv)?.text = categoryName
-
+        // set total category sold
         view?.findViewById<TextView>(R.id.topCategoryTotalTv)?.text =
-                getString(R.string.top_total, topSales.totalCategory)
+                getString(R.string.top_total, total)
+    }
 
-        //view?.findViewById<CardView>(R.id.categoryColorInv)?.setCardBackgroundColor(topSales.category.getParsedColor())
-        //view?.findViewById<Button>(R.id.categoryColorInv)?.setBackgroundColor(topSales.category?.getParsedColor()!!)
-        //view?.findViewById<CardView>(R.id.categoryColorInv)?.setBackgroundColor(Color.GREEN)
+    private fun showTopProduct(product: Product?, total: Int){
+        // TODO: Show product's image
+        // set name to no product sold if category is null
+        view?.findViewById<TextView>(R.id.topProductNameTv)?.text =
+                product?.name ?: getString(R.string.no_product_sold)
+
+        // set total product sold
+        view?.findViewById<TextView>(R.id.topProductTotalTv)?.text =
+                getString(R.string.top_total, total)
+    }
+
+    override fun showTopSales(topSales: TopSales) {
+        showTopCategory(topSales.category, topSales.totalCategory)
+        showTopProduct(topSales.product, topSales.totalProduct)
     }
 
     override fun showTotalSales(totalSales: TotalSales) {
