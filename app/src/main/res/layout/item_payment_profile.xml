@@ -4,8 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:paddingTop="10dp"
-    android:paddingBottom="10dp">
+    android:paddingTop="20dp"
+    android:paddingBottom="20dp"
+    android:layout_centerVertical="true"
+    >
 
     <TextView
         android:id="@+id/tvPaymentName"
@@ -40,7 +42,7 @@
         android:layout_width="20dp"
         android:layout_height="22dp"
         android:background="@drawable/ic_delete"
-        android:backgroundTint="@color/dark_black"
+        android:backgroundTint="@color/gray_3rd"
         app:layout_constraintBottom_toBottomOf="@+id/editPaymentBtn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.409"

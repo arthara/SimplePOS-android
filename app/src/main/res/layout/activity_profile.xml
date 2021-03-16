@@ -63,16 +63,19 @@
 
         <androidx.cardview.widget.CardView
             android:id="@+id/cardView5"
-            android:layout_width="300dp"
-            android:layout_height="160dp"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
             android:padding="20dp"
             app:cardCornerRadius="15dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="75dp"
+            android:layout_marginBottom="30dp"
+            app:layout_constraintBottom_toTopOf="@+id/storeConfigurationBtn"
+            app:layout_constraintEnd_toEndOf="@+id/storeConfigurationBtn"
             app:layout_constraintHorizontal_bias="0.494"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/storeConfigurationBtn"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.15">
+            app:layout_constraintVertical_bias="0.5"
+            app:layout_goneMarginEnd="50dp">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
@@ -118,19 +121,23 @@
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.cardview.widget.CardView>
 
+        <!--Pengaturan Struk-->
+
+        <!--Pengaturan Pembayaran-->
+
         <RelativeLayout
             android:id="@+id/storeConfigurationBtn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="50dp"
             android:layout_marginEnd="50dp"
+
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/cardView5"
-
-            app:layout_constraintVertical_bias="0.081">
+            app:layout_constraintTop_toBottomOf="@+id/topNav"
+            app:layout_constraintVertical_bias="0.212">
 
             <ImageView
                 android:id="@+id/ivStoreImg"
@@ -159,9 +166,6 @@
                 android:src="@drawable/ic_arrow_go" />
         </RelativeLayout>
 
-        <!--Pengaturan Struk-->
-
-        <!--Pengaturan Pembayaran-->
         <RelativeLayout
             android:id="@+id/struckConfigurationBtn"
             android:layout_width="match_parent"
