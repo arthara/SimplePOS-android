@@ -5,8 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@drawable/item_background"
-    >
-
+    android:layout_marginTop="4dp"
+    android:layout_marginBottom="4dp"   >
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -47,8 +47,8 @@
             android:textColor="@color/dark_black"
             android:textSize="16sp"
             app:autoSizeMinTextSize="10sp"
-            app:autoSizeTextType="uniform" />
-
+            app:autoSizeTextType="uniform"
+            android:layout_centerVertical="true"/>
 
         <TextView
             android:id="@+id/lblHargaBarangStruct"
@@ -61,8 +61,9 @@
             android:textColor="@color/dark_black"
             android:textSize="16sp"
             app:autoSizeMinTextSize="10sp"
-            app:autoSizeTextType="uniform" />
-
+            app:autoSizeTextType="uniform"
+            android:layout_centerVertical="true" />
+      
         <TextView
             android:id="@+id/lblTotalQTYPrice"
             android:layout_width="wrap_content"
@@ -76,7 +77,8 @@
             android:textColor="@color/dark_black"
             android:textSize="16sp"
             app:autoSizeMinTextSize="10sp"
-            app:autoSizeTextType="uniform" />
+            app:autoSizeTextType="uniform"
+            android:layout_centerVertical="true"/>     
 
     </RelativeLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
