@@ -41,7 +41,7 @@
         android:id="@+id/nav_bar1"
         layout="@layout/nav_bar1"
         android:layout_width="match_parent"
-        android:layout_height="90dp"
+        android:layout_height="87dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
