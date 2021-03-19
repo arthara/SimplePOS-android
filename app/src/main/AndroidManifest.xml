@@ -45,6 +45,7 @@
         <activity android:name=".modul.newcategory.NewCategoryActivity"/>
         <activity android:name=".modul.editcategory.EditCategoryActivity"/>
         <activity android:name=".modul.profiluser.ProfileUserActivity"/>
+        <activity android:name=".modul.dailycashflow.DailyCashflowActivity"/>
 
         <meta-data
             android:name="preloaded_fonts"
