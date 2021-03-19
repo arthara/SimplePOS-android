@@ -1,6 +1,7 @@
 package com.simple.pos.modul.dashboard.fragment.main
 
 import android.app.DatePickerDialog
+import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -12,6 +13,7 @@ import android.widget.TextView
 import androidx.cardview.widget.CardView
 import androidx.fragment.app.Fragment
 import com.simple.pos.R
+import com.simple.pos.modul.dailycashflow.DailyCashflowActivity
 import com.simple.pos.modul.dashboard.fragment.main.model.TopSales
 import com.simple.pos.modul.dashboard.fragment.main.model.TotalSales
 import com.simple.pos.shared.model.Category
@@ -28,8 +30,12 @@ class MainFragment : Fragment(), MainContract.View, View.OnClickListener, DatePi
                               container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(R.layout.fragment_dashboard_main, container, false)
-        view?.findViewById<Button>(R.id.datePickerBtn)?.setOnClickListener(this)
-        view?.findViewById<Button>(R.id.datePickerBtn)?.text = date
+
+        view?.findViewById<Button>(R.id.datePickerBtn)?.apply {
+            setOnClickListener(this@MainFragment)
+            text = date
+        }
+        view?.findViewById<Button>(R.id.cashflowharian_fab)?.setOnClickListener(this)
         presenter.askTopSales(date)
         presenter.askTotalSales(date)
         return view
@@ -39,6 +45,9 @@ class MainFragment : Fragment(), MainContract.View, View.OnClickListener, DatePi
         when(p0!!.id){
             R.id.datePickerBtn->{
                 openDatePicker()
+            }
+            R.id.cashflowharian_fab->{
+                redirectToDailyCashflow()
             }
         }
     }
@@ -92,6 +101,13 @@ class MainFragment : Fragment(), MainContract.View, View.OnClickListener, DatePi
 
         view?.findViewById<TextView>(R.id.grossProfitTv)?.text =
                 getString(R.string.price, totalSales.grossProfit)
+    }
+
+    override fun redirectToDailyCashflow() {
+        Intent(view?.context, DailyCashflowActivity::class.java).let {
+            it.putExtra(DailyCashflowActivity.DATE_BUNDLE_KEY, date)
+            startActivity(it)
+        }
     }
 
     override fun onDateSet(p0: DatePicker?, year: Int, month: Int, dayOfMonth: Int) {

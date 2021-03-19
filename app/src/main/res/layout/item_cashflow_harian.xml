@@ -3,7 +3,12 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <data>
-
+        <variable
+            name="sequence"
+            type="int" />
+        <variable
+            name="cashflow"
+            type="com.simple.pos.modul.dailycashflow.model.Cashflow" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -44,7 +49,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
                         android:fontFamily="@font/poppins"
-                        android:text="Nomor Resi"
+                        android:text="@{String.valueOf(sequence)}"
                         android:textColor="@color/dark_black"
                         android:textSize="18sp"
                         android:textStyle="bold"
@@ -61,7 +66,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="10dp"
                         android:fontFamily="@font/poppins_medium"
-                        android:text="Tunai"
+                        android:text="@{cashflow.paymentMethod}"
                         android:textSize="17sp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -75,7 +80,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/poppins_bold"
-                        android:text="Rp 200000"
+                        android:text = "@{String.format(@string/price, cashflow.profit)}"
+                        tools:text = "Rp 200000"
                         android:textColor="@color/receipt_color"
                         android:textSize="17sp"
                         app:layout_constraintBottom_toBottomOf="parent"
@@ -103,7 +109,8 @@
                         android:layout_alignParentStart="true"
                         android:fontFamily="@font/poppins"
                         android:textColor="@color/gray_secondary"
-                        android:text="4000 Item" />
+                        android:text="@{String.format(@string/total_item, cashflow.totalItemSold)}"
+                        tools:text="4000 Item"/>
 
                     <TextView
                         android:id="@+id/hour_receipt_created_txt"
@@ -114,9 +121,10 @@
                         android:layout_toEndOf="@id/items_in_receipt_txt"
                         android:fontFamily="@font/poppins"
                         android:textColor="@color/gray_secondary"
-                        android:text="14:00"
+                        android:text="@{cashflow.time}"
                         android:gravity="end"
                         android:layout_alignEnd="@id/items_in_receipt_txt"
+                        tools:text="14:00"
                         />
                 </RelativeLayout>
             </androidx.constraintlayout.widget.ConstraintLayout>
