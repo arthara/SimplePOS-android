@@ -20,6 +20,7 @@
             android:id="@+id/bottomNavBar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:theme="@style/Theme.AddCategory"
             android:background="@drawable/bg_bottom_nav"
             app:menu="@menu/activity_dashboard_menu"
             app:labelVisibilityMode="labeled">
