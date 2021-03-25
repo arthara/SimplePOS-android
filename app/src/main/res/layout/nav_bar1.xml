@@ -30,7 +30,7 @@
     </com.google.android.material.bottomappbar.BottomAppBar>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/btn_cariTiket"
+        android:id="@+id/checkoutBtn"
         app:backgroundTint="@color/lightblue"
         app:layout_anchor="@id/bottomAppBar1"
         app:fabSize="normal"

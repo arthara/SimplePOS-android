@@ -1,6 +1,7 @@
 package com.simple.pos.modul.dashboard.fragment.belanja
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.simple.pos.databinding.ItemProductStoreBinding
@@ -31,6 +32,26 @@ class BelanjaRecyclerAdapter(private val products: Array<Product>
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         holder.bind(products[position])
-        // TODO: Add on click to shop button
+
+        holder.binding.let {
+            //if there is no stock hide button
+            if(it.product!!.total == 0)
+                holder.binding.chooseProductBtn.visibility = View.GONE
+            it.chooseProductBtn.setOnClickListener {
+                // add product then hide button
+                view.chooseProduct(products[position])
+                holder.binding.chooseProductBtn.visibility = View.GONE
+            }
+        }
+    }
+
+    override fun getItemId(position: Int): Long {
+        // use product's id as id
+        return products[position].id.toLong()
+    }
+
+    // so button  doesnt go missing when recyclerview get scrolled
+    override fun getItemViewType(position: Int): Int {
+        return position
     }
 }
