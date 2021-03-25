@@ -33,4 +33,9 @@ class BelanjaRecyclerAdapter(private val products: Array<Product>
         holder.bind(products[position])
         // TODO: Add on click to shop button
     }
+
+    // so button  doesnt go missing when recyclerview get scrolled
+    override fun getItemViewType(position: Int): Int {
+        return position
+    }
 }
