@@ -113,14 +113,15 @@
 
                     <com.google.android.material.button.MaterialButton
                         android:id="@+id/btnLoadListMenuItemInventory"
-                        android:layout_width="wrap_content"
-                        android:layout_height="25dp"
                         style="?attr/borderlessButtonStyle"
-                        app:icon="@drawable/ic_cart"
-                        app:iconTint="@color/dark_black"
-                        app:iconGravity="end"
+                        android:layout_width="48dp"
+                        android:layout_height="16dp"
                         android:layout_alignParentEnd="true"
-                        />
+                        android:layout_marginStart="221dp"
+                        android:layout_toEndOf="@+id/tvStockValueAll"
+                        app:icon="@drawable/ic_more_circle"
+                        app:iconGravity="end"
+                        app:iconTint="@color/dark_black" />
                 </RelativeLayout>
 
             </LinearLayout>
