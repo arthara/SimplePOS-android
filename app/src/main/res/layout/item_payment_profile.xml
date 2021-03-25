@@ -15,7 +15,7 @@
         android:layout_height="wrap_content"
         android:maxWidth="150dp"
         android:layout_marginStart="28dp"
-        android:hint="GoPay"
+        tools:text="GoPay"
         android:textStyle="bold"
         android:textColor="@color/black"
         android:textColorHint="@color/black"
@@ -35,7 +35,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.799"
         app:layout_constraintStart_toEndOf="@+id/tvPaymentName"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:contentDescription="@string/edit" />
 
     <ImageButton
         android:id="@+id/deletePaymentBtn"
@@ -47,5 +48,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.409"
         app:layout_constraintStart_toEndOf="@+id/editPaymentBtn"
-        app:layout_constraintTop_toTopOf="@+id/editPaymentBtn" />
+        app:layout_constraintTop_toTopOf="@+id/editPaymentBtn"
+        android:contentDescription="@string/delete" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -40,6 +40,7 @@
             android:layout_marginHorizontal="10dp"
             android:text="@{category.name}"
             android:textColor="@color/black"
+            android:ellipsize="end"
             app:autoSizeTextType="uniform"
             app:autoSizeMinTextSize="10sp"
             app:autoSizeMaxTextSize="18sp"
@@ -62,7 +63,8 @@
             app:layout_constraintHorizontal_bias="0.89"
             app:layout_constraintStart_toEndOf="@+id/categoryColorInv"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.5" />
+            app:layout_constraintVertical_bias="0.5"
+            android:contentDescription="@string/update" />
 
         <ImageButton
             android:id="@+id/deleteCategoryBtn"
@@ -74,7 +76,8 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/editCategoryBtn"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            android:contentDescription="@string/delete" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

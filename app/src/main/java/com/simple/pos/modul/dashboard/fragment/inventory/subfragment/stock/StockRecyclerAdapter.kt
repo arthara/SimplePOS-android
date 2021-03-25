@@ -1,15 +1,21 @@
 package com.simple.pos.modul.dashboard.fragment.inventory.subfragment.stock
 
+import android.content.Context
+import android.nfc.Tag
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.appcompat.widget.PopupMenu
 import androidx.recyclerview.widget.RecyclerView
 import com.simple.pos.R
 import com.simple.pos.databinding.ItemProductInventoryAllBinding
 import com.simple.pos.shared.model.Product
 
-class StockRecyclerAdapter(private val products: Array<Product>
-                           , private val view: StockContract.View)
+class StockRecyclerAdapter(private val products: Array<Product>, private val view: StockContract.View)
     : RecyclerView.Adapter<StockRecyclerAdapter.MyViewHolder>(){
+
+
+    private lateinit var context: Context
 
     class MyViewHolder(val binding: ItemProductInventoryAllBinding):
             RecyclerView.ViewHolder(binding.root) {
@@ -22,7 +28,7 @@ class StockRecyclerAdapter(private val products: Array<Product>
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
         val binding = ItemProductInventoryAllBinding.inflate(layoutInflater, parent, false)
-
+        this.context = parent.context
         return MyViewHolder(binding)
     }
 
@@ -32,11 +38,26 @@ class StockRecyclerAdapter(private val products: Array<Product>
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         holder.bind(products[position])
-        holder.binding.updateProductBtn.setOnClickListener{
+/*        holder.binding.updateProductBtn.setOnClickListener{
             view.redirectToUpdateProduct(products[position])
         }
         holder.binding.deleteProductBtn.setOnClickListener {
             view.showDeleteConfirmation(products[position])
+        }*/
+        holder.binding.btnLoadListMenuItemInventory.setOnClickListener{
+            val popup = PopupMenu(context, holder.itemView)
+            popup.setOnMenuItemClickListener{
+                item -> when(item.itemId){
+                    R.id.updatemenu ->{
+                        view.redirectToUpdateProduct(products[position])
+                        return@setOnMenuItemClickListener true
+                    }
+                    R.id.deletemenu ->{
+                        view.showDeleteConfirmation(products[position])
+                        return@setOnMenuItemClickListener true
+                    }else -> false
+                }
+            }
         }
     }
 }

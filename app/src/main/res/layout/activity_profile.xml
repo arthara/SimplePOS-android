@@ -41,7 +41,8 @@
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintVertical_bias="0.191"
                     app:srcCompat="@drawable/ic_back_arrow"
-                    app:tint="@color/white" />
+                    app:tint="@color/white"
+                    android:contentDescription="@string/back" />
 
                 <TextView
                     android:id="@+id/profilView"
@@ -88,7 +89,8 @@
                     android:background="@color/white"
                     android:fontFamily="@font/roboto_bold"
                     android:maxWidth="220dp"
-                    android:text="Hampriyono Agung Susilo"
+                    android:maxLines="2"
+                    tools:text="Hampriyono Agung Susilo"
                     android:textColor="@color/dark_black"
                     android:textSize="20sp"
                     app:autoSizeMinTextSize="18sp"
@@ -106,7 +108,7 @@
                     android:layout_height="0dp"
                     android:layout_marginTop="10dp"
                     android:layout_marginBottom="20dp"
-                    android:text="Nama Toko Saat Ini"
+                    tools:text="Nama Toko Saat Ini"
                     android:textColor="@color/gray_secondary"
                     app:autoSizeMaxTextSize="18sp"
                     app:autoSizeMinTextSize="8sp"
@@ -144,7 +146,8 @@
                 android:layout_width="30dp"
                 android:layout_height="35dp"
                 android:layout_alignParentStart="true"
-                android:src="@drawable/ic_shop" />
+                android:src="@drawable/ic_shop"
+                android:contentDescription="@string/shop" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -163,7 +166,8 @@
                 android:layout_alignParentEnd="true"
                 android:layout_centerVertical="true"
                 android:layout_marginEnd="10dp"
-                android:src="@drawable/ic_arrow_go" />
+                android:src="@drawable/ic_arrow_go"
+                android:contentDescription="@string/arrow_go" />
         </RelativeLayout>
 
         <RelativeLayout
@@ -181,12 +185,12 @@
             app:layout_constraintVertical_bias="0.058">
 
             <ImageView
-
                 android:id="@+id/ivStruckImg"
                 android:layout_width="30dp"
                 android:layout_height="35dp"
                 android:layout_alignParentStart="true"
-                android:src="@drawable/ic_terms_conditions" />
+                android:src="@drawable/ic_terms_conditions"
+                android:contentDescription="@string/struk" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -205,7 +209,8 @@
                 android:layout_alignParentEnd="true"
                 android:layout_centerVertical="true"
                 android:layout_marginEnd="10dp"
-                android:src="@drawable/ic_arrow_go" />
+                android:src="@drawable/ic_arrow_go"
+                android:contentDescription="@string/arrow_go" />
         </RelativeLayout>
 
         <RelativeLayout
@@ -223,14 +228,17 @@
             app:layout_constraintVertical_bias="0.095">
 
             <ImageView
-
                 android:id="@+id/ivPaymentImg"
                 android:layout_width="30dp"
                 android:layout_height="35dp"
                 android:layout_alignParentStart="true"
-                android:src="@drawable/ic_payment_config" />
+                android:src="@drawable/ic_payment_config"
+                android:contentDescription="@string/payment"
+
+                />
 
             <TextView
+                android:id="@+id/tvStructConf"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
@@ -247,7 +255,8 @@
                 android:layout_alignParentEnd="true"
                 android:layout_centerVertical="true"
                 android:layout_marginEnd="10dp"
-                android:src="@drawable/ic_arrow_go" />
+                android:src="@drawable/ic_arrow_go"
+                android:contentDescription="@string/arrow_go" />
         </RelativeLayout>
 
 
@@ -260,7 +269,7 @@
             android:fontFamily="@font/roboto_bold"
             android:paddingStart="20dp"
             android:paddingEnd="20dp"
-            android:text="Logout"
+            android:text="@string/logout"
             android:textColor="@color/white"
             android:layout_marginStart="120dp"
             android:layout_marginEnd="120dp"
