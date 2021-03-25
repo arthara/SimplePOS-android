@@ -11,11 +11,13 @@ interface DashboardContract {
         fun redirectToAccount()
         fun redirectToCheckout()
         fun redirectToStoreInput()
+        fun showNoItemInCheckoutError()
     }
 
     interface Presenter {
         fun askStore()
         fun saveStore(store: Store)
+        fun redirectingToCheckout()
     }
 
     interface Interactor {

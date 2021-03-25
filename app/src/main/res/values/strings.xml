@@ -99,4 +99,10 @@
     <!--Store Fragment-->
     <string name="stock_product">Stok %d</string>
     <string name="total_item">%d item</string>
+
+    <!--  Dashboard Activity  -->
+    <string name="no_item_in_checkout">Belum Ada Produk Yang Dipilih</string>
+
+    <!--  Checkout Activity  -->
+    <string name="invalid_unit_total">Total item harus diantara 1 - %d</string>
 </resources>
