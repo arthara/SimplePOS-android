@@ -9,6 +9,7 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.simple.pos.R
 import com.simple.pos.modul.login.LoginActivity
+import com.simple.pos.modul.profiluser.storesetting.ProfileStoreActivity
 
 class ProfileUserActivity: AppCompatActivity(), ProfileUserContract.View {
     private val presenter  = ProfileUserPresenter(this)
@@ -44,7 +45,9 @@ class ProfileUserActivity: AppCompatActivity(), ProfileUserContract.View {
     }
 
     override fun redirectToStoreConfiguration() {
-        // TODO("Not yet implemented")
+        val intent = Intent(this, ProfileStoreActivity::class.java)
+        startActivity(intent)
+        finish()
     }
 
     override fun redirectToStructConfiguration() {

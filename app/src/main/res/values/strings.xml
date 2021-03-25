@@ -137,5 +137,8 @@
     <string name="total">Total</string>
     <string name="harga">Harga</string>
     <string name="subtotal">Subtotal</string>
+    <string name="product_price">Product Price</string>
+    <string name="detail_toko">Detail Toko</string>
+    <string name="nama_toko">Nama Toko</string>
 
 </resources>
