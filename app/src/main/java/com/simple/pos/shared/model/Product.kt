@@ -2,7 +2,7 @@ package com.simple.pos.shared.model
 
 import com.google.gson.annotations.SerializedName
 
-class Product(var name: String) {
+open class Product(var name: String) {
     var id: Int = -1
     @SerializedName("category_id")
     var categoryId: Int = -1
