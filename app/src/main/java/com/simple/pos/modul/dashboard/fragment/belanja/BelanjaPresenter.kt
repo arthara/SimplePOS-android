@@ -4,6 +4,7 @@ import android.util.Log
 import com.simple.pos.shared.callback.RequestCallback
 import com.simple.pos.shared.extension.TAG
 import com.simple.pos.shared.model.Product
+import com.simple.pos.shared.singletondata.ActiveCheckout
 
 class BelanjaPresenter(private val view: BelanjaContract.View): BelanjaContract.Presenter {
     private val interactor = BelanjaInteractor()
@@ -19,5 +20,9 @@ class BelanjaPresenter(private val view: BelanjaContract.View): BelanjaContract.
                 Log.i(TAG, "Error : $message")
             }
         })
+    }
+
+    override fun addProductToCheckout(product: Product) {
+        ActiveCheckout.addNewItem(product)
     }
 }

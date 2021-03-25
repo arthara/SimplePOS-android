@@ -141,4 +141,10 @@
     <string name="detail_toko">Detail Toko</string>
     <string name="nama_toko">Nama Toko</string>
 
+    <!--  Dashboard Activity  -->
+    <string name="no_item_in_checkout">Belum Ada Produk Yang Dipilih</string>
+
+    <!--  Checkout Activity  -->
+    <string name="invalid_unit_total">Total item harus diantara 1 - %d</string>
+
 </resources>
