@@ -103,37 +103,37 @@
                                 <LinearLayout
                                     android:layout_width="match_parent"
                                     android:layout_height="match_parent"
-                                    android:orientation="vertical"
-                                    android:gravity="center"
-                                    android:paddingLeft="40dp"
-                                    android:paddingRight="40dp"
+                                    android:layout_marginTop="143dp"
                                     android:layout_marginBottom="10dp"
-                                    android:layout_marginTop="143dp">
+                                    android:gravity="center"
+                                    android:orientation="vertical"
+                                    android:paddingLeft="40dp"
+                                    android:paddingRight="40dp">
 
                                     <com.google.android.material.textfield.TextInputLayout
+                                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
-                                        app:endIconMode="clear_text"
-                                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                                         android:hint="@string/prompt_store"
-                                        app:boxStrokeColor="@color/gray"
-                                        app:boxStrokeWidth="1dp"
                                         app:boxCornerRadiusBottomEnd="5dp"
                                         app:boxCornerRadiusBottomStart="5dp"
                                         app:boxCornerRadiusTopEnd="5dp"
-                                        app:boxCornerRadiusTopStart="5dp">
+                                        app:boxCornerRadiusTopStart="5dp"
+                                        app:boxStrokeColor="@color/gray"
+                                        app:boxStrokeWidth="1dp"
+                                        app:endIconMode="clear_text">
 
                                         <EditText
                                             android:id="@+id/namaToko"
                                             android:layout_width="match_parent"
                                             android:layout_height="wrap_content"
                                             android:fontFamily="@font/roboto_regular"
-                                            android:textSize="16sp"
-                                            android:textColor="@color/dark_black"
+                                            android:inputType="textPersonName"
                                             android:paddingStart="15dp"
                                             android:paddingEnd="15dp"
-                                            android:inputType="textPersonName"
-                                            android:text="@={storeInput.name}"/>
+                                            android:text="@={storeInput.name}"
+                                            android:textColor="@color/dark_black"
+                                            android:textSize="16sp" />
 
                                     </com.google.android.material.textfield.TextInputLayout>
 
@@ -142,12 +142,12 @@
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
                                         android:layout_marginTop="114dp"
-                                        android:fontFamily="@font/roboto_bold"
-                                        app:backgroundTint="@null"
-                                        android:textSize="16sp"
-                                        android:textColor="@color/white"
                                         android:background="@drawable/rounded_btn2"
-                                        android:text="@string/text_btn_intro1" />
+                                        android:fontFamily="@font/roboto_bold"
+                                        android:text="@string/text_btn_intro1"
+                                        android:textColor="@color/white"
+                                        android:textSize="16sp"
+                                        app:backgroundTint="@null" />
 
                                 </LinearLayout>
 
@@ -162,6 +162,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="20dp"
                         android:gravity="center"
+                        android:layout_marginBottom="10dp"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@id/layoutscrollview1"

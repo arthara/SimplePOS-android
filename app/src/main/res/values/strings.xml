@@ -68,7 +68,7 @@
     <string name="product_name_hint">Product Name</string>
     <string name="total_product_hint">total product</string>
     <string name="delete_product_confirmation">Apakah anda yakin ingin menghapus produk ?</string>
-
+    <string name="back">Back</string>
 
     <!--Checkout-->
     <string-array name="phoneCode">
@@ -95,6 +95,8 @@
     <string name="address">Alamat</string>
     <string name="nama_bisnis">Nama Bisnis</string>
     <string name="nomor_telepon">Nomor Telepon</string>
+    <string name="_20_desember_2021">20 Desember 2021</string>
+    <string name="buat_baru">Buat Baru</string>
 
     <!--Store Fragment-->
     <string name="stock_product">Stok %d</string>
@@ -105,4 +107,5 @@
 
     <!--  Checkout Activity  -->
     <string name="invalid_unit_total">Total item harus diantara 1 - %d</string>
+
 </resources>

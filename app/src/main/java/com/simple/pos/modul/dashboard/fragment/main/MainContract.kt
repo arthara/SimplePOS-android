@@ -9,6 +9,7 @@ interface MainContract {
         fun openDatePicker()
         fun showTopSales(topSales: TopSales)
         fun showTotalSales(totalSales: TotalSales)
+        fun redirectToDailyCashflow()
     }
 
     interface Presenter {

@@ -7,6 +7,7 @@
     android:paddingTop="20dp"
     android:paddingBottom="20dp"
     android:layout_centerVertical="true"
+    android:background="@drawable/item_background_white"
     >
 
     <TextView
@@ -25,27 +26,4 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.5" />
-
-    <ImageButton
-        android:id="@+id/editPaymentBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/ic_edit"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.799"
-        app:layout_constraintStart_toEndOf="@+id/tvPaymentName"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageButton
-        android:id="@+id/deletePaymentBtn"
-        android:layout_width="20dp"
-        android:layout_height="22dp"
-        android:background="@drawable/ic_delete"
-        android:backgroundTint="@color/gray_3rd"
-        app:layout_constraintBottom_toBottomOf="@+id/editPaymentBtn"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.409"
-        app:layout_constraintStart_toEndOf="@+id/editPaymentBtn"
-        app:layout_constraintTop_toTopOf="@+id/editPaymentBtn" />
 </androidx.constraintlayout.widget.ConstraintLayout>

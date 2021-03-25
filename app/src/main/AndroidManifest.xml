@@ -48,6 +48,7 @@
         <activity android:name=".modul.checkout.CheckoutActivity"/>
         <activity android:name=".modul.detailcheckout.DetailCheckoutActivity"/>
         <activity android:name=".modul.checkoutsuccess.CheckoutSuccessActivity"/>
+        <activity android:name=".modul.dailycashflow.DailyCashflowActivity"/>
 
         <meta-data
             android:name="preloaded_fonts"
