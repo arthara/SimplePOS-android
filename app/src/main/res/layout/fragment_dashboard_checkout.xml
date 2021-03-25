@@ -31,14 +31,15 @@
                 app:layout_constraintHorizontal_bias="0.067"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/ic_back_arrow" />
+                app:srcCompat="@drawable/ic_back_arrow"
+                android:contentDescription="@string/back" />
 
             <TextView
                 android:id="@+id/categoryView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/poppins_bold"
-                android:text="Checkout"
+                android:text="@string/checkout"
                 android:textColor="@color/black"
                 android:textSize="25sp"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -63,7 +64,8 @@
                 app:layout_constraintHorizontal_bias="0.912"
                 app:layout_constraintStart_toEndOf="@+id/categoryView"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="1.0" />
+                app:layout_constraintVertical_bias="1.0"
+                android:contentDescription="@string/hold" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </LinearLayout>
 
@@ -219,7 +221,7 @@
             android:id="@+id/tvHoldCheckout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Tunda Transaksi"
+            android:text="@string/tunda_transaksi"
             android:textColor="@color/orange"
             android:layout_alignParentStart="true"
             android:fontFamily="@font/roboto_medium"
@@ -229,7 +231,7 @@
             android:id="@+id/tvResetCheckout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Reset Keranjang"
+            android:text="@string/reset_keranjang"
             android:textColor="@color/design_default_color_secondary"
             android:layout_alignParentEnd="true"
             android:fontFamily="@font/roboto_medium"

@@ -21,19 +21,19 @@
                 android:id="@+id/radioButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Tambah Stok" />
+                android:text="@string/tambah_stok" />
 
             <RadioButton
                 android:id="@+id/radioButton2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Kurangi Stok" />
+                android:text="@string/kurangi_stok" />
         </RadioGroup>
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Masukkan Jumlah Restok"
+            android:hint="@string/masukkan_jumlah_restok"
             android:fontFamily="@font/lato"
             android:textSize="15sp"
             android:gravity="center"

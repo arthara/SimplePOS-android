@@ -47,7 +47,8 @@
         app:layout_constraintEnd_toEndOf="@+id/textView5"
         app:layout_constraintStart_toStartOf="@+id/textView5"
         app:layout_constraintTop_toBottomOf="@+id/topNav"
-        app:layout_constraintVertical_bias="0.963" />
+        app:layout_constraintVertical_bias="0.963"
+        android:contentDescription="@string/success" />
 
 
     <TextView
@@ -56,7 +57,7 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/roboto_medium"
         android:padding="10dp"
-        android:text="Pembayaran Berhasil"
+        tools:text="Pembayaran Berhasil"
         android:textColor="@color/black"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -71,19 +72,20 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:padding="5dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView5"
-        app:layout_constraintVertical_bias="0.037">
+        app:layout_constraintVertical_bias="0.073">
 
         <TextView
             android:id="@+id/tvCheckoutResi"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginEnd="20dp"
             android:fontFamily="@font/roboto_regular"
-            android:text="ID Struck: "
-            android:textSize="14sp" />
+            android:textSize="14sp"
+            tools:text="ID Struck: 1" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -97,6 +99,7 @@
 
     <!--Bottom-->
     <LinearLayout
+        android:id="@+id/linearLayout2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
@@ -106,19 +109,17 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.95"
-        >
+        app:layout_constraintVertical_bias="0.95">
 
         <Button
             android:layout_width="0dp"
             android:layout_height="60dp"
-            android:layout_weight="1"
-            android:text="@string/dashboard"
-            android:textSize="18sp"
-            android:background="@drawable/button_secondary_fill_round"
             android:layout_marginStart="10dp"
             android:layout_marginEnd="10dp"
-            />
+            android:layout_weight="1"
+            android:background="@drawable/button_secondary_fill_round"
+            android:text="@string/dashboard"
+            android:textSize="18sp" />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btnLlihatReceipt"
@@ -126,9 +127,9 @@
             android:layout_height="60dp"
             android:layout_marginEnd="10dp"
             android:layout_weight="1"
-            android:text="Lihat Receipt"
-            android:textColor="@color/white"
             android:background="@drawable/button_tenary_fill_round"
+            android:text="@string/lihat_receipt"
+            android:textColor="@color/white"
             android:textSize="18sp" />
     </LinearLayout>
 

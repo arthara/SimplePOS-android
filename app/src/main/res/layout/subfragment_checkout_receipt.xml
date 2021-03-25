@@ -4,87 +4,107 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/light_gray_background">
+    android:background="@color/light_gray_background"
+    android:layout_marginTop="10dp"
+    android:layout_marginBottom="10dp"
+    >
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout4"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
+        android:layout_height="wrap_content"
         android:background="@color/white"
         android:paddingBottom="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0">
+        app:layout_constraintTop_toTopOf="parent">
 
-        <androidx.cardview.widget.CardView
-            android:id="@+id/cardView7"
+
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:cardCornerRadius="20dp"
-            app:layout_constraintBottom_toTopOf="@+id/textView11"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.07"
+            app:layout_constraintHorizontal_bias="0.061"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.2">
+            app:layout_constraintVertical_bias="1.0">
 
-            <ImageView
-                android:id="@+id/ivBusinessLogoReceipt"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:layout_centerInParent="true"
-                android:adjustViewBounds="true"
-                android:scaleType="centerCrop"
-                android:src="@drawable/sample_online_store_logo" />
-        </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardView7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="20dp"
+                app:cardCornerRadius="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="10dp"
+                app:layout_constraintBottom_toTopOf="@+id/textView11"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.07"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.2">
 
-        <TextView
-            android:id="@+id/textView10"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/roboto_bold"
-            android:maxWidth="170dp"
-            android:maxLines="1"
-            android:text="@string/nama_toko_1"
-            app:autoSizeMaxTextSize="20sp"
-            app:autoSizeMinTextSize="10sp"
-            app:autoSizeTextType="uniform"
-            app:layout_constraintBottom_toBottomOf="@+id/textView11"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/cardView7"
-            app:layout_constraintTop_toBottomOf="@+id/cardView7"
-            app:layout_constraintVertical_bias="0.147" />
+                <ImageView
+                    android:id="@+id/ivBusinessLogoReceipt"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_centerInParent="true"
+                    android:adjustViewBounds="true"
+                    android:contentDescription="@string/logo_toko"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/sample_online_store_logo" />
+            </androidx.cardview.widget.CardView>
 
-        <TextView
-            android:id="@+id/textView11"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="4dp"
-            android:fontFamily="@font/lato"
-            android:maxWidth="150dp"
-            android:text="Jl. Cebongan Lor Rt 02 02 Sleman Yogyakarta 3001"
-            app:autoSizeMaxTextSize="15sp"
-            app:autoSizeMinTextSize="7sp"
-            app:autoSizeTextType="uniform"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="@+id/textView10"
-            app:layout_goneMarginBottom="20dp" />
+            <TextView
+                android:id="@+id/tvNamaTokoReceipt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto_bold"
+                android:maxWidth="170dp"
+                android:maxLines="2"
+                app:autoSizeMaxTextSize="20sp"
+                app:autoSizeMinTextSize="10sp"
+                app:autoSizeTextType="uniform"
+                app:layout_constraintBottom_toTopOf="@+id/textView11"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/cardView7"
+                app:layout_constraintTop_toBottomOf="@+id/cardView7"
+                app:layout_constraintVertical_bias="0.147"
+                tools:text="@string/nama_toko_1" />
+
+            <TextView
+                android:id="@+id/textView11"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="4dp"
+                android:fontFamily="@font/lato"
+                android:maxWidth="150dp"
+                app:autoSizeMaxTextSize="15sp"
+                app:autoSizeMinTextSize="7sp"
+                app:autoSizeTextType="uniform"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/textView10"
+                android:layout_marginTop="5dp"
+                tools:text="Jl. Cebongan Lor Rt 02 02 Sleman Yogyakarta 3001" />
+
+        </LinearLayout>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="28dp"
             android:layout_marginEnd="16dp"
-            android:text="Ucapan Terima kasih"
             app:autoSizeMaxTextSize="14sp"
             app:autoSizeMinTextSize="7sp"
             app:autoSizeTextType="uniform"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Ucapan Terima kasih" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
@@ -106,7 +126,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/roboto_medium"
-            android:text="Struk Penerimaan"
+            tools:text="Struk Penerimaan"
             android:textColor="@color/black"
             android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -117,12 +137,12 @@
             app:layout_constraintVertical_bias="0.0" />
 
         <TextView
-            android:id="@+id/textView13"
+            android:id="@+id/lblTanggal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Tanggal"
             android:textColor="@color/black"
             android:textStyle="bold|normal"
+            tools:text="Tanggal"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
@@ -136,9 +156,9 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="12dp"
             android:text="@string/_20_desember_2021"
-            app:layout_constraintBottom_toBottomOf="@+id/textView13"
-            app:layout_constraintStart_toEndOf="@+id/textView13"
-            app:layout_constraintTop_toTopOf="@+id/textView13"
+            app:layout_constraintBottom_toBottomOf="@+id/lblTanggal"
+            app:layout_constraintStart_toEndOf="@+id/lblTanggal"
+            app:layout_constraintTop_toTopOf="@+id/lblTanggal"
             app:layout_constraintVertical_bias="0.0" />
 
         <TextView
@@ -146,7 +166,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="64dp"
-            android:text="Transaksi: "
+            android:text="@string/transaksi"
             android:textColor="@color/black"
             android:textStyle="bold|normal"
             app:layout_constraintBottom_toBottomOf="@+id/textView15"
@@ -159,23 +179,24 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Go Pay"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toEndOf="@+id/textView17"
             app:layout_constraintTop_toTopOf="@+id/textView17"
-            app:layout_constraintVertical_bias="0.0" />
+            app:layout_constraintVertical_bias="0.0"
+            tools:text="Go Pay"
+            />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="ID Struk "
+            tools:text="ID Struk "
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.044"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView13"
+            app:layout_constraintTop_toBottomOf="@+id/lblTanggal"
             app:layout_constraintVertical_bias="0.0" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
@@ -197,7 +218,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="18dp"
             android:fontFamily="@font/roboto_regular"
-            android:text="Nama Barang"
+            android:text="@string/nama_barang_title"
             android:textColor="@color/dark_black"
             android:textSize="16sp"
             app:autoSizeMinTextSize="10sp"
@@ -215,7 +236,8 @@
             android:fontFamily="@font/roboto_regular"
             android:gravity="center_vertical"
             android:paddingStart="20dp"
-            android:text="QTY"
+            android:paddingEnd="5dp"
+            android:text="@string/qty"
             android:textColor="@color/dark_black"
             android:textSize="16sp"
             app:autoSizeMinTextSize="10sp"
@@ -230,7 +252,7 @@
             android:layout_marginStart="45dp"
             android:layout_toEndOf="@+id/lblQTY"
             android:fontFamily="@font/roboto_regular"
-            android:text="Harga"
+            android:text="@string/harga"
             android:textColor="@color/dark_black"
             android:textSize="16sp"
             app:autoSizeMinTextSize="10sp"
@@ -245,7 +267,7 @@
             android:layout_marginEnd="45dp"
             android:fontFamily="@font/roboto_medium"
             android:gravity="center_vertical"
-            android:text="Total"
+            android:text="@string/total"
             android:textColor="@color/dark_black"
             android:textSize="16sp"
             android:textStyle="bold"
@@ -265,7 +287,8 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/relativeLayout7"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.0"
+        android:contentDescription="@string/line" />
 
 
     <RelativeLayout
@@ -284,7 +307,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:fontFamily="@font/roboto_regular"
-            android:text="Subtotal"
+            android:text="@string/subtotal"
             android:textColor="@color/dark_black"
             android:textSize="16sp"
             app:autoSizeMinTextSize="10sp"
@@ -297,9 +320,9 @@
             android:layout_alignParentEnd="true"
             android:layout_marginEnd="20dp"
             android:fontFamily="@font/roboto_medium"
-            android:text="10000"
             android:textColor="@color/dark_black"
             android:textSize="16sp"
+            tools:text="10000"
             app:autoSizeMinTextSize="10sp"
             app:autoSizeTextType="uniform" />
 
@@ -310,7 +333,7 @@
             android:layout_below="@+id/tvSubTotalReceipt"
             android:layout_marginStart="20dp"
             android:fontFamily="@font/lato"
-            android:text="Pajak (10%)" />
+            tools:text="Pajak (10%)" />
 
         <TextView
             android:id="@+id/tvPajakReceipt"
@@ -321,7 +344,7 @@
             android:layout_marginTop="1dp"
             android:layout_marginEnd="20dp"
             android:fontFamily="@font/lato"
-            android:text="1000"
+            tools:text="1000"
             app:autoSizeMinTextSize="10sp"
             app:autoSizeTextType="uniform" />
 
@@ -332,7 +355,7 @@
             android:layout_below="@+id/lblPajakReceipt"
             android:layout_marginStart="20dp"
             android:fontFamily="@font/roboto_bold"
-            android:text="Total"
+            android:text="@string/total"
             android:textColor="@color/teal_700"
             android:textSize="18sp"
             app:autoSizeMinTextSize="10sp"
