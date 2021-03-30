@@ -12,10 +12,12 @@ import android.widget.DatePicker
 import android.widget.TextView
 import androidx.cardview.widget.CardView
 import androidx.fragment.app.Fragment
+import com.bumptech.glide.Glide
 import com.simple.pos.R
 import com.simple.pos.modul.dailycashflow.DailyCashflowActivity
 import com.simple.pos.modul.dashboard.fragment.main.model.TopSales
 import com.simple.pos.modul.dashboard.fragment.main.model.TotalSales
+import com.simple.pos.shared.glide.GlideUrlUtil
 import com.simple.pos.shared.model.Category
 import com.simple.pos.shared.model.Product
 import java.text.SimpleDateFormat
@@ -80,14 +82,22 @@ class MainFragment : Fragment(), MainContract.View, View.OnClickListener, DatePi
     }
 
     private fun showTopProduct(product: Product?, total: Int){
-        // TODO: Show product's image
-        // set name to no product sold if category is null
-        view?.findViewById<TextView>(R.id.topProductNameTv)?.text =
+        view?.apply{
+            // set name to no product sold if category is null
+            findViewById<TextView>(R.id.topProductNameTv)?.text =
                 product?.name ?: getString(R.string.no_product_sold)
 
-        // set total product sold
-        view?.findViewById<TextView>(R.id.topProductTotalTv)?.text =
+            // set total product's sold
+            findViewById<TextView>(R.id.topProductTotalTv)?.text =
                 getString(R.string.top_total, total)
+
+            //load product's image
+            product?.picture?.let{
+                Glide.with(this)
+                    .load(GlideUrlUtil.convertToAuthorizedUrl(it))
+                    .into(findViewById(R.id.topProductImageIv))
+            }
+        }
     }
 
     override fun showTopSales(topSales: TopSales) {
