@@ -4,7 +4,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.simple.pos.databinding.ItemProductStoreBinding
+import com.simple.pos.shared.glide.GlideUrlUtil
 import com.simple.pos.shared.model.Product
 
 class BelanjaRecyclerAdapter(private val products: Array<Product>
@@ -34,6 +36,7 @@ class BelanjaRecyclerAdapter(private val products: Array<Product>
         holder.bind(products[position])
 
         holder.binding.let {
+            loadProductImage(holder)
             //if there is no stock hide button
             if(it.product!!.total == 0)
                 holder.binding.chooseProductBtn.visibility = View.GONE
@@ -42,6 +45,16 @@ class BelanjaRecyclerAdapter(private val products: Array<Product>
                 view.chooseProduct(products[position])
                 holder.binding.chooseProductBtn.visibility = View.GONE
             }
+        }
+    }
+
+    private fun loadProductImage(holder: MyViewHolder) {
+        holder.binding.product!!.picture?.let {
+            val imageUrl = GlideUrlUtil.convertToAuthorizedUrl(it)
+
+            Glide.with(holder.itemView)
+                .load(imageUrl)
+                .into(holder.binding.ivProductItemStore)
         }
     }
 
