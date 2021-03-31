@@ -41,15 +41,6 @@ class BelanjaFragment: Fragment(), BelanjaContract.View {
 
     override fun reenableChoosenProducts(productsId: Array<Int>) {
         // reshow checkout button in each item
-        productsId.forEach{
-            var position: Int
-
-            (recyclerView.findViewHolderForItemId(it.toLong()) as BelanjaRecyclerAdapter.MyViewHolder).apply {
-                binding.chooseProductBtn.visibility = View.VISIBLE
-                position = layoutPosition
-            }
-
-            recyclerView.adapter!!.notifyItemChanged(position)
-        }
+        (recyclerView.adapter!! as BelanjaRecyclerAdapter).reenableProducts(productsId)
     }
 }
