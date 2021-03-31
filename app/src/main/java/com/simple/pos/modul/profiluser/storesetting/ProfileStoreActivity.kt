@@ -7,6 +7,7 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatButton
 import com.simple.pos.R
+import com.simple.pos.modul.profiluser.ProfileUserActivity
 import com.simple.pos.shared.model.Store
 
 class ProfileStoreActivity: AppCompatActivity(), ProfileStoreContract.View {
@@ -32,6 +33,8 @@ class ProfileStoreActivity: AppCompatActivity(), ProfileStoreContract.View {
     }
 
     private fun redirectToProfile() {
+        val intent = Intent(this, ProfileUserActivity::class.java)
+        startActivity(intent)
         finish()
     }
 

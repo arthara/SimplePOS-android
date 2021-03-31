@@ -147,5 +147,6 @@
     <!--  Checkout Activity  -->
     <string name="invalid_unit_total">Total item harus diantara 1 - %d</string>
     <string name="upload">Upload</string>
+    <string name="add_product">Tambah Produk</string>
 
 </resources>
