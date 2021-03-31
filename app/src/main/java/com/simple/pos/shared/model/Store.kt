@@ -10,6 +10,7 @@ class Store(var name: String) {
     var phoneNumber: String? = null
     @SerializedName("user_id")
     var userId = -1
+    /*var imagePath: String? = null*/
 
     override fun toString(): String {
         return "id = $id\n" +
