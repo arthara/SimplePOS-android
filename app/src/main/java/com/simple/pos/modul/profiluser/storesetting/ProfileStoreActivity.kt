@@ -7,7 +7,6 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatButton
 import com.simple.pos.R
-import com.simple.pos.modul.profiluser.storesetting.update.ProfileStoreUpdateActivity
 import com.simple.pos.shared.model.Store
 
 class ProfileStoreActivity: AppCompatActivity(), ProfileStoreContract.View {
@@ -44,7 +43,6 @@ class ProfileStoreActivity: AppCompatActivity(), ProfileStoreContract.View {
     }
 
     override fun redirectToStoreConfigurationUpdate() {
-        val intent = Intent(this, ProfileStoreUpdateActivity::class.java)
-        startActivity(intent)
+
     }
 }
