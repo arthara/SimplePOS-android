@@ -37,6 +37,7 @@
 
                 <!-- Media -->
                 <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/ivProductInv"
                     android:layout_width="match_parent"
                     android:layout_height="100dp"
                     app:shapeAppearance="?attr/shapeAppearanceMediumComponent"
