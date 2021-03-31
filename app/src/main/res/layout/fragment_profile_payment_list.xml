@@ -37,7 +37,7 @@
             android:fontFamily="@font/roboto_bold"
             android:gravity="center"
             android:maxLines="1"
-            android:text="List Pembayaran"
+            android:text="@string/list_pembayaran"
             android:textColor="@color/dark_black"
             app:autoSizeMaxTextSize="24sp"
             app:autoSizeMinTextSize="12sp"

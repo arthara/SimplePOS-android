@@ -28,7 +28,8 @@
             android:layout_height="22dp"
             android:layout_centerVertical="true"
             android:layout_marginStart="25dp"
-            app:srcCompat="@drawable/ic_path" />
+            app:srcCompat="@drawable/ic_path"
+            android:contentDescription="@string/back" />
 
         <TextView
             android:id="@+id/tvTitleAturToko"
@@ -37,7 +38,7 @@
             android:fontFamily="@font/roboto_bold"
             android:gravity="center"
             android:maxLines="1"
-            android:text="Pengaturan Struk"
+            android:text="@string/pengaturan_struk"
             android:textColor="@color/dark_black"
             app:autoSizeMaxTextSize="24sp"
             app:autoSizeMinTextSize="12sp"
@@ -51,7 +52,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@android:color/transparent"
-        android:drawableLeft="@drawable/ic_edit_black"
+        android:drawableStart="@drawable/ic_edit_black"
         android:fontFamily="@font/roboto_bold"
         android:padding="5dp"
         android:text="@string/update"
@@ -93,7 +94,8 @@
                     android:layout_height="100dp"
                     android:adjustViewBounds="true"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/sample_online_store_logo" />
+                    android:src="@drawable/sample_online_store_logo"
+                    android:contentDescription="@string/back" />
             </androidx.cardview.widget.CardView>
 
 
@@ -155,7 +157,7 @@
                 android:background="?attr/editTextBackground"
                 android:backgroundTint="@color/gray_3rd"
                 android:fontFamily="@font/lato"
-                android:hint="+62 Nomor Kontak"
+                android:hint="@string/_62_nomor_kontak"
                 android:paddingBottom="20dp"
                 android:textColor="@color/gray_secondary"
                 android:textSize="16sp"
@@ -171,7 +173,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/lato"
-                android:text="Alamat Website"
+                android:text="@string/website"
                 android:textColor="@color/dark_black"
                 android:textSize="16sp"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -187,7 +189,7 @@
                 android:background="?attr/editTextBackground"
                 android:backgroundTint="@color/gray_secondary"
                 android:fontFamily="@font/lato"
-                android:hint="Alamat Website"
+                android:hint="@string/website"
                 android:paddingBottom="20dp"
                 android:textColor="@color/gray_secondary"
                 android:textSize="14sp"
@@ -203,7 +205,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/lato"
-                android:text="Teks Terima Kasih"
+                android:text="@string/teks_terima_kasih"
                 android:textColor="@color/dark_black"
                 android:textSize="16sp"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -221,7 +223,7 @@
                 android:ems="10"
                 android:fontFamily="@font/lato"
                 android:gravity="top|start"
-                android:hint="Teks Terima Kasih"
+                android:hint="@string/teks_terima_kasih"
                 android:padding="10dp"
                 android:textSize="14sp"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -236,7 +238,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/lato"
-                android:text="Alamat"
+                android:text="@string/alamat"
                 android:textColor="@color/dark_black"
                 android:textSize="16sp"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -253,7 +255,7 @@
                 android:ems="10"
                 android:fontFamily="@font/lato"
                 android:gravity="top|start"
-                android:hint="Alamat"
+                android:hint="@string/alamat"
                 android:padding="10dp"
                 android:textSize="14sp"
                 app:layout_constraintBottom_toBottomOf="parent"

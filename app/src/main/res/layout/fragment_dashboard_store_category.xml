@@ -36,14 +36,15 @@
                     app:layout_constraintHorizontal_bias="0.067"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@drawable/ic_back_arrow" />
+                    app:srcCompat="@drawable/ic_back_arrow"
+                    android:contentDescription="@string/back"/>
 
                 <TextView
                     android:id="@+id/tanggalView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/poppins_bold"
-                    android:text="Kategori"
+                    android:text="@string/kategori"
                     android:textColor="@color/black"
                     android:textSize="25sp"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -58,7 +59,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/lato"
-                    android:text="RESET"
+                    android:text="@string/reset"
                     android:textColor="@color/teal_700"
                     android:textSize="20sp"
                     android:textStyle="bold"

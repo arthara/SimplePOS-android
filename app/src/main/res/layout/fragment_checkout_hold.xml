@@ -30,7 +30,8 @@
                 app:layout_constraintHorizontal_bias="0.067"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/ic_path" />
+                app:srcCompat="@drawable/ic_path"
+                android:contentDescription="@string/back" />
 
             <TextView
                 android:id="@+id/tvHoldCheckOutTittle"

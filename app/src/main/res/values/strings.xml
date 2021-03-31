@@ -101,11 +101,52 @@
     <!--Store Fragment-->
     <string name="stock_product">Stok %d</string>
     <string name="total_item">%d item</string>
+    <string name="ubah_produk">Ubah Produk</string>
+    <string name="opsi_produk">Opsi Produk</string>
+    <string name="line">line</string>
+    <string name="buat_produk">Buat Produk</string>
+    <string name="logo_toko">logo toko</string>
+    <string name="hapus">Hapus</string>
+    <string name="alamat">Alamat</string>
+    <string name="teks_terima_kasih">Teks Terima Kasih</string>
+    <string name="website">Alamat Website</string>
+    <string name="_62_nomor_kontak">+62 Nomor Kontak</string>
+    <string name="inventori">Inventori</string>
+    <string name="logout">Logout</string>
+    <string name="arrow_go">arrow go</string>
+    <string name="payment">payment</string>
+    <string name="shop">Shop</string>
+    <string name="struk">Struk</string>
+    <string name="detail_pembeli_opsional">Detail Pembeli (Opsional)</string>
+    <string name="success">Success</string>
+    <string name="lihat_receipt">Lihat Receipt</string>
+    <string name="info_receipt">Info Receipt</string>
+    <string name="checkout">Checkout</string>
+    <string name="hold">Hold</string>
+    <string name="reset_keranjang">Reset Keranjang</string>
+    <string name="tunda_transaksi">Tunda Transaksi</string>
+    <string name="list_pembayaran">List Pembayaran</string>
+    <string name="kategori">Kategori</string>
+    <string name="reset">RESET</string>
+    <string name="tambah_stok">Tambah Stok</string>
+    <string name="kurangi_stok">Kurangi Stok</string>
+    <string name="masukkan_jumlah_restok">Masukkan Jumlah Restok</string>
+    <string name="transaksi">Transaksi:</string>
+    <string name="qty">QTY</string>
+    <string name="nama_barang_title">Nama Barang</string>
+    <string name="total">Total</string>
+    <string name="harga">Harga</string>
+    <string name="subtotal">Subtotal</string>
+    <string name="product_price">Product Price</string>
+    <string name="detail_toko">Detail Toko</string>
+    <string name="nama_toko">Nama Toko</string>
 
     <!--  Dashboard Activity  -->
     <string name="no_item_in_checkout">Belum Ada Produk Yang Dipilih</string>
 
     <!--  Checkout Activity  -->
     <string name="invalid_unit_total">Total item harus diantara 1 - %d</string>
+    <string name="upload">Upload</string>
+    <string name="add_product">Tambah Produk</string>
 
 </resources>

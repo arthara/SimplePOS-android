@@ -83,44 +83,60 @@
         android:id="@+id/relative2"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@color/light_gray_background"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintVertical_bias="0.2"
-        android:background="@color/white"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.2">
 
-        <TextView
-            android:id="@+id/tvCategoryName"
+        <RelativeLayout
+            android:id="@+id/rlsubFragInventoryProd"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_marginStart="21dp"
-            android:fontFamily="@font/roboto_bold"
-            android:text="Nama Kategori"
-            android:textColor="@color/black"
-            android:textSize="15sp"
-            android:textStyle="bold" />
+            >
 
-        <TextView
-            android:id="@+id/stockTotalItemTv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="15 Item"
-            android:hint="@string/total_item"
-            android:layout_marginEnd="20dp"
-            android:textStyle="bold"
-            android:layout_alignParentEnd="true"
-            />
+            <TextView
+                android:id="@+id/stockTotalItemTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="21dp"
+                android:layout_marginBottom="15dp"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/roboto_bold"
+                android:textColor="@color/dark_black"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                tools:text="jumlah item"
+                android:layout_centerVertical="true"
+                />
 
+            <Button
+                android:id="@+id/addProductBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:layout_marginTop="2dp"
+                android:layout_marginBottom="2dp"
+                android:layout_alignParentEnd="true"
+                android:background="@android:color/transparent"
+                android:drawableLeft="@drawable/ic_plus_round_main"
+                android:fontFamily="@font/roboto_regular"
+                android:gravity="center"
+                android:text="@string/add_product"
+                android:textAllCaps="false"
+                android:textColor="@color/design_default_color_secondary"
+                android:textSize="14sp" />
+
+        </RelativeLayout>
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/listStockProductRv"
-            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-            app:spanCount="3"
-            android:layout_below="@+id/tvCategoryName"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_margin="10dp"
-            tools:listitem="@layout/item_product_inventory_all"/>
+            android:layout_below="@+id/rlsubFragInventoryProd"
+            android:layout_margin="5dp"
+            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+            app:spanCount="3"
+            tools:listitem="@layout/item_product_inventory_fix" />
     </RelativeLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -103,7 +103,7 @@
             app:layout_constraintTop_toBottomOf="@+id/cardView6"
             app:layout_constraintVertical_bias="0.019" />
 
-        <EditText
+        <TextView
             android:id="@+id/etStoreNameInput"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -170,7 +170,7 @@
             app:layout_constraintTop_toBottomOf="@+id/etStoreAdress"
             app:layout_constraintVertical_bias="0.093" />
 
-        <EditText
+        <TextView
             android:id="@+id/etPhoneAddressView"
             android:layout_width="0dp"
             android:layout_height="44dp"
@@ -180,7 +180,8 @@
             tools:text="Detail Toko"
             android:textSize="13sp"
             android:textColor="@color/gray_secondary"
-            android:backgroundTint="@color/gray_3rd"
+            android:background="?attr/editTextBackground"
+            android:backgroundTint="@color/gray_secondary"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/etStoreAdress"
             app:layout_constraintHorizontal_bias="0.0"
