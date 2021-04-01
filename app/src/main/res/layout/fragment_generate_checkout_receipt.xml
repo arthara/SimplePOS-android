@@ -95,15 +95,17 @@
         </LinearLayout>
 
         <TextView
-            android:layout_width="wrap_content"
+            android:id="@+id/tvThankReceiptNote"
+            android:layout_width="156dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="28dp"
             android:layout_marginEnd="16dp"
             app:autoSizeMaxTextSize="14sp"
             app:autoSizeMinTextSize="7sp"
             app:autoSizeTextType="uniform"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.123"
             tools:text="Ucapan Terima kasih" />
 
 
