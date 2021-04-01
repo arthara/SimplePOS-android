@@ -32,6 +32,8 @@
                 android:id="@+id/tvProductNameStoreItem"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:maxLines="2"
                 android:fontFamily="@font/roboto_light"
                 android:maxWidth="150dp"
                 android:text="@{product.name}"
