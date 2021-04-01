@@ -14,8 +14,6 @@ import com.simple.pos.shared.model.Product
 class StockRecyclerAdapter(private val products: Array<Product>, private val view: StockContract.View)
     : RecyclerView.Adapter<StockRecyclerAdapter.MyViewHolder>() {
 
-    private lateinit var context: Context
-
     class MyViewHolder(val binding: ItemProductInventoryAllBinding) :
             RecyclerView.ViewHolder(binding.root) {
         fun bind(product: Product) {
@@ -27,7 +25,7 @@ class StockRecyclerAdapter(private val products: Array<Product>, private val vie
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
         val binding = ItemProductInventoryAllBinding.inflate(layoutInflater, parent, false)
-        this.context = parent.context
+
         return MyViewHolder(binding)
     }
 
@@ -38,28 +36,26 @@ class StockRecyclerAdapter(private val products: Array<Product>, private val vie
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         holder.bind(products[position])
         loadProductImage(holder)
-/*        holder.binding.updateProductBtn.setOnClickListener{
-            view.redirectToUpdateProduct(products[position])
-        }
-        holder.binding.deleteProductBtn.setOnClickListener {
-            view.showDeleteConfirmation(products[position])
 
-        }*/
+        holder.binding.inventoryMoreBtn.setOnClickListener {
+            PopupMenu(holder.itemView.context, it).apply {
+                menuInflater.inflate(R.menu.list_product_inventory_menu, menu)
 
-        holder.binding.btnLoadListMenuItemInventory.setOnClickListener {
-            val popup = PopupMenu(context, holder.itemView)
-            popup.setOnMenuItemClickListener { item ->
-                when (item.itemId) {
-                    R.id.updatemenu -> {
-                        view.redirectToUpdateProduct(products[position])
-                        return@setOnMenuItemClickListener true
+                setOnMenuItemClickListener { item ->
+                    when (item.itemId) {
+                        R.id.updatemenu -> {
+                            view.redirectToUpdateProduct(products[position])
+                            return@setOnMenuItemClickListener true
+                        }
+                        R.id.deletemenu -> {
+                            view.showDeleteConfirmation(products[position])
+                            return@setOnMenuItemClickListener true
+                        }
+                        else -> false
                     }
-                    R.id.deletemenu -> {
-                        view.showDeleteConfirmation(products[position])
-                        return@setOnMenuItemClickListener true
-                    }
-                    else -> false
                 }
+
+                show()
             }
         }
     }
