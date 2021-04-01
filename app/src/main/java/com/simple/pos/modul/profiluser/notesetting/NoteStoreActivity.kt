@@ -3,11 +3,14 @@ package com.simple.pos.modul.profiluser.notesetting
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.simple.pos.R
+import com.simple.pos.databinding.ActivityProfileStoreUpdateBinding
 import com.simple.pos.databinding.ActivityProfileStruckBinding
 import com.simple.pos.modul.profiluser.ProfileUserActivity
+import com.simple.pos.modul.profiluser.notesetting.update.NoteStoreUpdateActivity
 
 class NoteStoreActivity: AppCompatActivity(), NoteStoreContract.View {
-    private lateinit var presenter: NoteStorePresenter
+    private val presenter = NoteStorePresenter(this)
     private lateinit var binding: ActivityProfileStruckBinding
 
     override fun redirectToUpdateProduct() {
@@ -23,9 +26,8 @@ class NoteStoreActivity: AppCompatActivity(), NoteStoreContract.View {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityProfileStruckBinding.inflate(layoutInflater)
-        setContentView(binding.root)
-        presenter = NoteStorePresenter(this)
+
+        setContentView(R.layout.activity_profile_struck)
         onClickInit()
         presenter.showNotes()
     }

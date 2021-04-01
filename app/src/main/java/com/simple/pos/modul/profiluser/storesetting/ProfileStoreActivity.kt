@@ -24,16 +24,17 @@ class ProfileStoreActivity : AppCompatActivity(), ProfileStoreContract.View {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_profile_store)
+        binding = ActivityProfileStoreBinding.inflate(layoutInflater)
+        setContentView(binding.root)
         presenter.showAllStoreInfo()
         initializeOnClicks()
     }
 
     private fun initializeOnClicks() {
-        findViewById<ImageView>(R.id.ivBackToProfileFromStoreConf).setOnClickListener {
+        binding.ivBackToProfileFromStoreConf.setOnClickListener {
             redirectToProfile()
         }
-        findViewById<AppCompatButton>(R.id.goToUpdateProfileStoreBtn).setOnClickListener {
+        binding.goToUpdateProfileStoreBtn.setOnClickListener {
             redirectToStoreConfigurationUpdate()
         }
     }

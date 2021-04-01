@@ -8,6 +8,7 @@ import android.provider.MediaStore
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.simple.pos.R
+import com.simple.pos.databinding.ActivityProfileStoreBinding
 import com.simple.pos.databinding.ActivityProfileStoreUpdateBinding
 import com.simple.pos.shared.model.Store
 import java.io.File
@@ -27,7 +28,8 @@ class ProfileStoreUpdateActivity : AppCompatActivity(), ProfileStoreUpdateContra
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_profile_store_update)
+        binding = ActivityProfileStoreUpdateBinding.inflate(layoutInflater)
+        setContentView(binding.root)
         initializeOnClicks()
         presenter.showAllStoreInfo()
     }
