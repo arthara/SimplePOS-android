@@ -4,11 +4,11 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.ImageView
-import android.widget.RelativeLayout
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.simple.pos.R
 import com.simple.pos.modul.login.LoginActivity
+import com.simple.pos.modul.profiluser.notesetting.NoteStoreActivity
 
 class ProfileUserActivity: AppCompatActivity(), ProfileUserContract.View {
     private val presenter  = ProfileUserPresenter(this)
@@ -24,7 +24,7 @@ class ProfileUserActivity: AppCompatActivity(), ProfileUserContract.View {
         findViewById<ImageView>(R.id.ivBackArrow).setOnClickListener{
             redirectToDashboard()
         }
-        findViewById<RelativeLayout>(R.id.storeConfigurationBtn).setOnClickListener{
+        /*findViewById<RelativeLayout>(R.id.storeConfigurationBtn).setOnClickListener{
             redirectToStoreConfiguration()
         }
         findViewById<RelativeLayout>(R.id.struckConfigurationBtn).setOnClickListener{
@@ -32,7 +32,16 @@ class ProfileUserActivity: AppCompatActivity(), ProfileUserContract.View {
         }
         findViewById<RelativeLayout>(R.id.paymentConfigurationBtn).setOnClickListener{
             redirectToStructConfiguration()
+        }*/
+
+        findViewById<TextView>(R.id.tvPengaturanToko).setOnClickListener{
+            redirectToStoreConfiguration()
         }
+
+        findViewById<TextView>(R.id.tvPengaturanNote).setOnClickListener{
+            redirectToStructConfiguration()
+        }
+
         findViewById<Button>(R.id.logoutBtn).setOnClickListener{
             presenter.logout()
         }
@@ -48,7 +57,11 @@ class ProfileUserActivity: AppCompatActivity(), ProfileUserContract.View {
     }
 
     override fun redirectToStructConfiguration() {
+        val intent = Intent(this, NoteStoreActivity::class.java)
 
+        setResult(RESULT_OK)
+        startActivity(intent)
+        finish()
     }
 
     override fun redirectToPaymentConfiguration() {
