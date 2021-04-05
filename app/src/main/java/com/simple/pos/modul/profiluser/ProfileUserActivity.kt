@@ -48,7 +48,7 @@ class ProfileUserActivity: AppCompatActivity(), ProfileUserContract.View {
     }
 
     override fun redirectToStructConfiguration() {
-        // TODO("Not yet implemented")
+
     }
 
     override fun redirectToPaymentConfiguration() {

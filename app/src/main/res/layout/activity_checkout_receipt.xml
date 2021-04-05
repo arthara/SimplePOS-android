@@ -65,9 +65,11 @@
 
         <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            >
             <include
-                layout="@layout/subfragment_checkout_receipt"
+                layout="@layout/fragment_generate_checkout_receipt"
                 />
         </FrameLayout>
     </ScrollView>
