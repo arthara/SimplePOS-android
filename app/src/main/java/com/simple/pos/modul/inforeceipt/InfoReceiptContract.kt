@@ -11,6 +11,7 @@ interface InfoReceiptContract {
         fun showStore(store: Store)
         fun redirectToDashboard()
         fun showLogo(glideUrl: GlideUrl)
+        fun showErrorMessage(message: String)
     }
 
     interface Presenter {

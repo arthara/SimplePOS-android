@@ -1,7 +1,9 @@
 package com.simple.pos.modul.inforeceipt
 
+import android.util.Log
 import com.simple.pos.base.util.UtilProvider
 import com.simple.pos.shared.callback.RequestCallback
+import com.simple.pos.shared.extension.TAG
 import com.simple.pos.shared.glide.GlideUrlUtil
 import com.simple.pos.shared.model.submodel.SuccessfulCheckout
 import com.simple.pos.shared.util.StoreUtil
@@ -17,7 +19,10 @@ class InfoReceiptPresenter(private val view: InfoReceiptContract.View)
                     }
         
                     override fun requestError(message: String?) {
-                        TODO("Not yet implemented")
+                        message?.let {
+                            Log.i(TAG, it)
+                            view.showErrorMessage(it)
+                        }
                     }
                 })
     }

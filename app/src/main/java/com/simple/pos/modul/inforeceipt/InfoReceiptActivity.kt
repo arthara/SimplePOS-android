@@ -7,6 +7,7 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.load.model.GlideUrl
 import com.simple.pos.R
 import com.simple.pos.databinding.ActivityInfoReceiptBinding
+import com.simple.pos.shared.extension.showToast
 import com.simple.pos.shared.model.ReceiptItem
 import com.simple.pos.shared.model.Store
 import com.simple.pos.shared.model.submodel.SuccessfulCheckout
@@ -67,5 +68,9 @@ class InfoReceiptActivity: AppCompatActivity(), InfoReceiptContract.View {
         Glide.with(this)
                 .load(glideUrl)
                 .into(binding.ivBusinessLogoReceipt)
+    }
+
+    override fun showErrorMessage(message: String) {
+        showToast(message)
     }
 }
