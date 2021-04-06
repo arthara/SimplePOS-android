@@ -1,324 +1,266 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/light_gray_background">
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <!--Navbar-->
-    <RelativeLayout
-        android:id="@+id/relativeLayout5"
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/profile_nav_color"
-        android:elevation="6dp"
-        android:orientation="horizontal"
-        android:translationZ="6dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0">
+        android:layout_height="match_parent"
+        android:background="@color/light_gray_background">
 
-        <ImageView
-            android:id="@+id/ivBackToProfile"
-            android:layout_width="15dp"
-            android:layout_height="22dp"
-            android:layout_centerVertical="true"
-            android:layout_marginStart="25dp"
-            app:srcCompat="@drawable/ic_path" />
-
-        <TextView
-            android:id="@+id/tvTitleAturStruk"
+        <!--Navbar-->
+        <RelativeLayout
+            android:id="@+id/relativeLayout4"
             android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:fontFamily="@font/roboto_bold"
-            android:gravity="center"
-            android:maxLines="1"
-            android:text="Pengaturan Struk"
-            android:textColor="@color/dark_black"
-            app:autoSizeMaxTextSize="24sp"
-            app:autoSizeMinTextSize="12sp"
-            app:autoSizeStepGranularity="2sp"
-            app:autoSizeTextType="uniform" />
+            android:layout_height="wrap_content"
+            android:background="@color/profile_nav_color"
+            android:elevation="6dp"
+            android:orientation="horizontal"
+            android:translationZ="6dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0">
 
-    </RelativeLayout>
+            <ImageView
+                android:id="@+id/ivBackToProfile"
+                android:layout_width="15dp"
+                android:layout_height="22dp"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="25dp"
+                app:srcCompat="@drawable/ic_path" />
+
+            <TextView
+                android:id="@+id/tvTitleAturToko"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:fontFamily="@font/roboto_bold"
+                android:gravity="center"
+                android:maxLines="1"
+                android:text="Ubah Informasi Toko"
+                android:textColor="@color/dark_black"
+                app:autoSizeMaxTextSize="24sp"
+                app:autoSizeMinTextSize="12sp"
+                app:autoSizeStepGranularity="2sp"
+                app:autoSizeTextType="uniform" />
+
+        </RelativeLayout>
 
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_marginTop="20dp"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/relativeLayout5">
+        <!--Bottom-->
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <ScrollView
+            android:id="@+id/scViewUpdateStore"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/relativeLayout4"
+            app:layout_constraintVertical_bias="0.1">
 
-            <com.google.android.material.floatingactionbutton.FloatingActionButton
-                android:id="@+id/button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:backgroundTint="@color/orange"
-                android:src="@drawable/ic_edit"
-                app:fabSize="mini"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.179"
-                app:layout_constraintStart_toStartOf="@+id/cardView6"
-                app:layout_constraintTop_toTopOf="@+id/cardView6"
-                app:layout_constraintVertical_bias="0.15" />
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/rvStoreUpdateProf"
+                android:layout_width="match_parent"
+                android:layout_height="0dp">
 
 
-            <androidx.cardview.widget.CardView
-                android:id="@+id/cardView6"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:cardCornerRadius="20dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.02"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.0">
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/fabUploadLogoStoreUpdate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:contentDescription="@string/upload"
+                    android:src="@drawable/ic_edit_black"
+                    app:fabSize="mini"
+                    app:layout_constraintBottom_toTopOf="@+id/etStoreNameInput"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.639"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/cardView6"
+                    app:layout_constraintVertical_bias="0.622" />
 
-                <ImageView
-                    android:id="@+id/ivShopLogoView"
-                    android:layout_width="100dp"
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardView6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="30dp"
+                    app:cardCornerRadius="20dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.498"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/rvStoreUpdateProf"
+                    app:layout_constraintVertical_bias="0.02">
+
+                    <ImageView
+                        android:id="@+id/ivShopLogoView"
+                        android:layout_width="96dp"
+                        android:layout_height="match_parent"
+                        android:adjustViewBounds="true"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/sample_online_store_logo" />
+
+                </androidx.cardview.widget.CardView>
+
+                <TextView
+                    android:id="@+id/tvStoreNameConfigView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/nama_toko"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.045"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/cardView6"
+                    app:layout_constraintVertical_bias="0.061" />
+
+                <EditText
+                    android:id="@+id/etStoreNameInput"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="30dp"
+                    android:background="@drawable/custom_input"
+                    android:clickable="false"
+                    android:fontFamily="@font/lato"
+                    android:padding="10dp"
+                    android:text="@string/detail_toko"
+                    android:textSize="13sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="@+id/tvStoreNameConfigView"
+                    app:layout_constraintTop_toBottomOf="@+id/tvStoreNameConfigView"
+                    app:layout_constraintVertical_bias="0.031" />
+
+
+                <TextView
+                    android:id="@+id/textView6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/address"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="@+id/tvStoreNameConfigView"
+                    app:layout_constraintTop_toBottomOf="@+id/etStoreNameInput"
+                    app:layout_constraintVertical_bias="0.041" />
+
+                <EditText
+                    android:id="@+id/etStoreAdress"
+                    android:layout_width="0dp"
                     android:layout_height="100dp"
-                    android:adjustViewBounds="true"
-                    android:scaleType="centerCrop"
-                    android:src="@drawable/sample_online_store_logo" />
-            </androidx.cardview.widget.CardView>
+                    android:layout_marginEnd="30dp"
+                    android:background="@drawable/custom_input"
+                    android:clickable="false"
+                    android:fontFamily="@font/lato"
+                    android:gravity="top|start"
+                    android:inputType="textMultiLine"
+                    android:padding="10dp"
+                    android:text="@string/alamat"
+                    android:textSize="13sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="@+id/etStoreNameInput"
+                    app:layout_constraintTop_toBottomOf="@+id/textView6"
+                    app:layout_constraintVertical_bias="0.082" />
 
-            <TextView
-                android:id="@+id/textView7"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/roboto_regular"
-                android:text="@string/nama_bisnis"
-                android:textColor="@color/dark_black"
-                android:textSize="16sp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.046"
-                app:layout_constraintStart_toEndOf="@+id/cardView6"
-                app:layout_constraintTop_toTopOf="@+id/cardView6"
-                app:layout_constraintVertical_bias="0.0" />
+                <TextView
+                    android:id="@+id/tvPhoneNumber"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/nomor_telepon"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.049"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/etStoreAdress"
+                    app:layout_constraintVertical_bias="0.3" />
 
-            <EditText
-                android:id="@+id/etNamaBisnisUpdate"
+                <EditText
+                    android:id="@+id/etPhoneAddressView"
+                    android:layout_width="0dp"
+                    android:layout_height="45dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="20dp"
+                    android:backgroundTint="@color/gray_3rd"
+                    android:fontFamily="@font/lato"
+                    android:padding="10dp"
+                    android:paddingBottom="10dp"
+                    android:text="@string/detail_toko"
+                    android:textColor="@color/gray_secondary"
+                    android:textSize="13sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="@+id/etStoreAdress"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="@+id/etStoreAdress"
+                    app:layout_constraintTop_toBottomOf="@+id/tvPhoneNumber"
+                    app:layout_constraintVertical_bias="0.0" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </ScrollView>
+
+        <LinearLayout
+            android:id="@+id/linearLayout2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="25dp"
+            android:orientation="horizontal"
+            android:weightSum="2"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="@+id/scViewUpdateStore"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.95">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnBatalStoreUpdate"
                 android:layout_width="0dp"
-                android:layout_height="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="10dp"
+                android:layout_weight="1"
+                android:background="@color/orange"
+                android:fontFamily="@font/lato"
+                android:text="@string/cancel"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                app:autoSizeMaxTextSize="18sp"
+                app:autoSizeMinTextSize="12sp"
+                app:autoSizeStepGranularity="2sp"
+                app:autoSizeTextType="uniform" />
+
+            <Button
+                android:id="@+id/btnUpdateStoreUpdate"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginEnd="20dp"
-                android:background="@drawable/custom_input"
-                android:clickable="false"
+                android:layout_marginEnd="10dp"
+                android:layout_weight="1"
+                android:background="@color/design_default_color_on_primary"
                 android:fontFamily="@font/lato"
-                android:gravity="top|start"
-                android:hint="@string/nama_bisnis"
-                android:padding="10dp"
-                android:textSize="14sp"
-                app:layout_constraintBottom_toBottomOf="@+id/cardView6"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toEndOf="@+id/cardView6"
-                app:layout_constraintTop_toBottomOf="@+id/textView7"
-                app:layout_constraintVertical_bias="1.0" />
+                android:text="@string/update"
+                android:textAllCaps="false"
+                android:textStyle="bold"
+                app:autoSizeMaxTextSize="18sp"
+                app:autoSizeMinTextSize="12sp"
+                app:autoSizeStepGranularity="2sp"
+                app:autoSizeTextType="uniform" />
 
-            <TextView
-                android:id="@+id/tvTelepon"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/lato"
-                android:text="@string/nomor_telepon"
-                android:textColor="@color/dark_black"
-                android:textSize="16sp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.052"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/button"
-                app:layout_constraintVertical_bias="0.071" />
+        </LinearLayout>
 
-            <TextView
-                android:id="@+id/etPhoneNumberBusinessUpdate"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:background="?attr/editTextBackground"
-                android:backgroundTint="@color/gray_3rd"
-                android:fontFamily="@font/lato"
-                android:hint="@string/_62_nomor_kontak"
-                android:paddingBottom="20dp"
-                android:textColor="@color/gray_secondary"
-                android:textSize="16sp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="@+id/etNamaBisnisUpdate"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="@+id/tvTelepon"
-                app:layout_constraintTop_toBottomOf="@+id/tvTelepon"
-                app:layout_constraintVertical_bias="0.0" />
-
-            <TextView
-                android:id="@+id/textView9"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/lato"
-                android:text="@string/website"
-                android:textColor="@color/dark_black"
-                android:textSize="16sp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="@+id/etPhoneNumberBusinessUpdate"
-                app:layout_constraintTop_toBottomOf="@+id/etPhoneNumberBusinessUpdate"
-                app:layout_constraintVertical_bias="0.02" />
-
-            <EditText
-                android:id="@+id/etWebsiteBusinessUpdate"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:background="?attr/editTextBackground"
-                android:backgroundTint="@color/gray_3rd"
-                android:fontFamily="@font/lato"
-                android:hint="@string/website"
-                android:paddingBottom="20dp"
-                android:textColor="@color/gray_secondary"
-                android:textSize="14sp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="@+id/etPhoneNumberBusinessUpdate"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="@+id/textView9"
-                app:layout_constraintTop_toBottomOf="@+id/textView9"
-                app:layout_constraintVertical_bias="0.0" />
-
-            <TextView
-                android:id="@+id/textView8"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/lato"
-                android:hint="@string/teks_terima_kasih"
-                android:textColor="@color/dark_black"
-                android:textSize="16sp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.055"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView9"
-                app:layout_constraintVertical_bias="0.184" />
-
-            <EditText
-                android:id="@+id/etThanksNoteUpdate"
-                android:layout_width="0dp"
-                android:layout_height="80dp"
-                android:background="@drawable/custom_input"
-                android:ems="10"
-                android:fontFamily="@font/lato"
-                android:gravity="top|start"
-                android:hint="Teks Terima Kasih"
-                android:inputType="textMultiLine"
-                android:padding="10dp"
-                android:textSize="14sp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="@+id/etPhoneNumberBusinessUpdate"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="@+id/textView8"
-                app:layout_constraintTop_toBottomOf="@+id/textView8"
-                app:layout_constraintVertical_bias="0.041" />
-
-            <TextView
-                android:id="@+id/tvDetailAlamat"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/lato"
-                android:text="Alamat"
-                android:textColor="@color/dark_black"
-                android:textSize="16sp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="@+id/etThanksNoteUpdate"
-                app:layout_constraintTop_toBottomOf="@+id/etThanksNoteUpdate"
-                app:layout_constraintVertical_bias="0.073" />
-
-            <EditText
-                android:id="@+id/etBusinessAddressUpdate"
-                android:layout_width="0dp"
-                android:layout_height="100dp"
-                android:background="@drawable/custom_input"
-                android:ems="10"
-                android:fontFamily="@font/lato"
-                android:gravity="top|start"
-                android:hint="@string/alamat"
-                android:inputType="textMultiLine"
-                android:padding="10dp"
-                android:textSize="14sp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="@+id/etThanksNoteUpdate"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="@+id/tvDetailAlamat"
-                app:layout_constraintTop_toBottomOf="@+id/tvDetailAlamat"
-                app:layout_constraintVertical_bias="0.099" />
-
-
-
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </ScrollView>
-
-    <!--Bottom-->
-    <LinearLayout
-        android:id="@+id/linearLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:orientation="horizontal"
-        android:weightSum="2"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/relativeLayout5"
-        app:layout_constraintVertical_bias="0.975">
-
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/btnLlihatReceipt"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_weight="1"
-            android:background="@color/orange"
-            android:fontFamily="@font/lato"
-            android:text="Batal"
-            android:textAllCaps="false"
-            android:textColor="@color/white"
-            android:textStyle="bold"
-            app:autoSizeMaxTextSize="18sp"
-            app:autoSizeMinTextSize="12sp"
-            app:autoSizeStepGranularity="2sp"
-            app:autoSizeTextType="uniform" />
-
-        <Button
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginEnd="20dp"
-            android:layout_weight="1"
-            android:background="@color/design_default_color_on_primary"
-            android:fontFamily="@font/lato"
-            android:text="Update"
-            android:textAllCaps="false"
-            android:textStyle="bold"
-            app:autoSizeMaxTextSize="18sp"
-            app:autoSizeMinTextSize="12sp"
-            app:autoSizeStepGranularity="2sp"
-            app:autoSizeTextType="uniform" />
-
-    </LinearLayout>
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
