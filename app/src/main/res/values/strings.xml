@@ -148,6 +148,7 @@
     <string name="invalid_unit_total">Total item harus diantara 1 - %d</string>
     <string name="upload">Upload</string>
     <string name="add_product">Tambah Produk</string>
+    <string name="tax">Tax</string>
 
     <!-- Single Product -->
     <string name="stok_awal">Stok Awal</string>

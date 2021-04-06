@@ -1,24 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:background="@drawable/item_background"
-    android:layout_marginTop="4dp"
-    android:layout_marginBottom="4dp"   >
+<layout>
+    <data>
+        <variable
+            name="totalPrice"
+            type="Double"/>
+        <variable
+            name="item"
+            type="com.simple.pos.shared.model.ReceiptItem" />
+    </data>
 
     <RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.009"
-        android:gravity="center_vertical"
-        >
+        android:layout_marginTop="4dp"
+        android:layout_marginBottom="4dp"
+        android:background="@drawable/item_background">
 
         <TextView
             android:id="@+id/productNameItemReceipt"
@@ -26,6 +25,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="18dp"
             android:fontFamily="@font/roboto_regular"
+            android:text="@{item.productHistory.name}"
             tools:text="Sepeda Gunung Ribryzka"
             android:textColor="@color/dark_black"
             android:textSize="16sp"
@@ -44,6 +44,7 @@
             android:gravity="center_vertical"
             android:paddingStart="10dp"
             android:paddingEnd="5dp"
+            android:text="@{String.valueOf(item.unitTotal)}"
             tools:text="21"
             android:textColor="@color/dark_black"
             android:textSize="16sp"
@@ -58,6 +59,7 @@
             android:layout_marginStart="40dp"
             android:layout_toEndOf="@+id/tvItemQuantityReceipt"
             android:fontFamily="@font/roboto_regular"
+            android:text="@{String.format(@string/price, item.productHistory.sellingPrice)}"
             tools:text="Rp 210000"
             android:textColor="@color/dark_black"
             android:textSize="16sp"
@@ -74,6 +76,7 @@
             android:layout_marginEnd="10dp"
             android:fontFamily="@font/roboto_medium"
             android:gravity="center_vertical"
+            android:text="@{String.format(@string/price, totalPrice)}"
             tools:text="Rp 20000"
             android:textColor="@color/dark_black"
             android:textSize="16sp"
@@ -82,4 +85,4 @@
             android:layout_centerVertical="true"/>     
 
     </RelativeLayout>
-</androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

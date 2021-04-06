@@ -1,0 +1,533 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="subtotal"
+            type="java.lang.Double" />
+        <variable
+            name="tax"
+            type="java.lang.Double" />
+        <variable
+            name="store"
+            type="com.simple.pos.shared.model.Store"/>
+        <variable
+            name="checkout"
+            type="com.simple.pos.shared.model.submodel.SuccessfulCheckout" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <!--Navbar-->
+        <LinearLayout
+            android:id="@+id/topNav"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:background="@drawable/child_navbar"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/main_gray_background">
+
+                <TextView
+                    android:id="@+id/tanggalView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto_medium"
+                    android:text="@string/info_receipt"
+                    android:textColor="@color/black"
+                    android:textSize="25sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.06"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.51" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="152dp"
+                    android:background="@android:color/transparent"
+                    android:drawableStart="@drawable/ic_share"
+                    android:text="Share"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/tanggalView"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
+
+        <ScrollView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toTopOf="@+id/btmNavbacr"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/topNav"
+            android:background="@color/light_gray_background"
+            >
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/light_gray_background"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                >
+
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/constraintLayout4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    android:paddingBottom="10dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.061"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintVertical_bias="1.0">
+
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/cardView7"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="20dp"
+                            app:cardCornerRadius="20dp"
+                            android:layout_marginTop="20dp"
+                            android:layout_marginBottom="10dp"
+                            app:layout_constraintBottom_toTopOf="@+id/textView11"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.07"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintVertical_bias="0.2">
+
+                            <ImageView
+                                android:id="@+id/ivBusinessLogoReceipt"
+                                android:layout_width="100dp"
+                                android:layout_height="100dp"
+                                android:layout_centerInParent="true"
+                                android:adjustViewBounds="true"
+                                android:contentDescription="@string/logo_toko"
+                                android:scaleType="centerCrop"
+                                android:src="@drawable/sample_online_store_logo" />
+                        </androidx.cardview.widget.CardView>
+
+                        <TextView
+                            android:id="@+id/tvNamaTokoReceipt"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/roboto_bold"
+                            android:maxWidth="170dp"
+                            android:maxLines="2"
+                            app:autoSizeMaxTextSize="20sp"
+                            app:autoSizeMinTextSize="10sp"
+                            app:autoSizeTextType="uniform"
+                            app:layout_constraintBottom_toTopOf="@+id/textView11"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.0"
+                            app:layout_constraintStart_toStartOf="@+id/cardView7"
+                            app:layout_constraintTop_toBottomOf="@+id/cardView7"
+                            app:layout_constraintVertical_bias="0.147"
+                            android:text="@{store.name}"
+                            tools:text="@string/nama_toko_1" />
+
+                        <TextView
+                            android:id="@+id/textView11"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="4dp"
+                            android:fontFamily="@font/lato"
+                            android:maxWidth="150dp"
+                            app:autoSizeMaxTextSize="15sp"
+                            app:autoSizeMinTextSize="7sp"
+                            app:autoSizeTextType="uniform"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="@+id/textView10"
+                            android:layout_marginTop="5dp"
+                            android:text = "@{store.address}"
+                            tools:text="Jl. Cebongan Lor Rt 02 02 Sleman Yogyakarta 3001" />
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="28dp"
+                        android:layout_marginEnd="16dp"
+                        app:autoSizeMaxTextSize="14sp"
+                        app:autoSizeMinTextSize="7sp"
+                        app:autoSizeTextType="uniform"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        android:text="@{checkout.note}"
+                        tools:text="Ucapan Terima kasih" />
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/constraintLayout5"
+                    android:layout_width="match_parent"
+                    android:layout_height="80dp"
+                    android:layout_marginTop="4dp"
+                    android:background="@drawable/ic_line_title_popup"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/constraintLayout4">
+
+                    <TextView
+                        android:id="@+id/textView12"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/roboto_medium"
+                        tools:text="Struk Penerimaan"
+                        android:textColor="@color/black"
+                        android:textSize="20sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.064"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintVertical_bias="0.0" />
+
+                    <TextView
+                        android:id="@+id/lblTanggal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/black"
+                        android:textStyle="bold|normal"
+                        tools:text="Tanggal"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintStart_toStartOf="@+id/textView12"
+                        app:layout_constraintTop_toBottomOf="@+id/textView12"
+                        app:layout_constraintVertical_bias="0.02" />
+
+                    <TextView
+                        android:id="@+id/textView15"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="12dp"
+                        android:text="@{checkout.receiptTime}"
+                        tools:text="@string/_20_desember_2021"
+                        app:layout_constraintBottom_toBottomOf="@+id/lblTanggal"
+                        app:layout_constraintStart_toEndOf="@+id/lblTanggal"
+                        app:layout_constraintTop_toTopOf="@+id/lblTanggal"
+                        app:layout_constraintVertical_bias="0.0" />
+
+                    <TextView
+                        android:id="@+id/textView17"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="64dp"
+                        android:text="@string/transaksi"
+                        android:textColor="@color/black"
+                        android:textStyle="bold|normal"
+                        app:layout_constraintBottom_toBottomOf="@+id/textView15"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.164"
+                        app:layout_constraintStart_toEndOf="@+id/textView15"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintVertical_bias="0.518" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintStart_toEndOf="@+id/textView17"
+                        app:layout_constraintTop_toTopOf="@+id/textView17"
+                        app:layout_constraintVertical_bias="0.0"
+                        tools:text="Go Pay"
+                        android:text="@{checkout.paymentMethod.shownMethod}"
+                        />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@{String.valueOf(checkout.id)}"
+                        tools:text="ID Struk "
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.044"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/lblTanggal"
+                        app:layout_constraintVertical_bias="0.0" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <RelativeLayout
+                    android:id="@+id/relativeLayout6"
+                    android:layout_width="match_parent"
+                    android:layout_height="25dp"
+                    android:background="@drawable/item_background"
+                    android:gravity="center_vertical"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/constraintLayout5"
+                    app:layout_constraintVertical_bias="0">
+
+                    <TextView
+                        android:id="@+id/productNameReceipt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="18dp"
+                        android:fontFamily="@font/roboto_regular"
+                        android:text="@string/nama_barang_title"
+                        android:textColor="@color/dark_black"
+                        android:textSize="16sp"
+                        app:autoSizeMinTextSize="10sp"
+                        app:autoSizeTextType="uniform"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintVertical_bias="1" />
+
+                    <TextView
+                        android:id="@+id/lblQTY"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_marginStart="20dp"
+                        android:layout_toEndOf="@id/productNameReceipt"
+                        android:fontFamily="@font/roboto_regular"
+                        android:gravity="center_vertical"
+                        android:paddingStart="20dp"
+                        android:paddingEnd="5dp"
+                        android:text="@string/qty"
+                        android:textColor="@color/dark_black"
+                        android:textSize="16sp"
+                        app:autoSizeMinTextSize="10sp"
+                        app:autoSizeTextType="uniform" />
+
+
+                    <TextView
+                        android:id="@+id/lblHargaBarangStruct"
+                        android:layout_width="88dp"
+                        android:layout_height="match_parent"
+
+                        android:layout_marginStart="45dp"
+                        android:layout_toEndOf="@+id/lblQTY"
+                        android:fontFamily="@font/roboto_regular"
+                        android:text="@string/harga"
+                        android:textColor="@color/dark_black"
+                        android:textSize="16sp"
+                        app:autoSizeMinTextSize="10sp"
+                        app:autoSizeTextType="uniform" />
+
+                    <TextView
+                        android:id="@+id/lblTotalQTYPrice"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginEnd="45dp"
+                        android:fontFamily="@font/roboto_medium"
+                        android:gravity="center_vertical"
+                        android:text="@string/total"
+                        android:textColor="@color/dark_black"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        app:autoSizeMinTextSize="10sp"
+                        app:autoSizeTextType="uniform" />
+                </RelativeLayout>
+
+                <ImageView
+                    android:id="@+id/imageView10"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:adjustViewBounds="true"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/ic_line_receipt_first"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/relativeLayout7"
+                    app:layout_constraintVertical_bias="0.0"
+                    android:contentDescription="@string/line" />
+
+
+                <RelativeLayout
+                    android:id="@+id/relativeLayout7"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:paddingTop="10dp"
+                    app:layout_constraintTop_toBottomOf="@+id/receiptListItemRv"
+                    app:layout_constraintVertical_bias="0.027"
+                    tools:layout_editor_absoluteX="16dp">
+
+                    <TextView
+                        android:id="@+id/tvSubTotalReceipt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="20dp"
+                        android:fontFamily="@font/roboto_regular"
+                        android:text="@string/subtotal"
+                        android:textColor="@color/dark_black"
+                        android:textSize="16sp"
+                        app:autoSizeMinTextSize="10sp"
+                        app:autoSizeTextType="uniform" />
+
+                    <TextView
+                        android:id="@+id/subtotalReceipt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginEnd="19dp"
+                        android:fontFamily="@font/roboto_medium"
+                        android:textColor="@color/dark_black"
+                        android:textSize="16sp"
+                        app:autoSizeMinTextSize="10sp"
+                        app:autoSizeTextType="uniform"
+                        tools:text="10000"
+                        android:text="@{String.valueOf(subtotal)}"/>
+
+                    <TextView
+                        android:id="@+id/lblPajakReceipt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/tvSubTotalReceipt"
+                        android:layout_marginStart="20dp"
+                        android:fontFamily="@font/lato"
+                        android:text="@string/tax" />
+
+                    <TextView
+                        android:id="@+id/tvPajakReceipt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/subtotalReceipt"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginTop="1dp"
+                        android:layout_marginEnd="20dp"
+                        android:fontFamily="@font/lato"
+                        android:text="@{String.valueOf(tax)}"
+                        app:autoSizeMinTextSize="10sp"
+                        app:autoSizeTextType="uniform"
+                        tools:text="1000" />
+
+                    <TextView
+                        android:id="@+id/lblTotalReceipt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/lblPajakReceipt"
+                        android:layout_marginStart="20dp"
+                        android:fontFamily="@font/roboto_bold"
+                        android:text="@string/total"
+                        android:textColor="@color/teal_700"
+                        android:textSize="18sp"
+                        app:autoSizeMinTextSize="10sp"
+                        app:autoSizeTextType="uniform" />
+
+                    <TextView
+                        android:id="@+id/tvTotalReceipt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/tvPajakReceipt"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginEnd="20dp"
+                        android:fontFamily="@font/roboto_bold"
+                        android:text="@{String.format(@string/price, subtotal + checkout.tax)}"
+                        tools:text="Rp 11000"
+                        android:textColor="@color/teal_700"
+                        android:textSize="18sp"
+                        app:autoSizeMinTextSize="10sp"
+                        app:autoSizeTextType="uniform" />
+                </RelativeLayout>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/receiptListItemRv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    tools:itemCount="2"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/relativeLayout6"
+                    tools:listitem="@layout/item_checkout_receipt"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </ScrollView>
+
+        <!--Bottom-->
+        <LinearLayout
+            android:id="@+id/btmNavbacr"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="2"
+            android:paddingTop="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1"
+            android:paddingBottom="25dp"
+            >
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnLlihatReceipt"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="10dp"
+                android:layout_weight="1"
+                android:background="@drawable/button_tenary_fill_round"
+                android:fontFamily="@font/poppins"
+                android:text="@string/hapus"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:layout_marginStart="25dp"
+                app:autoSizeMaxTextSize="18sp"
+                app:autoSizeMinTextSize="12sp"
+                app:autoSizeStepGranularity="2sp"
+                app:autoSizeTextType="uniform" />
+
+            <Button
+                android:id="@+id/receiptDashboardBtn"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="25dp"
+                android:layout_weight="1"
+                android:background="@drawable/button_secondary_fill_round"
+                android:fontFamily="@font/poppins"
+                android:text="@string/dashboard"
+                android:textAllCaps="false"
+                android:textStyle="bold"
+                app:autoSizeMaxTextSize="18sp"
+                app:autoSizeMinTextSize="12sp"
+                app:autoSizeStepGranularity="2sp"
+                app:autoSizeTextType="uniform" />
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
