@@ -1,10 +1,12 @@
 package com.simple.pos.modul.checkoutsuccess
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.simple.pos.R
 import com.simple.pos.databinding.ActivityCheckoutDetailSuccessBinding
+import com.simple.pos.modul.inforeceipt.InfoReceiptActivity
 
 class CheckoutSuccessActivity: AppCompatActivity(), CheckoutSuccessContract.View {
     private var struckId: Int = -1
@@ -42,5 +44,11 @@ class CheckoutSuccessActivity: AppCompatActivity(), CheckoutSuccessContract.View
     }
 
     override fun redirectToShowReceipt() {
+        startActivity(
+                Intent(this, InfoReceiptActivity::class.java)
+                        .putExtra(InfoReceiptActivity.RECEIPT_ID_BUNDLE_KEY, struckId)
+        )
+
+        finish()
     }
 }
