@@ -1,6 +1,5 @@
 package com.simple.pos.modul.profiluser.storesetting.update
 
-import android.text.TextUtils
 import com.simple.pos.base.util.UtilProvider
 import com.simple.pos.shared.callback.RequestCallback
 import com.simple.pos.shared.model.Store
@@ -8,20 +7,24 @@ import com.simple.pos.shared.util.StoreUtil
 
 class ProfileStoreUpdatePresenter(private val view: ProfileStoreUpdateContract.View): ProfileStoreUpdateContract.Presenter {
 
+    //private val store: Store? = null
+
     companion object {
         private val interactor = ProfileStoreUpdateInteractor()
+        private val currentStore = (UtilProvider.getUtil(StoreUtil::class.java) as StoreUtil).sessionData
     }
 
     override fun showAllStoreInfo() {
-        val store = (UtilProvider.getUtil(StoreUtil::class.java) as StoreUtil).sessionData
-        view.showStoreData(store.name, store.address!!, store.phoneNumber!!)
+        view.showStoreData(currentStore.name, currentStore?.address, currentStore?.phoneNumber)
     }
 
     override fun updateStore(store: Store) {
         if(!updateStoreValid(store))
             return
-        interactor.requestUpdateStore(store, object: RequestCallback<Store?>{
+        interactor.requestUpdateStore(store, object : RequestCallback<Store?> {
             override fun requestSuccess(data: Store?) {
+                (UtilProvider.getUtil(StoreUtil::class.java) as StoreUtil).destroy()
+                (UtilProvider.getUtil(StoreUtil::class.java) as StoreUtil).update(data)
                 view.updateSuccess("Berhasil mengupdate data")
             }
 

@@ -4,11 +4,13 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.ImageView
+import android.widget.RelativeLayout
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.simple.pos.R
 import com.simple.pos.modul.login.LoginActivity
-import com.simple.pos.modul.profiluser.notesetting.NoteStoreActivity
+import com.simple.pos.modul.profiluser.profilnote.NoteStoreActivity
+import com.simple.pos.modul.profiluser.storesetting.ProfileStoreActivity
 
 class ProfileUserActivity: AppCompatActivity(), ProfileUserContract.View {
     private val presenter  = ProfileUserPresenter(this)
@@ -24,7 +26,7 @@ class ProfileUserActivity: AppCompatActivity(), ProfileUserContract.View {
         findViewById<ImageView>(R.id.ivBackArrow).setOnClickListener{
             redirectToDashboard()
         }
-        /*findViewById<RelativeLayout>(R.id.storeConfigurationBtn).setOnClickListener{
+        findViewById<RelativeLayout>(R.id.storeConfigurationBtn).setOnClickListener{
             redirectToStoreConfiguration()
         }
         findViewById<RelativeLayout>(R.id.struckConfigurationBtn).setOnClickListener{
@@ -32,8 +34,13 @@ class ProfileUserActivity: AppCompatActivity(), ProfileUserContract.View {
         }
         findViewById<RelativeLayout>(R.id.paymentConfigurationBtn).setOnClickListener{
             redirectToStructConfiguration()
-        }*/
+        }
 
+        findViewById<Button>(R.id.logoutBtn).setOnClickListener{
+            presenter.logout()
+        }
+
+/*
         findViewById<TextView>(R.id.tvPengaturanToko).setOnClickListener{
             redirectToStoreConfiguration()
         }
@@ -42,9 +49,9 @@ class ProfileUserActivity: AppCompatActivity(), ProfileUserContract.View {
             redirectToStructConfiguration()
         }
 
-        findViewById<Button>(R.id.logoutBtn).setOnClickListener{
-            presenter.logout()
-        }
+
+*/
+
     }
 
     override fun showUserAndStoreName(username: String, storeName: String) {
@@ -53,15 +60,13 @@ class ProfileUserActivity: AppCompatActivity(), ProfileUserContract.View {
     }
 
     override fun redirectToStoreConfiguration() {
-
+        val intent = Intent(this, ProfileStoreActivity::class.java)
+        startActivity(intent)
     }
 
     override fun redirectToStructConfiguration() {
         val intent = Intent(this, NoteStoreActivity::class.java)
-
-        setResult(RESULT_OK)
         startActivity(intent)
-        finish()
     }
 
     override fun redirectToPaymentConfiguration() {

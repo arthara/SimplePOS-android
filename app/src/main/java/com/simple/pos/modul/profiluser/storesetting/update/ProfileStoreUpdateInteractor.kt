@@ -9,9 +9,11 @@ import java.io.File
 
 class ProfileStoreUpdateInteractor: ProfileStoreUpdateContract.Interactor {
 
-    companion object{
+/*    companion object{
         private val service = ServiceGenerator.createService(ProfileStoreUpdateService::class.java)
-    }
+    }*/
+
+    private val service = ServiceGenerator.createService(ProfileStoreUpdateService::class.java)
 
     override fun requestUpdateStore(store: Store, callback: RequestCallback<Store?>) {
         service.updateProfile(store, store.id).enqueue(

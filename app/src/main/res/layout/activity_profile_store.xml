@@ -104,7 +104,7 @@
             app:layout_constraintVertical_bias="0.019" />
 
         <TextView
-            android:id="@+id/etStoreNameInput"
+            android:id="@+id/tvStoreNameInput"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginEnd="30dp"
@@ -132,7 +132,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/tvStoreNameConfigView"
-            app:layout_constraintTop_toBottomOf="@+id/etStoreNameInput"
+            app:layout_constraintTop_toBottomOf="@+id/tvStoreNameInput"
             app:layout_constraintVertical_bias="0.046" />
 
         <TextView
@@ -145,7 +145,7 @@
             android:fontFamily="@font/lato"
             android:gravity="top|start"
             android:padding="10dp"
-            android:text="@string/address"
+            android:hint="@string/address"
             android:textSize="13sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -170,13 +170,13 @@
             app:layout_constraintVertical_bias="0.093" />
 
         <TextView
-            android:id="@+id/etPhoneAddressView"
+            android:id="@+id/tvPhoneAddressInput"
             android:layout_width="0dp"
             android:layout_height="44dp"
             android:fontFamily="@font/lato"
             android:padding="10dp"
             android:paddingBottom="10dp"
-            tools:text="Detail Toko"
+            android:hint="@string/_62_nomor_kontak"
             android:textSize="13sp"
             android:textColor="@color/gray_secondary"
             android:background="?attr/editTextBackground"

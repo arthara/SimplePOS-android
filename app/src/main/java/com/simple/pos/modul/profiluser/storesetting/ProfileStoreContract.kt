@@ -5,7 +5,7 @@ import com.simple.pos.shared.model.Store
 interface ProfileStoreContract {
 
     interface View{
-        fun showStoreData(storeName: String, address:String, logo:String, phone:String)
+        fun showStoreData(storeName:String, address:String?, logo:String?, phone:String?)
         fun redirectToStoreConfigurationUpdate();
     }
 

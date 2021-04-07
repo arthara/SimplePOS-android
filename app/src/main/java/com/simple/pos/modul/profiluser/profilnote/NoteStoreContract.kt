@@ -1,12 +1,11 @@
-package com.simple.pos.modul.profiluser.notesetting
-
-import com.simple.pos.shared.callback.RequestCallback
+package com.simple.pos.modul.profiluser.profilnote
 
 interface NoteStoreContract {
 
     interface View {
         fun redirectToUpdateNote()
         fun redirectToUserProfile()
+        fun showNotes(notes:String?)
     }
 
     interface Presenter {

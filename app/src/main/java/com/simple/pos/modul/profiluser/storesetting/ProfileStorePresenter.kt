@@ -8,8 +8,7 @@ class ProfileStorePresenter(private val view: ProfileStoreContract.View)
 
     override fun showAllStoreInfo() {
         val store = (UtilProvider.getUtil(StoreUtil::class.java) as StoreUtil).sessionData
-        view.showStoreData(store.name, store.address!!, store.logo!!, store.phoneNumber!!)
+        view.showStoreData(store.name, store?.address, store?.logo, store?.phoneNumber)
     }
-
 
 }

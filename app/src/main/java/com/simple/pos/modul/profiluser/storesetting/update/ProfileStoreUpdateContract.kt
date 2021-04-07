@@ -7,7 +7,7 @@ import java.io.File
 interface ProfileStoreUpdateContract  {
 
     interface View{
-        fun showStoreData(storeName: String, address: String, phone: String)
+        fun showStoreData(storeName: String, address: String?, phone: String?)
         fun updateProfileImageSuccess(message: String, path: String?)
         fun updateSuccess(message: String)
         fun updateFailed(message: String)
