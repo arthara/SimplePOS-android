@@ -39,19 +39,6 @@ class ProfileUserActivity: AppCompatActivity(), ProfileUserContract.View {
         findViewById<Button>(R.id.logoutBtn).setOnClickListener{
             presenter.logout()
         }
-
-/*
-        findViewById<TextView>(R.id.tvPengaturanToko).setOnClickListener{
-            redirectToStoreConfiguration()
-        }
-
-        findViewById<TextView>(R.id.tvPengaturanNote).setOnClickListener{
-            redirectToStructConfiguration()
-        }
-
-
-*/
-
     }
 
     override fun showUserAndStoreName(username: String, storeName: String) {
@@ -62,11 +49,13 @@ class ProfileUserActivity: AppCompatActivity(), ProfileUserContract.View {
     override fun redirectToStoreConfiguration() {
         val intent = Intent(this, ProfileStoreActivity::class.java)
         startActivity(intent)
+        finish()
     }
 
     override fun redirectToStructConfiguration() {
         val intent = Intent(this, NoteStoreActivity::class.java)
         startActivity(intent)
+        finish()
     }
 
     override fun redirectToPaymentConfiguration() {

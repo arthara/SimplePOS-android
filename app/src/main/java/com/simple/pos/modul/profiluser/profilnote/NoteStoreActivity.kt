@@ -21,8 +21,8 @@ class NoteStoreActivity: AppCompatActivity(), NoteStoreContract.View {
     }
 
     override fun redirectToUserProfile() {
-/*        val intent = Intent(this, ProfileUserActivity::class.java)
-        startActivity(intent)*/
+        val intent = Intent(this, ProfileUserActivity::class.java)
+        startActivity(intent)
         finish()
     }
 

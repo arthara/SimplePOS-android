@@ -32,8 +32,8 @@ class ProfileStoreActivity : AppCompatActivity(), ProfileStoreContract.View {
     }
 
     private fun redirectToProfile() {
-/*        val intent = Intent(this, ProfileUserActivity::class.java)
-        startActivity(intent)*/
+        val intent = Intent(this, ProfileUserActivity::class.java)
+        startActivity(intent)
         finish()
     }
 
