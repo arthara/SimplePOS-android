@@ -1,38 +1,32 @@
 package com.simple.pos.modul.dashboard.fragment.belanja
 
-import android.content.Intent
 import android.os.Bundle
-import android.util.Log
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.simple.pos.R
-import com.simple.pos.shared.extension.TAG
 import com.simple.pos.shared.model.Product
-import com.simple.pos.shared.model.submodel.CheckoutItem
 
-class BelanjaFragment: Fragment(), BelanjaContract.View {
+class BelanjaFragment: Fragment(R.layout.fragment_dashboard_store), BelanjaContract.View {
     private val presenter = BelanjaPresenter(this)
     private lateinit var recyclerView: RecyclerView
 
-    override fun onCreateView(inflater: LayoutInflater,
-                              container: ViewGroup?,
-                              savedInstanceState: Bundle?): View? {
-        val view = inflater.inflate(R.layout.fragment_dashboard_store, container, false)
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
         presenter.retrieveProducts()
-        return view
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        presenter.showProducts()
     }
 
     override fun showProducts(products: Array<Product>) {
-        val recyclerAdapter = BelanjaRecyclerAdapter(products, this)
-
-        recyclerAdapter.setHasStableIds(true)
-        recyclerView = view?.findViewById(R.id.listStoreProductsRv)!!
-        recyclerView.adapter = recyclerAdapter
-        recyclerView.layoutManager = LinearLayoutManager(view?.context)
+        view?.findViewById<RecyclerView>(R.id.listStoreProductsRv)?.let {
+            it.adapter = BelanjaRecyclerAdapter(products, this).apply {
+                setHasStableIds(true)
+            }
+        }
     }
 
     override fun chooseProduct(product: Product) {
