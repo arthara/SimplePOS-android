@@ -91,9 +91,8 @@ class ProfileStoreUpdateActivity : AppCompatActivity(), ProfileStoreUpdateContra
     }
 
     override fun redirectToProfileStore() {
-/*        val intent = Intent(this, ProfileStoreActivity::class.java)
-        startActivity(intent)*/
-        //setResult(RESULT_OK)
+        val intent = Intent(this, ProfileStoreActivity::class.java)
+        startActivity(intent)
         finish()
     }
 
