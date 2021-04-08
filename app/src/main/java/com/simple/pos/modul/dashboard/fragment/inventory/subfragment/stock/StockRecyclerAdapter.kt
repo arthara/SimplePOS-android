@@ -1,6 +1,5 @@
 package com.simple.pos.modul.dashboard.fragment.inventory.subfragment.stock
 
-import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.appcompat.widget.PopupMenu
@@ -49,6 +48,10 @@ class StockRecyclerAdapter(private val products: Array<Product>, private val vie
                         }
                         R.id.deletemenu -> {
                             view.showDeleteConfirmation(products[position])
+                            return@setOnMenuItemClickListener true
+                        }
+                        R.id.restokmenu -> {
+                            view.showRestockDialog(products[position])
                             return@setOnMenuItemClickListener true
                         }
                         else -> false

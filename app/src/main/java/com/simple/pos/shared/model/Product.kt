@@ -7,7 +7,12 @@ open class Product(var name: String) {
     @SerializedName("category_id")
     var categoryId: Int = -1
     var picture: String? = null
-    var total: Int = -1
+    var total: Int = 0
+        set(value){
+            if(value < 0)
+                throw IllegalArgumentException("Total product shouldn't less than 0")
+            field = value
+        }
     @SerializedName("selling_price")
     var sellingPrice: Double = -1.0
     @SerializedName("cost_price")
