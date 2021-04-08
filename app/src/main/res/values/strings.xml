@@ -156,5 +156,9 @@
     <string name="harga_kulakan">Harga Kulakan</string>
     <string name="harga_jual">Harga Jual</string>
     <string name="single_produk">Single Produk</string>
+    <string name="restock_product">Restok Produk</string>
+    <string name="change_stock">Ubah stok</string>
+    <string name="total_product_will_be">Total produk akan menjadi %1$d</string>
+    <string name="invalid_total_product">Stok produk tidak dapat kurang dari 0</string>
 
 </resources>

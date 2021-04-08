@@ -21,4 +21,9 @@ class StockInteractor: StockContract.Interactor {
         service.deleteProduct(product.id)
                 .enqueue(RetrofitCallback(callback, TAG, "requestRetrieveProduct"))
     }
+
+    override fun requestUpdateProduct(product: Product, callback: RequestCallback<Product>) {
+        service.updateProduct(product.id, product)
+                .enqueue(RetrofitCallback(callback, TAG, "requestUpdateProduct"))
+    }
 }
