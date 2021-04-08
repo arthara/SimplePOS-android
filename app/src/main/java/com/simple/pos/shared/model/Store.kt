@@ -8,6 +8,8 @@ class Store(var name: String) {
     var address: String? = null
     @SerializedName("phone_number")
     var phoneNumber: String? = null
+    @SerializedName("note_receipt")
+    var noteReceipt: String? = null
     @SerializedName("user_id")
     var userId = -1
     /*var imagePath: String? = null*/

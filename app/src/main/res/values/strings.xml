@@ -149,6 +149,7 @@
     <string name="upload">Upload</string>
     <string name="add_product">Tambah Produk</string>
     <string name="tax">Tax</string>
+    <string name="payment_model">Model Pembayaran</string>
 
     <!-- Single Product -->
     <string name="stok_awal">Stok Awal</string>
@@ -156,5 +157,6 @@
     <string name="harga_kulakan">Harga Kulakan</string>
     <string name="harga_jual">Harga Jual</string>
     <string name="single_produk">Single Produk</string>
+
 
 </resources>

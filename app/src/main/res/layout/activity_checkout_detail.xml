@@ -38,7 +38,8 @@
                     app:layout_constraintHorizontal_bias="0.067"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@drawable/ic_path" />
+                    app:srcCompat="@drawable/ic_path"
+                    android:contentDescription="@string/back" />
 
                 <TextView
                     android:id="@+id/tanggalView"
@@ -62,7 +63,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/roboto_medium"
-            android:text="Detail Pembeli (Opsional)"
+            android:text="@string/detail_pembeli_opsional"
             android:textColor="@color/black"
             android:textSize="16sp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -74,40 +75,20 @@
 
 
         <EditText
-            android:id="@+id/etCountryPhoneCode"
-            android:layout_width="108dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:background="@drawable/custom_input"
-            android:entries="@array/phoneCode"
-            android:fontFamily="@font/roboto_medium"
-            android:hint="@string/_62"
-            android:padding="10dp"
-            android:textSize="16sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.049"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView3" />
-
-        <EditText
             android:id="@+id/etPhoneNumberDetCheck"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
             android:layout_marginTop="16dp"
-            android:layout_marginEnd="30dp"
+            android:layout_marginEnd="25dp"
             android:background="@drawable/custom_input"
             android:fontFamily="@font/roboto_medium"
             android:hint="@string/contact_text"
             android:padding="10dp"
             android:text="@={checkout.customerName}"
             android:textSize="16sp"
-            app:layout_constraintBottom_toBottomOf="@+id/etCountryPhoneCode"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toEndOf="@+id/etCountryPhoneCode"
-            app:layout_constraintTop_toBottomOf="@+id/textView3"
-            app:layout_constraintVertical_bias="0.0" />
+            app:layout_constraintStart_toStartOf="@+id/textView3"
+            app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
         <EditText
             android:id="@+id/etCustomerNameDetCheck"
@@ -123,8 +104,7 @@
             android:textSize="16sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/etPhoneNumberDetCheck"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/etCountryPhoneCode"
+            app:layout_constraintStart_toStartOf="@+id/etPhoneNumberDetCheck"
             app:layout_constraintTop_toBottomOf="@+id/etPhoneNumberDetCheck"
             app:layout_constraintVertical_bias="0.029" />
 
@@ -135,7 +115,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/roboto_medium"
-            android:text="Model Pembayaran"
+            android:text="@string/payment_model"
             android:textColor="@color/black"
             android:textSize="16sp"
             app:layout_constraintBottom_toBottomOf="parent"
