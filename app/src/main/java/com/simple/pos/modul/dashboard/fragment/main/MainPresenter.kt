@@ -8,28 +8,16 @@ import com.simple.pos.shared.extension.TAG
 
 class MainPresenter(var view: MainContract.View): MainContract.Presenter {
     private val interactor = MainInteractor()
+    private var topSales: TopSales? = null
+    private var totalSales: TotalSales? = null
 
     override fun askTopSales(date: String) {
         interactor.requestAskTopSales(date, object: RequestCallback<TopSales?> {
-        override fun requestSuccess(data: TopSales?) {
-            if (data != null){
-                Log.i(TAG, "Top Sales Retrieved")
-                view.showTopSales(data)
-            }
-        }
-
-        override fun requestError(message: String?) {
-            Log.i(TAG, "$message")
-        }
-    })
-    }
-
-    override fun askTotalSales(date: String) {
-        interactor.requestAskTotalSales(date, object: RequestCallback<TotalSales?> {
-            override fun requestSuccess(data: TotalSales?) {
+            override fun requestSuccess(data: TopSales?) {
                 if (data != null){
                     Log.i(TAG, "Top Sales Retrieved")
-                    view.showTotalSales(data)
+                    topSales = data
+                    showTopSales()
                 }
             }
 
@@ -37,5 +25,33 @@ class MainPresenter(var view: MainContract.View): MainContract.Presenter {
                 Log.i(TAG, "$message")
             }
         })
+    }
+
+    override fun askTotalSales(date: String) {
+        interactor.requestAskTotalSales(date, object: RequestCallback<TotalSales?> {
+            override fun requestSuccess(data: TotalSales?) {
+                if (data != null){
+                    Log.i(TAG, "Top Sales Retrieved")
+                    totalSales = data
+                    showTotalSales()
+                }
+            }
+
+            override fun requestError(message: String?) {
+                Log.i(TAG, "$message")
+            }
+        })
+    }
+
+    override fun showTopSales() {
+        topSales?.let {
+            view.showTopSales(it)
+        }
+    }
+
+    override fun showTotalSales() {
+        totalSales?.let {
+            view.showTotalSales(it)
+        }
     }
 }

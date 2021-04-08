@@ -2,7 +2,6 @@ package com.simple.pos.modul.dashboard.fragment.belanja
 
 import com.simple.pos.shared.callback.RequestCallback
 import com.simple.pos.shared.model.Product
-import com.simple.pos.shared.model.submodel.CheckoutItem
 
 interface BelanjaContract {
     interface View {
@@ -14,6 +13,7 @@ interface BelanjaContract {
     interface Presenter {
         fun retrieveProducts()
         fun addProductToCheckout(product: Product)
+        fun showProducts()
     }
 
     interface Interactor {

@@ -1,16 +1,12 @@
 package com.simple.pos.modul.dashboard.fragment.inventory.subfragment.category
 
-import android.content.DialogInterface
 import android.content.Intent
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import android.widget.Button
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
-import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.simple.pos.R
@@ -18,7 +14,7 @@ import com.simple.pos.modul.editcategory.EditCategoryActivity
 import com.simple.pos.modul.newcategory.NewCategoryActivity
 import com.simple.pos.shared.model.Category
 
-class CategoryFragment: Fragment(), CategoryContract.View {
+class CategoryFragment: Fragment(R.layout.subfragment_inventory_category), CategoryContract.View {
     private val presenter = CategoryPresenter(this)
     private var deleteDialogConfirmation: AlertDialog? = null
 
@@ -26,16 +22,15 @@ class CategoryFragment: Fragment(), CategoryContract.View {
         private const val CHANGE_CATEGORY_REQ_CODE = 100
     }
 
-    override fun onCreateView(inflater: LayoutInflater,
-                              container: ViewGroup?,
-                              savedInstanceState: Bundle?): View? {
-        val view = inflater.inflate(
-                R.layout.subfragment_inventory_category, container, false
-        )
-
-        view?.findViewById<Button>(R.id.addCategoryBtn)?.setOnClickListener{redirectToNewCategory()}
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
         presenter.retrieveCategories()
-        return view
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        view.findViewById<Button>(R.id.addCategoryBtn).setOnClickListener{redirectToNewCategory()}
+        presenter.showCategories()
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -50,11 +45,9 @@ class CategoryFragment: Fragment(), CategoryContract.View {
     }
 
     override fun showCategories(categories: Array<Category>) {
-        val recyclerView = view?.findViewById<RecyclerView>(R.id.categoryListRV)!!
-        val recyclerViewAdapter = CategoryRecyclerAdapter(categories, this)
-
-        recyclerView.adapter = recyclerViewAdapter
-        recyclerView.layoutManager = LinearLayoutManager(view?.context)
+        view?.findViewById<RecyclerView>(R.id.categoryListRV)?.let {
+            it.adapter = CategoryRecyclerAdapter(categories, this)
+        }
     }
 
     override fun redirectToNewCategory() {

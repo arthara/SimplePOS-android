@@ -112,7 +112,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/topNav"
-        tools:listitem="@layout/item_product_store">
-
-    </androidx.recyclerview.widget.RecyclerView>
+        tools:listitem="@layout/item_product_store"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

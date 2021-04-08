@@ -2,9 +2,7 @@ package com.simple.pos.modul.dashboard.fragment.inventory.subfragment.stock
 
 import android.os.Bundle
 import android.util.Log
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import android.widget.RadioButton
 import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
@@ -17,29 +15,31 @@ import com.simple.pos.shared.extension.TAG
 import com.simple.pos.shared.extension.showToast
 import com.simple.pos.shared.model.Product
 
-class StockFragment: Fragment(), StockContract.View {
+class StockFragment: Fragment(R.layout.subfragment_inventory_stock_product), StockContract.View {
     private val presenter = StockPresenter(this)
     private var deleteDialogConfirmation: AlertDialog? = null
     private var restockDialog: AlertDialog? = null
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        val view = inflater.inflate(
-                R.layout.subfragment_inventory_stock_product, container, false
-        )
-
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
         presenter.retrieveProducts()
-        return view
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        presenter.showProducts()
     }
 
     override fun showProducts(products: Array<Product>) {
-        val recyclerView = view?.findViewById<RecyclerView>(R.id.listStockProductRv)!!
-        val recyclerViewAdapter = StockRecyclerAdapter(products, this)
+        view?.findViewById<RecyclerView>(R.id.listStockProductRv)?.let {
+            val recyclerViewAdapter = StockRecyclerAdapter(products, this)
 
-        recyclerView.adapter = recyclerViewAdapter
-        view?.findViewById<TextView>(R.id.stockTotalItemTv)!!.text =
-                getString(R.string.total_item, recyclerViewAdapter.itemCount)
+            it.adapter = recyclerViewAdapter
+            view?.findViewById<TextView>(R.id.stockTotalItemTv)?.text =
+                    getString(R.string.total_item, recyclerViewAdapter.itemCount)
 
-        Log.d(TAG, "Products shown : ${products.size}}")
+            Log.d(TAG, "Products shown : ${products.size}}")
+        }
     }
 
     override fun redirectToUpdateProduct(product: Product) {
