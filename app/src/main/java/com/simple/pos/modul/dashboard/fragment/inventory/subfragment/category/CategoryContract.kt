@@ -2,7 +2,6 @@ package com.simple.pos.modul.dashboard.fragment.inventory.subfragment.category
 
 import com.simple.pos.shared.callback.RequestCallback
 import com.simple.pos.shared.model.Category
-import retrofit2.Response
 
 interface CategoryContract {
     interface View {
@@ -15,6 +14,7 @@ interface CategoryContract {
     interface Presenter {
         fun deleteCategory(category: Category)
         fun retrieveCategories()
+        fun showCategories()
     }
 
     interface Interactor {

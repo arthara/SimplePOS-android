@@ -7,6 +7,7 @@ import com.simple.pos.shared.model.Category
 
 class CategoryPresenter(private val view: CategoryContract.View): CategoryContract.Presenter {
     private val interactor = CategoryInteractor()
+    private var categories: Array<Category>? = null
 
     override fun deleteCategory(category: Category) {
         interactor.requestDeleteCategory(category.id, object: RequestCallback<Unit?> {
@@ -27,7 +28,8 @@ class CategoryPresenter(private val view: CategoryContract.View): CategoryContra
             override fun requestSuccess(data: Array<Category>?) {
                 if (data != null) {
                     Log.i(TAG, "Total category retrieved : ${data.size}")
-                    view.showCategories(data)
+                    categories = data
+                    showCategories()
                 }
             }
 
@@ -35,5 +37,11 @@ class CategoryPresenter(private val view: CategoryContract.View): CategoryContra
                 Log.i(TAG, "$message")
             }
         })
+    }
+
+    override fun showCategories() {
+        categories?.let {
+            view.showCategories(it)
+        }
     }
 }

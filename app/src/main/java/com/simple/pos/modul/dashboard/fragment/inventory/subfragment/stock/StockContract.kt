@@ -16,6 +16,7 @@ interface StockContract {
         fun retrieveProducts()
         fun deleteProduct(product: Product)
         fun updateProduct(incrementValue: Int, product: Product)
+        fun showProducts()
     }
 
     interface Interactor {

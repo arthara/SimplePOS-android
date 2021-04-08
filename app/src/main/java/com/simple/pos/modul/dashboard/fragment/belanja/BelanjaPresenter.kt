@@ -8,12 +8,15 @@ import com.simple.pos.shared.singletondata.ActiveCheckout
 
 class BelanjaPresenter(private val view: BelanjaContract.View): BelanjaContract.Presenter {
     private val interactor = BelanjaInteractor()
+    private var products: Array<Product>? = null
 
     override fun retrieveProducts(){
         interactor.requestRetrieveProducts(object : RequestCallback<Array<Product>?>{
             override fun requestSuccess(data: Array<Product>?) {
-                if(data != null)
-                    view.showProducts(data)
+                if(data != null){
+                    products = data
+                    showProducts()
+                }
             }
 
             override fun requestError(message: String?) {
@@ -24,5 +27,11 @@ class BelanjaPresenter(private val view: BelanjaContract.View): BelanjaContract.
 
     override fun addProductToCheckout(product: Product) {
         ActiveCheckout.addNewItem(product)
+    }
+
+    override fun showProducts() {
+        products?.let {
+            view.showProducts(it)
+        }
     }
 }
