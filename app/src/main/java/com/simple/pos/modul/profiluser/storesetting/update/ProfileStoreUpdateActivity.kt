@@ -67,10 +67,8 @@ class ProfileStoreUpdateActivity : AppCompatActivity(), ProfileStoreUpdateContra
         makeToast(message)
         //redirectToProfileStore()
         val intent = Intent(this, ProfileStoreActivity::class.java)
-        //startActivity(intent)
-        setResult(RESULT_OK)
         startActivity(intent)
-        finishAffinity();
+        finish()
     }
 
     override fun updateFailed(message: String) {

@@ -6,6 +6,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.simple.pos.base.util.UtilProvider
 import com.simple.pos.databinding.ActivityProfileStruckUpdateBinding
+import com.simple.pos.modul.profiluser.profilnote.NoteStoreActivity
 import com.simple.pos.shared.model.Store
 import com.simple.pos.shared.util.StoreUtil
 
@@ -31,6 +32,9 @@ class NoteStoreUpdateActivity : AppCompatActivity(), NoteStoreUpdateContract.Vie
             it.btnUpdateNoteThanks.setOnClickListener {
                 onClickUpdate()
             }
+            it.ivBackToProfile.setOnClickListener{
+                redirectToNoteStore()
+            }
         }
     }
 
@@ -47,6 +51,8 @@ class NoteStoreUpdateActivity : AppCompatActivity(), NoteStoreUpdateContract.Vie
  
     
     override fun redirectToNoteStore() {
+        val intent = Intent(this, NoteStoreActivity::class.java)
+        startActivity(intent)
         finish()
     }
 
@@ -58,13 +64,14 @@ class NoteStoreUpdateActivity : AppCompatActivity(), NoteStoreUpdateContract.Vie
     override fun updateSuccess(message: String) {
         enableButtonOption()
         makeToast("Berhasil update Note Receipt")
-
+        redirectToNoteStore()
     }
 
     override fun updateFailed(message: String) {
         enableButtonOption()
         makeToast("Gagal melakukan update")
     }
+
 
     private fun makeToast(message: String) {
         Toast.makeText(applicationContext, message,

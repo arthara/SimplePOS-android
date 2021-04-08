@@ -49,6 +49,7 @@ class ProfileStoreActivity : AppCompatActivity(), ProfileStoreContract.View {
     override fun redirectToStoreConfigurationUpdate() {
         val intent = Intent(this, ProfileStoreUpdateActivity::class.java)
         startActivity(intent)
+        finish()
     }
 
     private fun loadProductImage(logo: String) {

@@ -15,4 +15,10 @@ class NoteStoreUpdateInteractor: NoteStoreUpdateContract.Interactor {
                 RetrofitCallback(callback, TAG, "updateNoteOfStore")
         )
     }
+
+    override fun requestNewUpdatedStore(callback: RequestCallback<Store?>) {
+        service.retrieveStore().enqueue(RetrofitCallback(callback, TAG, "requestNewUpdatedStore"))
+    }
+
+
 }

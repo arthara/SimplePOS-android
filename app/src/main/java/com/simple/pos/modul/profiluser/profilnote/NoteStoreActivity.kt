@@ -17,6 +17,7 @@ class NoteStoreActivity: AppCompatActivity(), NoteStoreContract.View {
     override fun redirectToUpdateNote() {
         val intent = Intent(this, NoteStoreUpdateActivity::class.java)
         startActivity(intent)
+        finish()
     }
 
     override fun redirectToUserProfile() {

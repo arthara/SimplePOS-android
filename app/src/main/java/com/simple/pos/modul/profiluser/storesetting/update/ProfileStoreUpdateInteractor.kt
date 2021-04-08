@@ -9,10 +9,6 @@ import java.io.File
 
 class ProfileStoreUpdateInteractor: ProfileStoreUpdateContract.Interactor {
 
-/*    companion object{
-        private val service = ServiceGenerator.createService(ProfileStoreUpdateService::class.java)
-    }*/
-
     private val service = ServiceGenerator.createService(ProfileStoreUpdateService::class.java)
 
     override fun requestUpdateStore(store: Store, callback: RequestCallback<Store?>) {
@@ -23,5 +19,9 @@ class ProfileStoreUpdateInteractor: ProfileStoreUpdateContract.Interactor {
 
     override fun updateProfileImageInteractor(id: String?, imageFile: File?, requestCallback: RequestCallback<String?>?) {
         TODO("Not yet implemented")
+    }
+
+    override fun requestNewUpdatedStore(callback: RequestCallback<Store?>) {
+        service.retrieveStore().enqueue(RetrofitCallback(callback, TAG, "requestNewUpdatedStore"))
     }
 }

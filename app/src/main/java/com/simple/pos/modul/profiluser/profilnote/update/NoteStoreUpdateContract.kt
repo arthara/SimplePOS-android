@@ -15,10 +15,12 @@ interface NoteStoreUpdateContract {
     interface Presenter {
         fun showNotes()
         fun updateStore(store: Store)
+        fun saveUpdatedStore()
     }
 
     interface Interactor {
         fun requestUpdateStore(store: Store, callback: RequestCallback<Store?>)
+        fun requestNewUpdatedStore(callback: RequestCallback<Store?>)
     }
 
 }

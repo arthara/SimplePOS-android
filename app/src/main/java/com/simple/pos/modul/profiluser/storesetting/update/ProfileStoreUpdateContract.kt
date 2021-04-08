@@ -18,11 +18,13 @@ interface ProfileStoreUpdateContract  {
     interface Presenter{
         fun showAllStoreInfo()
         fun updateStore(store: Store)
+        fun saveUpdatedStore()
     }
 
     interface  Interactor {
         fun requestUpdateStore(store: Store, callback: RequestCallback<Store?>)
         fun updateProfileImageInteractor(id: String?, imageFile: File?, requestCallback: RequestCallback<String?>?)
+        fun requestNewUpdatedStore(callback: RequestCallback<Store?>)
     }
 
 }
