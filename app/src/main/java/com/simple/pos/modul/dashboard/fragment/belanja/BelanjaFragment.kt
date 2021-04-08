@@ -21,10 +21,11 @@ class BelanjaFragment: Fragment(R.layout.fragment_dashboard_store), BelanjaContr
         presenter.showProducts()
     }
 
-    override fun showProducts(products: Array<Product>) {
+    override fun showProducts(products: Array<Product>, productCheckoutsId: Array<Int>) {
         view?.findViewById<RecyclerView>(R.id.listStoreProductsRv)?.let {
             it.adapter = BelanjaRecyclerAdapter(products, this).apply {
                 setHasStableIds(true)
+                disableProducts(productCheckoutsId)
             }
         }
     }

@@ -30,8 +30,15 @@ class BelanjaPresenter(private val view: BelanjaContract.View): BelanjaContract.
     }
 
     override fun showProducts() {
+        val productsCheckoutsId = ArrayList<Int>()
+
+        // add product already in checkout to prevent the same product added again
+        ActiveCheckout.checkout.checkoutItems.forEach {
+            productsCheckoutsId.add(it.key)
+        }
+
         products?.let {
-            view.showProducts(it)
+            view.showProducts(it, productsCheckoutsId.toTypedArray())
         }
     }
 }

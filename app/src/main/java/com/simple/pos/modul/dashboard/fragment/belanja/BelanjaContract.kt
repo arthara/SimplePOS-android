@@ -5,7 +5,7 @@ import com.simple.pos.shared.model.Product
 
 interface BelanjaContract {
     interface View {
-        fun showProducts(products: Array<Product>)
+        fun showProducts(products: Array<Product>, productCheckoutsId: Array<Int>)
         fun chooseProduct(product: Product)
         fun reenableChoosenProducts(productsId: Array<Int>)
     }
