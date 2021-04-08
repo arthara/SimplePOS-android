@@ -71,6 +71,19 @@ class BelanjaRecyclerAdapter(private val products: Array<Product>
         }
     }
 
+    fun disableProducts(productIds: Array<Int>) {
+        productIds.forEach {
+            for (i in 0..products.size) {
+                if(products[i].id == it) {
+                    isInCheckout[i] = true
+                    Log.d(TAG, "Disable item $i")
+                    notifyItemChanged(i)
+                    break
+                }
+            }
+        }
+    }
+
     fun reenableProducts(productIds: Array<Int>) {
         productIds.forEach {
             for (i in 0..products.size) {
