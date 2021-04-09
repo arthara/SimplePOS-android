@@ -4,17 +4,16 @@ import com.simple.pos.base.util.UtilProvider
 import com.simple.pos.shared.callback.RequestCallback
 import com.simple.pos.shared.model.Store
 import com.simple.pos.shared.util.StoreUtil
+import kotlin.math.log
 
 class ProfileStoreUpdatePresenter(private val view: ProfileStoreUpdateContract.View) : ProfileStoreUpdateContract.Presenter {
-
-    //private val store: Store? = null
 
     private val interactor = ProfileStoreUpdateInteractor()
     private val currentStore = (UtilProvider.getUtil(StoreUtil::class.java) as StoreUtil).sessionData
 
 
     override fun showAllStoreInfo() {
-        view.showStoreData(currentStore.name, currentStore?.address, currentStore?.phoneNumber)
+        view.showStoreData(currentStore.name, currentStore?.address, currentStore?.phoneNumber, currentStore?.logo)
     }
 
     override fun updateStore(store: Store) {
@@ -27,6 +26,18 @@ class ProfileStoreUpdatePresenter(private val view: ProfileStoreUpdateContract.V
 
             override fun requestError(message: String?) {
                 view.updateFailed("Gagal mengupdate data")
+            }
+        })
+    }
+
+    override fun updateStoreLogo(store: Store) {
+        interactor.requestUpdateProfileLogoInteractor(store, object : RequestCallback<Store?> {
+            override fun requestSuccess(data: Store?) {
+                view.updateProfileImageSuccess("Update Logo Berhasil")
+            }
+
+            override fun requestError(message: String?) {
+                view.updateProfileImageFail("Gagal mengupdate data")
             }
         })
     }
@@ -44,6 +55,10 @@ class ProfileStoreUpdatePresenter(private val view: ProfileStoreUpdateContract.V
                 view.updateFailed("Gagal mengupdate data")
             }
         })
+    }
+
+    override fun showStoreLogo(logo: String?) {
+        view.showStoreLogo(logo)
     }
 
     private fun updateStoreValid(store: Store): Boolean {

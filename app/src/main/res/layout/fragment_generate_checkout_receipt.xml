@@ -173,33 +173,32 @@
             android:textStyle="bold|normal"
             app:layout_constraintBottom_toBottomOf="@+id/textView15"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.164"
+            app:layout_constraintHorizontal_bias="0.024"
             app:layout_constraintStart_toEndOf="@+id/textView15"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.518" />
+            app:layout_constraintVertical_bias="1.0" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintHorizontal_bias="0.243"
             app:layout_constraintStart_toEndOf="@+id/textView17"
             app:layout_constraintTop_toTopOf="@+id/textView17"
             app:layout_constraintVertical_bias="0.0"
-            tools:text="Go Pay"
-            />
+            tools:text="Go Pay" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            tools:text="ID Struk "
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.044"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/lblTanggal"
-            app:layout_constraintVertical_bias="0.0" />
+            app:layout_constraintTop_toBottomOf="@+id/textView15"
+            app:layout_constraintVertical_bias="0.0"
+            tools:text="ID Struk " />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -212,7 +211,9 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/constraintLayout5"
-        app:layout_constraintVertical_bias="0">
+        app:layout_constraintVertical_bias="0"
+
+        >
 
         <TextView
             android:id="@+id/productNameReceipt"
@@ -231,7 +232,7 @@
 
         <TextView
             android:id="@+id/lblQTY"
-            android:layout_width="wrap_content"
+            android:layout_width="80dp"
             android:layout_height="match_parent"
             android:layout_marginStart="20dp"
             android:layout_toEndOf="@id/productNameReceipt"
@@ -248,25 +249,23 @@
 
         <TextView
             android:id="@+id/lblHargaBarangStruct"
-            android:layout_width="88dp"
+            android:layout_width="80dp"
             android:layout_height="match_parent"
-
-            android:layout_marginStart="45dp"
             android:layout_toEndOf="@+id/lblQTY"
             android:fontFamily="@font/roboto_regular"
             android:text="@string/harga"
             android:textColor="@color/dark_black"
             android:textSize="16sp"
             app:autoSizeMinTextSize="10sp"
-            app:autoSizeTextType="uniform" />
+            app:autoSizeTextType="uniform"
+            android:gravity="center"
+            />
 
         <TextView
             android:id="@+id/lblTotalQTYPrice"
-            android:layout_width="wrap_content"
+            android:layout_width="100dp"
             android:layout_height="match_parent"
-            android:layout_alignParentEnd="true"
             android:layout_marginStart="20dp"
-            android:layout_marginEnd="45dp"
             android:fontFamily="@font/roboto_medium"
             android:gravity="center_vertical"
             android:text="@string/total"
@@ -274,7 +273,9 @@
             android:textSize="16sp"
             android:textStyle="bold"
             app:autoSizeMinTextSize="10sp"
-            app:autoSizeTextType="uniform" />
+            app:autoSizeTextType="uniform"
+            android:layout_toEndOf="@+id/lblHargaBarangStruct"
+            />
     </RelativeLayout>
 
     <ImageView

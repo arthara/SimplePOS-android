@@ -5,6 +5,10 @@ import com.simple.pos.shared.callback.RetrofitCallback
 import com.simple.pos.shared.extension.TAG
 import com.simple.pos.shared.model.Store
 import com.simple.pos.shared.retrofit.ServiceGenerator
+import okhttp3.MultipartBody
+import okhttp3.RequestBody
+import okhttp3.RequestBody.Companion.asRequestBody
+import okhttp3.RequestBody.Companion.toRequestBody
 import java.io.File
 
 class ProfileStoreUpdateInteractor: ProfileStoreUpdateContract.Interactor {
@@ -17,8 +21,23 @@ class ProfileStoreUpdateInteractor: ProfileStoreUpdateContract.Interactor {
         )
     }
 
-    override fun updateProfileImageInteractor(id: String?, imageFile: File?, requestCallback: RequestCallback<String?>?) {
-        TODO("Not yet implemented")
+
+    override fun requestUpdateProfileLogoInteractor(updatedStore: Store, requestCallback: RequestCallback<Store?>?) {
+
+        var logo: MultipartBody.Part? = null
+
+        if(updatedStore.logo != null) {
+            // use the FileUtils to get the actual file by uri
+            val file = File(updatedStore.logo)
+            // create RequestBody instance from file
+            val requestFile: RequestBody = file.asRequestBody()
+            // MultipartBody.Part is used to send also the actual file name
+            logo = MultipartBody.Part.createFormData("logo", file.name, requestFile)
+        }
+
+        service.updateImage(updatedStore.id, logo).enqueue(
+                RetrofitCallback(requestCallback, TAG, "requestUpdateLogoStore")
+        )
     }
 
     override fun requestNewUpdatedStore(callback: RequestCallback<Store?>) {
