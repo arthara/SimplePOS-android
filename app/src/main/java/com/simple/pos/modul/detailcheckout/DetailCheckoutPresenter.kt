@@ -1,9 +1,11 @@
 package com.simple.pos.modul.detailcheckout
 
+import com.simple.pos.base.util.UtilProvider
 import com.simple.pos.shared.callback.RequestCallback
 import com.simple.pos.shared.model.PaymentMethod
 import com.simple.pos.shared.model.Receipt
 import com.simple.pos.shared.singletondata.ActiveCheckout
+import com.simple.pos.shared.util.StoreUtil
 
 class DetailCheckoutPresenter(private val view: DetailCheckoutContract.View)
     : DetailCheckoutContract.Presenter {
@@ -18,6 +20,7 @@ class DetailCheckoutPresenter(private val view: DetailCheckoutContract.View)
 
     override fun createReceipt() {
         val checkout = ActiveCheckout.checkout
+        checkout.note = (UtilProvider.getUtil(StoreUtil::class.java) as StoreUtil).sessionData.noteReceipt
 
         view.startLoading()
         DetailCheckoutInteractor.requestCreateReceipt(checkout, object : RequestCallback<Receipt> {
