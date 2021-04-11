@@ -4,9 +4,7 @@ import android.app.DatePickerDialog
 import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import android.widget.Button
 import android.widget.DatePicker
 import android.widget.TextView
@@ -23,24 +21,26 @@ import com.simple.pos.shared.model.Product
 import java.text.SimpleDateFormat
 import java.util.*
 
-class MainFragment : Fragment(), MainContract.View, View.OnClickListener, DatePickerDialog.OnDateSetListener {
+class MainFragment : Fragment(R.layout.fragment_dashboard_main),
+        MainContract.View, View.OnClickListener, DatePickerDialog.OnDateSetListener {
     private val presenter = MainPresenter(this)
     private var date = SimpleDateFormat("dd-MM-yyyy").format(Calendar.getInstance().time)
     private var datePickerDialog: DatePickerDialog? = null
 
-    override fun onCreateView(inflater: LayoutInflater,
-                              container: ViewGroup?,
-                              savedInstanceState: Bundle?): View? {
-        val view = inflater.inflate(R.layout.fragment_dashboard_main, container, false)
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        presenter.askTopSales(date)
+        presenter.askTotalSales(date)
+    }
 
-        view?.findViewById<Button>(R.id.datePickerBtn)?.apply {
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        view.findViewById<Button>(R.id.datePickerBtn).apply {
             setOnClickListener(this@MainFragment)
             text = date
         }
-        view?.findViewById<Button>(R.id.cashflowharian_fab)?.setOnClickListener(this)
-        presenter.askTopSales(date)
-        presenter.askTotalSales(date)
-        return view
+        view.findViewById<Button>(R.id.cashflowharian_fab).setOnClickListener(this)
     }
 
     override fun onClick(p0: View?) {

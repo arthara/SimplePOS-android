@@ -8,15 +8,20 @@ interface StockContract {
         fun showProducts(products: Array<Product>)
         fun redirectToUpdateProduct(product: Product)
         fun showDeleteConfirmation(product: Product)
+        fun showRestockDialog(product: Product)
+        fun showNewTotalProductInvalid()
     }
 
     interface Presenter {
         fun retrieveProducts()
         fun deleteProduct(product: Product)
+        fun updateProduct(incrementValue: Int, product: Product)
+        fun showProducts()
     }
 
     interface Interactor {
         fun requestRetrieveProduct(callback: RequestCallback<Array<Product>?>)
         fun requestDeleteProduct(product: Product, callback: RequestCallback<Void?>)
+        fun requestUpdateProduct(product: Product, callback: RequestCallback<Product>)
     }
 }

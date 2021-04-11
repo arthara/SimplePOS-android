@@ -15,6 +15,8 @@ interface MainContract {
     interface Presenter {
         fun askTopSales(date: String)
         fun askTotalSales(date: String)
+        fun showTopSales()
+        fun showTotalSales()
     }
 
     interface Interactor {
