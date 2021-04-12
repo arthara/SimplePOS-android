@@ -3,31 +3,31 @@ package com.simple.pos.shared.singletondata
 import com.simple.pos.shared.model.Product
 import com.simple.pos.shared.model.submodel.Checkout
 import com.simple.pos.shared.model.submodel.CheckoutItem
-import java.lang.IllegalArgumentException
 
 object ActiveCheckout {
-    var checkout: Checkout = Checkout()
+    private var _checkout: Checkout = Checkout()
+    val checkout get() = _checkout.clone()
 
     fun resetCheckout() {
-        checkout = Checkout()
+        _checkout = Checkout()
     }
 
     fun addNewItem(product: Product){
-        checkout.checkoutItems[product.id] = CheckoutItem(product)
+        _checkout.checkoutItems[product.id] = CheckoutItem(product)
     }
 
     fun removeItem(checkoutItem: CheckoutItem) {
-        checkout.checkoutItems.remove(checkoutItem.id)
+        _checkout.checkoutItems.remove(checkoutItem.id)
     }
 
     fun resetItems() {
-        checkout.checkoutItems.clear()
+        _checkout.checkoutItems.clear()
     }
 
     fun calculateSubTotalItems(): Double {
         var sumSubTotal = 0.0
 
-        checkout.checkoutItems.forEach {
+        _checkout.checkoutItems.forEach {
             (_, checkoutItem) -> sumSubTotal += checkoutItem.unitTotal * checkoutItem.sellingPrice
         }
 
@@ -36,7 +36,7 @@ object ActiveCheckout {
 
     fun changeTotalItem(checkoutItem: CheckoutItem, addedValue: Int) {
         try {
-            checkout.checkoutItems[checkoutItem.id]!!.unitTotal += addedValue
+            _checkout.checkoutItems[checkoutItem.id]!!.unitTotal += addedValue
         } catch (e: IllegalArgumentException){
             throw e
         }
