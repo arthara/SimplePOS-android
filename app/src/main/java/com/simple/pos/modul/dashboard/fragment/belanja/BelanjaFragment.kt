@@ -18,11 +18,12 @@ class BelanjaFragment: Fragment(R.layout.fragment_dashboard_store), BelanjaContr
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        recyclerView = view.findViewById(R.id.listStoreProductsRv)
         presenter.showProducts()
     }
 
     override fun showProducts(products: Array<Product>, productCheckoutsId: Array<Int>) {
-        view?.findViewById<RecyclerView>(R.id.listStoreProductsRv)?.let {
+        recyclerView.let {
             it.adapter = BelanjaRecyclerAdapter(products, this).apply {
                 setHasStableIds(true)
                 disableProducts(productCheckoutsId)

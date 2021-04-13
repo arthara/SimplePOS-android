@@ -40,4 +40,12 @@ class CheckoutItem(product: Product): Product(product.name) {
             picture = it.picture
         }
     }
+
+    fun clone() : CheckoutItem {
+        val checkoutItem = CheckoutItem(this)
+
+        checkoutItem.unitTotal = unitTotal
+
+        return checkoutItem
+    }
 }
