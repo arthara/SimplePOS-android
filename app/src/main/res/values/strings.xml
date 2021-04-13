@@ -74,7 +74,7 @@
     <string-array name="phoneCode">
         <item>+62</item>
     </string-array>
-    <string name="tax_sample">Tax (2%)</string>
+    <string name="tax_sample">Tax* (2%)</string>
     <string name="cetak">Cetak</string>
     <string name="detail_checkout">Detail Checkout</string>
     <string name="_62">+62</string>
@@ -150,6 +150,8 @@
     <string name="add_product">Tambah Produk</string>
     <string name="tax">Tax</string>
     <string name="payment_model">Model Pembayaran</string>
+    <string name="tax_numerator_label">Tax (%1$d)%%</string>
+
 
     <!-- Single Product -->
     <string name="stok_awal">Stok Awal</string>

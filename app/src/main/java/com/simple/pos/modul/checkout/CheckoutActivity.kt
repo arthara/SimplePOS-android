@@ -3,21 +3,28 @@ package com.simple.pos.modul.checkout
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import com.google.android.material.textfield.TextInputEditText
 import com.simple.pos.R
+import com.simple.pos.base.util.UtilProvider
 import com.simple.pos.databinding.ActivityCheckoutBinding
 import com.simple.pos.modul.detailcheckout.DetailCheckoutActivity
 import com.simple.pos.shared.extension.TAG
 import com.simple.pos.shared.extension.showToast
 import com.simple.pos.shared.model.submodel.CheckoutItem
+import com.simple.pos.shared.util.ExtraPayUtil
 import java.util.*
 import kotlin.collections.ArrayList
 
-class CheckoutActivity: AppCompatActivity(), CheckoutContract.View {
+class CheckoutActivity : AppCompatActivity(), CheckoutContract.View {
     private val presenter: CheckoutContract.Presenter = CheckoutPresenter(this)
     private lateinit var binding: ActivityCheckoutBinding
     private val removedItems = ArrayList<Int>()
+    private var taxDialog: AlertDialog? = null
+
 
     companion object {
         private const val DETAIL_CHECKOUT_REQ_CODE = 100
@@ -30,16 +37,17 @@ class CheckoutActivity: AppCompatActivity(), CheckoutContract.View {
         binding = ActivityCheckoutBinding.inflate(layoutInflater)
         setContentView(binding.root)
         presenter.showCheckoutItems()
+        presenter.taxInitial()
         presenter.calculateBottomBarValues()
         initializeOnClicks()
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        when(requestCode) {
+        when (requestCode) {
             DETAIL_CHECKOUT_REQ_CODE -> {
                 //if checkout finished successfully, close activity and reset shopping view
-                if(resultCode == RESULT_OK) {
+                if (resultCode == RESULT_OK) {
                     setResult(RESULT_CHECKOUT_SUCCESSFULLY)
                     finish()
                 }
@@ -69,16 +77,19 @@ class CheckoutActivity: AppCompatActivity(), CheckoutContract.View {
             it.btnCetakCheckout.setOnClickListener {
                 redirectToCheckoutDetail()
             }
+            it.tvTaxPercentCheckout.setOnClickListener {
+                addTaxValue()
+            }
         }
     }
 
     override fun finish() {
         // if any item get removed
-        if(removedItems.size > 0)
+        if (removedItems.size > 0)
         // put all removed item id as intent data
             setResult(RESULT_OK, Intent().putExtra(
                     REMOVED_CHECKOUT_ITEM_BUNDLE_KEY,
-                    removedItems.toIntArray().also{
+                    removedItems.toIntArray().also {
                         Log.d(TAG, "Remove Items : ${Arrays.toString(it)}")
                     }
             ))
@@ -86,7 +97,7 @@ class CheckoutActivity: AppCompatActivity(), CheckoutContract.View {
     }
 
     override fun showCheckoutItems(checkoutItems: MutableCollection<CheckoutItem>) {
-        binding.checkoutItemsRv.let{
+        binding.checkoutItemsRv.let {
             it.adapter = CheckoutRecyclerAdapter(this, checkoutItems)
             it.layoutManager = LinearLayoutManager(this)
         }
@@ -103,6 +114,46 @@ class CheckoutActivity: AppCompatActivity(), CheckoutContract.View {
 
     override fun showInvalidTotalItemError(maxTotal: Int) {
         showToast(getString(R.string.invalid_unit_total, maxTotal))
+    }
+
+    override fun addTaxValue() {
+        if (taxDialog == null) {
+            taxDialog = MaterialAlertDialogBuilder(this)
+                    .setView(R.layout.popup_add_tax_percent)
+                    .setMessage(getString(R.string.restock_product))
+                    .setPositiveButton("Apply", null)
+                    .setNegativeButton(R.string.cancel, null)
+                    .setCancelable(true)
+                    .create()
+        }
+
+        taxDialog!!.apply {
+            //reset number to 0
+            findViewById<TextInputEditText>(R.id.addTaxPopup)?.setText(0.toString())
+            show()
+
+            getButton(AlertDialog.BUTTON_POSITIVE).setOnClickListener {
+                findViewById<TextInputEditText>(R.id.restockTotalTextInput)?.let { editText ->
+                    val taxNumerator: Double = editText.text.toString().toDouble()
+                    
+                    if (taxNumerator in 0.0..100.0){
+
+                        (UtilProvider.getUtil(ExtraPayUtil::class.java) as ExtraPayUtil).sessionData?.tax = taxNumerator
+                        binding.tvTaxPercentCheckout.text = getString(R.string.tax_numerator_label, taxNumerator.toInt())
+
+                        presenter.calculateBottomBarValues()
+                        dismiss()
+                    }else{
+                        showToast("Pastikan input yang dimasukan antara 0 dan 100")
+                    }
+                }
+            }
+        }
+    }
+
+    override fun showTaxNumerator(tax: Double) {
+        binding.tvTaxPercentCheckout.text =  getString(R.string.tax_numerator_label, tax.toInt())
+        presenter.setCurrentTaxPercent(tax)
     }
 
     override fun redirectToCheckoutDetail() {

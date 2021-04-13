@@ -10,6 +10,8 @@ interface CheckoutContract {
         fun changeTotalItem(checkoutItem: CheckoutItem, addedValue: Int)
         fun showBottomBarValues(subTotal: Double, tax: Double)
         fun showInvalidTotalItemError(maxTotal: Int)
+        fun addTaxValue()
+        fun showTaxNumerator(tax: Double)
         fun redirectToCheckoutDetail()
     }
 
@@ -18,6 +20,8 @@ interface CheckoutContract {
         fun removeItem(checkoutItem: CheckoutItem)
         fun resetCheckout()
         fun calculateBottomBarValues()
+        fun taxInitial()
+        fun setCurrentTaxPercent(taxNumerator: Double)
         fun changeTotalItem(checkoutItem: CheckoutItem, addedValue: Int)
     }
 }
