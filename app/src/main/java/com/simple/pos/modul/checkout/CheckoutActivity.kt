@@ -135,22 +135,23 @@ class CheckoutActivity : AppCompatActivity(), CheckoutContract.View {
 
             getButton(AlertDialog.BUTTON_POSITIVE).setOnClickListener {
                 findViewById<TextInputEditText>(R.id.addTaxPopup)?.let { editText ->
-                    val taxNumerator: Double = editText.text.toString().toDouble()
-                    
-                    if (taxNumerator in 0.0..100.0){
-                        val extraPay = ExtraPay()
-                        extraPay.tax = taxNumerator
+                    if(!editText.text.isNullOrEmpty()){
+                        val taxNumerator: Double = editText.text.toString().toDouble()
+                        if (taxNumerator in 0.0..100.0){
+                            val extraPay = ExtraPay()
+                            extraPay.tax = taxNumerator
 
 
-                        //Tax
-                        (UtilProvider.getUtil(ExtraPayUtil::class.java) as ExtraPayUtil).update(extraPay)
+                            //Tax in numerator value
+                            (UtilProvider.getUtil(ExtraPayUtil::class.java) as ExtraPayUtil).update(extraPay)
 
-                        binding.tvTaxPercentCheckout.text = getString(R.string.tax_numerator_label, taxNumerator.toInt())
-
-                        presenter.calculateBottomBarValues()
-                        taxDialog!!.dismiss()
-                    }else{
-                        showToast("Pastikan input yang dimasukan antara 0 dan 100")
+                            binding.tvTaxPercentCheckout.text = getString(R.string.tax_numerator_label, taxNumerator.toInt())
+                            presenter.setCurrentTaxPercent(taxNumerator)
+                            presenter.calculateBottomBarValues()
+                            taxDialog!!.dismiss()
+                        }else{
+                            showToast("Pastikan input yang dimasukan antara 0 dan 100")
+                        }
                     }
                 }
             }

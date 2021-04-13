@@ -8,7 +8,8 @@ import java.lang.IllegalArgumentException
 
 class CheckoutPresenter(private val view: CheckoutContract.View) : CheckoutContract.Presenter {
 
-    var tax : Double = 0.0
+    //Format Tax Percent 0.xxx
+    private var tax : Double = 0.0
 
     override fun showCheckoutItems() {
         view.showCheckoutItems(
@@ -30,11 +31,9 @@ class CheckoutPresenter(private val view: CheckoutContract.View) : CheckoutContr
     }
 
     override fun calculateBottomBarValues() {
-        val subTotal = ActiveCheckout.calculateSubTotalItems()
-
-
-        ActiveCheckout.checkout.tax = tax
-        view.showBottomBarValues(subTotal, tax)
+        var subTotal = ActiveCheckout.calculateSubTotalItems()
+        var taxFinal = ActiveCheckout.calculateTaxofSubTotal(tax)
+        view.showBottomBarValues(subTotal, taxFinal)
     }
 
     override fun taxInitial() {
@@ -47,9 +46,7 @@ class CheckoutPresenter(private val view: CheckoutContract.View) : CheckoutContr
     }
 
     override fun setCurrentTaxPercent(taxNumerator: Double){
-        if (taxNumerator > 0){
-            this.tax = taxNumerator / 100
-        }
+        this.tax = taxNumerator / 100
     }
 
     override fun changeTotalItem(checkoutItem: CheckoutItem, addedValue: Int) {
