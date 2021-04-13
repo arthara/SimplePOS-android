@@ -15,6 +15,7 @@ import com.simple.pos.modul.detailcheckout.DetailCheckoutActivity
 import com.simple.pos.shared.extension.TAG
 import com.simple.pos.shared.extension.showToast
 import com.simple.pos.shared.model.submodel.CheckoutItem
+import com.simple.pos.shared.model.submodel.ExtraPay
 import com.simple.pos.shared.util.ExtraPayUtil
 import java.util.*
 import kotlin.collections.ArrayList
@@ -133,16 +134,21 @@ class CheckoutActivity : AppCompatActivity(), CheckoutContract.View {
             show()
 
             getButton(AlertDialog.BUTTON_POSITIVE).setOnClickListener {
-                findViewById<TextInputEditText>(R.id.restockTotalTextInput)?.let { editText ->
+                findViewById<TextInputEditText>(R.id.addTaxPopup)?.let { editText ->
                     val taxNumerator: Double = editText.text.toString().toDouble()
                     
                     if (taxNumerator in 0.0..100.0){
+                        val extraPay = ExtraPay()
+                        extraPay.tax = taxNumerator
 
-                        (UtilProvider.getUtil(ExtraPayUtil::class.java) as ExtraPayUtil).sessionData?.tax = taxNumerator
+
+                        //Tax
+                        (UtilProvider.getUtil(ExtraPayUtil::class.java) as ExtraPayUtil).update(extraPay)
+
                         binding.tvTaxPercentCheckout.text = getString(R.string.tax_numerator_label, taxNumerator.toInt())
 
                         presenter.calculateBottomBarValues()
-                        dismiss()
+                        taxDialog!!.dismiss()
                     }else{
                         showToast("Pastikan input yang dimasukan antara 0 dan 100")
                     }
