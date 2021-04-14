@@ -5,7 +5,6 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.simple.pos.databinding.ItemProductCheckoutBinding
 import com.simple.pos.shared.model.submodel.CheckoutItem
-import java.lang.Exception
 
 class CheckoutRecyclerAdapter(private val view: CheckoutContract.View,
                               private val checkoutItems: MutableCollection<CheckoutItem>)
@@ -47,6 +46,7 @@ class CheckoutRecyclerAdapter(private val view: CheckoutContract.View,
                 }
                 it.deleteItemCheckoutBtn.setOnClickListener {
                     view.deleteItem(this)
+                    checkoutItems.remove(this)
                     notifyItemRemoved(position)
                     notifyItemRangeChanged(position, itemCount)
                 }
