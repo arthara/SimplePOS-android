@@ -59,7 +59,7 @@
                     android:layout_marginStart="152dp"
                     android:background="@android:color/transparent"
                     android:drawableStart="@drawable/ic_share"
-                    android:text="Share"
+                    android:text="@string/share"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/tanggalView"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -99,6 +99,7 @@
 
 
                     <LinearLayout
+                        android:id="@+id/linearLayout"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:orientation="vertical"
@@ -145,6 +146,7 @@
                             android:text="@{store.name}"
                             app:autoSizeMaxTextSize="20sp"
                             app:autoSizeMinTextSize="10sp"
+                            app:autoSizeStepGranularity="2sp"
                             app:autoSizeTextType="uniform"
                             app:layout_constraintBottom_toTopOf="@+id/textView11"
                             app:layout_constraintEnd_toEndOf="parent"
@@ -174,8 +176,8 @@
 
                     <TextView
                         android:id="@+id/tvInfoReceiptThanks"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="110dp"
+                        android:layout_height="110dp"
                         android:layout_marginTop="28dp"
                         android:layout_marginEnd="16dp"
                         android:text="@{checkout.note}"
@@ -183,6 +185,8 @@
                         app:autoSizeMinTextSize="7sp"
                         app:autoSizeTextType="uniform"
                         app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.97"
+                        app:layout_constraintStart_toEndOf="@+id/linearLayout"
                         app:layout_constraintTop_toTopOf="parent"
                         tools:text="Ucapan Terima kasih" />
 
