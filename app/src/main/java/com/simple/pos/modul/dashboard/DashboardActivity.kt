@@ -2,7 +2,6 @@ package com.simple.pos.modul.dashboard
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -14,8 +13,6 @@ import com.simple.pos.modul.dashboard.fragment.inventory.InventoryFragment
 import com.simple.pos.modul.dashboard.fragment.main.MainFragment
 import com.simple.pos.modul.profiluser.ProfileUserActivity
 import com.simple.pos.modul.storeinput.StoreInputActivity
-import com.simple.pos.shared.extension.TAG
-import com.simple.pos.shared.extension.showToast
 
 class DashboardActivity: AppCompatActivity(), DashboardContract.View{
     private var selectedFragment: Fragment? = null
@@ -39,7 +36,7 @@ class DashboardActivity: AppCompatActivity(), DashboardContract.View{
 
     private fun initializeCheckoutBtnClick() {
         findViewById<FloatingActionButton>(R.id.checkoutBtn).setOnClickListener{
-            presenter.redirectingToCheckout()
+            redirectToCheckout()
         }
     }
 
@@ -53,12 +50,6 @@ class DashboardActivity: AppCompatActivity(), DashboardContract.View{
             }
             CHECKOUT_REQUEST_CODE->{
                 when(resultCode) {
-                    RESULT_OK -> {
-                        //reenable button after changes in checkout activity
-                        val arrayProductsId = data?.getIntArrayExtra(CheckoutActivity.REMOVED_CHECKOUT_ITEM_BUNDLE_KEY)
-
-                        belanjaFragment?.reenableChoosenProducts(arrayProductsId!!.toTypedArray())
-                    }
                     CheckoutActivity.RESULT_CHECKOUT_SUCCESSFULLY -> {
                         //refresh list
                         belanjaFragment = BelanjaFragment()
@@ -129,9 +120,5 @@ class DashboardActivity: AppCompatActivity(), DashboardContract.View{
         val intent = Intent(this, StoreInputActivity::class.java)
         startActivity(intent)
         finish()
-    }
-
-    override fun showNoItemInCheckoutError() {
-        showToast(getString(R.string.no_item_in_checkout))
     }
 }

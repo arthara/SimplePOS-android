@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.simple.pos.R
 import com.simple.pos.databinding.ActivityCheckoutBinding
 import com.simple.pos.modul.detailcheckout.DetailCheckoutActivity
+import com.simple.pos.modul.holdcheckout.HoldCheckoutActivity
 import com.simple.pos.shared.extension.TAG
 import com.simple.pos.shared.extension.showToast
 import com.simple.pos.shared.model.submodel.CheckoutItem
@@ -29,9 +30,13 @@ class CheckoutActivity: AppCompatActivity(), CheckoutContract.View {
         super.onCreate(savedInstanceState)
         binding = ActivityCheckoutBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        initializeOnClicks()
+    }
+
+    override fun onResume() {
+        super.onResume()
         presenter.showCheckoutItems()
         presenter.calculateBottomBarValues()
-        initializeOnClicks()
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -61,13 +66,16 @@ class CheckoutActivity: AppCompatActivity(), CheckoutContract.View {
                 redirectToDashboard()
             }
             it.tvHoldCheckout.setOnClickListener {
-                //TODO: add logic for holding checkout
+                presenter.createHoldCheckout()
             }
             it.tvResetCheckout.setOnClickListener {
                 presenter.resetCheckout()
             }
             it.btnCetakCheckout.setOnClickListener {
                 redirectToCheckoutDetail()
+            }
+            it.toHoldCheckoutBtn.setOnClickListener {
+                redirectToHoldCheckout()
             }
         }
     }
@@ -90,11 +98,21 @@ class CheckoutActivity: AppCompatActivity(), CheckoutContract.View {
             it.adapter = CheckoutRecyclerAdapter(this, checkoutItems)
             it.layoutManager = LinearLayoutManager(this)
         }
+        checkIfButtonShouldBeDisabled()
     }
 
     override fun deleteItem(checkoutItem: CheckoutItem) {
         removedItems.add(checkoutItem.id)
         presenter.removeItem(checkoutItem)
+        presenter.calculateBottomBarValues()
+        checkIfButtonShouldBeDisabled()
+    }
+
+    private fun checkIfButtonShouldBeDisabled() {
+        //disable/enable checkout buton based on checkoutItems size
+        binding.checkoutItemsRv.adapter?.let {
+            binding.btnCetakCheckout.isEnabled =  (it.itemCount > 0)
+        }
     }
 
     override fun redirectToDashboard() {
@@ -110,6 +128,16 @@ class CheckoutActivity: AppCompatActivity(), CheckoutContract.View {
                 Intent(this, DetailCheckoutActivity::class.java),
                 DETAIL_CHECKOUT_REQ_CODE
         )
+    }
+
+    override fun redirectToHoldCheckout() {
+        startActivity(
+                Intent(this, HoldCheckoutActivity::class.java)
+        )
+    }
+
+    override fun showCantHoldCheckoutWithZeroItem() {
+        showToast(getString(R.string.cant_hold_checkout_with_zero_item))
     }
 
     override fun changeTotalItem(checkoutItem: CheckoutItem, addedValue: Int) {

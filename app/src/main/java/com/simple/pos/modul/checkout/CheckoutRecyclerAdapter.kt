@@ -45,8 +45,8 @@ class CheckoutRecyclerAdapter(private val view: CheckoutContract.View,
                     notifyItemChanged(position)
                 }
                 it.deleteItemCheckoutBtn.setOnClickListener {
-                    view.deleteItem(this)
                     checkoutItems.remove(this)
+                    view.deleteItem(this)
                     notifyItemRemoved(position)
                     notifyItemRangeChanged(position, itemCount)
                 }

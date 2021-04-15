@@ -19,6 +19,10 @@ class BelanjaFragment: Fragment(R.layout.fragment_dashboard_store), BelanjaContr
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         recyclerView = view.findViewById(R.id.listStoreProductsRv)
+    }
+
+    override fun onResume() {
+        super.onResume()
         presenter.showProducts()
     }
 
@@ -33,10 +37,5 @@ class BelanjaFragment: Fragment(R.layout.fragment_dashboard_store), BelanjaContr
 
     override fun chooseProduct(product: Product) {
         presenter.addProductToCheckout(product)
-    }
-
-    override fun reenableChoosenProducts(productsId: Array<Int>) {
-        // reshow checkout button in each item
-        (recyclerView.adapter!! as BelanjaRecyclerAdapter).reenableProducts(productsId)
     }
 }

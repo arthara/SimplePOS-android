@@ -22,7 +22,7 @@
             android:layout_height="match_parent">
 
             <ImageView
-                android:id="@+id/imageView8"
+                android:id="@+id/holdCheckoutBackBtn"
                 android:layout_width="15dp"
                 android:layout_height="22dp"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -51,6 +51,7 @@
 
     <!--Body-->
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/holdCheckoutRv"
         android:layout_marginTop="10dp"
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -59,6 +60,7 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/topNav"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         tools:listitem="@layout/item_checkout_hold"
         />
 

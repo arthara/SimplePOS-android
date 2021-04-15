@@ -7,7 +7,6 @@ interface BelanjaContract {
     interface View {
         fun showProducts(products: Array<Product>, productCheckoutsId: Array<Int>)
         fun chooseProduct(product: Product)
-        fun reenableChoosenProducts(productsId: Array<Int>)
     }
 
     interface Presenter {
