@@ -39,7 +39,7 @@
             android:layout_marginBottom="2dp"
             android:layout_alignParentEnd="true"
             android:background="@android:color/transparent"
-            android:drawableStart="@drawable/ic_plus_round_main"
+            android:drawableLeft="@drawable/ic_plus_round_main"
             android:fontFamily="@font/roboto_regular"
             android:gravity="center"
             android:text="@string/add_product"

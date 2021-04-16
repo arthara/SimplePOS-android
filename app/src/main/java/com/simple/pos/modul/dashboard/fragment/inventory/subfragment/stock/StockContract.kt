@@ -10,6 +10,7 @@ interface StockContract {
         fun showDeleteConfirmation(product: Product)
         fun showRestockDialog(product: Product)
         fun showNewTotalProductInvalid()
+        fun redirectToCreateProduct()
     }
 
     interface Presenter {
