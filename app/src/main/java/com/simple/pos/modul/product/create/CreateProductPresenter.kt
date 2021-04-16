@@ -23,7 +23,8 @@ class CreateProductPresenter(private val view: CreateProductContract.View): Crea
             }
 
             override fun requestError(message: String?) {
-              view.createFailed("Gagal menyimpan data")
+              view.createFailed("Gagal menyimpan data $message")
+                Log.d(TAG, "New Store successfully created: $message")
             }
         })
     }
@@ -41,6 +42,7 @@ class CreateProductPresenter(private val view: CreateProductContract.View): Crea
                 TextUtils.isEmpty(product.sellingPrice.toString())  ||
                 TextUtils.isEmpty(product.costPrice.toString())
         ){
+            view.createFailed("isi data selain gambar tidak boleh kosong")
             return false
         }
         return true

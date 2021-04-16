@@ -1,6 +1,5 @@
 package com.simple.pos.modul.product.listcategory
 
-import com.simple.pos.modul.product.listcategory.model.ListCategory
 import com.simple.pos.shared.callback.RequestCallback
 import com.simple.pos.shared.callback.RetrofitCallback
 import com.simple.pos.shared.extension.TAG

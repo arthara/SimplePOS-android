@@ -8,6 +8,7 @@ import android.widget.Button
 import android.widget.RadioButton
 import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
@@ -27,6 +28,17 @@ class StockFragment: Fragment(R.layout.subfragment_inventory_stock_product), Sto
 
     companion object {
         private const val CHANGE_PRODUCT_REQ_CODE = 300
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        when(requestCode){
+            //refresh list when it's return ok, which means data changed
+            CHANGE_PRODUCT_REQ_CODE ->{
+                if(resultCode == AppCompatActivity.RESULT_OK)
+                    presenter.retrieveProducts()
+            }
+        }
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

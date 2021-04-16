@@ -4,18 +4,16 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.simple.pos.databinding.ItemCategoryStoreBinding
-import com.simple.pos.modul.product.listcategory.model.ListCategory
-import com.simple.pos.shared.model.Category
 
 
-class ListCategoryAdapter(private val categoryLists: Array<Category>)
+class ListCategoryAdapter(private val categoryLists: Array<ListCategory>)
     : RecyclerView.Adapter<ListCategoryAdapter.MyViewHolder>() {
 
     private lateinit var listCategoryListListener: ListCategoryListListener
 
     class MyViewHolder(val binding: ItemCategoryStoreBinding)
         : RecyclerView.ViewHolder(binding.root) {
-        fun bind(sequence: Int, listCategory: Category) {
+        fun bind(sequence: Int, listCategory: ListCategory) {
             binding.let {
                 it.sequence = sequence
                 it.listCategory = listCategory
@@ -43,7 +41,7 @@ class ListCategoryAdapter(private val categoryLists: Array<Category>)
     }
 
     interface ListCategoryListListener {
-        fun onCardClick(listCategory: Category)
+        fun onCardClick(listCategory: ListCategory)
     }
 
     fun setListCategoryListListener(listCategoryListListener: ListCategoryListListener) {

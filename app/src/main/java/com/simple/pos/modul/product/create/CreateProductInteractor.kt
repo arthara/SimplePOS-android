@@ -2,6 +2,8 @@ package com.simple.pos.modul.product.create
 
 import com.simple.pos.modul.newcategory.NewCategoryService
 import com.simple.pos.shared.callback.RequestCallback
+import com.simple.pos.shared.callback.RetrofitCallback
+import com.simple.pos.shared.extension.TAG
 import com.simple.pos.shared.model.Product
 import com.simple.pos.shared.retrofit.ServiceGenerator
 import okhttp3.MultipartBody
@@ -19,10 +21,10 @@ class CreateProductInteractor: CreateProductContract.Interactor {
     override fun requestCreateProduct(product: Product, callback: RequestCallback<Product?>) {
         val name: RequestBody = product.name.toRequestBody()
         var picture: MultipartBody.Part? = null
-        val total: RequestBody = product.total.toString().toRequestBody()
-        val costPrice: RequestBody = product.costPrice.toString().toRequestBody()
-        val sellingPrice: RequestBody = product.sellingPrice.toString().toRequestBody()
-        val categoryId: RequestBody = product.categoryId.toString().toRequestBody()
+        val total = product.total
+        val costPrice = product.costPrice
+        val sellingPrice = product.sellingPrice
+        val categoryId = product.categoryId
 
         if(product.picture != null){
             // use the FileUtils to get the actual file by uri
@@ -33,6 +35,6 @@ class CreateProductInteractor: CreateProductContract.Interactor {
             picture = MultipartBody.Part.createFormData("picture", file.name, requestFile)
         }
 
-        service.createProduct(categoryId, name, picture, total, sellingPrice, costPrice)
+        service.createProduct(categoryId, name, picture, total, sellingPrice, costPrice).enqueue(RetrofitCallback(callback, TAG, "requestCreateProduct"))
     }
 }

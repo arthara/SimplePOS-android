@@ -1,15 +1,11 @@
-package com.simple.pos.modul.product.listcategory.model
+package com.simple.pos.modul.product.listcategory
 
 import android.graphics.Color
 import android.util.Log
 import com.google.gson.annotations.SerializedName
 import com.simple.pos.shared.extension.TAG
-import java.io.Serializable
-/*
-@SerializedName("product_count")
-var productCount: Int = 0*/
 
-class ListCategory(var name: String, var color: String): Serializable {
+class ListCategory(var name: String, var color: String) {
     var id: Int = -1
     @SerializedName("store_id")
     var storeId: Int = -1

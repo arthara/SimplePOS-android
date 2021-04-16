@@ -7,10 +7,12 @@ import android.database.Cursor
 import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
+import android.text.TextUtils
 import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.simple.pos.databinding.ActivityCreateProductBinding
+import com.simple.pos.modul.inforeceipt.InfoReceiptActivity
 import com.simple.pos.modul.product.listcategory.ListCategoryActivity
 import com.simple.pos.shared.extension.TAG
 import com.simple.pos.shared.model.Product
@@ -21,6 +23,7 @@ class CreateProductActivity: AppCompatActivity(), CreateProductContract.View  {
     private var _binding: ActivityCreateProductBinding? = null
     private val binding get() = _binding!!
     private var filePath: String? = null
+    private var categoryID: Int? = null
 
     companion object {
         private const val PICK_PRODUCT_PHOTO_REQUEST_CODE = 2200
@@ -42,11 +45,13 @@ class CreateProductActivity: AppCompatActivity(), CreateProductContract.View  {
         }
 
         binding.ivBackSingleProductCreate.setOnClickListener{
-
+            //makeToast("Berhasil dikirim " + categoryID.toString())
+            finish()
         }
 
         binding.btnEditImageProdInv.setOnClickListener{
-            pickLogoFromGallery()
+            //pickLogoFromGallery()
+
         }
 
         binding.spinnerCategoryofProd.setOnClickListener {
@@ -59,17 +64,19 @@ class CreateProductActivity: AppCompatActivity(), CreateProductContract.View  {
 
     private fun onClickCreate() {
 
-        if(binding.spinnerCategoryofProd.text !== null){
-            var product = Product(binding.etCreateProductName.text.toString()).apply {
-                categoryId = intent.getIntExtra(CATEGORY_ID_KEY, 0)
+        if(categoryID != null){
+            val product = Product(binding.etCreateProductName.text.toString()).apply {
+                categoryId = categoryID!!
                 picture = filePath
                 total = binding.etStokAwalSingleProd.text.toString().toInt()
                 costPrice = binding.etHargaKulakanSingProd.text.toString().toDouble()
                 sellingPrice = binding.etHargaJualSingProd.text.toString().toDouble()
             }
             presenter.createProduct(product)
+            makeToast("Menunggu Pengiriman")
+        }else{
+            makeToast("Semua data selain foto wajib diisi")
         }
-        makeToast("Semua data selain foto wajib diisi")
     }
 
     /********* Image ************/
@@ -102,7 +109,9 @@ class CreateProductActivity: AppCompatActivity(), CreateProductContract.View  {
 
         if (requestCode == CHANGE_PRODUCT_REQ_CODE) {
             if (resultCode == RESULT_OK) {
-                binding.spinnerCategoryofProd.text = intent.extras?.getString(CATEGORY_NAME_KEY)
+                binding.spinnerCategoryofProd.text = data?.getStringExtra(CATEGORY_NAME_KEY)
+                categoryID = data?.getStringExtra(CATEGORY_ID_KEY)?.toInt()
+                Log.d(TAG, "NAKO: " + data?.getStringExtra(CATEGORY_NAME_KEY))
             }
         }
 

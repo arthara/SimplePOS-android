@@ -13,11 +13,11 @@ interface CreateProductService {
     @Multipart
     @POST("products")
     fun createProduct(
-            @Part("category_id") categoryId: RequestBody,
+            @Part("category_id") categoryId: Int,
             @Part("name") name: RequestBody,
             @Part picture: MultipartBody.Part?,
-            @Part("total") total: RequestBody,
-            @Part("selling_price") sellingPrice: RequestBody,
-            @Part("cost_price") costPrice: RequestBody
+            @Part("total") total: Int,
+            @Part("selling_price") sellingPrice: Double,
+            @Part("cost_price") costPrice: Double
     ): Call<Product?>
 }

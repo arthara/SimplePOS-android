@@ -8,8 +8,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.simple.pos.R
 import com.simple.pos.databinding.ActivityListCategoriesBinding
 import com.simple.pos.modul.product.create.CreateProductActivity
-import com.simple.pos.modul.product.listcategory.model.ListCategory
-import com.simple.pos.shared.model.Category
 
 class ListCategoryActivity: AppCompatActivity(), ListCategoryContract.View, ListCategoryAdapter.ListCategoryListListener {
     private lateinit var binding : ActivityListCategoriesBinding
@@ -19,7 +17,7 @@ class ListCategoryActivity: AppCompatActivity(), ListCategoryContract.View, List
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_list_categories)
-        presenter.retrieveCategories()
+        presenter.retrieveCategoriesWithCounts()
         onClickInit()
     }
 
@@ -29,7 +27,7 @@ class ListCategoryActivity: AppCompatActivity(), ListCategoryContract.View, List
         }
     }
 
-    override fun showCategories(categoryLists: Array<Category>) {
+    override fun showCategories(categoryLists: Array<ListCategory>) {
         val listCategoryAdapter = ListCategoryAdapter(categoryLists)
         binding.rvListCategoriesWithCount.apply {
             adapter = listCategoryAdapter.apply {
@@ -44,11 +42,11 @@ class ListCategoryActivity: AppCompatActivity(), ListCategoryContract.View, List
         finish()
     }
 
-    override fun onCardClick(listCategory: Category) {
+    override fun onCardClick(listCategory: ListCategory) {
         val intent = Intent(this@ListCategoryActivity, CreateProductActivity::class.java)
-        intent.putExtra(CreateProductActivity.CATEGORY_ID_KEY, listCategory.id)
         intent.putExtra(CreateProductActivity.CATEGORY_NAME_KEY, listCategory.name)
+        intent.putExtra(CreateProductActivity.CATEGORY_ID_KEY, listCategory.id.toString())
         setResult(RESULT_OK, intent);
-        redirectToCreateProduct()
+        finish()
     }
 }

@@ -1,17 +1,18 @@
 
-import com.simple.pos.modul.product.listcategory.model.ListCategory
+import com.simple.pos.modul.product.listcategory.ListCategory
 import com.simple.pos.shared.callback.RequestCallback
 import com.simple.pos.shared.model.Category
 
 
 interface ListCategoryContract {
     interface View {
-        fun showCategories(categoryLists: Array<Category>)
+        fun showCategories(categoryLists: Array<ListCategory>)
         fun redirectToCreateProduct()
     }
 
     interface Presenter {
         fun retrieveCategories()
+        fun retrieveCategoriesWithCounts()
     }
 
     interface Interactor {
