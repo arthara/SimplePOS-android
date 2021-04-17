@@ -68,23 +68,22 @@
         </LinearLayout>
 
         <ScrollView
+            android:id="@+id/csLayoutReceipt"
             android:layout_width="0dp"
             android:layout_height="0dp"
+            android:background="@color/light_gray_background"
             app:layout_constraintBottom_toTopOf="@+id/btmNavbacr"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/topNav"
-            android:background="@color/light_gray_background"
-            >
+            app:layout_constraintTop_toBottomOf="@+id/topNav">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@color/light_gray_background"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="10dp"
-                >
+                android:background="@color/light_gray_background">
 
 
                 <androidx.constraintlayout.widget.ConstraintLayout
@@ -114,10 +113,10 @@
                             android:id="@+id/cardView7"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginEnd="20dp"
-                            app:cardCornerRadius="20dp"
                             android:layout_marginTop="20dp"
+                            android:layout_marginEnd="20dp"
                             android:layout_marginBottom="10dp"
+                            app:cardCornerRadius="20dp"
                             app:layout_constraintBottom_toTopOf="@+id/textView11"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintHorizontal_bias="0.07"
@@ -143,6 +142,7 @@
                             android:fontFamily="@font/roboto_bold"
                             android:maxWidth="170dp"
                             android:maxLines="2"
+                            android:text="@{store.name}"
                             app:autoSizeMaxTextSize="20sp"
                             app:autoSizeMinTextSize="10sp"
                             app:autoSizeTextType="uniform"
@@ -152,38 +152,38 @@
                             app:layout_constraintStart_toStartOf="@+id/cardView7"
                             app:layout_constraintTop_toBottomOf="@+id/cardView7"
                             app:layout_constraintVertical_bias="0.147"
-                            android:text="@{store.name}"
                             tools:text="@string/nama_toko_1" />
 
                         <TextView
                             android:id="@+id/textView11"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
                             android:layout_marginBottom="4dp"
                             android:fontFamily="@font/lato"
                             android:maxWidth="150dp"
+                            android:text="@{store.address}"
                             app:autoSizeMaxTextSize="15sp"
                             app:autoSizeMinTextSize="7sp"
                             app:autoSizeTextType="uniform"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintStart_toStartOf="@+id/textView10"
-                            android:layout_marginTop="5dp"
-                            android:text = "@{store.address}"
                             tools:text="Jl. Cebongan Lor Rt 02 02 Sleman Yogyakarta 3001" />
 
                     </LinearLayout>
 
                     <TextView
+                        android:id="@+id/tvInfoReceiptThanks"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="28dp"
                         android:layout_marginEnd="16dp"
+                        android:text="@{checkout.note}"
                         app:autoSizeMaxTextSize="14sp"
                         app:autoSizeMinTextSize="7sp"
                         app:autoSizeTextType="uniform"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
-                        android:text="@{checkout.note}"
                         tools:text="Ucapan Terima kasih" />
 
 
@@ -206,7 +206,6 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/roboto_medium"
-                        tools:text="Struk Penerimaan"
                         android:textColor="@color/black"
                         android:textSize="20sp"
                         app:layout_constraintBottom_toBottomOf="parent"
@@ -214,7 +213,8 @@
                         app:layout_constraintHorizontal_bias="0.064"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintVertical_bias="0.0" />
+                        app:layout_constraintVertical_bias="0.0"
+                        tools:text="Struk Penerimaan" />
 
                     <TextView
                         android:id="@+id/lblTanggal"
@@ -222,13 +222,13 @@
                         android:layout_height="wrap_content"
                         android:textColor="@color/black"
                         android:textStyle="bold|normal"
-                        tools:text="Tanggal"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.0"
                         app:layout_constraintStart_toStartOf="@+id/textView12"
                         app:layout_constraintTop_toBottomOf="@+id/textView12"
-                        app:layout_constraintVertical_bias="0.02" />
+                        app:layout_constraintVertical_bias="0.02"
+                        tools:text="Tanggal" />
 
                     <TextView
                         android:id="@+id/textView15"
@@ -236,11 +236,11 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="12dp"
                         android:text="@{checkout.receiptTime}"
-                        tools:text="@string/_20_desember_2021"
                         app:layout_constraintBottom_toBottomOf="@+id/lblTanggal"
                         app:layout_constraintStart_toEndOf="@+id/lblTanggal"
                         app:layout_constraintTop_toTopOf="@+id/lblTanggal"
-                        app:layout_constraintVertical_bias="0.0" />
+                        app:layout_constraintVertical_bias="0.0"
+                        tools:text="@string/_20_desember_2021" />
 
                     <TextView
                         android:id="@+id/textView17"
@@ -260,27 +260,26 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:text="@{checkout.paymentMethod.shownMethod}"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.0"
                         app:layout_constraintStart_toEndOf="@+id/textView17"
                         app:layout_constraintTop_toTopOf="@+id/textView17"
                         app:layout_constraintVertical_bias="0.0"
-                        tools:text="Go Pay"
-                        android:text="@{checkout.paymentMethod.shownMethod}"
-                        />
+                        tools:text="Go Pay" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@{String.valueOf(checkout.id)}"
-                        tools:text="ID Struk "
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.044"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/lblTanggal"
-                        app:layout_constraintVertical_bias="0.0" />
+                        app:layout_constraintVertical_bias="0.0"
+                        tools:text="ID Struk " />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -297,7 +296,7 @@
 
                     <TextView
                         android:id="@+id/productNameReceipt"
-                        android:layout_width="wrap_content"
+                        android:layout_width="130dp"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="18dp"
                         android:fontFamily="@font/roboto_regular"
@@ -312,14 +311,12 @@
 
                     <TextView
                         android:id="@+id/lblQTY"
-                        android:layout_width="wrap_content"
+                        android:layout_width="40dp"
                         android:layout_height="match_parent"
-                        android:layout_marginStart="20dp"
+                        android:layout_marginStart="5dp"
                         android:layout_toEndOf="@id/productNameReceipt"
                         android:fontFamily="@font/roboto_regular"
                         android:gravity="center_vertical"
-                        android:paddingStart="20dp"
-                        android:paddingEnd="5dp"
                         android:text="@string/qty"
                         android:textColor="@color/dark_black"
                         android:textSize="16sp"
@@ -329,33 +326,33 @@
 
                     <TextView
                         android:id="@+id/lblHargaBarangStruct"
-                        android:layout_width="88dp"
+                        android:layout_width="100dp"
                         android:layout_height="match_parent"
-
-                        android:layout_marginStart="45dp"
                         android:layout_toEndOf="@+id/lblQTY"
                         android:fontFamily="@font/roboto_regular"
                         android:text="@string/harga"
                         android:textColor="@color/dark_black"
                         android:textSize="16sp"
                         app:autoSizeMinTextSize="10sp"
-                        app:autoSizeTextType="uniform" />
+                        app:autoSizeTextType="uniform"
+                        android:gravity="center"
+                        />
 
                     <TextView
                         android:id="@+id/lblTotalQTYPrice"
-                        android:layout_width="wrap_content"
+                        android:layout_width="200dp"
                         android:layout_height="match_parent"
-                        android:layout_alignParentEnd="true"
                         android:layout_marginStart="20dp"
-                        android:layout_marginEnd="45dp"
                         android:fontFamily="@font/roboto_medium"
-                        android:gravity="center_vertical"
+                        android:gravity="center"
                         android:text="@string/total"
                         android:textColor="@color/dark_black"
                         android:textSize="16sp"
                         android:textStyle="bold"
                         app:autoSizeMinTextSize="10sp"
-                        app:autoSizeTextType="uniform" />
+                        app:autoSizeTextType="uniform"
+                        android:layout_toEndOf="@+id/lblHargaBarangStruct"
+                        />
                 </RelativeLayout>
 
                 <ImageView
@@ -363,6 +360,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:adjustViewBounds="true"
+                    android:contentDescription="@string/line"
                     android:scaleType="centerCrop"
                     android:src="@drawable/ic_line_receipt_first"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -370,16 +368,16 @@
                     app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="@+id/relativeLayout7"
-                    app:layout_constraintVertical_bias="0.0"
-                    android:contentDescription="@string/line" />
+                    app:layout_constraintVertical_bias="0.0" />
 
 
                 <RelativeLayout
                     android:id="@+id/relativeLayout7"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="10dp"
+                    android:layout_marginBottom="35dp"
                     android:paddingTop="10dp"
+                    android:layout_marginTop="4dp"
                     app:layout_constraintTop_toBottomOf="@+id/receiptListItemRv"
                     app:layout_constraintVertical_bias="0.027"
                     tools:layout_editor_absoluteX="16dp">
@@ -401,14 +399,14 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentEnd="true"
-                        android:layout_marginEnd="19dp"
+                        android:layout_marginEnd="18dp"
                         android:fontFamily="@font/roboto_medium"
+                        android:text="@{String.valueOf(subtotal)}"
                         android:textColor="@color/dark_black"
                         android:textSize="16sp"
                         app:autoSizeMinTextSize="10sp"
                         app:autoSizeTextType="uniform"
-                        tools:text="10000"
-                        android:text="@{String.valueOf(subtotal)}"/>
+                        tools:text="10000" />
 
                     <TextView
                         android:id="@+id/lblPajakReceipt"
@@ -439,6 +437,7 @@
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/lblPajakReceipt"
                         android:layout_marginStart="20dp"
+                        android:layout_marginTop="5dp"
                         android:fontFamily="@font/roboto_bold"
                         android:text="@string/total"
                         android:textColor="@color/teal_700"
@@ -453,27 +452,28 @@
                         android:layout_below="@+id/tvPajakReceipt"
                         android:layout_alignParentEnd="true"
                         android:layout_marginStart="20dp"
+                        android:layout_marginTop="1dp"
                         android:layout_marginEnd="20dp"
                         android:fontFamily="@font/roboto_bold"
                         android:text="@{String.format(@string/price, subtotal + checkout.tax)}"
-                        tools:text="Rp 11000"
                         android:textColor="@color/teal_700"
                         android:textSize="18sp"
                         app:autoSizeMinTextSize="10sp"
-                        app:autoSizeTextType="uniform" />
+                        app:autoSizeTextType="uniform"
+                        tools:text="Rp 11000" />
                 </RelativeLayout>
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/receiptListItemRv"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    tools:itemCount="2"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/relativeLayout6"
-                    tools:listitem="@layout/item_checkout_receipt"
-                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
+                    tools:itemCount="2"
+                    tools:listitem="@layout/item_checkout_receipt" />
             </androidx.constraintlayout.widget.ConstraintLayout>
         </ScrollView>
 
@@ -482,19 +482,17 @@
             android:id="@+id/btmNavbacr"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:gravity="center"
             android:orientation="horizontal"
-            android:weightSum="2"
-            android:paddingTop="10dp"
+            android:paddingTop="25dp"
+            android:paddingBottom="20dp"
+            android:weightSum="1"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="1"
-            android:paddingBottom="25dp"
-            >
+            app:layout_constraintTop_toBottomOf="@+id/csLayoutReceipt"
+            app:layout_constraintVertical_bias="1">
 
-            <androidx.appcompat.widget.AppCompatButton
+            <!--<androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btnLlihatReceipt"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -510,14 +508,14 @@
                 app:autoSizeMaxTextSize="18sp"
                 app:autoSizeMinTextSize="12sp"
                 app:autoSizeStepGranularity="2sp"
-                app:autoSizeTextType="uniform" />
+                app:autoSizeTextType="uniform" />-->
 
             <Button
                 android:id="@+id/receiptDashboardBtn"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:layout_marginEnd="25dp"
+                android:layout_marginStart="75dp"
+                android:layout_marginEnd="75dp"
                 android:layout_weight="1"
                 android:background="@drawable/button_secondary_fill_round"
                 android:fontFamily="@font/poppins"

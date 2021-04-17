@@ -20,6 +20,7 @@
         >
 
         <androidx.cardview.widget.CardView
+            android:id="@+id/cvCashFlowItem"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@drawable/item_background"

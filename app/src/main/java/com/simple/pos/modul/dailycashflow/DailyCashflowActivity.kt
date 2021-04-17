@@ -1,5 +1,6 @@
 package com.simple.pos.modul.dailycashflow
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
@@ -7,8 +8,9 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.simple.pos.R
 import com.simple.pos.databinding.ActivityCashflowHarianBinding
 import com.simple.pos.modul.dailycashflow.model.Cashflow
+import com.simple.pos.modul.inforeceipt.InfoReceiptActivity
 
-class DailyCashflowActivity: AppCompatActivity(), DailyCashflowContract.View {
+class DailyCashflowActivity: AppCompatActivity(), DailyCashflowContract.View, DailyCashflowAdapter.ListCashFlowListener {
     private lateinit var binding : ActivityCashflowHarianBinding
     private val presenter : DailyCashflowContract.Presenter = DailyCashflowPresenter(this)
 
@@ -31,13 +33,22 @@ class DailyCashflowActivity: AppCompatActivity(), DailyCashflowContract.View {
     }
 
     override fun showCashflows(cashflows: Array<Cashflow>) {
+        val dailyCashflowAdapter = DailyCashflowAdapter(cashflows)
         binding.listCashflowRv.apply {
-            adapter = DailyCashflowAdapter(cashflows)
+            adapter = dailyCashflowAdapter.apply {
+                setListDailyCashFlowClickListener(this@DailyCashflowActivity)
+            }
             layoutManager = LinearLayoutManager(this@DailyCashflowActivity)
         }
     }
 
     override fun redirectToMainDashboard() {
         finish()
+    }
+
+    override fun onCardClick(cashflow: Cashflow) {
+        val intent = Intent(this@DailyCashflowActivity, InfoReceiptActivity::class.java)
+        intent.putExtra(InfoReceiptActivity.RECEIPT_ID_BUNDLE_KEY, cashflow.id)
+        startActivity(intent)
     }
 }

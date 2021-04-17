@@ -9,6 +9,8 @@ import com.simple.pos.modul.dailycashflow.model.Cashflow
 class DailyCashflowAdapter(private val cashflows: Array<Cashflow>)
     : RecyclerView.Adapter<DailyCashflowAdapter.MyViewHolder>(){
 
+    private lateinit var listCashFlowListener: ListCashFlowListener
+
     class MyViewHolder(val binding: ItemCashflowHarianBinding)
         : RecyclerView.ViewHolder(binding.root) {
         fun bind(sequence: Int, cashflow: Cashflow){
@@ -34,5 +36,18 @@ class DailyCashflowAdapter(private val cashflows: Array<Cashflow>)
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         // add 1 so the number start with 1
         holder.bind(position + 1, cashflows[position])
+        holder.binding.cvCashFlowItem.setOnClickListener{
+            listCashFlowListener.onCardClick(cashflows[position])
+        }
     }
+
+    interface ListCashFlowListener {
+        fun onCardClick(cashflow: Cashflow)
+    }
+
+
+    fun setListDailyCashFlowClickListener(listCashFlowListener: ListCashFlowListener ) {
+        this.listCashFlowListener = listCashFlowListener
+    }
+
 }
