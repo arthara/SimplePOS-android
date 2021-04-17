@@ -161,6 +161,7 @@
     <string name="change_stock">Ubah stok</string>
     <string name="total_product_will_be">Total produk akan menjadi %1$d</string>
     <string name="invalid_total_product">Stok produk tidak dapat kurang dari 0</string>
+    <string name="pilih_warna">Pilih Warna</string>
 
 
 </resources>
