@@ -1,12 +1,16 @@
 package com.simple.pos.modul.dashboard.fragment.inventory
 
 import android.content.Context
+import android.content.res.ColorStateList
+import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.widget.AppCompatButton
 import androidx.fragment.app.Fragment
+import com.github.dhaval2404.colorpicker.util.ColorUtil
 import com.google.android.material.tabs.TabLayout
 import com.simple.pos.R
 import com.simple.pos.modul.dashboard.fragment.inventory.subfragment.category.CategoryFragment
@@ -68,4 +72,5 @@ class InventoryFragment: Fragment(), TabLayout.OnTabSelectedListener {
         selectedFragment = stockFragment
         changeCurrentPage()
     }
+
 }
