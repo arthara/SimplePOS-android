@@ -12,6 +12,7 @@ import com.simple.pos.R
 import com.simple.pos.base.util.UtilProvider
 import com.simple.pos.databinding.ActivityCheckoutBinding
 import com.simple.pos.modul.detailcheckout.DetailCheckoutActivity
+import com.simple.pos.modul.holdcheckout.HoldCheckoutActivity
 import com.simple.pos.shared.extension.TAG
 import com.simple.pos.shared.extension.showToast
 import com.simple.pos.shared.model.submodel.CheckoutItem
@@ -20,7 +21,7 @@ import com.simple.pos.shared.util.ExtraPayUtil
 import java.util.*
 import kotlin.collections.ArrayList
 
-class CheckoutActivity : AppCompatActivity(), CheckoutContract.View {
+class CheckoutActivity: AppCompatActivity(), CheckoutContract.View {
     private val presenter: CheckoutContract.Presenter = CheckoutPresenter(this)
     private lateinit var binding: ActivityCheckoutBinding
     private val removedItems = ArrayList<Int>()
@@ -37,18 +38,22 @@ class CheckoutActivity : AppCompatActivity(), CheckoutContract.View {
         super.onCreate(savedInstanceState)
         binding = ActivityCheckoutBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        initializeOnClicks()
+    }
+
+    override fun onResume() {
+        super.onResume()
         presenter.showCheckoutItems()
-        presenter.taxInitial()
         presenter.calculateBottomBarValues()
         initializeOnClicks()
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        when (requestCode) {
+        when(requestCode) {
             DETAIL_CHECKOUT_REQ_CODE -> {
                 //if checkout finished successfully, close activity and reset shopping view
-                if (resultCode == RESULT_OK) {
+                if(resultCode == RESULT_OK) {
                     setResult(RESULT_CHECKOUT_SUCCESSFULLY)
                     finish()
                 }
@@ -60,7 +65,7 @@ class CheckoutActivity : AppCompatActivity(), CheckoutContract.View {
         binding.let {
             it.subTotal = subTotal
             it.tax = tax
-            it.total = subTotal + tax
+            it.total = subTotal - tax
         }
     }
 
@@ -78,19 +83,16 @@ class CheckoutActivity : AppCompatActivity(), CheckoutContract.View {
             it.btnCetakCheckout.setOnClickListener {
                 redirectToCheckoutDetail()
             }
-            it.tvTaxPercentCheckout.setOnClickListener {
-                addTaxValue()
-            }
         }
     }
 
     override fun finish() {
         // if any item get removed
-        if (removedItems.size > 0)
+        if(removedItems.size > 0)
         // put all removed item id as intent data
             setResult(RESULT_OK, Intent().putExtra(
                     REMOVED_CHECKOUT_ITEM_BUNDLE_KEY,
-                    removedItems.toIntArray().also {
+                    removedItems.toIntArray().also{
                         Log.d(TAG, "Remove Items : ${Arrays.toString(it)}")
                     }
             ))
@@ -102,11 +104,21 @@ class CheckoutActivity : AppCompatActivity(), CheckoutContract.View {
             it.adapter = CheckoutRecyclerAdapter(this, checkoutItems)
             it.layoutManager = LinearLayoutManager(this)
         }
+        checkIfButtonShouldBeDisabled()
     }
 
     override fun deleteItem(checkoutItem: CheckoutItem) {
         removedItems.add(checkoutItem.id)
         presenter.removeItem(checkoutItem)
+        presenter.calculateBottomBarValues()
+        checkIfButtonShouldBeDisabled()
+    }
+
+    private fun checkIfButtonShouldBeDisabled() {
+        //disable/enable checkout buton based on checkoutItems size
+        binding.checkoutItemsRv.adapter?.let {
+            binding.btnCetakCheckout.isEnabled =  (it.itemCount > 0)
+        }
     }
 
     override fun redirectToDashboard() {
@@ -168,6 +180,16 @@ class CheckoutActivity : AppCompatActivity(), CheckoutContract.View {
                 Intent(this, DetailCheckoutActivity::class.java),
                 DETAIL_CHECKOUT_REQ_CODE
         )
+    }
+
+    override fun redirectToHoldCheckout() {
+        startActivity(
+                Intent(this, HoldCheckoutActivity::class.java)
+        )
+    }
+
+    override fun showCantHoldCheckoutWithZeroItem() {
+        showToast(getString(R.string.cant_hold_checkout_with_zero_item))
     }
 
     override fun changeTotalItem(checkoutItem: CheckoutItem, addedValue: Int) {

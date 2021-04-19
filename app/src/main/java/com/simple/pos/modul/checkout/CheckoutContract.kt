@@ -1,5 +1,7 @@
 package com.simple.pos.modul.checkout
 
+import com.simple.pos.shared.callback.RequestCallback
+import com.simple.pos.shared.model.HoldCheckout
 import com.simple.pos.shared.model.submodel.CheckoutItem
 
 interface CheckoutContract {
@@ -13,6 +15,8 @@ interface CheckoutContract {
         fun addTaxValue()
         fun showTaxNumerator(tax: Double)
         fun redirectToCheckoutDetail()
+        fun redirectToHoldCheckout()
+        fun showCantHoldCheckoutWithZeroItem()
     }
 
     interface Presenter {
@@ -23,5 +27,10 @@ interface CheckoutContract {
         fun taxInitial()
         fun setCurrentTaxPercent(taxNumerator: Double)
         fun changeTotalItem(checkoutItem: CheckoutItem, addedValue: Int)
+        fun createHoldCheckout()
+    }
+
+    interface Interactor {
+        fun requestCreateHoldCheckout(holdCheckout: HoldCheckout, callback: RequestCallback<HoldCheckout>)
     }
 }

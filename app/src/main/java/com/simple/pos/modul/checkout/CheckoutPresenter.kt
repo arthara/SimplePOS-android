@@ -1,6 +1,10 @@
 package com.simple.pos.modul.checkout
 
 import com.simple.pos.base.util.UtilProvider
+import android.util.Log
+import com.simple.pos.shared.callback.RequestCallback
+import com.simple.pos.shared.extension.TAG
+import com.simple.pos.shared.model.HoldCheckout
 import com.simple.pos.shared.model.submodel.CheckoutItem
 import com.simple.pos.shared.singletondata.ActiveCheckout
 import com.simple.pos.shared.util.ExtraPayUtil
@@ -31,8 +35,12 @@ class CheckoutPresenter(private val view: CheckoutContract.View) : CheckoutContr
     }
 
     override fun calculateBottomBarValues() {
-        var subTotal = ActiveCheckout.calculateSubTotalItems()
+        val subTotal = ActiveCheckout.calculateSubTotalItems()
         var taxFinal = ActiveCheckout.calculateTaxOfSubTotal(tax)
+
+
+        //ActiveCheckout.checkout.tax = tax
+        //view.showBottomBarValues(subTotal, tax)
         view.showBottomBarValues(subTotal, taxFinal)
     }
 
@@ -49,11 +57,33 @@ class CheckoutPresenter(private val view: CheckoutContract.View) : CheckoutContr
         this.tax = taxNumerator / 100
     }
 
+
     override fun changeTotalItem(checkoutItem: CheckoutItem, addedValue: Int) {
         try {
             ActiveCheckout.changeTotalItem(checkoutItem, addedValue)
         }catch (e: IllegalArgumentException) {
             view.showInvalidTotalItemError(checkoutItem.total)
         }
+    }
+
+    override fun createHoldCheckout() {
+        if(ActiveCheckout.checkout.checkoutItems.isEmpty()) {
+            view.showCantHoldCheckoutWithZeroItem()
+            return
+        }
+
+        CheckoutInteractor.requestCreateHoldCheckout(
+                ActiveCheckout.convertToHoldCheckout(),
+                object : RequestCallback<HoldCheckout>{
+                    override fun requestSuccess(data: HoldCheckout) {
+                        resetCheckout()
+                        view.redirectToDashboard()
+                    }
+
+                    override fun requestError(message: String?) {
+                        message?.let { Log.d(TAG, it) }
+                    }
+                }
+        )
     }
 }
