@@ -168,5 +168,9 @@
     <string name="load">load..</string>
     <string name="jumlah_produk_hint">Jumlah Produk</string>
 
+    <string name="pending_transaction">Transaksi Pending %1$d</string>
+    <string name="n_product_in_transaction">%1$d Produk dalam Transaksi</string>
+    <string name="cant_hold_checkout_with_zero_item">Tidak dapat menunda checkout dengan 0 item</string>
+    <string name="pilih_warna">Pilih Warna</string>
 
 </resources>

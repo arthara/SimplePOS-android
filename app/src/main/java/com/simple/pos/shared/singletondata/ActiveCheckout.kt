@@ -1,5 +1,7 @@
 package com.simple.pos.shared.singletondata
 
+import com.simple.pos.shared.model.HoldCheckout
+import com.simple.pos.shared.model.HoldCheckoutItem
 import com.simple.pos.shared.model.Product
 import com.simple.pos.shared.model.submodel.Checkout
 import com.simple.pos.shared.model.submodel.CheckoutItem
@@ -40,5 +42,27 @@ object ActiveCheckout {
         } catch (e: IllegalArgumentException){
             throw e
         }
+    }
+
+    fun changeActivecheckout(holdCheckout: HoldCheckout) {
+        _checkout = Checkout().apply {
+            holdCheckout.holdCheckoutItems.forEach {
+                checkoutItems[it.product.id] = CheckoutItem(it.product).apply {
+                    unitTotal = it.unitTotal
+                }
+            }
+        }
+    }
+
+    fun convertToHoldCheckout() : HoldCheckout {
+        val holdCheckoutItems = ArrayList<HoldCheckoutItem>()
+        
+        _checkout.checkoutItems.forEach {(_, checkoutItem) ->
+            holdCheckoutItems.add(
+                    HoldCheckoutItem(checkoutItem.unitTotal, checkoutItem)
+            )
+        }
+
+        return HoldCheckout(holdCheckoutItems.toTypedArray())
     }
 }

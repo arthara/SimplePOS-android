@@ -1,8 +1,11 @@
 package com.simple.pos.modul.checkout
 
+import android.util.Log
+import com.simple.pos.shared.callback.RequestCallback
+import com.simple.pos.shared.extension.TAG
+import com.simple.pos.shared.model.HoldCheckout
 import com.simple.pos.shared.model.submodel.CheckoutItem
 import com.simple.pos.shared.singletondata.ActiveCheckout
-import java.lang.IllegalArgumentException
 
 class CheckoutPresenter(private val view: CheckoutContract.View) : CheckoutContract.Presenter {
     override fun showCheckoutItems() {
@@ -38,5 +41,26 @@ class CheckoutPresenter(private val view: CheckoutContract.View) : CheckoutContr
         }catch (e: IllegalArgumentException) {
             view.showInvalidTotalItemError(checkoutItem.total)
         }
+    }
+
+    override fun createHoldCheckout() {
+        if(ActiveCheckout.checkout.checkoutItems.isEmpty()) {
+            view.showCantHoldCheckoutWithZeroItem()
+            return
+        }
+
+        CheckoutInteractor.requestCreateHoldCheckout(
+                ActiveCheckout.convertToHoldCheckout(),
+                object : RequestCallback<HoldCheckout>{
+                    override fun requestSuccess(data: HoldCheckout) {
+                        resetCheckout()
+                        view.redirectToDashboard()
+                    }
+
+                    override fun requestError(message: String?) {
+                        message?.let { Log.d(TAG, it) }
+                    }
+                }
+        )
     }
 }
