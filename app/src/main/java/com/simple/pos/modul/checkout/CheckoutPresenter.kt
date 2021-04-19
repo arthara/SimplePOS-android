@@ -32,7 +32,7 @@ class CheckoutPresenter(private val view: CheckoutContract.View) : CheckoutContr
 
     override fun calculateBottomBarValues() {
         var subTotal = ActiveCheckout.calculateSubTotalItems()
-        var taxFinal = ActiveCheckout.calculateTaxofSubTotal(tax)
+        var taxFinal = ActiveCheckout.calculateTaxOfSubTotal(tax)
         view.showBottomBarValues(subTotal, taxFinal)
     }
 

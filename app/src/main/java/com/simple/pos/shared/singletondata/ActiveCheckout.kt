@@ -34,12 +34,14 @@ object ActiveCheckout {
         return sumSubTotal
     }
 
-    fun calculateTaxofSubTotal(taxPercent: Double): Double{
+    fun calculateTaxOfSubTotal(taxPercent: Double): Double{
         val taxOfSubTotal = 0.0
+
         if(calculateSubTotalItems() > 0 && taxPercent in 0.0 ..100.0 ){
             return calculateSubTotalItems() * taxPercent
         }
 
+        checkout.tax = taxOfSubTotal
         return taxOfSubTotal
     }
 

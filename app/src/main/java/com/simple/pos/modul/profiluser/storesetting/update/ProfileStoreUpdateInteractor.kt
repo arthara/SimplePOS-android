@@ -22,20 +22,20 @@ class ProfileStoreUpdateInteractor: ProfileStoreUpdateContract.Interactor {
     }
 
 
-    override fun requestUpdateProfileLogoInteractor(updatedStore: Store, requestCallback: RequestCallback<Store?>?) {
+    override fun requestUpdateProfileLogoInteractor(store: Store, requestCallback: RequestCallback<Store?>?) {
 
         var logo: MultipartBody.Part? = null
 
-        if(updatedStore.logo != null) {
+        if(store.logo != null) {
             // use the FileUtils to get the actual file by uri
-            val file = File(updatedStore.logo)
+            val file = File(store.logo!!)
             // create RequestBody instance from file
             val requestFile: RequestBody = file.asRequestBody()
             // MultipartBody.Part is used to send also the actual file name
             logo = MultipartBody.Part.createFormData("logo", file.name, requestFile)
         }
 
-        service.updateImage(updatedStore.id, logo).enqueue(
+        service.updateImage(store.id, logo).enqueue(
                 RetrofitCallback(requestCallback, TAG, "requestUpdateLogoStore")
         )
     }

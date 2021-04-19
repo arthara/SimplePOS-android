@@ -37,15 +37,18 @@ class ProfileStoreUpdatePresenter(private val view: ProfileStoreUpdateContract.V
             }
 
             override fun requestError(message: String?) {
-                view.updateProfileImageFail("Gagal mengupdate data")
+                view.updateProfileImageFail("Gagal mengupdate Logo")
             }
         })
     }
 
+
+    //Call The Updated Store from server
     override fun saveUpdatedStore() {
         interactor.requestNewUpdatedStore(object : RequestCallback<Store?> {
             override fun requestSuccess(data: Store?) {
                 if (data != null) {
+                    //Save the new store to session
                     saveStoreSession(data)
                     view.updateSuccess("Berhasil mengupdate data: ${data.id}, ${data.name}")
                 }
@@ -71,6 +74,5 @@ class ProfileStoreUpdatePresenter(private val view: ProfileStoreUpdateContract.V
         val storeUtil = UtilProvider.getUtil(StoreUtil::class.java) as StoreUtil
         storeUtil.update(store)
     }
-
 
 }

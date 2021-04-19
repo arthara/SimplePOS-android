@@ -60,7 +60,7 @@ class CheckoutActivity : AppCompatActivity(), CheckoutContract.View {
         binding.let {
             it.subTotal = subTotal
             it.tax = tax
-            it.total = subTotal - tax
+            it.total = subTotal + tax
         }
     }
 
