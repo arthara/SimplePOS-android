@@ -163,14 +163,15 @@
     <string name="invalid_total_product">Stok produk tidak dapat kurang dari 0</string>
     <string name="share">Share</string>
 
-    <!-- List Category -->
+    <!-- List Category With Count-->
     <string name="jumlah_produk">%1$d produk</string>
     <string name="load">load..</string>
     <string name="jumlah_produk_hint">Jumlah Produk</string>
+    <string name="pilih_warna">Pilih Warna</string>
 
     <string name="pending_transaction">Transaksi Pending %1$d</string>
     <string name="n_product_in_transaction">%1$d Produk dalam Transaksi</string>
     <string name="cant_hold_checkout_with_zero_item">Tidak dapat menunda checkout dengan 0 item</string>
-    <string name="pilih_warna">Pilih Warna</string>
+
 
 </resources>
