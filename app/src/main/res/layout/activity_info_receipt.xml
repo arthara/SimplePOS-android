@@ -250,6 +250,7 @@
                         android:text="@string/transaksi"
                         android:textColor="@color/black"
                         android:textStyle="bold|normal"
+                        android:layout_marginEnd="15dp"
                         app:layout_constraintBottom_toBottomOf="@+id/textView15"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.164"

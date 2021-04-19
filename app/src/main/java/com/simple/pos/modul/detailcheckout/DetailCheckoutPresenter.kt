@@ -26,13 +26,10 @@ class DetailCheckoutPresenter(private val view: DetailCheckoutContract.View)
         val checkout = ActiveCheckout.checkout
         checkout.note = (UtilProvider.getUtil(StoreUtil::class.java) as StoreUtil).sessionData.noteReceipt
 
-        val date = getCurrentDateTime()
-        val dateInString = date.toString("yyyy/MM/dd HH:mm:ss")
         val tax = (UtilProvider.getUtil(ExtraPayUtil::class.java) as ExtraPayUtil).sessionData?.tax
 
         if (tax != null)
             checkout.tax = ActiveCheckout.calculateTaxOfSubTotal(tax)
-        checkout.receiptTime = dateInString
 
         view.startLoading()
         DetailCheckoutInteractor.requestCreateReceipt(checkout, object : RequestCallback<Receipt> {
