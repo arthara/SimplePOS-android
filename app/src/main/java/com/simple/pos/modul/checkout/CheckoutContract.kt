@@ -1,5 +1,7 @@
 package com.simple.pos.modul.checkout
 
+import com.simple.pos.shared.callback.RequestCallback
+import com.simple.pos.shared.model.HoldCheckout
 import com.simple.pos.shared.model.submodel.CheckoutItem
 
 interface CheckoutContract {
@@ -11,6 +13,8 @@ interface CheckoutContract {
         fun showBottomBarValues(subTotal: Double, tax: Double)
         fun showInvalidTotalItemError(maxTotal: Int)
         fun redirectToCheckoutDetail()
+        fun redirectToHoldCheckout()
+        fun showCantHoldCheckoutWithZeroItem()
     }
 
     interface Presenter {
@@ -19,5 +23,10 @@ interface CheckoutContract {
         fun resetCheckout()
         fun calculateBottomBarValues()
         fun changeTotalItem(checkoutItem: CheckoutItem, addedValue: Int)
+        fun createHoldCheckout()
+    }
+
+    interface Interactor {
+        fun requestCreateHoldCheckout(holdCheckout: HoldCheckout, callback: RequestCallback<HoldCheckout>)
     }
 }
