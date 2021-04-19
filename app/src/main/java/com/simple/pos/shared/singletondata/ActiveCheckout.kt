@@ -40,10 +40,9 @@ object ActiveCheckout {
         val taxOfSubTotal = 0.0
 
         if(calculateSubTotalItems() > 0 && taxPercent in 0.0 ..100.0 ){
-            return calculateSubTotalItems() * taxPercent
+            return calculateSubTotalItems() * (taxPercent/100)
         }
 
-        checkout.tax = taxOfSubTotal
         return taxOfSubTotal
     }
 

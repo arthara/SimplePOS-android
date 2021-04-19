@@ -38,6 +38,7 @@ class CheckoutActivity: AppCompatActivity(), CheckoutContract.View {
         super.onCreate(savedInstanceState)
         binding = ActivityCheckoutBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        presenter.taxInitial()
         initializeOnClicks()
     }
 
@@ -65,7 +66,7 @@ class CheckoutActivity: AppCompatActivity(), CheckoutContract.View {
         binding.let {
             it.subTotal = subTotal
             it.tax = tax
-            it.total = subTotal - tax
+            it.total = subTotal + tax
         }
     }
 
@@ -75,13 +76,16 @@ class CheckoutActivity: AppCompatActivity(), CheckoutContract.View {
                 redirectToDashboard()
             }
             it.tvHoldCheckout.setOnClickListener {
-                //TODO: add logic for holding checkout
+                redirectToHoldCheckout()
             }
             it.tvResetCheckout.setOnClickListener {
                 presenter.resetCheckout()
             }
             it.btnCetakCheckout.setOnClickListener {
                 redirectToCheckoutDetail()
+            }
+            it.tvTaxPercentCheckout.setOnClickListener {
+                addTaxValue()
             }
         }
     }
@@ -93,7 +97,7 @@ class CheckoutActivity: AppCompatActivity(), CheckoutContract.View {
             setResult(RESULT_OK, Intent().putExtra(
                     REMOVED_CHECKOUT_ITEM_BUNDLE_KEY,
                     removedItems.toIntArray().also{
-                        Log.d(TAG, "Remove Items : ${Arrays.toString(it)}")
+                        Log.d(TAG, "Remove Items : ${it.contentToString()}")
                     }
             ))
         super.finish()
@@ -158,7 +162,6 @@ class CheckoutActivity: AppCompatActivity(), CheckoutContract.View {
                             (UtilProvider.getUtil(ExtraPayUtil::class.java) as ExtraPayUtil).update(extraPay)
 
                             binding.tvTaxPercentCheckout.text = getString(R.string.tax_numerator_label, taxNumerator.toInt())
-                            presenter.setCurrentTaxPercent(taxNumerator)
                             presenter.calculateBottomBarValues()
                             taxDialog!!.dismiss()
                         }else{

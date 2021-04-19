@@ -74,7 +74,7 @@
     <string-array name="phoneCode">
         <item>+62</item>
     </string-array>
-    <string name="tax_sample">Tax* (2%)</string>
+    <string name="tax_sample">Tax* (0%)</string>
     <string name="cetak">Cetak</string>
     <string name="detail_checkout">Detail Checkout</string>
     <string name="_62">+62</string>

@@ -36,10 +36,9 @@ class CheckoutPresenter(private val view: CheckoutContract.View) : CheckoutContr
 
     override fun calculateBottomBarValues() {
         val subTotal = ActiveCheckout.calculateSubTotalItems()
-        var taxFinal = ActiveCheckout.calculateTaxOfSubTotal(tax)
+        val taxFinal = ActiveCheckout.calculateTaxOfSubTotal(tax)
 
-
-        //ActiveCheckout.checkout.tax = tax
+        ActiveCheckout.checkout.tax = taxFinal
         //view.showBottomBarValues(subTotal, tax)
         view.showBottomBarValues(subTotal, taxFinal)
     }
@@ -54,7 +53,7 @@ class CheckoutPresenter(private val view: CheckoutContract.View) : CheckoutContr
     }
 
     override fun setCurrentTaxPercent(taxNumerator: Double){
-        this.tax = taxNumerator / 100
+        this.tax = taxNumerator
     }
 
 
