@@ -6,14 +6,15 @@ import com.simple.pos.shared.extension.TAG
 import com.simple.pos.shared.model.Product
 import com.simple.pos.shared.singletondata.ActiveCheckout
 
-class BelanjaPresenter(private val view: BelanjaContract.View): BelanjaContract.Presenter {
+class BelanjaPresenter(private val view: BelanjaContract.View) : BelanjaContract.Presenter {
     private val interactor = BelanjaInteractor()
     private var products: Array<Product>? = null
+    var filterOption: Int = 0
 
-    override fun retrieveProducts(){
-        interactor.requestRetrieveProducts(object : RequestCallback<Array<Product>?>{
+    override fun retrieveProducts() {
+        interactor.requestRetrieveProducts(object : RequestCallback<Array<Product>?> {
             override fun requestSuccess(data: Array<Product>?) {
-                if(data != null){
+                if (data != null) {
                     products = data
                     showProducts()
                 }
@@ -22,6 +23,20 @@ class BelanjaPresenter(private val view: BelanjaContract.View): BelanjaContract.
             override fun requestError(message: String?) {
                 Log.i(TAG, "Error : $message")
             }
+        })
+    }
+
+    override fun retrieveProductsWithCategory(id: Int) {
+        interactor.requestRetrieveProductsCategory(id, object : RequestCallback<Array<Product>> {
+            override fun requestSuccess(data: Array<Product>) {
+                products = data
+                showProducts()
+            }
+
+            override fun requestError(message: String?) {
+                Log.i("NAKOERR", "$message")
+            }
+
         })
     }
 
@@ -41,4 +56,9 @@ class BelanjaPresenter(private val view: BelanjaContract.View): BelanjaContract.
             view.showProducts(it, productsCheckoutsId.toTypedArray())
         }
     }
+
+    override fun chooseOption(id: Int) {
+        filterOption = id
+    }
+
 }
