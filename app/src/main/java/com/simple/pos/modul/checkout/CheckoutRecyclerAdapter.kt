@@ -6,13 +6,13 @@ import androidx.recyclerview.widget.RecyclerView
 import com.simple.pos.databinding.ItemProductCheckoutBinding
 import com.simple.pos.shared.model.submodel.CheckoutItem
 
-class CheckoutRecyclerAdapter(private val view: CheckoutContract.View,
-                              private val checkoutItems: MutableCollection<CheckoutItem>)
+class CheckoutRecyclerAdapter(private val view: CheckoutContract.View)
     : RecyclerView.Adapter<CheckoutRecyclerAdapter.MyViewHolder>() {
+    private val presenter = CheckoutRecyclerPresenter()
 
     class MyViewHolder(val binding: ItemProductCheckoutBinding)
-        : RecyclerView.ViewHolder(binding.root){
-        fun bind(checkoutItem: CheckoutItem) {
+        : RecyclerView.ViewHolder(binding.root), CheckoutContract.ItemView {
+        override fun bind(checkoutItem: CheckoutItem) {
             binding.checkoutItem = checkoutItem
             binding.executePendingBindings()
         }
@@ -26,27 +26,28 @@ class CheckoutRecyclerAdapter(private val view: CheckoutContract.View,
     }
 
     override fun getItemCount(): Int {
-        return checkoutItems.size
+        return presenter.checkoutItemCount
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         //find item inside by position
-        checkoutItems.elementAt(position).apply {
-            holder.bind(this)
+        presenter.onBindItemViewAtPosition(position, holder)
 
+        holder.binding.apply {
             //add buttons onclick
-            holder.binding.let {
-                it.btnMinAll.setOnClickListener {
-                    view.changeTotalItem(this, -1)
+            checkoutItem?.let {
+                val checkoutItem = it
+
+                btnMinAll.setOnClickListener {
+                    view.changeTotalItem(checkoutItem, -1)
                     notifyItemChanged(position)
                 }
-                it.btnPlusAll.setOnClickListener {
-                    view.changeTotalItem(this, 1)
+                btnPlusAll.setOnClickListener {
+                    view.changeTotalItem(checkoutItem, 1)
                     notifyItemChanged(position)
                 }
-                it.deleteItemCheckoutBtn.setOnClickListener {
-                    checkoutItems.remove(this)
-                    view.deleteItem(this)
+                deleteItemCheckoutBtn.setOnClickListener {
+                    view.deleteItem(checkoutItem)
                     notifyItemRemoved(position)
                     notifyItemRangeChanged(position, itemCount)
                 }

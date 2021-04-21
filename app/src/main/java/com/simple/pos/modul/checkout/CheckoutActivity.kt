@@ -35,8 +35,8 @@ class CheckoutActivity: AppCompatActivity(), CheckoutContract.View {
 
     override fun onResume() {
         super.onResume()
-        presenter.showCheckoutItems()
-        presenter.calculateBottomBarValues()
+        showCheckoutItems()
+        refreshBottomBarValues()
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -93,9 +93,9 @@ class CheckoutActivity: AppCompatActivity(), CheckoutContract.View {
         super.finish()
     }
 
-    override fun showCheckoutItems(checkoutItems: MutableCollection<CheckoutItem>) {
+    override fun showCheckoutItems() {
         binding.checkoutItemsRv.let{
-            it.adapter = CheckoutRecyclerAdapter(this, checkoutItems)
+            it.adapter = CheckoutRecyclerAdapter(this)
             it.layoutManager = LinearLayoutManager(this)
         }
         checkIfButtonShouldBeDisabled()
@@ -143,6 +143,10 @@ class CheckoutActivity: AppCompatActivity(), CheckoutContract.View {
     override fun changeTotalItem(checkoutItem: CheckoutItem, addedValue: Int) {
         // change total item and bottom bar values
         presenter.changeTotalItem(checkoutItem, addedValue)
+        refreshBottomBarValues()
+    }
+
+    override fun refreshBottomBarValues() {
         presenter.calculateBottomBarValues()
     }
 }

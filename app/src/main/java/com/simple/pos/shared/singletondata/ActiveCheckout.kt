@@ -9,6 +9,7 @@ import com.simple.pos.shared.model.submodel.CheckoutItem
 object ActiveCheckout {
     private var _checkout: Checkout = Checkout()
     val checkout get() = _checkout.clone()
+    val checkoutItemCount get() = _checkout.checkoutItems.size
 
     fun resetCheckout() {
         _checkout = Checkout()
@@ -64,5 +65,9 @@ object ActiveCheckout {
         }
 
         return HoldCheckout(holdCheckoutItems.toTypedArray())
+    }
+
+    fun retrieveCheckoutItemAt(index: Int): CheckoutItem {
+        return _checkout.checkoutItems.values.elementAt(index).clone()
     }
 }

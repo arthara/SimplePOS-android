@@ -8,12 +8,6 @@ import com.simple.pos.shared.model.submodel.CheckoutItem
 import com.simple.pos.shared.singletondata.ActiveCheckout
 
 class CheckoutPresenter(private val view: CheckoutContract.View) : CheckoutContract.Presenter {
-    override fun showCheckoutItems() {
-        view.showCheckoutItems(
-                ActiveCheckout.checkout.checkoutItems.values
-        )
-    }
-
     override fun removeItem(checkoutItem: CheckoutItem) {
         ActiveCheckout.removeItem(checkoutItem)
     }
