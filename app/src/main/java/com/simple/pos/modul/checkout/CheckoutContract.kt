@@ -6,10 +6,11 @@ import com.simple.pos.shared.model.submodel.CheckoutItem
 
 interface CheckoutContract {
     interface View {
-        fun showCheckoutItems(checkoutItems: MutableCollection<CheckoutItem>)
+        fun showCheckoutItems()
         fun deleteItem(checkoutItem: CheckoutItem)
         fun redirectToDashboard()
         fun changeTotalItem(checkoutItem: CheckoutItem, addedValue: Int)
+        fun refreshBottomBarValues()
         fun showBottomBarValues(subTotal: Double, tax: Double)
         fun showInvalidTotalItemError(maxTotal: Int)
         fun redirectToCheckoutDetail()
@@ -18,7 +19,6 @@ interface CheckoutContract {
     }
 
     interface Presenter {
-        fun showCheckoutItems()
         fun removeItem(checkoutItem: CheckoutItem)
         fun resetCheckout()
         fun calculateBottomBarValues()
@@ -28,5 +28,13 @@ interface CheckoutContract {
 
     interface Interactor {
         fun requestCreateHoldCheckout(holdCheckout: HoldCheckout, callback: RequestCallback<HoldCheckout>)
+    }
+
+    interface ItemView {
+        fun bind(checkoutItem: CheckoutItem)
+    }
+
+    interface ItemsPresenter {
+        fun onBindItemViewAtPosition(position: Int, itemView: ItemView)
     }
 }
