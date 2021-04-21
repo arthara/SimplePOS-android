@@ -54,6 +54,8 @@
         <activity android:name=".modul.checkoutsuccess.CheckoutSuccessActivity"/>
         <activity android:name=".modul.dailycashflow.DailyCashflowActivity"/>
         <activity android:name=".modul.inforeceipt.InfoReceiptActivity" />
+        <activity android:name=".modul.product.create.CreateProductActivity" />
+        <activity android:name=".modul.product.listcategory.ListCategoryActivity" />
         <activity android:name=".modul.holdcheckout.HoldCheckoutActivity"/>
 
         <meta-data
