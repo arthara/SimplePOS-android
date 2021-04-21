@@ -5,13 +5,13 @@
     <data>
         <variable
             name="subTotal"
-            type="Double" />
+            type="String" />
         <variable
             name="total"
-            type="Double" />
+            type="String" />
         <variable
             name="tax"
-            type="Double" />
+            type="String" />
     </data>
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"

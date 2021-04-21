@@ -11,6 +11,7 @@ import com.simple.pos.databinding.ItemProductStoreBinding
 import com.simple.pos.shared.extension.TAG
 import com.simple.pos.shared.glide.GlideUrlUtil
 import com.simple.pos.shared.model.Product
+import com.simple.pos.shared.util.ConverterUtil
 
 class BelanjaRecyclerAdapter(private val products: Array<Product>
                              , private val view: BelanjaContract.View)
@@ -21,6 +22,7 @@ class BelanjaRecyclerAdapter(private val products: Array<Product>
         : RecyclerView.ViewHolder(binding.root){
         fun bind(product: Product) {
             binding.product = product
+            binding.sellingPrice = ConverterUtil.formatRupiahWithoutSymbol(product.sellingPrice)
             binding.executePendingBindings()
         }
     }
@@ -67,7 +69,7 @@ class BelanjaRecyclerAdapter(private val products: Array<Product>
                 .load(imageUrl)
                 .into(holder.binding.ivProductItemStore)
         } ?: run {
-            holder.binding.ivProductItemStore.setImageResource(R.drawable.sample_product_image)
+            holder.binding.ivProductItemStore.setImageResource(R.color.design_default_color_secondary)
         }
     }
 

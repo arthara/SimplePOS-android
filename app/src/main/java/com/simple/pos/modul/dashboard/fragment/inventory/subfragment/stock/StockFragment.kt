@@ -14,8 +14,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.textfield.TextInputEditText
 import com.simple.pos.R
-import com.simple.pos.modul.dashboard.fragment.inventory.subfragment.category.CategoryFragment
-import com.simple.pos.modul.newcategory.NewCategoryActivity
 import com.simple.pos.modul.product.create.CreateProductActivity
 import com.simple.pos.shared.extension.TAG
 import com.simple.pos.shared.extension.showToast

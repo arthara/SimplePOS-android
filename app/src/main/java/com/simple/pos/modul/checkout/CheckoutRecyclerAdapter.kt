@@ -3,17 +3,23 @@ package com.simple.pos.modul.checkout
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.simple.pos.databinding.ActivityCreateProductBinding
 import com.simple.pos.databinding.ItemProductCheckoutBinding
 import com.simple.pos.shared.model.submodel.CheckoutItem
+import com.simple.pos.shared.util.ConverterUtil
 
 class CheckoutRecyclerAdapter(private val view: CheckoutContract.View,
                               private val checkoutItems: MutableCollection<CheckoutItem>)
     : RecyclerView.Adapter<CheckoutRecyclerAdapter.MyViewHolder>() {
 
-    class MyViewHolder(val binding: ItemProductCheckoutBinding)
+    private val getbinding : ItemProductCheckoutBinding? = null
+
+    class MyViewHolder(var binding: ItemProductCheckoutBinding)
         : RecyclerView.ViewHolder(binding.root){
         fun bind(checkoutItem: CheckoutItem) {
             binding.checkoutItem = checkoutItem
+            binding.sellingPriceRec = ConverterUtil.formatRupiahWithoutSymbol(checkoutItem.sellingPrice)
+            binding.costPrice = ConverterUtil.formatRupiahWithoutSymbol(checkoutItem.costPrice)
             binding.executePendingBindings()
         }
     }

@@ -5,6 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.simple.pos.databinding.ItemCheckoutReceiptBinding
 import com.simple.pos.shared.model.ReceiptItem
+import com.simple.pos.shared.util.ConverterUtil
 
 class InfoReceiptRecyclerAdapter(private val receiptItems: Array<ReceiptItem>)
     : RecyclerView.Adapter<InfoReceiptRecyclerAdapter.MyViewHolder>() {
@@ -12,8 +13,9 @@ class InfoReceiptRecyclerAdapter(private val receiptItems: Array<ReceiptItem>)
     class MyViewHolder(val binding: ItemCheckoutReceiptBinding)
         : RecyclerView.ViewHolder(binding.root) {
         fun bind(receiptItem: ReceiptItem) {
-            binding.totalPrice = receiptItem.unitTotal * receiptItem.productHistory.sellingPrice
+            binding.totalPrice = ConverterUtil.formatRupiahWithoutSymbol(receiptItem.unitTotal * receiptItem.productHistory.sellingPrice)
             binding.item = receiptItem
+            binding.sellingPrice = ConverterUtil.formatRupiahWithoutSymbol(receiptItem.productHistory.sellingPrice)
             binding.executePendingBindings()
         }
     }

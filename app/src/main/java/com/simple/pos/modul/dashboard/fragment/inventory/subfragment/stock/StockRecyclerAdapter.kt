@@ -9,6 +9,7 @@ import com.simple.pos.R
 import com.simple.pos.databinding.ItemProductInventoryAllBinding
 import com.simple.pos.shared.glide.GlideUrlUtil
 import com.simple.pos.shared.model.Product
+import com.simple.pos.shared.util.ConverterUtil
 
 class StockRecyclerAdapter(private val products: Array<Product>, private val view: StockContract.View)
     : RecyclerView.Adapter<StockRecyclerAdapter.MyViewHolder>() {
@@ -17,6 +18,7 @@ class StockRecyclerAdapter(private val products: Array<Product>, private val vie
             RecyclerView.ViewHolder(binding.root) {
         fun bind(product: Product) {
             binding.product = product
+            binding.sellingPrice = ConverterUtil.formatRupiahWithoutSymbol(product.sellingPrice)
             binding.executePendingBindings()
         }
     }

@@ -17,7 +17,9 @@ import com.simple.pos.shared.extension.TAG
 import com.simple.pos.shared.extension.showToast
 import com.simple.pos.shared.model.submodel.CheckoutItem
 import com.simple.pos.shared.model.submodel.ExtraPay
+import com.simple.pos.shared.util.ConverterUtil
 import com.simple.pos.shared.util.ExtraPayUtil
+import java.text.DecimalFormat
 import java.util.*
 import kotlin.collections.ArrayList
 
@@ -54,7 +56,7 @@ class CheckoutActivity: AppCompatActivity(), CheckoutContract.View {
         when(requestCode) {
             DETAIL_CHECKOUT_REQ_CODE -> {
                 //if checkout finished successfully, close activity and reset shopping view
-                if(resultCode == RESULT_OK) {
+                if (resultCode == RESULT_OK) {
                     setResult(RESULT_CHECKOUT_SUCCESSFULLY)
                     finish()
                 }
@@ -64,9 +66,9 @@ class CheckoutActivity: AppCompatActivity(), CheckoutContract.View {
 
     override fun showBottomBarValues(subTotal: Double, tax: Double) {
         binding.let {
-            it.subTotal = subTotal
-            it.tax = tax
-            it.total = subTotal + tax
+            it.subTotal = ConverterUtil.formatRupiahWithoutSymbol(subTotal)
+            it.tax = ConverterUtil.formatRupiahWithoutSymbol(tax)
+            it.total = ConverterUtil.formatRupiahWithoutSymbol(subTotal + tax)
         }
     }
 
@@ -96,7 +98,7 @@ class CheckoutActivity: AppCompatActivity(), CheckoutContract.View {
         // put all removed item id as intent data
             setResult(RESULT_OK, Intent().putExtra(
                     REMOVED_CHECKOUT_ITEM_BUNDLE_KEY,
-                    removedItems.toIntArray().also{
+                    removedItems.toIntArray().also {
                         Log.d(TAG, "Remove Items : ${it.contentToString()}")
                     }
             ))
@@ -137,7 +139,7 @@ class CheckoutActivity: AppCompatActivity(), CheckoutContract.View {
         if (taxDialog == null) {
             taxDialog = MaterialAlertDialogBuilder(this)
                     .setView(R.layout.popup_add_tax_percent)
-                    .setMessage(getString(R.string.restock_product))
+                    .setMessage(getString(R.string.tambah_pajak))
                     .setPositiveButton("Apply", null)
                     .setNegativeButton(R.string.cancel, null)
                     .setCancelable(true)
@@ -152,16 +154,17 @@ class CheckoutActivity: AppCompatActivity(), CheckoutContract.View {
             getButton(AlertDialog.BUTTON_POSITIVE).setOnClickListener {
                 findViewById<TextInputEditText>(R.id.addTaxPopup)?.let { editText ->
                     if(!editText.text.isNullOrEmpty()){
-                        val taxNumerator: Double = editText.text.toString().toDouble()
+                        var taxNumerator: Double = editText.text.toString().toDouble()
                         if (taxNumerator in 0.0..100.0){
+
+                            taxNumerator = roundTwoDecimals(taxNumerator)
                             val extraPay = ExtraPay()
                             extraPay.tax = taxNumerator
-
 
                             //Tax in numerator value
                             (UtilProvider.getUtil(ExtraPayUtil::class.java) as ExtraPayUtil).update(extraPay)
 
-                            binding.tvTaxPercentCheckout.text = getString(R.string.tax_numerator_label, taxNumerator.toInt())
+                            showTaxNumerator(taxNumerator)
                             presenter.calculateBottomBarValues()
                             taxDialog!!.dismiss()
                         }else{
@@ -174,7 +177,7 @@ class CheckoutActivity: AppCompatActivity(), CheckoutContract.View {
     }
 
     override fun showTaxNumerator(tax: Double) {
-        binding.tvTaxPercentCheckout.text =  getString(R.string.tax_numerator_label, tax.toInt())
+        binding.tvTaxPercentCheckout.text =  getString(R.string.tax_numerator_label, tax)
         presenter.setCurrentTaxPercent(tax)
     }
 
@@ -199,5 +202,10 @@ class CheckoutActivity: AppCompatActivity(), CheckoutContract.View {
         // change total item and bottom bar values
         presenter.changeTotalItem(checkoutItem, addedValue)
         presenter.calculateBottomBarValues()
+    }
+
+    private fun roundTwoDecimals(d: Double): Double {
+        val twoDForm = DecimalFormat("#.#")
+        return java.lang.Double.valueOf(twoDForm.format(d))
     }
 }

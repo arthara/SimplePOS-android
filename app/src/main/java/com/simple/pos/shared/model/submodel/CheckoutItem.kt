@@ -6,11 +6,12 @@ import com.simple.pos.shared.model.Product
 class CheckoutItem(product: Product): Product(product.name) {
     @SerializedName("unit_total")
     var unitTotal: Int = 1
-        set(value){
-            if(value < 1 || value > total)
-                throw IllegalArgumentException("unitTotal should not less than 1 or more than product total")
-            field = value
-        }
+        set(value) {
+        if(value < 1 || value > total)
+            throw IllegalArgumentException("unitTotal should not less than 1 or more than product total")
+        field = value
+    }
+
 
     init {
         castProductToCheckoutItem(product)

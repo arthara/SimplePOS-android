@@ -11,6 +11,7 @@ import com.simple.pos.shared.extension.showToast
 import com.simple.pos.shared.model.ReceiptItem
 import com.simple.pos.shared.model.Store
 import com.simple.pos.shared.model.submodel.SuccessfulCheckout
+import com.simple.pos.shared.util.ConverterUtil
 
 class InfoReceiptActivity: AppCompatActivity(), InfoReceiptContract.View {
     private lateinit var binding: ActivityInfoReceiptBinding
@@ -44,8 +45,9 @@ class InfoReceiptActivity: AppCompatActivity(), InfoReceiptContract.View {
     override fun showReceipts(data: SuccessfulCheckout) {
         binding.checkout = data
 
-        binding.tax = data.tax?: 0.0
-        binding.subtotal = data.getSubtotal()
+        binding.tax = data.tax?.let { ConverterUtil.formatRupiahWithoutSymbol(it) } ?: 0.toString()
+        binding.subtotal =  ConverterUtil.formatRupiahWithoutSymbol(data.getSubtotal())
+        binding.total = ConverterUtil.formatRupiahWithoutSymbol(data.getSubtotal() + data.tax!!)
         showItems(data.receiptItems)
         binding.executePendingBindings()
     }

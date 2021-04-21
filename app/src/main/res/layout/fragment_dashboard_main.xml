@@ -139,13 +139,13 @@
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/gross_profit1"
-                            android:maxLines="1"
                             android:fontFamily="sans-serif"
-                            app:autoSizeTextType="uniform"
-                            app:autoSizeMinTextSize="6sp"
+                            android:maxLines="1"
+                            android:text="@string/gross_profit1"
                             app:autoSizeMaxTextSize="14sp"
-                            app:autoSizeStepGranularity="2sp"/>
+                            app:autoSizeMinTextSize="6sp"
+                            app:autoSizeStepGranularity="2sp"
+                            app:autoSizeTextType="uniform" />
 
                         <TextView
                             android:id="@+id/grossProfitTv"

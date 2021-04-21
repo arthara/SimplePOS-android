@@ -3,7 +3,10 @@
     <data>
         <variable
             name="totalPrice"
-            type="Double"/>
+            type="String"/>
+        <variable
+            name="sellingPrice"
+            type="String"/>
         <variable
             name="item"
             type="com.simple.pos.shared.model.ReceiptItem" />
@@ -39,10 +42,10 @@
             android:id="@+id/tvItemQuantityReceipt"
             android:layout_width="40dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
+            android:layout_marginStart="5dp"
             android:layout_toEndOf="@id/productNameItemReceipt"
             android:fontFamily="@font/roboto_regular"
-            android:gravity="center_vertical"
+            android:textAlignment="textEnd"
             android:text="@{String.valueOf(item.unitTotal)}"
             tools:text="251"
             android:textColor="@color/dark_black"
@@ -57,7 +60,7 @@
             android:layout_height="wrap_content"
             android:layout_toEndOf="@+id/tvItemQuantityReceipt"
             android:fontFamily="@font/roboto_regular"
-            android:text="@{String.format(@string/price, item.productHistory.sellingPrice)}"
+            android:text="@{String.format(@string/price, sellingPrice)}"
             tools:text="Rp 210000"
             android:layout_marginStart="5dp"
             android:textColor="@color/dark_black"

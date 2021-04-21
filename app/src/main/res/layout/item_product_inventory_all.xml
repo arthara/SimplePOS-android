@@ -4,6 +4,9 @@
 
     <data>
         <variable
+            name="sellingPrice"
+            type="String" />
+        <variable
             name="product"
             type="com.simple.pos.shared.model.Product" />
     </data>
@@ -39,7 +42,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="100dp"
                     app:shapeAppearance="?attr/shapeAppearanceMediumComponent"
-                    android:src="@drawable/sample_product_image"
+                    android:src="@color/gray_3rd"
                     android:scaleType="centerCrop"
                     android:adjustViewBounds="true"
                     />
@@ -74,7 +77,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
                         android:hint="@string/product_price"
-                        android:text="@{String.format(@string/price, product.sellingPrice)}"
+                        android:text="@{String.format(@string/price, sellingPrice)}"
                         android:textColorHint="@color/teal_700"
                         android:textSize="15sp"
                         android:textAppearance="?attr/textAppearanceBody2"

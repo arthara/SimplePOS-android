@@ -1,6 +1,7 @@
 package com.simple.pos.modul.dashboard.fragment.main
 
 import android.app.DatePickerDialog
+import android.content.DialogInterface
 import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
@@ -11,6 +12,7 @@ import android.widget.TextView
 import androidx.cardview.widget.CardView
 import androidx.fragment.app.Fragment
 import com.bumptech.glide.Glide
+import com.google.android.material.datepicker.MaterialDatePicker.Builder.datePicker
 import com.simple.pos.R
 import com.simple.pos.modul.dailycashflow.DailyCashflowActivity
 import com.simple.pos.modul.dashboard.fragment.main.model.TopSales
@@ -18,10 +20,12 @@ import com.simple.pos.modul.dashboard.fragment.main.model.TotalSales
 import com.simple.pos.shared.glide.GlideUrlUtil
 import com.simple.pos.shared.model.Category
 import com.simple.pos.shared.model.Product
+import com.simple.pos.shared.util.ConverterUtil
 import java.text.SimpleDateFormat
 import java.util.*
 
-class MainFragment : Fragment(R.layout.fragment_dashboard_main),
+
+class MainFragment : Fragment(R.layout.fragment_dashboard_main_fix),
         MainContract.View, View.OnClickListener, DatePickerDialog.OnDateSetListener {
     private val presenter = MainPresenter(this)
     private var date = SimpleDateFormat("dd-MM-yyyy").format(Calendar.getInstance().time)
@@ -45,10 +49,10 @@ class MainFragment : Fragment(R.layout.fragment_dashboard_main),
 
     override fun onClick(p0: View?) {
         when(p0!!.id){
-            R.id.datePickerBtn->{
+            R.id.datePickerBtn -> {
                 openDatePicker()
             }
-            R.id.cashflowharian_fab->{
+            R.id.cashflowharian_fab -> {
                 redirectToDailyCashflow()
             }
         }
@@ -63,13 +67,28 @@ class MainFragment : Fragment(R.layout.fragment_dashboard_main),
                     Calendar.getInstance().get(Calendar.MONTH),
                     Calendar.getInstance().get(Calendar.DAY_OF_MONTH)
             )
+        datePickerDialog!!.setButton(DialogInterface.BUTTON_NEUTRAL, "TODAY") { dialog, which -> if (which == DialogInterface.BUTTON_NEUTRAL) {
+                val cal = Calendar.getInstance()
+
+                //this.date = (SimpleDateFormat("dd-MM-yyyy").format(cal.time))
+                setToday((SimpleDateFormat("dd-MM-yyyy").format(cal.time)))
+                datePickerDialog!!.updateDate(cal[Calendar.YEAR], cal[Calendar.MONTH] - 1, cal[Calendar.DAY_OF_MONTH])
+            }
+        }
+        datePickerDialog!!.datePicker.maxDate = Date().time
         datePickerDialog?.show()
+    }
+
+    private fun setToday(today: String) {
+        view?.findViewById<Button>(R.id.datePickerBtn)?.apply {
+            text = today
+        }
     }
 
     private fun showTopCategory(category: Category?, total: Int){
         // set color to transparent if category is null
         view?.findViewById<CardView>(R.id.topCategoryColorCv)?.setCardBackgroundColor(
-                category?.getParsedColor()?: Color.TRANSPARENT
+                category?.getParsedColor() ?: Color.TRANSPARENT
         )
 
         // set name to no product sold if category is null
@@ -107,10 +126,10 @@ class MainFragment : Fragment(R.layout.fragment_dashboard_main),
 
     override fun showTotalSales(totalSales: TotalSales) {
         view?.findViewById<TextView>(R.id.totalSalesTv)?.text =
-                getString(R.string.total_sales, totalSales.totalSales)
+                getString(R.string.total_sales, ConverterUtil.formatRupiahWithoutSymbol(totalSales.totalSales.toDouble()))
 
         view?.findViewById<TextView>(R.id.grossProfitTv)?.text =
-                getString(R.string.price, totalSales.grossProfit)
+                getString(R.string.price, ConverterUtil.formatRupiahWithoutSymbol(totalSales.grossProfit))
     }
 
     override fun redirectToDailyCashflow() {
