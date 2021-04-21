@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:tools="http://schemas.android.com/tools"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <data>
@@ -86,8 +85,6 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
                     android:fontFamily="@font/poppins"
-                    android:hint="@string/price"
-                    android:text="@{String.format(@string/price, product.sellingPrice)}"
                     android:textColor="@color/lightblue"
                     android:textSize="14sp"
                     android:gravity="center"

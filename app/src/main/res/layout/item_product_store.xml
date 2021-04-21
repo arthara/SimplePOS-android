@@ -7,6 +7,7 @@
     >
 
     <data>
+        <import type="com.simple.pos.shared.util.PriceUtil" />
         <variable
             name="product"
             type="com.simple.pos.shared.model.Product" />
@@ -52,8 +53,8 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/lato"
                 android:maxWidth="150dp"
-                android:hint="@string/price"
-                android:text="@{String.format(@string/price, product.sellingPrice)}"
+                tools:text="Rp 1.000,00"
+                android:text="@{PriceUtil.INSTANCE.convertValueToCurrency(product.sellingPrice)}"
                 android:textColor="@color/black"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"

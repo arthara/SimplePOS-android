@@ -18,6 +18,7 @@ import com.simple.pos.modul.dashboard.fragment.main.model.TotalSales
 import com.simple.pos.shared.glide.GlideUrlUtil
 import com.simple.pos.shared.model.Category
 import com.simple.pos.shared.model.Product
+import com.simple.pos.shared.util.PriceUtil
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -107,10 +108,10 @@ class MainFragment : Fragment(R.layout.fragment_dashboard_main),
 
     override fun showTotalSales(totalSales: TotalSales) {
         view?.findViewById<TextView>(R.id.totalSalesTv)?.text =
-                getString(R.string.total_sales, totalSales.totalSales)
+                getString(R.string.top_total, totalSales.totalSales)
 
         view?.findViewById<TextView>(R.id.grossProfitTv)?.text =
-                getString(R.string.price, totalSales.grossProfit)
+                PriceUtil.convertValueToCurrency(totalSales.grossProfit)
     }
 
     override fun redirectToDailyCashflow() {

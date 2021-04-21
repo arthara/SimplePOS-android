@@ -28,7 +28,6 @@
     <string name="text_btn_intro2">Upload Logo</string>
     <string name="text_btn_intro2_1">Tambah Data</string>
     <string name="text_btn_intro2_2">nanti saja</string>
-    <string name="price">Rp %1$.2f</string>
 
     <!--  Main Fragment String  -->
     <string name="title_laporan">Laporan Keuangan</string>
