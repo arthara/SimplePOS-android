@@ -1,15 +1,13 @@
 package com.simple.pos.modul.newcategory
 
+import com.simple.pos.base.modul.BaseInteractor
 import com.simple.pos.shared.callback.RequestCallback
 import com.simple.pos.shared.callback.RetrofitCallback
 import com.simple.pos.shared.extension.TAG
 import com.simple.pos.shared.model.Category
-import com.simple.pos.shared.retrofit.ServiceGenerator
 
-class NewCategoryInteractor: NewCategoryContract.Interactor {
-    companion object {
-        private val service = ServiceGenerator.createService(NewCategoryService::class.java)
-    }
+class NewCategoryInteractor : BaseInteractor<NewCategoryService>(NewCategoryService::class.java)
+        , NewCategoryContract.Interactor {
 
     override fun requestCreateCategory(category: Category, callback: RequestCallback<Category?>){
         service.createCategory(category)
