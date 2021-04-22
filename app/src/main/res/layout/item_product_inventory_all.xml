@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
+        <import type="com.simple.pos.shared.util.PriceUtil" />
         <variable
             name="sellingPrice"
             type="String" />
@@ -77,7 +78,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
                         android:hint="@string/product_price"
-                        android:text="@{String.format(@string/price, sellingPrice)}"
+                        android:text="@{String.format(@string/price2, sellingPrice)}"
                         android:textColorHint="@color/teal_700"
                         android:textSize="15sp"
                         android:textAppearance="?attr/textAppearanceBody2"

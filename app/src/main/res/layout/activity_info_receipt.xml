@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
     <data>
+        <import type="com.simple.pos.shared.util.PriceUtil" />
         <variable
             name="subtotal"
             type="java.lang.String" />
@@ -172,6 +173,7 @@
                             app:autoSizeMinTextSize="7sp"
                             app:autoSizeTextType="uniform"
                             app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="@+id/textView10"
                             tools:text="Jl. Cebongan Lor Rt 02 02 Sleman Yogyakarta 3001" />
 
                     </LinearLayout>
@@ -463,7 +465,8 @@
                         android:layout_marginTop="1dp"
                         android:layout_marginEnd="20dp"
                         android:fontFamily="@font/roboto_bold"
-                        android:text="@{String.format(@string/price, total)}"
+                        tools:text="Rp 11.000,00"
+                        android:text="@{String.format(@string/price2, total)}"
                         android:textColor="@color/teal_700"
                         android:textSize="18sp"
                         app:autoSizeMinTextSize="10sp"

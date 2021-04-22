@@ -28,13 +28,14 @@
     <string name="text_btn_intro2">Upload Logo</string>
     <string name="text_btn_intro2_1">Tambah Data</string>
     <string name="text_btn_intro2_2">nanti saja</string>
-    <string name="price">Rp %1$s</string>
+    <string name="price">Rp %1$.2f</string>
+    <string name="price2">Rp %1$s</string>
 
     <!--  Main Fragment String  -->
     <string name="title_laporan">Laporan Keuangan</string>
     <string name="date_picker">Pilih Tanggal</string>
     <string name="total_sales1">Total Sales : </string>
-    <string name="total_sales">Rp %1$s</string>
+    <string name="total_sales">Rp %1$d</string>
     <string name="gross_profit1">Laba Kotor : </string>
     <string name="gross_profit">Rp %1$f</string>
     <string name="top_sales">Top Sales :</string>

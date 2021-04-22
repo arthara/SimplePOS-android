@@ -20,12 +20,12 @@ import com.simple.pos.modul.dashboard.fragment.main.model.TotalSales
 import com.simple.pos.shared.glide.GlideUrlUtil
 import com.simple.pos.shared.model.Category
 import com.simple.pos.shared.model.Product
+import com.simple.pos.shared.util.PriceUtil
 import com.simple.pos.shared.util.ConverterUtil
 import java.text.SimpleDateFormat
 import java.util.*
 
-
-class MainFragment : Fragment(R.layout.fragment_dashboard_main_fix),
+class MainFragment : Fragment(R.layout.fragment_dashboard_main),
         MainContract.View, View.OnClickListener, DatePickerDialog.OnDateSetListener {
     private val presenter = MainPresenter(this)
     private var date = SimpleDateFormat("dd-MM-yyyy").format(Calendar.getInstance().time)
@@ -134,10 +134,10 @@ class MainFragment : Fragment(R.layout.fragment_dashboard_main_fix),
 
     override fun showTotalSales(totalSales: TotalSales) {
         view?.findViewById<TextView>(R.id.totalSalesTv)?.text =
-                getString(R.string.total_sales, ConverterUtil.formatRupiahWithoutSymbol(totalSales.totalSales.toDouble()))
+                getString(R.string.top_total, totalSales.totalSales)
 
         view?.findViewById<TextView>(R.id.grossProfitTv)?.text =
-                getString(R.string.price, ConverterUtil.formatRupiahWithoutSymbol(totalSales.grossProfit))
+                PriceUtil.convertValueToCurrency(totalSales.grossProfit)
     }
 
     override fun redirectToDailyCashflow() {
