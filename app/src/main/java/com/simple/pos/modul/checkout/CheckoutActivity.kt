@@ -46,9 +46,8 @@ class CheckoutActivity: AppCompatActivity(), CheckoutContract.View {
 
     override fun onResume() {
         super.onResume()
-        presenter.showCheckoutItems()
-        presenter.calculateBottomBarValues()
-        initializeOnClicks()
+        showCheckoutItems()
+        refreshBottomBarValues()
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -86,6 +85,9 @@ class CheckoutActivity: AppCompatActivity(), CheckoutContract.View {
             it.btnCetakCheckout.setOnClickListener {
                 redirectToCheckoutDetail()
             }
+            it.toHoldCheckoutBtn.setOnClickListener {
+                redirectToHoldCheckout()
+            }
             it.tvTaxPercentCheckout.setOnClickListener {
                 addTaxValue()
             }
@@ -98,16 +100,16 @@ class CheckoutActivity: AppCompatActivity(), CheckoutContract.View {
         // put all removed item id as intent data
             setResult(RESULT_OK, Intent().putExtra(
                     REMOVED_CHECKOUT_ITEM_BUNDLE_KEY,
-                    removedItems.toIntArray().also {
-                        Log.d(TAG, "Remove Items : ${it.contentToString()}")
+                    removedItems.toIntArray().also{
+                        Log.d(TAG, "Remove Items : ${Arrays.toString(it)}")
                     }
             ))
         super.finish()
     }
 
-    override fun showCheckoutItems(checkoutItems: MutableCollection<CheckoutItem>) {
+    override fun showCheckoutItems() {
         binding.checkoutItemsRv.let {
-            it.adapter = CheckoutRecyclerAdapter(this, checkoutItems)
+            it.adapter = CheckoutRecyclerAdapter(this)
             it.layoutManager = LinearLayoutManager(this)
         }
         checkIfButtonShouldBeDisabled()
@@ -201,6 +203,10 @@ class CheckoutActivity: AppCompatActivity(), CheckoutContract.View {
     override fun changeTotalItem(checkoutItem: CheckoutItem, addedValue: Int) {
         // change total item and bottom bar values
         presenter.changeTotalItem(checkoutItem, addedValue)
+        refreshBottomBarValues()
+    }
+
+    override fun refreshBottomBarValues() {
         presenter.calculateBottomBarValues()
     }
 
