@@ -17,7 +17,6 @@ class HoldCheckoutRecyclerAdapter(
     class MyViewHolder(val binding: ItemCheckoutHoldBinding): RecyclerView.ViewHolder(binding.root) {
         fun bind(holdCheckout: HoldCheckout) {
             binding.holdCheckout = holdCheckout
-            binding.totalSelling = ConverterUtil.formatRupiah(holdCheckout.totalSellingPrice)
             binding.executePendingBindings()
         }
     }

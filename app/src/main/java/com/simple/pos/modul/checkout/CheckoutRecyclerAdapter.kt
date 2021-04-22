@@ -17,8 +17,8 @@ class CheckoutRecyclerAdapter(private val view: CheckoutContract.View)
         override fun bind(checkoutItem: CheckoutItem) {
             binding.checkoutItem = checkoutItem
             //binding.totalPrice = checkoutItem.unitTotal * checkoutItem.sellingPrice
-            binding.sellingPriceRec = ConverterUtil.formatRupiahWithoutSymbol(checkoutItem.sellingPrice)
-            binding.costPrice = ConverterUtil.formatRupiahWithoutSymbol(checkoutItem.costPrice)
+            binding.sellingPriceRec = ConverterUtil.formatRupiahWithoutSymbol(checkoutItem.sellingPrice * checkoutItem.unitTotal)
+            //binding.costPrice = ConverterUtil.formatRupiahWithoutSymbol(checkoutItem.costPrice)
             binding.executePendingBindings()
         }
     }

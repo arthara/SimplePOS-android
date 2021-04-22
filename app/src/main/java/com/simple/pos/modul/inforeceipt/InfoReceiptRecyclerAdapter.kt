@@ -13,9 +13,8 @@ class InfoReceiptRecyclerAdapter(private val receiptItems: Array<ReceiptItem>)
     class MyViewHolder(val binding: ItemCheckoutReceiptBinding)
         : RecyclerView.ViewHolder(binding.root) {
         fun bind(receiptItem: ReceiptItem) {
-            binding.totalPrice = ConverterUtil.formatRupiahWithoutSymbol(receiptItem.unitTotal * receiptItem.productHistory.sellingPrice)
+            binding.totalPriceReceipt = receiptItem.unitTotal * receiptItem.productHistory.sellingPrice
             binding.item = receiptItem
-            binding.sellingPrice = ConverterUtil.formatRupiahWithoutSymbol(receiptItem.productHistory.sellingPrice)
             binding.executePendingBindings()
         }
     }

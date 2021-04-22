@@ -12,11 +12,12 @@ class ConverterUtil {
             val localeID = Locale("in", "ID")
             val formatter = NumberFormat.getCurrencyInstance(localeID) as DecimalFormat
             val symbols = formatter.decimalFormatSymbols
-            symbols.currencySymbol = "Rp " // Don't use null.
+            symbols.currencySymbol = "Rp "
 
             formatter.decimalFormatSymbols = symbols
             return formatter.format(number)
         }
+
         @JvmStatic
         fun formatRupiahWithoutSymbol(number: Double): String? {
 

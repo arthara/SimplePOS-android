@@ -105,7 +105,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/poppins_bold"
-                        android:text = "@{String.format(@string/price, profit)}"
+                        android:text = "@{String.format(@string/price2, profit)}"
                         tools:text = "Rp 200000"
                         android:textColor="@color/receipt_color"
                         android:textSize="17sp"

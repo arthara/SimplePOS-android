@@ -25,7 +25,7 @@ import com.simple.pos.shared.util.ConverterUtil
 import java.text.SimpleDateFormat
 import java.util.*
 
-class MainFragment : Fragment(R.layout.fragment_dashboard_main),
+class MainFragment : Fragment(R.layout.fragment_dashboard_main_fix),
         MainContract.View, View.OnClickListener, DatePickerDialog.OnDateSetListener {
     private val presenter = MainPresenter(this)
     private var date = SimpleDateFormat("dd-MM-yyyy").format(Calendar.getInstance().time)

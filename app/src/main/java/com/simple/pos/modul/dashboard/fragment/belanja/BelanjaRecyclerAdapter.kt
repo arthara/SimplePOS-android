@@ -22,7 +22,7 @@ class BelanjaRecyclerAdapter(private val products: Array<Product>
         : RecyclerView.ViewHolder(binding.root){
         fun bind(product: Product) {
             binding.product = product
-            binding.sellingPrice = ConverterUtil.formatRupiahWithoutSymbol(product.sellingPrice)
+            //binding.sellingPrice = ConverterUtil.formatRupiahWithoutSymbol(product.sellingPrice)
             binding.executePendingBindings()
         }
     }

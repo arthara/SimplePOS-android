@@ -95,7 +95,7 @@
                     android:layout_marginTop="10dp"
                     android:fontFamily="@font/roboto_bold"
                     tools:text="Rp 120,00"
-                    android:text="@{PriceUtil.INSTANCE.convertValueToCurrency(totalPrice)}"
+                    android:text="@{String.format(@string/price2, sellingPriceRec)}"
                     android:textColor="@color/teal_200"
                     android:textSize="23sp"
                     android:textStyle="bold"
@@ -109,7 +109,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="4dp"
-                    android:text="Nama Kategori"
+                    tools:text="Nama Kategori"
                     app:layout_constraintStart_toStartOf="@+id/tvProdcutNameStoreCheckout"
                     app:layout_constraintTop_toBottomOf="@+id/tvProdcutNameStoreCheckout"
                     app:layout_constraintVertical_bias="0.0" />

@@ -1,20 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+<layout>
     <data>
         <import type="com.simple.pos.shared.util.PriceUtil" />
         <variable
             name="subTotal"
-            type="String" />
+            type="Double" />
         <variable
             name="total"
-            type="String" />
+            type="Double" />
         <variable
             name="tax"
-            type="String" />
+            type="Double" />
     </data>
     <androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -147,8 +148,7 @@
             android:layout_height="wrap_content"
             android:text="@string/tax_sample"
             android:textSize="15sp"
-            android:textColor="@color/teal_700"
-            android:paddingBottom="2dp"
+            android:textColor="@color/design_default_color_secondary"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
@@ -172,16 +172,16 @@
             app:layout_constraintVertical_bias="0.0" />
 
         <TextView
-            android:id="@+id/lblTotalShow"
+            android:id="@+id/textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/total"
-            android:textColor="@color/dark_black"
+            android:text="Total"
+
             android:textSize="25sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.005"
-            app:layout_constraintStart_toStartOf="@+id/tvTaxPercentCheckout"
+            app:layout_constraintHorizontal_bias="0.045"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tvTaxPercentCheckout"
             app:layout_constraintVertical_bias="0.0" />
 
@@ -197,11 +197,11 @@
             android:textColor="@color/black"
             android:textSize="17sp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="@+id/lblTotalShow"
+            app:layout_constraintBottom_toBottomOf="@+id/textView"
             app:layout_constraintEnd_toEndOf="@+id/ivConstraintLayout2"
             app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toEndOf="@+id/lblTotalShow"
-            app:layout_constraintTop_toTopOf="@+id/lblTotalShow"
+            app:layout_constraintStart_toEndOf="@+id/textView"
+            app:layout_constraintTop_toTopOf="@+id/textView"
             app:layout_constraintVertical_bias="1.0" />
 
         <Button
@@ -216,8 +216,8 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/tvTotalValueCheckout"
             app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/lblTotalShow"
-            app:layout_constraintTop_toBottomOf="@+id/lblTotalShow"
+            app:layout_constraintStart_toStartOf="@+id/textView"
+            app:layout_constraintTop_toBottomOf="@+id/textView"
             app:layout_constraintVertical_bias="0.0" />
 
         <RelativeLayout
@@ -237,7 +237,7 @@
                 android:id="@+id/tvHoldCheckout"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/tunda_transaksi"
+                android:text="Tunda Transaksi"
                 android:textColor="@color/orange"
                 android:layout_alignParentStart="true"
                 android:fontFamily="@font/roboto_medium"
@@ -247,7 +247,7 @@
                 android:id="@+id/tvResetCheckout"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/reset_keranjang"
+                android:text="Reset Keranjang"
                 android:textColor="@color/design_default_color_secondary"
                 android:layout_alignParentEnd="true"
                 android:fontFamily="@font/roboto_medium"

@@ -11,9 +11,6 @@
         <variable
             name="product"
             type="com.simple.pos.shared.model.Product" />
-        <variable
-            name="sellingPrice"
-            type="String" />
     </data>
 
     <androidx.cardview.widget.CardView
@@ -104,7 +101,7 @@
                     android:layout_centerInParent="true"
                     android:adjustViewBounds="true"
                     android:scaleType="centerCrop"
-                    android:src="@color/gray_3rd" />
+                    android:src="@color/light_gray_background" />
             </androidx.cardview.widget.CardView>
 
             <ImageButton

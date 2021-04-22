@@ -65,9 +65,9 @@ class CheckoutActivity: AppCompatActivity(), CheckoutContract.View {
 
     override fun showBottomBarValues(subTotal: Double, tax: Double) {
         binding.let {
-            it.subTotal = ConverterUtil.formatRupiahWithoutSymbol(subTotal)
-            it.tax = ConverterUtil.formatRupiahWithoutSymbol(tax)
-            it.total = ConverterUtil.formatRupiahWithoutSymbol(subTotal + tax)
+            it.subTotal = subTotal
+            it.tax = tax
+            it.total = subTotal + tax
         }
     }
 
