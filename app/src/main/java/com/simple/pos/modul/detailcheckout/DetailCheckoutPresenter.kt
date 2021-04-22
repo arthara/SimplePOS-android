@@ -31,9 +31,9 @@ class DetailCheckoutPresenter(private val view: DetailCheckoutContract.View)
         if (tax != null)
             checkout.tax = ActiveCheckout.calculateTaxOfSubTotal(tax)
 
-        val date = getCurrentDateTime()
+/*        val date = getCurrentDateTime()
         val dateInString = date.toString("yyyy/MM/dd HH:mm:ss")
-        checkout.receiptTime = dateInString
+        checkout.receiptTime = dateInString*/
 
         view.startLoading()
         DetailCheckoutInteractor.requestCreateReceipt(checkout, object : RequestCallback<Receipt> {

@@ -70,9 +70,17 @@ class MainFragment : Fragment(R.layout.fragment_dashboard_main_fix),
         datePickerDialog!!.setButton(DialogInterface.BUTTON_NEUTRAL, "TODAY") { dialog, which -> if (which == DialogInterface.BUTTON_NEUTRAL) {
                 val cal = Calendar.getInstance()
 
+                datePickerDialog = DatePickerDialog(
+                        context!!,
+                        this,
+                        cal.get(Calendar.YEAR),
+                        cal.get(Calendar.MONTH),
+                        cal.get(Calendar.DAY_OF_MONTH)
+                )
+
                 //this.date = (SimpleDateFormat("dd-MM-yyyy").format(cal.time))
                 setToday((SimpleDateFormat("dd-MM-yyyy").format(cal.time)))
-                datePickerDialog!!.updateDate(cal[Calendar.YEAR], cal[Calendar.MONTH] - 1, cal[Calendar.DAY_OF_MONTH])
+                datePickerDialog!!.updateDate(cal[Calendar.YEAR], cal[Calendar.MONTH], cal[Calendar.DAY_OF_MONTH])
             }
         }
         datePickerDialog!!.datePicker.maxDate = Date().time

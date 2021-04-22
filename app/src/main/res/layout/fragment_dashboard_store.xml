@@ -24,18 +24,19 @@
             android:fontFamily="@font/poppins_bold"
             android:text="Item"
             android:textColor="@color/black"
-            android:textSize="25sp"
+            android:textSize="30sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.342" />
+            app:layout_constraintVertical_bias="0.5" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/filterLayoutID"
             android:layout_width="75dp"
             android:layout_height="25dp"
             android:layout_gravity="center"
+            android:visibility="gone"
             android:background="@drawable/rounded_orange_border"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -93,6 +94,7 @@
             android:text="Kategori: Semua"
             android:textColor="@color/black"
             android:textSize="18sp"
+            android:visibility="gone"
             app:layout_constraintBottom_toBottomOf="@+id/filterLayoutID"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.054"
@@ -105,7 +107,7 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/listStoreProductsRv"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="0dp"
         android:layout_marginTop="5dp"
         android:background="@color/light_gray_background"
         app:layout_constraintBottom_toBottomOf="parent"

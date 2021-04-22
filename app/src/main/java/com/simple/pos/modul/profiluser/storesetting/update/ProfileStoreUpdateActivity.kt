@@ -122,8 +122,8 @@ class ProfileStoreUpdateActivity : AppCompatActivity(), ProfileStoreUpdateContra
         binding.etStoreAdress.setText(address)
         binding.etPhoneAddressView.setText(phone)
 
-        presenter.showStoreLogo(logo)
-
+        if(logo != null)
+            presenter.showStoreLogo(logo)
     }
 
     override fun showStoreLogo(logo: String?) {

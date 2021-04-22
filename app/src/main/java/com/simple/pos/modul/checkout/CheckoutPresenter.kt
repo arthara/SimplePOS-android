@@ -15,12 +15,6 @@ class CheckoutPresenter(private val view: CheckoutContract.View) : CheckoutContr
     //Format Tax Percent 0.xxx
     private var tax : Double = 0.0
 
-    override fun showCheckoutItems() {
-        view.showCheckoutItems(
-                ActiveCheckout.checkout.checkoutItems.values
-        )
-    }
-
     override fun removeItem(checkoutItem: CheckoutItem) {
         ActiveCheckout.removeItem(checkoutItem)
     }
