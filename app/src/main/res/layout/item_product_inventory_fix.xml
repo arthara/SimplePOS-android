@@ -70,7 +70,6 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
                         android:hint="Product Price"
-                        android:text="@{String.format(@string/price, product.sellingPrice)}"
                         android:textColorHint="@color/teal_700"
                         android:textSize="15sp"
                         android:textAppearance="?attr/textAppearanceBody2"

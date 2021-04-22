@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout>
     <data>
+        <import type="com.simple.pos.shared.util.PriceUtil" />
         <variable
             name="checkoutItem"
             type="com.simple.pos.shared.model.submodel.CheckoutItem" />
+        <variable
+            name="totalPrice"
+            type="Double" />
     </data>
     <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -49,8 +53,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/lato"
-                    android:text="@{'(' + String.format(@string/price, checkoutItem.costPrice) + ')'}"
-                    tools:text = "(130.00)"
+                    tools:text="(Rp 60,00)"
+                    android:text="@{'(' + PriceUtil.INSTANCE.convertValueToCurrency(checkoutItem.sellingPrice) + ')'}"
                     android:textColor="@color/dark_black"
                     app:layout_constraintBottom_toBottomOf="@+id/tvProdcutNameStoreCheckout"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -81,8 +85,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:fontFamily="@font/roboto_bold"
-                    android:hint="@string/price"
-                    android:text="@{String.format(@string/price, checkoutItem.sellingPrice)}"
+                    tools:text="Rp 120,00"
+                    android:text="@{PriceUtil.INSTANCE.convertValueToCurrency(totalPrice)}"
                     android:textColor="@color/teal_200"
                     android:textSize="23sp"
                     android:textStyle="bold"
@@ -139,7 +143,7 @@
                         android:gravity="center"
                         android:textColor="@color/black"
                         android:layout_centerInParent="true"
-                        tools:text = "100"
+                        tools:text = "2"
                         android:text="@={`` + checkoutItem.unitTotal}"
                         android:textSize="20sp" />
 

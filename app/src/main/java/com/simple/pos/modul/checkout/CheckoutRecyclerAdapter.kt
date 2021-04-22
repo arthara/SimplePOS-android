@@ -14,6 +14,7 @@ class CheckoutRecyclerAdapter(private val view: CheckoutContract.View)
         : RecyclerView.ViewHolder(binding.root), CheckoutContract.ItemView {
         override fun bind(checkoutItem: CheckoutItem) {
             binding.checkoutItem = checkoutItem
+            binding.totalPrice = checkoutItem.unitTotal * checkoutItem.sellingPrice
             binding.executePendingBindings()
         }
     }

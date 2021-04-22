@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
     <data>
+        <import type="com.simple.pos.shared.util.PriceUtil" />
         <variable
             name="subtotal"
             type="java.lang.Double" />
@@ -405,12 +406,12 @@
                         android:layout_alignParentEnd="true"
                         android:layout_marginEnd="18dp"
                         android:fontFamily="@font/roboto_medium"
-                        android:text="@{String.valueOf(subtotal)}"
+                        tools:text="Rp 1.000,00"
+                        android:text="@{PriceUtil.INSTANCE.convertValueToCurrency(subtotal)}"
                         android:textColor="@color/dark_black"
                         android:textSize="16sp"
                         app:autoSizeMinTextSize="10sp"
-                        app:autoSizeTextType="uniform"
-                        tools:text="10000" />
+                        app:autoSizeTextType="uniform"/>
 
                     <TextView
                         android:id="@+id/lblPajakReceipt"
@@ -430,10 +431,10 @@
                         android:layout_marginTop="1dp"
                         android:layout_marginEnd="20dp"
                         android:fontFamily="@font/lato"
-                        android:text="@{String.valueOf(tax)}"
+                        tools:text="Rp 1.000,00"
+                        android:text="@{PriceUtil.INSTANCE.convertValueToCurrency(tax)}"
                         app:autoSizeMinTextSize="10sp"
-                        app:autoSizeTextType="uniform"
-                        tools:text="1000" />
+                        app:autoSizeTextType="uniform"/>
 
                     <TextView
                         android:id="@+id/lblTotalReceipt"
@@ -459,12 +460,12 @@
                         android:layout_marginTop="1dp"
                         android:layout_marginEnd="20dp"
                         android:fontFamily="@font/roboto_bold"
-                        android:text="@{String.format(@string/price, subtotal + checkout.tax)}"
+                        tools:text="Rp 11.000,00"
+                        android:text="@{PriceUtil.INSTANCE.convertValueToCurrency(subtotal + checkout.tax)}"
                         android:textColor="@color/teal_700"
                         android:textSize="18sp"
                         app:autoSizeMinTextSize="10sp"
-                        app:autoSizeTextType="uniform"
-                        tools:text="Rp 11000" />
+                        app:autoSizeTextType="uniform"/>
                 </RelativeLayout>
 
                 <androidx.recyclerview.widget.RecyclerView
