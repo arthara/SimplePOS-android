@@ -7,23 +7,27 @@ import java.io.File
 interface ProfileStoreUpdateContract  {
 
     interface View{
-        fun showStoreData(storeName: String, address: String?, phone: String?)
-        fun updateProfileImageSuccess(message: String, path: String?)
+        fun showStoreData(storeName: String, address: String?, phone: String?, logo: String?)
+        fun showStoreLogo(logo: String?)
+        fun updateProfileImageSuccess(message: String)
         fun updateSuccess(message: String)
         fun updateFailed(message: String)
         fun pickLogoFromGallery()
         fun redirectToProfileStore()
+        fun updateProfileImageFail(message: String)
     }
 
     interface Presenter{
         fun showAllStoreInfo()
         fun updateStore(store: Store)
+        fun updateStoreLogo(store: Store)
         fun saveUpdatedStore()
+        fun showStoreLogo(logo: String?)
     }
 
     interface  Interactor {
         fun requestUpdateStore(store: Store, callback: RequestCallback<Store?>)
-        fun updateProfileImageInteractor(id: String?, imageFile: File?, requestCallback: RequestCallback<String?>?)
+        fun requestUpdateProfileLogoInteractor(store: Store, requestCallback: RequestCallback<Store?>?)
         fun requestNewUpdatedStore(callback: RequestCallback<Store?>)
     }
 

@@ -7,6 +7,11 @@
         <variable
             name="sequence"
             type="int" />
+
+        <variable
+            name="profit"
+            type="String" />
+
         <variable
             name="cashflow"
             type="com.simple.pos.modul.dailycashflow.model.Cashflow" />
@@ -55,7 +60,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/poppins"
-                            android:text="No. "
+                            android:text="@string/no_lbl"
                             android:textColor="@color/dark_black"
                             android:textSize="18sp"
                             android:textStyle="bold">
@@ -100,8 +105,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/poppins_bold"
-                        tools:text="Rp 1.000,00"
-                        android:text="@{PriceUtil.INSTANCE.convertValueToCurrency(cashflow.profit)}"
+                        android:text = "@{String.format(@string/price2, profit)}"
+                        tools:text = "Rp 200000"
                         android:textColor="@color/receipt_color"
                         android:textSize="17sp"
                         app:layout_constraintBottom_toBottomOf="parent"

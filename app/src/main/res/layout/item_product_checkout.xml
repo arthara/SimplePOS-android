@@ -8,6 +8,7 @@
         <variable
             name="totalPrice"
             type="Double" />
+
     </data>
     <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -110,7 +111,6 @@
                     android:id="@+id/rlCheckOutStock"
                     android:layout_width="120dp"
                     android:layout_height="wrap_content"
-                    app:layout_constraintBottom_toBottomOf="@+id/tvSingleItemTotalPrice"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.921"
                     app:layout_constraintStart_toEndOf="@+id/tvSingleItemTotalPrice"
@@ -135,7 +135,7 @@
 
                     <TextView
                         android:id="@+id/tvStockValueAll"
-                        android:layout_width="wrap_content"
+                        android:layout_width="75dp"
                         android:layout_height="wrap_content"
                         android:layout_centerHorizontal="true"
                         android:layout_centerVertical="true"

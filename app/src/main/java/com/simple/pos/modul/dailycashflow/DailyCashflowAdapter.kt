@@ -5,6 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.simple.pos.databinding.ItemCashflowHarianBinding
 import com.simple.pos.modul.dailycashflow.model.Cashflow
+import com.simple.pos.shared.util.ConverterUtil
 
 class DailyCashflowAdapter(private val cashflows: Array<Cashflow>)
     : RecyclerView.Adapter<DailyCashflowAdapter.MyViewHolder>(){
@@ -17,6 +18,7 @@ class DailyCashflowAdapter(private val cashflows: Array<Cashflow>)
             binding.let {
                 it.sequence = sequence
                 it.cashflow = cashflow
+                it.profit = ConverterUtil.formatRupiahWithoutSymbol(cashflow.profit.toDouble())
                 it.executePendingBindings()
             }
         }
