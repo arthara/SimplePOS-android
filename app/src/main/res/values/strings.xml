@@ -179,6 +179,7 @@
     <string name="tanggal">Tanggal</string>
     <string name="struct_id">Struct ID: %1$d </string>
     <string name="no_lbl">No.</string>
+    <string name="hold_checkout_success">Berhasil melakukan menunda transaksi</string>
 
 
 </resources>

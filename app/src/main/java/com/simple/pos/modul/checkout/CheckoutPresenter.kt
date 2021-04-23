@@ -23,7 +23,7 @@ class CheckoutPresenter(private val view: CheckoutContract.View) : CheckoutContr
         val checkoutItems = ActiveCheckout.checkout.checkoutItems
 
         checkoutItems.forEach {
-            (_, checkoutItem) -> view.deleteItem(checkoutItem)
+                (_, checkoutItem) -> view.deleteItem(checkoutItem)
         }
         view.redirectToDashboard()
     }
@@ -64,17 +64,17 @@ class CheckoutPresenter(private val view: CheckoutContract.View) : CheckoutContr
         }
 
         CheckoutInteractor.requestCreateHoldCheckout(
-                ActiveCheckout.convertToHoldCheckout(),
-                object : RequestCallback<HoldCheckout>{
-                    override fun requestSuccess(data: HoldCheckout) {
-                        resetCheckout()
-                        view.redirectToDashboard()
-                    }
-
-                    override fun requestError(message: String?) {
-                        message?.let { Log.d(TAG, it) }
-                    }
+            ActiveCheckout.convertToHoldCheckout(),
+            object : RequestCallback<HoldCheckout>{
+                override fun requestSuccess(data: HoldCheckout) {
+                    resetCheckout()
+                    view.redirectToDashboard()
                 }
+
+                override fun requestError(message: String?) {
+                    message?.let { Log.d(TAG, it) }
+                }
+            }
         )
     }
 }

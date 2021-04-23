@@ -24,11 +24,11 @@ import java.util.*
 import kotlin.collections.ArrayList
 
 class CheckoutActivity: AppCompatActivity(), CheckoutContract.View {
+
+    private var taxDialog: AlertDialog? = null
     private val presenter: CheckoutContract.Presenter = CheckoutPresenter(this)
     private lateinit var binding: ActivityCheckoutBinding
     private val removedItems = ArrayList<Int>()
-    private var taxDialog: AlertDialog? = null
-
 
     companion object {
         private const val DETAIL_CHECKOUT_REQ_CODE = 100
@@ -77,7 +77,7 @@ class CheckoutActivity: AppCompatActivity(), CheckoutContract.View {
                 redirectToDashboard()
             }
             it.tvHoldCheckout.setOnClickListener {
-                redirectToHoldCheckout()
+                presenter.createHoldCheckout()
             }
             it.tvResetCheckout.setOnClickListener {
                 presenter.resetCheckout()
@@ -94,21 +94,22 @@ class CheckoutActivity: AppCompatActivity(), CheckoutContract.View {
         }
     }
 
+
     override fun finish() {
         // if any item get removed
         if(removedItems.size > 0)
         // put all removed item id as intent data
             setResult(RESULT_OK, Intent().putExtra(
-                    REMOVED_CHECKOUT_ITEM_BUNDLE_KEY,
-                    removedItems.toIntArray().also{
-                        Log.d(TAG, "Remove Items : ${Arrays.toString(it)}")
-                    }
+                REMOVED_CHECKOUT_ITEM_BUNDLE_KEY,
+                removedItems.toIntArray().also{
+                    Log.d(TAG, "Remove Items : ${Arrays.toString(it)}")
+                }
             ))
         super.finish()
     }
 
     override fun showCheckoutItems() {
-        binding.checkoutItemsRv.let {
+        binding.checkoutItemsRv.let{
             it.adapter = CheckoutRecyclerAdapter(this)
             it.layoutManager = LinearLayoutManager(this)
         }
@@ -185,15 +186,16 @@ class CheckoutActivity: AppCompatActivity(), CheckoutContract.View {
 
     override fun redirectToCheckoutDetail() {
         startActivityForResult(
-                Intent(this, DetailCheckoutActivity::class.java),
-                DETAIL_CHECKOUT_REQ_CODE
+            Intent(this, DetailCheckoutActivity::class.java),
+            DETAIL_CHECKOUT_REQ_CODE
         )
     }
 
     override fun redirectToHoldCheckout() {
         startActivity(
-                Intent(this, HoldCheckoutActivity::class.java)
+            Intent(this, HoldCheckoutActivity::class.java)
         )
+        showToast(getString(R.string.hold_checkout_success))
     }
 
     override fun showCantHoldCheckoutWithZeroItem() {

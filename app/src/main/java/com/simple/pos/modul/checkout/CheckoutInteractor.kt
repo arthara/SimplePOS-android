@@ -9,10 +9,10 @@ import com.simple.pos.shared.model.HoldCheckout
 object CheckoutInteractor
     : BaseInteractor<CheckoutService>(CheckoutService::class.java), CheckoutContract.Interactor {
     override fun requestCreateHoldCheckout(
-            holdCheckout: HoldCheckout,
-            callback: RequestCallback<HoldCheckout>
+        holdCheckout: HoldCheckout,
+        callback: RequestCallback<HoldCheckout>
     ) {
         service.createHoldCheckout(holdCheckout)
-                .enqueue(RetrofitCallback(callback, TAG, "requestHoldCheckout"))
+            .enqueue(RetrofitCallback(callback, TAG, "requestHoldCheckout"))
     }
 }

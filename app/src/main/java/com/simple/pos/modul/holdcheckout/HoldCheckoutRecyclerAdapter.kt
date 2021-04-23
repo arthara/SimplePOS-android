@@ -7,7 +7,6 @@ import com.simple.pos.R
 import com.simple.pos.base.modul.BaseRecyclerAdapter
 import com.simple.pos.databinding.ItemCheckoutHoldBinding
 import com.simple.pos.shared.model.HoldCheckout
-import com.simple.pos.shared.util.ConverterUtil
 
 class HoldCheckoutRecyclerAdapter(
         holdCheckouts: ArrayList<HoldCheckout>,
