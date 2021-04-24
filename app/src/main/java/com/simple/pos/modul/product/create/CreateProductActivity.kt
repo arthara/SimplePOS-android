@@ -26,7 +26,7 @@ class CreateProductActivity: AppCompatActivity(), CreateProductContract.View  {
     private var categoryID: Int? = null
 
     companion object {
-        private const val PICK_PRODUCT_PHOTO_REQUEST_CODE = 2200
+        const val PICK_PRODUCT_PHOTO_REQUEST_CODE = 500
         const val CATEGORY_NAME_KEY = "CATEGORY_NAME_BUNDLE_KEY"
         const val CATEGORY_ID_KEY = "CATEGORY_ID_BUNDLE_KEY"
         private const val CHANGE_PRODUCT_REQ_CODE = 100
@@ -50,8 +50,7 @@ class CreateProductActivity: AppCompatActivity(), CreateProductContract.View  {
         }
 
         binding.btnEditImageProdInv.setOnClickListener{
-            //pickLogoFromGallery()
-
+            pickLogoFromGallery()
         }
 
         binding.spinnerCategoryofProd.setOnClickListener {
@@ -67,11 +66,15 @@ class CreateProductActivity: AppCompatActivity(), CreateProductContract.View  {
         if(categoryID != null){
             val product = Product(binding.etCreateProductName.text.toString()).apply {
                 categoryId = categoryID!!
-                picture = filePath
                 total = binding.etStokAwalSingleProd.text.toString().toInt()
                 costPrice = binding.etHargaKulakanSingProd.text.toString().toDouble()
                 sellingPrice = binding.etHargaJualSingProd.text.toString().toDouble()
             }
+
+            if(filePath!!.isNotEmpty()){
+                product.picture = filePath
+            }
+
             presenter.createProduct(product)
             makeToast("Menunggu Pengiriman")
         }else{
@@ -114,7 +117,6 @@ class CreateProductActivity: AppCompatActivity(), CreateProductContract.View  {
                 Log.d(TAG, "NAKO: " + data?.getStringExtra(CATEGORY_NAME_KEY))
             }
         }
-
     }
 
     // And to convert the image URI to the direct file system path of the image file

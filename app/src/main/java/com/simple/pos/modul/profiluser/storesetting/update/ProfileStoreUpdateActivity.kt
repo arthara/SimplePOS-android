@@ -123,14 +123,19 @@ class ProfileStoreUpdateActivity : AppCompatActivity(), ProfileStoreUpdateContra
         binding.etPhoneAddressView.setText(phone)
 
         if(logo != null){
-            presenter.showStoreLogo(logo)
+            //presenter.showStoreLogo(logo)
         }
     }
 
-    override fun showStoreLogo(logo: String?) {
-        Glide.with(this)
+    override fun showStoreLogo(logo: String) {
+/*        Glide.with(this)
                 .load(logo?.let { GlideUrlUtil.convertToAuthorizedUrl(it) })
-                .into(binding.ivShopLogoView)
+                .into(binding.ivShopLogoView)*/
+
+        if(logo.isNotEmpty()){
+            val imageUrl = GlideUrlUtil.convertToAuthorizedUrl(logo)
+            Glide.with(this).load(imageUrl).centerCrop().into(binding.ivShopLogoView)
+        }
     }
 
 

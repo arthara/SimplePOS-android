@@ -14,7 +14,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.textfield.TextInputEditText
 import com.simple.pos.R
+import com.simple.pos.modul.editcategory.EditCategoryActivity
 import com.simple.pos.modul.product.create.CreateProductActivity
+import com.simple.pos.modul.product.update.UpdateProductActivity
 import com.simple.pos.shared.extension.TAG
 import com.simple.pos.shared.extension.showToast
 import com.simple.pos.shared.model.Product
@@ -26,6 +28,7 @@ class StockFragment: Fragment(R.layout.subfragment_inventory_stock_product), Sto
 
     companion object {
         private const val CHANGE_PRODUCT_REQ_CODE = 300
+        private const val CHANGE_UPDATE_PRODUCT_REQ_CODE = 800
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -33,6 +36,10 @@ class StockFragment: Fragment(R.layout.subfragment_inventory_stock_product), Sto
         when(requestCode){
             //refresh list when it's return ok, which means data changed
             CHANGE_PRODUCT_REQ_CODE ->{
+                if(resultCode == AppCompatActivity.RESULT_OK)
+                    presenter.retrieveProducts()
+            }
+            CHANGE_UPDATE_PRODUCT_REQ_CODE ->{
                 if(resultCode == AppCompatActivity.RESULT_OK)
                     presenter.retrieveProducts()
             }
@@ -63,7 +70,14 @@ class StockFragment: Fragment(R.layout.subfragment_inventory_stock_product), Sto
     }
 
     override fun redirectToUpdateProduct(product: Product) {
-        // TODO: add redirect
+
+        val bundle = Bundle()
+        val intent = Intent(context, UpdateProductActivity::class.java)
+
+        //bundle.putSerializable(UpdateProductActivity.PRODUCT_BUNDLE_NAME, product)
+        intent.putExtras(bundle)
+
+        startActivityForResult(intent, CHANGE_UPDATE_PRODUCT_REQ_CODE)
     }
 
     override fun showDeleteConfirmation(product: Product) {

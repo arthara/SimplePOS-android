@@ -8,7 +8,7 @@ interface ProfileStoreUpdateContract  {
 
     interface View{
         fun showStoreData(storeName: String, address: String?, phone: String?, logo: String?)
-        fun showStoreLogo(logo: String?)
+        fun showStoreLogo(logo: String)
         fun updateProfileImageSuccess(message: String)
         fun updateSuccess(message: String)
         fun updateFailed(message: String)
@@ -22,7 +22,7 @@ interface ProfileStoreUpdateContract  {
         fun updateStore(store: Store)
         fun updateStoreLogo(store: Store)
         fun saveUpdatedStore()
-        fun showStoreLogo(logo: String?)
+        fun showStoreLogo(logo: String)
     }
 
     interface  Interactor {
