@@ -15,6 +15,7 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.textfield.TextInputEditText
 import com.simple.pos.R
 import com.simple.pos.modul.product.create.CreateProductActivity
+import com.simple.pos.modul.product.update.UpdateProductActivity
 import com.simple.pos.shared.extension.TAG
 import com.simple.pos.shared.extension.showToast
 import com.simple.pos.shared.model.Product
@@ -25,14 +26,19 @@ class StockFragment: Fragment(R.layout.subfragment_inventory_stock_product), Sto
     private var restockDialog: AlertDialog? = null
 
     companion object {
-        private const val CHANGE_PRODUCT_REQ_CODE = 300
+        private const val GO_CREATE_PRODUCT = 300
+        private const val GO_UPDATE_PRODUCT = 800
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         when(requestCode){
             //refresh list when it's return ok, which means data changed
-            CHANGE_PRODUCT_REQ_CODE ->{
+            GO_CREATE_PRODUCT ->{
+                if(resultCode == AppCompatActivity.RESULT_OK)
+                    presenter.retrieveProducts()
+            }
+            GO_UPDATE_PRODUCT ->{
                 if(resultCode == AppCompatActivity.RESULT_OK)
                     presenter.retrieveProducts()
             }
@@ -63,7 +69,14 @@ class StockFragment: Fragment(R.layout.subfragment_inventory_stock_product), Sto
     }
 
     override fun redirectToUpdateProduct(product: Product) {
-        // TODO: add redirect
+
+        val bundle = Bundle()
+        val intent = Intent(context, UpdateProductActivity::class.java)
+
+        bundle.putSerializable(UpdateProductActivity.PRODUCT_BUNDLE_NAME, product)
+        intent.putExtras(bundle)
+
+        startActivityForResult(intent, GO_UPDATE_PRODUCT)
     }
 
     override fun showDeleteConfirmation(product: Product) {
@@ -128,6 +141,6 @@ class StockFragment: Fragment(R.layout.subfragment_inventory_stock_product), Sto
 
     override fun redirectToCreateProduct() {
         val intent = Intent(context, CreateProductActivity::class.java)
-        startActivityForResult(intent, CHANGE_PRODUCT_REQ_CODE)
+        startActivityForResult(intent, GO_CREATE_PRODUCT)
     }
 }

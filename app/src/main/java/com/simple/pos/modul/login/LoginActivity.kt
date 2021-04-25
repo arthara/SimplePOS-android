@@ -13,6 +13,7 @@ import com.simple.pos.databinding.ActivityLoginBinding
 import com.simple.pos.modul.dashboard.DashboardActivity
 import com.simple.pos.modul.register.RegisterActivity
 import com.simple.pos.shared.extension.TAG
+import com.simple.pos.shared.extension.showToast
 import com.simple.pos.shared.util.TokenUtil
 import top.defaults.view.TextButton
 import top.defaults.view.TextButtonEffect
@@ -72,6 +73,10 @@ class LoginActivity: AppCompatActivity(), LoginContract.View {
         intent = Intent(this, RegisterActivity::class.java)
         startActivityForResult(intent, REGISTER_REQUEST_CODE)
         Log.d(TAG, "Redirect to Register")
+    }
+
+    override fun showError(message: String?) {
+        showToast("Login Fail")
     }
 
     private fun initializeButton(){

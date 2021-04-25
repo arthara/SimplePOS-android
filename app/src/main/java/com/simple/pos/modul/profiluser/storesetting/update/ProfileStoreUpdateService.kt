@@ -14,7 +14,6 @@ interface ProfileStoreUpdateService {
     @GET("stores")
     fun retrieveStore(): Call<Store?>
 
-
     @Multipart
     @POST("users/update-image/{id}")
     fun updateImage(

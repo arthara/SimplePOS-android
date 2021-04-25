@@ -23,7 +23,7 @@ class LoginPresenter(private val view: LoginContract.View): LoginContract.Presen
 
             override fun requestError(message: String?) {
 //                view.endLoading()
-//                view.showError(message)
+               view.showError(message)
             }
         })
     }

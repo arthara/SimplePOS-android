@@ -3,16 +3,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
     <data>
-        <import type="com.simple.pos.shared.util.PriceUtil" />
         <variable
             name="subtotal"
-            type="java.lang.String" />
+            type="java.lang.Double" />
         <variable
             name="tax"
-            type="java.lang.String" />
-        <variable
-            name="total"
-            type="java.lang.String" />
+            type="java.lang.Double" />
         <variable
             name="store"
             type="com.simple.pos.shared.model.Store"/>
@@ -63,8 +59,7 @@
                     android:layout_marginStart="152dp"
                     android:background="@android:color/transparent"
                     android:drawableStart="@drawable/ic_share"
-                    android:text="@string/share"
-                    android:visibility="invisible"
+                    android:text="Share"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/tanggalView"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -104,7 +99,6 @@
 
 
                     <LinearLayout
-                        android:id="@+id/linearLayout"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:orientation="vertical"
@@ -123,7 +117,7 @@
                             android:layout_marginEnd="20dp"
                             android:layout_marginBottom="10dp"
                             app:cardCornerRadius="20dp"
-                            app:layout_constraintBottom_toTopOf="@+id/tvJlnAlamatToko"
+                            app:layout_constraintBottom_toTopOf="@+id/textView11"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintHorizontal_bias="0.07"
                             app:layout_constraintStart_toStartOf="parent"
@@ -151,9 +145,8 @@
                             android:text="@{store.name}"
                             app:autoSizeMaxTextSize="20sp"
                             app:autoSizeMinTextSize="10sp"
-                            app:autoSizeStepGranularity="2sp"
                             app:autoSizeTextType="uniform"
-                            app:layout_constraintBottom_toTopOf="@+id/tvJlnAlamatToko"
+                            app:layout_constraintBottom_toTopOf="@+id/textView11"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintHorizontal_bias="0.0"
                             app:layout_constraintStart_toStartOf="@+id/cardView7"
@@ -162,7 +155,7 @@
                             tools:text="@string/nama_toko_1" />
 
                         <TextView
-                            android:id="@+id/tvJlnAlamatToko"
+                            android:id="@+id/textView11"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="5dp"
@@ -181,8 +174,8 @@
 
                     <TextView
                         android:id="@+id/tvInfoReceiptThanks"
-                        android:layout_width="110dp"
-                        android:layout_height="110dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:layout_marginTop="28dp"
                         android:layout_marginEnd="16dp"
                         android:text="@{checkout.note}"
@@ -190,8 +183,6 @@
                         app:autoSizeMinTextSize="7sp"
                         app:autoSizeTextType="uniform"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.97"
-                        app:layout_constraintStart_toEndOf="@+id/linearLayout"
                         app:layout_constraintTop_toTopOf="parent"
                         tools:text="Ucapan Terima kasih" />
 
@@ -211,7 +202,7 @@
                     app:layout_constraintTop_toBottomOf="@+id/constraintLayout4">
 
                     <TextView
-                        android:id="@+id/lblStrukPenerimaan"
+                        android:id="@+id/textView12"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/roboto_medium"
@@ -223,7 +214,7 @@
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
                         app:layout_constraintVertical_bias="0.0"
-                        android:text="Struk Penerimaan" />
+                        tools:text="Struk Penerimaan" />
 
                     <TextView
                         android:id="@+id/lblTanggal"
@@ -234,18 +225,17 @@
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.0"
-                        app:layout_constraintStart_toStartOf="@+id/lblStrukPenerimaan"
-                        app:layout_constraintTop_toBottomOf="@+id/lblStrukPenerimaan"
+                        app:layout_constraintStart_toStartOf="@+id/textView12"
+                        app:layout_constraintTop_toBottomOf="@+id/textView12"
                         app:layout_constraintVertical_bias="0.02"
-                        android:text="@string/tanggal" />
+                        tools:text="Tanggal" />
 
                     <TextView
-                        android:id="@+id/tvTimeReceipt"
-                        android:layout_width="150dp"
+                        android:id="@+id/textView15"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp"
+                        android:layout_marginStart="12dp"
                         android:text="@{checkout.receiptTime}"
-                        android:textColor="@color/dark_black"
                         app:layout_constraintBottom_toBottomOf="@+id/lblTanggal"
                         app:layout_constraintStart_toEndOf="@+id/lblTanggal"
                         app:layout_constraintTop_toTopOf="@+id/lblTanggal"
@@ -253,19 +243,20 @@
                         tools:text="@string/_20_desember_2021" />
 
                     <TextView
-                        android:id="@+id/transaksiLBL"
+                        android:id="@+id/textView17"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginEnd="15dp"
+                        android:layout_marginStart="64dp"
                         android:text="@string/transaksi"
                         android:textColor="@color/black"
                         android:textStyle="bold|normal"
-                        app:layout_constraintBottom_toBottomOf="@+id/tvTimeReceipt"
+                        android:layout_marginEnd="15dp"
+                        app:layout_constraintBottom_toBottomOf="@+id/textView15"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.45"
-                        app:layout_constraintStart_toEndOf="@+id/tvTimeReceipt"
+                        app:layout_constraintHorizontal_bias="0.164"
+                        app:layout_constraintStart_toEndOf="@+id/textView15"
                         app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintVertical_bias="1.0" />
+                        app:layout_constraintVertical_bias="0.518" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -274,24 +265,22 @@
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.0"
-                        app:layout_constraintStart_toEndOf="@+id/transaksiLBL"
-                        app:layout_constraintTop_toTopOf="@+id/transaksiLBL"
+                        app:layout_constraintStart_toEndOf="@+id/textView17"
+                        app:layout_constraintTop_toTopOf="@+id/textView17"
                         app:layout_constraintVertical_bias="0.0"
-                        android:layout_marginStart="5dp"
                         tools:text="Go Pay" />
 
                     <TextView
-                        android:id="@+id/tvStructID"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="1dp"
-                        android:text="@{String.format(@string/struct_id, checkout.id)}"
+                        android:text="@{String.valueOf(checkout.id)}"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.0"
-                        app:layout_constraintStart_toStartOf="@+id/lblTanggal"
-                        app:layout_constraintTop_toBottomOf="@+id/tvTimeReceipt"
-                        app:layout_constraintVertical_bias="0.0" />
+                        app:layout_constraintHorizontal_bias="0.044"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/lblTanggal"
+                        app:layout_constraintVertical_bias="0.0"
+                        tools:text="ID Struk " />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -328,11 +317,12 @@
                         android:layout_marginStart="5dp"
                         android:layout_toEndOf="@id/productNameReceipt"
                         android:fontFamily="@font/roboto_regular"
-                        android:gravity="center"
+                        android:gravity="center_vertical"
                         android:text="@string/qty"
                         android:textColor="@color/dark_black"
                         android:textSize="16sp"
-                        />
+                        app:autoSizeMinTextSize="10sp"
+                        app:autoSizeTextType="uniform" />
 
 
                     <TextView
@@ -394,7 +384,7 @@
                     tools:layout_editor_absoluteX="16dp">
 
                     <TextView
-                        android:id="@+id/lblSubtotalReceipt"
+                        android:id="@+id/tvSubTotalReceipt"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="20dp"
@@ -412,7 +402,7 @@
                         android:layout_alignParentEnd="true"
                         android:layout_marginEnd="18dp"
                         android:fontFamily="@font/roboto_medium"
-                        android:text="@{subtotal}"
+                        android:text="@{String.valueOf(subtotal)}"
                         android:textColor="@color/dark_black"
                         android:textSize="16sp"
                         app:autoSizeMinTextSize="10sp"
@@ -423,7 +413,7 @@
                         android:id="@+id/lblPajakReceipt"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_below="@+id/lblSubtotalReceipt"
+                        android:layout_below="@+id/tvSubTotalReceipt"
                         android:layout_marginStart="20dp"
                         android:fontFamily="@font/lato"
                         android:text="@string/tax" />
@@ -437,7 +427,7 @@
                         android:layout_marginTop="1dp"
                         android:layout_marginEnd="20dp"
                         android:fontFamily="@font/lato"
-                        android:text="@{tax}"
+                        android:text="@{String.valueOf(tax)}"
                         app:autoSizeMinTextSize="10sp"
                         app:autoSizeTextType="uniform"
                         tools:text="1000" />
@@ -466,13 +456,12 @@
                         android:layout_marginTop="1dp"
                         android:layout_marginEnd="20dp"
                         android:fontFamily="@font/roboto_bold"
-                        tools:text="Rp 11.000,00"
-                        android:text="@{String.format(@string/price2, total)}"
+                        android:text="@{String.format(@string/price, subtotal + checkout.tax)}"
                         android:textColor="@color/teal_700"
                         android:textSize="18sp"
                         app:autoSizeMinTextSize="10sp"
                         app:autoSizeTextType="uniform"
-                         />
+                        tools:text="Rp 11000" />
                 </RelativeLayout>
 
                 <androidx.recyclerview.widget.RecyclerView
@@ -526,8 +515,8 @@
                 android:id="@+id/receiptDashboardBtn"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="85dp"
-                android:layout_marginEnd="85dp"
+                android:layout_marginStart="75dp"
+                android:layout_marginEnd="75dp"
                 android:layout_weight="1"
                 android:background="@drawable/button_secondary_fill_round"
                 android:fontFamily="@font/poppins"

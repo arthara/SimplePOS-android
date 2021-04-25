@@ -8,6 +8,7 @@ interface LoginContract {
     interface View {
         fun redirectToHome()
         fun redirectToRegister()
+        fun showError(message: String?)
     }
 
     interface Presenter {

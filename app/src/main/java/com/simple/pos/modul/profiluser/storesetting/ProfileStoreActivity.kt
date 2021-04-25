@@ -53,7 +53,7 @@ class ProfileStoreActivity : AppCompatActivity(), ProfileStoreContract.View {
     }
 
     private fun loadProductImage(logo: String) {
-        if(!logo.isEmpty()){
+        if(logo.isNotEmpty()){
             val imageUrl = GlideUrlUtil.convertToAuthorizedUrl(logo)
             Glide.with(this).load(imageUrl).centerCrop().into(binding.ivShopLogoView)
         }

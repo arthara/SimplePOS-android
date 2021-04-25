@@ -9,10 +9,11 @@ import kotlin.math.log
 class ProfileStoreUpdatePresenter(private val view: ProfileStoreUpdateContract.View) : ProfileStoreUpdateContract.Presenter {
 
     private val interactor = ProfileStoreUpdateInteractor()
-    private val currentStore = (UtilProvider.getUtil(StoreUtil::class.java) as StoreUtil).sessionData
+
 
 
     override fun showAllStoreInfo() {
+        val currentStore = (UtilProvider.getUtil(StoreUtil::class.java) as StoreUtil).sessionData
         view.showStoreData(currentStore.name, currentStore?.address, currentStore?.phoneNumber, currentStore?.logo)
     }
 
@@ -60,7 +61,7 @@ class ProfileStoreUpdatePresenter(private val view: ProfileStoreUpdateContract.V
         })
     }
 
-    override fun showStoreLogo(logo: String?) {
+    override fun showStoreLogo(logo: String) {
         view.showStoreLogo(logo)
     }
 
