@@ -1,5 +1,6 @@
 package com.simple.pos.modul.dashboard.fragment.belanja
 
+import android.opengl.Visibility
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -44,19 +45,43 @@ class BelanjaRecyclerAdapter(private val products: Array<Product>
         holder.binding.apply {
             loadProductImage(holder)
             //if in checkout hide button or otherwise
-            holder.binding.chooseProductBtn.visibility =
+/*            holder.binding.chooseProductBtn.visibility =
                     if(isInCheckout[position])
                         View.GONE
                     else
-                        View.VISIBLE
+                        View.VISIBLE*/
+
+            holder.binding.chooseProductBtn.let {
+                if(isInCheckout[position]  && holder.binding.chooseProductBtn.visibility != View.GONE){
+                    holder.binding.chooseProductBtn.apply {
+                        setBackgroundResource(R.drawable.rounded_btn1_disable)
+                        isClickable = false
+                    }
+                }
+                else{
+                    holder.binding.chooseProductBtn.apply {
+                        setBackgroundResource(R.drawable.rounded_btn1)
+                        isClickable = true
+                    }
+                }
+            }
+
             //if there is no stock
             if(product!!.total == 0)
                 holder.binding.chooseProductBtn.visibility = View.GONE
-            chooseProductBtn.setOnClickListener {
-                // add product then hide button
-                view.chooseProduct(products[position])
-                isInCheckout[position] = true
-                holder.binding.chooseProductBtn.visibility = View.GONE
+            else
+                holder.binding.chooseProductBtn.visibility = View.VISIBLE
+
+            if(!isInCheckout[position] && chooseProductBtn.visibility != View.GONE){
+                chooseProductBtn.setOnClickListener {
+                    // add product then hide button
+                    view.chooseProduct(products[position])
+                    isInCheckout[position] = true
+                    holder.binding.chooseProductBtn.apply {
+                        setBackgroundResource(R.drawable.rounded_btn1_disable)
+                        isClickable = false
+                    }
+                }
             }
         }
     }
