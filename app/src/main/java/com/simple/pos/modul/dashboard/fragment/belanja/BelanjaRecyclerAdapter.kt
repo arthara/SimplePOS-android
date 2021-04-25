@@ -69,7 +69,7 @@ class BelanjaRecyclerAdapter(private val products: Array<Product>
                 .load(imageUrl)
                 .into(holder.binding.ivProductItemStore)
         } ?: run {
-            holder.binding.ivProductItemStore.setImageResource(R.color.light_gray_background)
+            holder.binding.ivProductItemStore.setImageResource(R.color.gray_3rd)
         }
     }
 

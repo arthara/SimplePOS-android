@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.simple.pos.R
 import com.simple.pos.databinding.ActivityListCategoriesBinding
 import com.simple.pos.modul.product.create.CreateProductActivity
+import com.simple.pos.modul.product.update.UpdateProductActivity
 
 class ListCategoryActivity: AppCompatActivity(), ListCategoryContract.View, ListCategoryAdapter.ListCategoryListListener {
     private lateinit var binding : ActivityListCategoriesBinding
@@ -43,10 +44,18 @@ class ListCategoryActivity: AppCompatActivity(), ListCategoryContract.View, List
     }
 
     override fun onCardClick(listCategory: ListCategory) {
-        val intent = Intent(this@ListCategoryActivity, CreateProductActivity::class.java)
-        intent.putExtra(CreateProductActivity.CATEGORY_NAME_KEY, listCategory.name)
-        intent.putExtra(CreateProductActivity.CATEGORY_ID_KEY, listCategory.id.toString())
-        setResult(RESULT_OK, intent);
-        finish()
+        if (intent.hasExtra("updateProduct")){
+            val intent = Intent(this@ListCategoryActivity, CreateProductActivity::class.java)
+            intent.putExtra(UpdateProductActivity.CATEGORY_NAME_KEY, listCategory.name)
+            intent.putExtra(UpdateProductActivity.CATEGORY_ID_KEY, listCategory.id.toString())
+            setResult(RESULT_OK, intent)
+            finish()
+        }else{
+            val intent = Intent(this@ListCategoryActivity, CreateProductActivity::class.java)
+            intent.putExtra(CreateProductActivity.CATEGORY_NAME_KEY, listCategory.name)
+            intent.putExtra(CreateProductActivity.CATEGORY_ID_KEY, listCategory.id.toString())
+            setResult(RESULT_OK, intent)
+            finish()
+        }
     }
 }

@@ -23,8 +23,8 @@ android {
 
     buildTypes {
         debug {
-            buildConfigField 'String', 'baseUrl', '"http://simplepos.it-possible.com/api/"'
-            //buildConfigField 'String', 'baseUrl', '"http://192.168.1.5:8000/api/"'
+            //buildConfigField 'String', 'baseUrl', '"http://simplepos.it-possible.com/api/"'
+            buildConfigField 'String', 'baseUrl', '"http://192.168.0.101/api/"'
         }
         release {
             // TODO : Change url to server url
