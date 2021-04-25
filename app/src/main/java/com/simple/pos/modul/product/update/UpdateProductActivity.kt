@@ -147,9 +147,7 @@ class UpdateProductActivity : AppCompatActivity(), UpdateProductContract.View {
         super.onActivityResult(requestCode, resultCode, data)
         if (resultCode == RESULT_OK && requestCode == PICK_PRODUCT_UPDATE_PHOTO_REQUEST_CODE) {
             if (data != null) {
-                if(this.product.picture != null){
-                    this.product.picture = null
-                }
+
                 binding.ivProductPhotoSingle.setImageURI(data.data)
 
                 try {
