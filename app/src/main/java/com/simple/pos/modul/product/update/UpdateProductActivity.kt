@@ -145,7 +145,7 @@ class UpdateProductActivity : AppCompatActivity(), UpdateProductContract.View {
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        if (resultCode == RESULT_OK && requestCode == CreateProductActivity.PICK_PRODUCT_PHOTO_REQUEST_CODE) {
+        if (resultCode == RESULT_OK && requestCode == PICK_PRODUCT_UPDATE_PHOTO_REQUEST_CODE) {
             if (data != null) {
 
                 binding.ivProductPhotoSingle.setImageURI(data.data)
